@@ -5,6 +5,9 @@ stages:
 test:
   stage: test
   only: ["pushes"]
+  cache:
+    paths:
+      - node_modules
   script:
     - yarn install
     - yarn test
