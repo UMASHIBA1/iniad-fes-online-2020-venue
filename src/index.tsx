@@ -4,10 +4,21 @@ import * as serviceWorker from "./serviceWorker";
 import Home from "./components/pages/Home";
 import "./styles/tailwind.compiled.css";
 import "./styles/global.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import VideoPage from "./components/pages/VideoPage";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Home />
+    <Router>
+      <Switch>
+        <Route path="/videopage">
+          <VideoPage />
+        </Route>
+        <Route path="/">
+          <Home />
+        </Route>
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById("root")
 );

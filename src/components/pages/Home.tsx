@@ -1,20 +1,18 @@
 import React from "react";
-import VideoPlayer from "../atoms/VideoPlayer";
-import testStreamKey from "../../constants/testStreamKey";
+import { Link, useHistory } from "react-router-dom";
 
 function Home() {
+  const history = useHistory();
+
+  const gotoVideoPage = () => {
+    history.push("/videopage");
+  };
   return (
     <div className="w-full h-full flex justify-center items-center">
-      <div className="w-11/12 h-full shadow-md rounded-md flex justify-center items-center">
-        <VideoPlayer
-          controls={true}
-          sources={[
-            {
-              src: `http://live.beah.jp/live/${testStreamKey}.m3u8`,
-              type: "application/x-mpegURL",
-            },
-          ]}
-        />
+      <div className="w-11/12 h-full shadow-md rounded-md flex justify-center items-center flex-col">
+        ホームだよ
+        <Link to="/videopage">ビデオページへGO(やり方1)</Link>
+        <button onClick={gotoVideoPage}>ビデオページへGO(やり方2)</button>
       </div>
     </div>
   );
