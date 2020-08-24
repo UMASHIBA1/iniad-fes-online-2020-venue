@@ -1,0 +1,9 @@
+image: node:14.8
+stages:
+  - test
+
+test:
+  stage: test
+  only: ["pushes"]
+  script:
+    - yarn test
