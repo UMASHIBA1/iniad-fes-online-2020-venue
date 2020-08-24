@@ -51,6 +51,7 @@
     "@types/js-cookie": "^2.2.6",
     "@types/react-router-dom": "^5.1.5",
     "@types/styled-components": "^5.1.2",
-    "@types/video.js": "^7.3.10"
+    "@types/video.js": "^7.3.10",
+    "prettier": "^2.0.5"
   }
 }
