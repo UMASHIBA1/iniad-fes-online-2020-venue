@@ -6,4 +6,5 @@ test:
   stage: test
   only: ["pushes"]
   script:
+    - yarn install
     - yarn test
