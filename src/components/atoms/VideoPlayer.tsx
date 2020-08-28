@@ -22,7 +22,7 @@ const useVideo = <T extends HTMLElement>(props: VideoJsPlayerOptions) => {
     return () => player.dispose();
   }, [props, videoRef]);
 
-  return [videoRef] as [typeof videoRef];
+  return [videoRef];
 };
 
 export default VideoPlayer;
