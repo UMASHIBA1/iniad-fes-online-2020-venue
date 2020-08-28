@@ -1,1 +1,1 @@
-export default "yumatest";
+export default "";
