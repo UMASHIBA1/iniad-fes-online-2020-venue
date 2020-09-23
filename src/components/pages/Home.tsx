@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Modal from "../atoms/Modal";
+import Modal from "../atoms/Modal/Modal";
 
 function Home() {
   const history = useHistory();

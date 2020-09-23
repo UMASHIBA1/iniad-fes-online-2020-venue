@@ -1,15 +1,33 @@
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { bgColor, shadowProps } from "../../constants/colors";
-import centerPutChild from "../../cssProps/centerPutChild";
-import centerPutByPosition from "../../cssProps/centerPutByPosition";
-import overlay from "../../cssProps/overlay";
-import topLeftZero from "../../cssProps/topLeftZero";
+import { bgColor, shadowProps } from "../../../constants/colors";
+import centerPutChild from "../../../cssProps/centerPutChild";
+import centerPutByPosition from "../../../cssProps/centerPutByPosition";
+import overlay from "../../../cssProps/overlay";
+import topLeftZero from "../../../cssProps/topLeftZero";
 import calcPreviousTime, {
   AnimationPropsType,
-} from "../../utils/calcPreviousTime";
-import breakPoints from "../../constants/breakPoints";
-import useRestrictBodyScroll from "../../hooks/useRestrictBodyScroll/useRestrictBodyScroll";
+} from "../../../utils/calcPreviousTime";
+import breakPoints from "../../../constants/breakPoints";
+import useRestrictBodyScroll from "../../../hooks/useRestrictBodyScroll/useRestrictBodyScroll";
+
+interface Props {
+  children: ReactNode;
+  isShow: boolean;
+  onClose: () => void;
+}
+
+function Modal({ children, isShow, onClose }: Props) {
+  useRestrictBodyScroll(isShow);
+  return (
+    <Wrapper isShow={isShow}>
+      <ModalBG onClick={onClose} isShow={isShow} data-testid="modal-bg" />
+      <ModalMainWrapper>
+        <ModalMain isShow={isShow}>{children}</ModalMain>
+      </ModalMainWrapper>
+    </Wrapper>
+  );
+}
 
 // NOTE: 消失時の順番
 const fadeOutContent: AnimationPropsType = {
@@ -94,7 +112,7 @@ const ModalBG = styled.div<Pick<Props, "isShow">>`
 
 const ModalMainWrapper = styled.div`
   ${centerPutByPosition}
-  max-width: 1200px;
+  max-width: 1000px;
   width: calc(100% - 24px);
   height: calc(100% - 48px);
 
@@ -144,23 +162,5 @@ const ModalMain = styled.div<Pick<Props, "isShow">>`
       `}
   }
 `;
-
-interface Props {
-  children: ReactNode;
-  isShow: boolean;
-  onClose: () => void;
-}
-
-function Modal({ children, isShow, onClose }: Props) {
-  useRestrictBodyScroll(isShow);
-  return (
-    <Wrapper isShow={isShow}>
-      <ModalBG onClick={onClose} isShow={isShow} />
-      <ModalMainWrapper>
-        <ModalMain isShow={isShow}>{children}</ModalMain>
-      </ModalMainWrapper>
-    </Wrapper>
-  );
-}
 
 export default Modal;
