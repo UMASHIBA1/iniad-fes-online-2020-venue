@@ -1,6 +1,5 @@
 import { useEffect } from "react";
 
-// TODO: bodyがスクロール不可になってるかテストを書く
 const useRestrictBodyScroll = (isRestrictScroll: boolean) => {
   useEffect(() => {
     if (isRestrictScroll) {
