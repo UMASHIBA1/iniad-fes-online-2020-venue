@@ -5,12 +5,13 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 interface Props {
   pdfPath: string;
+  pageNum: number;
 }
 
 const usePDFWidth = () => {
   const [element, changeElement] = useState<null | HTMLDivElement>(null);
   const [width, changeWidth] = useState(0);
-  const [changedWidth, changeChangedWidth] = useState(false);
+  const [isChangedWidth, changeIsChangedWidth] = useState(false);
 
   const updateWidth = () => {
     if (element) {
@@ -19,8 +20,9 @@ const usePDFWidth = () => {
   };
 
   useEffect(() => {
-    if (changedWidth === false && element !== null) {
+    if (isChangedWidth === false && element !== null) {
       updateWidth();
+      changeIsChangedWidth(true);
     }
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
@@ -43,7 +45,7 @@ function PDFViewer(props: Props) {
         onLoadSuccess={() => console.log("success")}
         onLoadError={() => console.log("error")}
       >
-        <Page pageNumber={2} width={width} />
+        <Page pageNumber={props.pageNum} width={width} />
       </Document>
     </Wrapper>
   );
