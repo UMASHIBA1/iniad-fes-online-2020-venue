@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import Modal from "../atoms/Modal/Modal";
+import PDFViewer from "../atoms/PDFViewer";
 
 function Home() {
   const history = useHistory();
@@ -24,6 +25,7 @@ function Home() {
         </div>
       </div>
       <div className="h-56 w-full"></div>
+      <PDFViewer pdfPath="/sample.pdf" pageNum={2} />
     </>
   );
 }
