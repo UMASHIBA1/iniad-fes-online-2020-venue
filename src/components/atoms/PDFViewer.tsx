@@ -10,6 +10,7 @@ interface Props {
 const usePDFWidth = () => {
   const [element, changeElement] = useState<null | HTMLDivElement>(null);
   const [width, changeWidth] = useState(0);
+  const [changedWidth, changeChangedWidth] = useState(false);
 
   const updateWidth = () => {
     if (element) {
@@ -18,6 +19,9 @@ const usePDFWidth = () => {
   };
 
   useEffect(() => {
+    if (changedWidth === false && element !== null) {
+      updateWidth();
+    }
     window.addEventListener("resize", updateWidth);
     return () => window.removeEventListener("resize", updateWidth);
   });
