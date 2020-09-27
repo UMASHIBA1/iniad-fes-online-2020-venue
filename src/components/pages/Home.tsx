@@ -19,13 +19,12 @@ function Home() {
           <Link to="/videopage">ビデオページへGO(やり方1) lll</Link>
           <button onClick={gotoVideoPage}>ビデオページへGO(やり方2)</button>
           <Modal isShow={isOpenModal} onClose={() => changeIsOpenModal(false)}>
-            aaa
+            <PDFViewer pdfPath="/sample.pdf" pageNum={2} />
           </Modal>
           <button onClick={() => changeIsOpenModal(true)}>開く</button>
         </div>
       </div>
       <div className="h-56 w-full"></div>
-      <PDFViewer pdfPath="/sample.pdf" pageNum={2} />
     </>
   );
 }

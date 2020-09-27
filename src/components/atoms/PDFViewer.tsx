@@ -45,7 +45,8 @@ function PDFViewer(props: Props) {
         onLoadSuccess={() => console.log("success")}
         onLoadError={() => console.log("error")}
       >
-        <Page pageNumber={props.pageNum} width={width} />
+        <Page pageNumber={1} width={width} />
+        <Page pageNumber={2} width={width} />
       </Document>
     </Wrapper>
   );
