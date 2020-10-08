@@ -5,7 +5,7 @@ pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/$
 
 interface Props {
   pdfPath: string;
-  pageNum: number;
+  nowPageNum: number;
 }
 
 const usePDFWidth = () => {
@@ -45,8 +45,7 @@ function PDFViewer(props: Props) {
         onLoadSuccess={() => console.log("success")}
         onLoadError={() => console.log("error")}
       >
-        <Page pageNumber={1} width={width} />
-        <Page pageNumber={2} width={width} />
+        <Page pageNumber={props.nowPageNum} width={width} />
       </Document>
     </Wrapper>
   );
