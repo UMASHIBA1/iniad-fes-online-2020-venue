@@ -7,6 +7,7 @@ import PcHome from "./components/pages/pc/Home";
 import PcRoad from "./components/pages/pc/Road";
 import PcHall from "./components/pages/pc/Hall";
 import PcRoom from "./components/pages/pc/Room";
+import { pcLinks } from "./constants/links";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -57,16 +58,16 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
-            <Route path="/road">
+            <Route path={pcLinks.road}>
               <PcRoad />
             </Route>
-            <Route path="/hall">
+            <Route path={pcLinks.hall}>
               <PcHall />
             </Route>
-            <Route path="/room">
+            <Route path={pcLinks.room}>
               <PcRoom />
             </Route>
-            <Route path="/">
+            <Route path={pcLinks.home}>
               <PcHome />
             </Route>
           </Switch>
