@@ -13,11 +13,11 @@ export interface HallProps {
   type: "hall",
   name: string;
   environment_attributes: {
-    // NOTE: 中庭側 + 食堂に近い方のドアをdoor-1としてそこから時計回りでdoor-2,door-3となる
-    "door-1": {
+    // NOTE: 中庭側 + 食堂に近い方のドアをdoor1としてそこから時計回りでdoor2,door3となる
+    door1: {
       url: typeof bothLinks;
     },
-    "door-2": {
+    door2: {
       url: typeof bothLinks;
     },
     [key: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
