@@ -1,8 +1,8 @@
 export const links = {
   home: "/" as "/",
-  road: "/road" as "/road",
   hall: "/hall" as "/hall",
-  room: "/room" as "/room",
+  road: (name: string) =>`/road/${name}`,
+  room: (name: string) => `/room/${name}`,
 };
 
 // NOTE: もしpcのみに存在するページとかができたときexport先で一個一個書き換えるのがいやなので先にpcLinkとmobileLinksを分けます。
@@ -20,4 +20,4 @@ export const bothLinks = {
 }
 
 
-export type RoomUrlType = typeof bothLinks[keyof typeof bothLinks];
+export type RoomUrlType = string;

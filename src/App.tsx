@@ -58,13 +58,13 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
-            <Route path={pcLinks.road}>
+            <Route path={pcLinks.road(":name")}>
               <PcRoad />
             </Route>
             <Route path={pcLinks.hall}>
               <PcHall />
             </Route>
-            <Route path={pcLinks.room}>
+            <Route path={pcLinks.room(":name")}>
               <PcRoom />
             </Route>
             <Route path={pcLinks.home}>
