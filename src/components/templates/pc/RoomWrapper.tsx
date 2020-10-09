@@ -1,5 +1,9 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
+import { shadowProps } from "../../../constants/colors";
+import centerPutChild from "../../../cssProps/centerPutChild";
+import { radiusLg } from "../../../cssProps/radius";
+import { normalShadow } from "../../../cssProps/shadow";
 
 interface Props {
   children: ReactNode;
@@ -8,15 +12,26 @@ interface Props {
 
 function RoomWrapper({children, bgImg}: Props) {
   return(
-    <Wrapper bgImg={bgImg}>
-      {children}
+    <Wrapper>
+      <RoomWrapperMain bgImg={bgImg}>
+        {children}
+      </RoomWrapperMain>
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div<Pick<Props, "bgImg">>`
-  width: 100%;
-  height: 100%;
+const Wrapper = styled.div`
+  ${centerPutChild}
+  background-color: ${shadowProps};
+  width: 100vw;
+  height: 100vh;
+`
+
+const RoomWrapperMain = styled.div<Pick<Props, "bgImg">>`
+  ${radiusLg}
+  ${normalShadow(12)}
+  width: calc(100vw - 24px);
+  height: calc(1/2 * (100vw - 24px));
   position: relative;
   top: 0;
   left: 0;
