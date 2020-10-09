@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import VideoPage from "./components/pages/VideoPage";
 import MobileHome from "./components/pages/Home";
 import PcHome from "./components/pages/pc/Home";
+import PcRoad from "./components/pages/pc/Road";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -52,8 +53,8 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
-            <Route path="/videopage">
-              <VideoPage />
+            <Route path="/road">
+              <PcRoad />
             </Route>
             <Route path="/">
               <PcHome />
