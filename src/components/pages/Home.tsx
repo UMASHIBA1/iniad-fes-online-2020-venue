@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import Button from "../atoms/Button";
+import Button from "../atoms/Button/Button";
 import IFrameWrap from "../atoms/IFrameWrap";
 import Modal from "../atoms/Modal/Modal";
 import PDFViewer from "../atoms/PDFViewer";
