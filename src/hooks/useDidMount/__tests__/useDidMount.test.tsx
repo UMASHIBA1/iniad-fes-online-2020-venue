@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import useDidMount from "../useDidMount";
 import "@testing-library/jest-dom";
-import { render, fireEvent, cleanup } from "@testing-library/react";
+import { render, fireEvent } from "@testing-library/react";
 
 const ForTestWrapper = ({ func }: { func: () => void }) => {
   const [forTestState, changeState] = useState(0);
@@ -31,8 +31,6 @@ describe("ForTestWrapper func test", () => {
 });
 
 describe("useDidMount func test", () => {
-  afterEach(cleanup);
-
   test("test: run useDidMount when render", () => {
     let isRun = false;
     const mockFn = jest.fn(() => (isRun = true));

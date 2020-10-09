@@ -1,6 +1,6 @@
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
-import { bgColor, shadowProps } from "../../../constants/colors";
+import { whiteColor } from "../../../constants/colors";
 import centerPutChild from "../../../cssProps/centerPutChild";
 import centerPutByPosition from "../../../cssProps/centerPutByPosition";
 import overlay from "../../../cssProps/overlay";
@@ -10,6 +10,8 @@ import calcPreviousTime, {
 } from "../../../utils/calcPreviousTime";
 import breakPoints from "../../../constants/breakPoints";
 import useRestrictBodyScroll from "../../../hooks/useRestrictBodyScroll/useRestrictBodyScroll";
+import { radiusMd } from "../../../cssProps/radius";
+import { normalShadow } from "../../../cssProps/shadow";
 
 interface Props {
   children: ReactNode;
@@ -123,12 +125,12 @@ const ModalMainWrapper = styled.div`
 
 const ModalMain = styled.div<Pick<Props, "isShow">>`
   ${centerPutChild}
+  ${radiusMd}
+  ${normalShadow(8)}
   width: 100%;
   height: 100%;
-  background-color: ${bgColor};
+  background-color: ${whiteColor};
   overflow: auto;
-  border-radius: 24px;
-  box-shadow: 8px 8px 16px ${shadowProps};
   ${({ isShow }) =>
     isShow &&
     css`
@@ -143,9 +145,7 @@ const ModalMain = styled.div<Pick<Props, "isShow">>`
         cubic-bezier(0.36, 0, 0.66, -0.56) ${shrinkMain.delay}ms;
       transform: scale(0, 0);
     `}
-
-
-    >* {
+    > * {
     ${({ isShow }) =>
       isShow &&
       css`
