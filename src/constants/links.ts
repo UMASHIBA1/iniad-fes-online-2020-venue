@@ -13,3 +13,8 @@ export const pcLinks = {
 export const mobileLinks = {
   ...links
 }
+
+export const bothLinks = {
+  ...pcLinks,
+  ...mobileLinks,
+}
