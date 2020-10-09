@@ -1,24 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import * as serviceWorker from "./serviceWorker";
-import Home from "./components/pages/Home";
 import "./styles/tailwind.compiled.css";
 import "./styles/global.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import VideoPage from "./components/pages/VideoPage";
+import App from "./App";
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <Switch>
-        <Route path="/videopage">
-          <VideoPage />
-        </Route>
-        <Route path="/">
-          <Home />
-        </Route>
-      </Switch>
-    </Router>
+    <App />
   </React.StrictMode>,
   document.getElementById("root")
 );
