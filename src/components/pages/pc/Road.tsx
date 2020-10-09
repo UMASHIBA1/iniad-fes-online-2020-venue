@@ -1,5 +1,5 @@
 import React from "react";
-import RoomWrapper from "../../templates/pc/RoomWrapper";
+import RoomWrapper from "../../templates/pc/PageWrapper";
 import roadImg from "../../../statics/road.png";
 
 function Road() {
