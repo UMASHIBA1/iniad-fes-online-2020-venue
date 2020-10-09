@@ -6,6 +6,7 @@ import MobileHome from "./components/pages/Home";
 import PcHome from "./components/pages/pc/Home";
 import PcRoad from "./components/pages/pc/Road";
 import PcHall from "./components/pages/pc/Hall";
+import PcRoom from "./components/pages/pc/Room";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -36,6 +37,7 @@ function App() {
 
   if (deviceType === "mobile") {
     return (
+      // Mobile版
       <React.Fragment>
         <Router>
           <Switch>
@@ -50,6 +52,7 @@ function App() {
       </React.Fragment>
     );
   } else {
+    // PC版
     return (
       <React.Fragment>
         <Router>
@@ -59,6 +62,9 @@ function App() {
             </Route>
             <Route path="/hall">
               <PcHall />
+            </Route>
+            <Route path="/room">
+              <PcRoom />
             </Route>
             <Route path="/">
               <PcHome />
