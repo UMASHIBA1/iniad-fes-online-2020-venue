@@ -50,6 +50,9 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door1: {
         url: links.classroom("1024")
+      },
+      door2: {
+        url: links.hall
       }
     }
   },

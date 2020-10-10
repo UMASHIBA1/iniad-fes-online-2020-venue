@@ -45,6 +45,9 @@ export interface RoadProps {
     door1: {
       url: string;
     };
+    door2: {
+      url: string;
+    };
     [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
   },
   video: VideoProps;

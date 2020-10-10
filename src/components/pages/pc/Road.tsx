@@ -24,10 +24,18 @@ function Road({roadProps}: Props) {
     <RoomWrapper bgImg={roadImg}>
       Road
       <Button
-        text="door1"
+        text="1024教室へ"
         onClick={() => {
           gotoTargetUrl(
             thisRoadProp ? thisRoadProp.environment_attributes.door1.url : ""
+          );
+        }}
+      />
+      <Button
+        text="ホールへ"
+        onClick={() => {
+          gotoTargetUrl(
+            thisRoadProp ? thisRoadProp.environment_attributes.door2.url : ""
           );
         }}
       />
