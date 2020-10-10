@@ -64,16 +64,16 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
-            <Route path={pcLinks.road(":name")}>
+            <Route path={"/road/:name"}>
               <PcRoad roadProps={dividedRoomDatas.road} />
             </Route>
-            <Route path={pcLinks.hall}>
+            <Route path={"/hall"}>
               <PcHall hallProps={dividedRoomDatas.hall} />
             </Route>
-            <Route path={pcLinks.classroom(":name")}>
+            <Route path={"/classroom/:name"}>
               <PcClassRoom classRoomProps={dividedRoomDatas.classroom} />
             </Route>
-            <Route path={pcLinks.entrance}>
+            <Route path={"/"}>
               <PcEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
           </Switch>
