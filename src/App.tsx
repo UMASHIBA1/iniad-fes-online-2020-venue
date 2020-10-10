@@ -8,6 +8,7 @@ import PcRoad from "./components/pages/pc/Road";
 import PcHall from "./components/pages/pc/Hall";
 import PcRoom from "./components/pages/pc/Room";
 import { pcLinks } from "./constants/links";
+import { useDividedRoomDatas } from "./hooks/useRoomDatas";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -33,8 +34,13 @@ const useDeviceType = () => {
   return [deviceType];
 };
 
+
+
+
+
 function App() {
   const [deviceType] = useDeviceType();
+  const [dividedRoomDatas] = useDividedRoomDatas();
 
   if (deviceType === "mobile") {
     return (
@@ -62,7 +68,7 @@ function App() {
               <PcRoad />
             </Route>
             <Route path={pcLinks.hall}>
-              <PcHall />
+              <PcHall hallProps={dividedRoomDatas.hall} />
             </Route>
             <Route path={pcLinks.room(":name")}>
               <PcRoom />
