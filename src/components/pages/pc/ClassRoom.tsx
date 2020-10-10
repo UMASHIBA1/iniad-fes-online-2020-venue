@@ -66,7 +66,6 @@ const createthisModeRoom = (history: ReturnType<typeof useHistory>, thisClassRoo
   }else {
     return ("この部屋は存在しないみたい。。。🙇‍♂️");
   }
-
 }
 
 const useThisClassRoomProp = (classRoomProps: ClassRoomProps[]) => {
