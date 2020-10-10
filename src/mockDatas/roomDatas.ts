@@ -52,6 +52,22 @@ const roomDatas: RoomAPIType = [
         url: links.classroom("1024")
       }
     }
+  },
+  {
+    type: "entrance",
+    name: "entrance-1",
+    video: {
+      start_at: {
+        iso8601: "2020-10-31T10:00:00+09:00",
+        timestamp: 1604106001
+      },
+      url: "example.com",
+    },
+    environment_attributes: {
+      door1: {
+        url: links.road("1024")
+      }
+    }
   }
 ];
 

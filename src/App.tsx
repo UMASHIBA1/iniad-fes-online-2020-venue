@@ -74,7 +74,7 @@ function App() {
               <PcClassRoom classRoomProps={dividedRoomDatas.classroom} />
             </Route>
             <Route path={pcLinks.entrance}>
-              <PcEntrance />
+              <PcEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
           </Switch>
         </Router>
