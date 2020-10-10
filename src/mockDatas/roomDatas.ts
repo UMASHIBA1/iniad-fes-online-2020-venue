@@ -23,7 +23,7 @@ const roomDatas: RoomAPIType = [
   },
   {
     type: "room",
-    name: "room-1024",
+    name: "1024",
     video: {
       start_at: {
         iso8601: "2020-10-31T10:00:00+09:00",
@@ -39,7 +39,7 @@ const roomDatas: RoomAPIType = [
   },
   {
     type: "road",
-    name: "road-1024",
+    name: "1024",
     video: {
       start_at: {
         iso8601: "2020-10-31T10:00:00+09:00",
