@@ -30,6 +30,9 @@ export interface ClassRoomProps {
   type: "classroom";
   name: string;
   environment_attributes: {
+    door1: {
+      url: string;
+    }
     [k: string]: any; // FIXME: 現状でどんな部屋になるのかわからないのでanyにしました。画像ができたらちゃんと型つけたい
   },
   video: VideoProps;
