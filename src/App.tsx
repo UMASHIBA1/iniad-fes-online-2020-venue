@@ -59,6 +59,7 @@ function App() {
       </React.Fragment>
     );
   } else {
+
     // PC版
     return (
       <React.Fragment>
