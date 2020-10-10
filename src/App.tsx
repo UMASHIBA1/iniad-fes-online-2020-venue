@@ -6,7 +6,7 @@ import MobileHome from "./components/pages/Home";
 import PcEntrance from "./components/pages/pc/Entrance";
 import PcRoad from "./components/pages/pc/Road";
 import PcHall from "./components/pages/pc/Hall";
-import PcRoom from "./components/pages/pc/Room";
+import PcClassRoom from "./components/pages/pc/ClassRoom";
 import { pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
 
@@ -70,8 +70,8 @@ function App() {
             <Route path={pcLinks.hall}>
               <PcHall hallProps={dividedRoomDatas.hall} />
             </Route>
-            <Route path={pcLinks.room(":name")}>
-              <PcRoom />
+            <Route path={pcLinks.classroom(":name")}>
+              <PcClassRoom />
             </Route>
             <Route path={pcLinks.entrance}>
               <PcEntrance />

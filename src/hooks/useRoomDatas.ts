@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import roomDatas from "../mockDatas/roomDatas"
-import { HallProps, EntranceProps, RoadProps, RoomAPIType, RoomProps } from "../typings/RoomPropType";
+import { HallProps, EntranceProps, RoadProps, RoomAPIType, ClassRoomProps } from "../typings/RoomPropType";
 
 // FIXME: このhooksを書き換えてmockからちゃんとしたAPIへの移行を行う
 const useRoomDatas = (): RoomAPIType => {
@@ -16,7 +16,7 @@ export const useDividedRoomDatas = () => {
     const dividedRoomDatas = {
       entrance: [] as EntranceProps[],
       road: [] as RoadProps[],
-      room: [] as RoomProps[],
+      classroom: [] as ClassRoomProps[],
       hall: [] as HallProps[],
     }
 
@@ -28,8 +28,8 @@ export const useDividedRoomDatas = () => {
         case "road":
           dividedRoomDatas.road.push(data);
           break;
-        case "room":
-          dividedRoomDatas.room.push(data);
+        case "classroom":
+          dividedRoomDatas.classroom.push(data);
           break;
         case "hall":
           dividedRoomDatas.hall.push(data);

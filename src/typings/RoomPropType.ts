@@ -26,8 +26,8 @@ export interface HallProps {
   video: VideoProps;
 }
 
-export interface RoomProps {
-  type: "room";
+export interface ClassRoomProps {
+  type: "classroom";
   name: string;
   environment_attributes: {
     [k: string]: any; // FIXME: 現状でどんな部屋になるのかわからないのでanyにしました。画像ができたらちゃんと型つけたい
@@ -53,7 +53,7 @@ export interface EntranceProps {
   video: VideoProps;
 }
 
-type RoomPropType = HallProps | RoomProps | RoadProps | EntranceProps;
+type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps;
 
 export type RoomAPIType = RoomPropType[];
 

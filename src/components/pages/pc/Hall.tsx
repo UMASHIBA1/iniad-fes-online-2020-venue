@@ -1,7 +1,7 @@
 import React from "react";
 // import React, { useEffect, useState } from "react";
-import RoomWrapper from "../../templates/pc/PageWrapper";
-import hallImg from "../../../statics/room2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import RoomWrapper from "../../templates/pc/RoomWrapper";
+import hallImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";

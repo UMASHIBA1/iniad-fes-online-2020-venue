@@ -17,12 +17,12 @@ const roomDatas: RoomAPIType = [
         url: links.road("1024")
       },
       door2: {
-        url: links.room("1024")
+        url: links.classroom("1024")
       }
     }
   },
   {
-    type: "room",
+    type: "classroom",
     name: "1024",
     video: {
       start_at: {
@@ -49,7 +49,7 @@ const roomDatas: RoomAPIType = [
     },
     environment_attributes: {
       door1: {
-        url: links.room("1024")
+        url: links.classroom("1024")
       }
     }
   }

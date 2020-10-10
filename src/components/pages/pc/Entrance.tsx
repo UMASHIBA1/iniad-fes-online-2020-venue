@@ -1,5 +1,5 @@
 import React from "react";
-import RoomWrapper from "../../templates/pc/PageWrapper";
+import RoomWrapper from "../../templates/pc/RoomWrapper";
 import entranceImg from "../../../statics/totyo.png";
 
 function Entrance() {
