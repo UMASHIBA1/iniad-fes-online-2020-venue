@@ -1,5 +1,5 @@
 export const links = {
-  home: "/" as "/",
+  entrance: "/" as "/",
   hall: "/hall" as "/hall",
   road: (name: string) =>`/road/${name}`,
   room: (name: string) => `/room/${name}`,

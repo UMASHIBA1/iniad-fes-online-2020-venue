@@ -44,8 +44,8 @@ export interface RoadProps {
   video: VideoProps;
 }
 
-export interface HomeProps {
-  type: "home",
+export interface EntranceProps {
+  type: "entrance",
   name: string;
   environment_attributes: {
     [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
@@ -53,7 +53,7 @@ export interface HomeProps {
   video: VideoProps;
 }
 
-type RoomPropType = HallProps | RoomProps | RoadProps | HomeProps;
+type RoomPropType = HallProps | RoomProps | RoadProps | EntranceProps;
 
 export type RoomAPIType = RoomPropType[];
 
