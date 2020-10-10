@@ -65,7 +65,7 @@ function App() {
         <Router>
           <Switch>
             <Route path={pcLinks.road(":name")}>
-              <PcRoad />
+              <PcRoad roadProps={dividedRoomDatas.road} />
             </Route>
             <Route path={pcLinks.hall}>
               <PcHall hallProps={dividedRoomDatas.hall} />

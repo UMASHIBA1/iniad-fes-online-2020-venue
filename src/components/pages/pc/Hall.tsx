@@ -1,12 +1,10 @@
 import React from "react";
-// import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import hallImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
 import { HallProps } from "../../../typings/RoomPropType";
-// import useTypedParams from "../../../hooks/useTypedParams";
 
 interface Props {
   hallProps: HallProps[];
@@ -14,7 +12,6 @@ interface Props {
 
 function Hall({ hallProps }: Props) {
   const history = useHistory();
-  // const [thisHallProp] = useThisHallProp(hallProps);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -42,25 +39,5 @@ function Hall({ hallProps }: Props) {
     </RoomWrapper>
   );
 }
-
-// const useThisHallProp = (hallProps: HallProps[]) => {
-//   const findThisHallProp = (thisHallName: HallProps["name"]) =>
-//     hallProps.find((nowProps) => {
-//       if (nowProps.name === thisHallName) {
-//         return true;
-//       } else {
-//         return false;
-//       }
-//     });
-
-//   const { name } = useTypedParams();
-//   const [thisHallProps, changeThisHallProps] = useState(findThisHallProp(name));
-
-//   useEffect(() => {
-//     changeThisHallProps(findThisHallProp(name));
-//   }, [hallProps, name]);
-
-//   return [thisHallProps];
-// };
 
 export default Hall;

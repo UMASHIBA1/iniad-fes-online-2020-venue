@@ -32,7 +32,7 @@ export interface ClassRoomProps {
   environment_attributes: {
     door1: {
       url: string;
-    }
+    };
     [k: string]: any; // FIXME: 現状でどんな部屋になるのかわからないのでanyにしました。画像ができたらちゃんと型つけたい
   },
   video: VideoProps;
@@ -42,6 +42,9 @@ export interface RoadProps {
   type: "road";
   name: string;
   environment_attributes: {
+    door1: {
+      url: string;
+    };
     [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
   },
   video: VideoProps;
