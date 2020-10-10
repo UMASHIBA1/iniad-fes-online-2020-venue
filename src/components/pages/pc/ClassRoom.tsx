@@ -28,35 +28,40 @@ const createthisModeRoom = (history: ReturnType<typeof useHistory>, thisClassRoo
     history.push(url);
   };
   if(thisClassRoomProp) {
-    switch(thisClassRoomProp.environment_attributes.mode) {
+    const env = thisClassRoomProp.environment_attributes;
+    switch(env.mode) {
       case "oneObj":
-        return (
+        return(
           <React.Fragment>
           ClassRoom mode oneObj
           <Button
             text="door1"
             onClick={() => {
-              gotoTargetUrl(
-                thisClassRoomProp ? thisClassRoomProp.environment_attributes.door1.url : ""
-              );
+              gotoTargetUrl(env.door1.url);
             }}
           />
           </React.Fragment>
         );
-       case "twoObj":
-         return(
+      case "twoObj":
+        return(
           <React.Fragment>
           ClassRoom mode TwoObj
           <Button
             text="door1"
             onClick={() => {
-              gotoTargetUrl(
-                thisClassRoomProp ? thisClassRoomProp.environment_attributes.door1.url : ""
-              );
+              gotoTargetUrl(env.door1.url);
+            }}
+          />
+          <Button
+            text="door2"
+            onClick={() => {
+              gotoTargetUrl(env.door2.url);
             }}
           />
           </React.Fragment>
          );
+        default:
+          return ("この形式の部屋は存在しないみたい。。。🙏")
     }
   }else {
     return ("この部屋は存在しないみたい。。。🙇‍♂️");

@@ -8,6 +8,9 @@ interface ExampleMode1EnvAttr {
   door1: {
     url: string;
   };
+  door2: {
+    url: string;
+  };
   obj1: {
     url: string;
     name: string;

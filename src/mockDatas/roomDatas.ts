@@ -23,7 +23,7 @@ const roomDatas: RoomAPIType = [
   },
   {
     type: "classroom",
-    name: "1024",
+    name: "1025",
     video: {
       start_at: {
         iso8601: "2020-10-31T10:00:00+09:00",
@@ -44,7 +44,7 @@ const roomDatas: RoomAPIType = [
   },
   {
     type: "classroom",
-    name: "1025",
+    name: "1024",
     video: {
       start_at: {
         iso8601: "2020-10-31T10:00:00+09:00",
@@ -56,6 +56,9 @@ const roomDatas: RoomAPIType = [
       mode: "twoObj",
       door1: {
         url: links.road("1024")
+      },
+      door2: {
+        url: links.classroom("1025")
       },
       obj1: {
         name: "exampleObj1",
