@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import { RoadProps, ClassRoomProps } from "../typings/RoomPropType";
+import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
+import { RoadProps} from "../typings/RoomPropType/RoomPropType";
 
 interface Params {
   name: ClassRoomProps["name"] | RoadProps["name"];

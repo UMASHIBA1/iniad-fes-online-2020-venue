@@ -4,7 +4,7 @@ import hallImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定�
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
-import { HallProps } from "../../../typings/RoomPropType";
+import { HallProps } from "../../../typings/RoomPropType/RoomPropType";
 
 interface Props {
   hallProps: HallProps[];

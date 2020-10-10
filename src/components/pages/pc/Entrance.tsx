@@ -1,7 +1,7 @@
 import React from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import entranceImg from "../../../statics/totyo.png";
-import { EntranceProps } from "../../../typings/RoomPropType";
+import { EntranceProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";

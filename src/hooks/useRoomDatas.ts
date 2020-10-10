@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import roomDatas from "../mockDatas/roomDatas"
-import { HallProps, EntranceProps, RoadProps, RoomAPIType, ClassRoomProps } from "../typings/RoomPropType";
+import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
+import { HallProps, EntranceProps, RoadProps, RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 
 // FIXME: このhooksを書き換えてmockからちゃんとしたAPIへの移行を行う
 const useRoomDatas = (): RoomAPIType => {

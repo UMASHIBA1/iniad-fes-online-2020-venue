@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import roomImg from "../../../statics/classroom1.png";
-import { ClassRoomProps } from "../../../typings/RoomPropType";
+import ClassRoomProps from "../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { RoomUrlType } from "../../../constants/links";
@@ -15,23 +15,53 @@ function ClassRoom({classRoomProps}: Props) {
   const history = useHistory();
   const [thisClassRoomProp] = useThisClassRoomProp(classRoomProps);
 
+  return(
+    <RoomWrapper bgImg={roomImg}>
+      {createthisModeRoom(history, thisClassRoomProp)}
+    </RoomWrapper>
+  );
+}
+
+const createthisModeRoom = (history: ReturnType<typeof useHistory>, thisClassRoomProp?: ClassRoomProps) => {
+
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+  if(thisClassRoomProp) {
+    switch(thisClassRoomProp.environment_attributes.mode) {
+      case "oneObj":
+        return (
+          <React.Fragment>
+          ClassRoom mode oneObj
+          <Button
+            text="door1"
+            onClick={() => {
+              gotoTargetUrl(
+                thisClassRoomProp ? thisClassRoomProp.environment_attributes.door1.url : ""
+              );
+            }}
+          />
+          </React.Fragment>
+        );
+       case "twoObj":
+         return(
+          <React.Fragment>
+          ClassRoom mode TwoObj
+          <Button
+            text="door1"
+            onClick={() => {
+              gotoTargetUrl(
+                thisClassRoomProp ? thisClassRoomProp.environment_attributes.door1.url : ""
+              );
+            }}
+          />
+          </React.Fragment>
+         );
+    }
+  }else {
+    return ("この部屋は存在しないみたい。。。🙇‍♂️");
+  }
 
-  return(
-    <RoomWrapper bgImg={roomImg}>
-      ClassRoom
-      <Button
-        text="door1"
-        onClick={() => {
-          gotoTargetUrl(
-            thisClassRoomProp ? thisClassRoomProp.environment_attributes.door1.url : ""
-          );
-        }}
-      />
-    </RoomWrapper>
-  );
 }
 
 const useThisClassRoomProp = (classRoomProps: ClassRoomProps[]) => {

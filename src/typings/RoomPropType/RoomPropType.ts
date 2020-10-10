@@ -1,14 +1,6 @@
-import { RoomUrlType } from "../constants/links";
-
-
-export interface VideoProps {
-  start_at: {
-    iso8601: string;
-    timestamp: number;
-  },
-  url: string; // NOTE: e.g. /room1.m3u8
-}
-
+import { RoomUrlType } from "../../constants/links";
+import ClassRoomProps from "./ClassRoomProps";
+import VideoProps from "./VideoProps";
 
 export interface HallProps {
   type: "hall",
@@ -26,17 +18,6 @@ export interface HallProps {
   video: VideoProps;
 }
 
-export interface ClassRoomProps {
-  type: "classroom";
-  name: string;
-  environment_attributes: {
-    door1: {
-      url: string;
-    };
-    [k: string]: any; // FIXME: 現状でどんな部屋になるのかわからないのでanyにしました。画像ができたらちゃんと型つけたい
-  },
-  video: VideoProps;
-}
 
 export interface RoadProps {
   type: "road";

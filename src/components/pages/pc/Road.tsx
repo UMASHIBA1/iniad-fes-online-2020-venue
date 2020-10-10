@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import roadImg from "../../../statics/road.png";
-import { RoadProps } from "../../../typings/RoomPropType";
+import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
