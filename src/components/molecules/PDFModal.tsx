@@ -50,10 +50,11 @@ const PDFWrapper = styled.div`
   width: calc(100% - 12px);
   > button {
     margin: 8px;
-  }
-  button[data-controll-id="disable-button"] {
+    &[data-controll-id="disable-button"] {
       visibility: hidden;
     }
+  }
+
 `;
 
 export default PDFModal;
