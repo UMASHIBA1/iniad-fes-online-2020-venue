@@ -5,6 +5,7 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
 import { HallProps } from "../../../typings/RoomPropType/RoomPropType";
+import FuncButtons from "../../molecules/FuncButtons";
 
 interface Props {
   hallProps: HallProps[];
@@ -36,6 +37,7 @@ function Hall({ hallProps }: Props) {
           );
         }}
       />
+      <FuncButtons />
     </RoomWrapper>
   );
 }
