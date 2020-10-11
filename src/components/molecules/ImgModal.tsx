@@ -21,7 +21,8 @@ const Img = styled.img.attrs<{src: string; alt: string}>(({src, alt}) => ({
   src: src,
   alt: alt
 }))<{src: string; alt: string}>`
-  width: calc(100% - 16px);
+  width: calc(100% - 32px);
+  margin: 16px 0;
 `
 
 export default ImgModal;
