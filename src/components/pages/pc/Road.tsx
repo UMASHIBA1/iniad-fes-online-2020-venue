@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
 import Button from "../../atoms/Button/Button";
+import FuncButtons from "../../molecules/FuncButtons";
 
 interface Props {
   roadProps: RoadProps[];
@@ -39,6 +40,7 @@ function Road({roadProps}: Props) {
           );
         }}
       />
+      <FuncButtons />
     </RoomWrapper>
   );
 }

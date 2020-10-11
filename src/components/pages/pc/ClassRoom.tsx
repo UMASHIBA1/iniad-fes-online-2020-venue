@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
+import FuncButtons from "../../molecules/FuncButtons";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -18,6 +19,7 @@ function ClassRoom({classRoomProps}: Props) {
   return(
     <RoomWrapper bgImg={roomImg}>
       {createthisModeRoom(history, thisClassRoomProp)}
+      <FuncButtons />
     </RoomWrapper>
   );
 }
