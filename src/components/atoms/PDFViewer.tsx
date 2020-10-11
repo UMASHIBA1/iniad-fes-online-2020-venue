@@ -8,6 +8,26 @@ interface Props {
   nowPageNum: number;
 }
 
+function PDFViewer(props: Props) {
+  const { width, changeElement } = usePDFWidth();
+  return (
+    <Wrapper>
+      <Document
+        file={props.pdfPath}
+        inputRef={(ref) => changeElement(ref)}
+        options={{
+          cMapUrl: `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,
+          cMapPacked: true,
+        }}
+        onLoadSuccess={() => console.log("success")}
+        onLoadError={() => console.log("error")}
+      >
+        <Page pageNumber={props.nowPageNum} width={width} />
+      </Document>
+    </Wrapper>
+  );
+}
+
 const usePDFWidth = () => {
   const [element, changeElement] = useState<null | HTMLDivElement>(null);
   const [width, changeWidth] = useState(0);
@@ -31,25 +51,7 @@ const usePDFWidth = () => {
   return { width, changeElement };
 };
 
-function PDFViewer(props: Props) {
-  const { width, changeElement } = usePDFWidth();
-  return (
-    <Wrapper>
-      <Document
-        file={props.pdfPath}
-        inputRef={(ref) => changeElement(ref)}
-        options={{
-          cMapUrl: `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,
-          cMapPacked: true,
-        }}
-        onLoadSuccess={() => console.log("success")}
-        onLoadError={() => console.log("error")}
-      >
-        <Page pageNumber={props.nowPageNum} width={width} />
-      </Document>
-    </Wrapper>
-  );
-}
+
 
 const Wrapper = styled.div`
   width: 100%;
