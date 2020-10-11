@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { lightBlueBGColor, whiteText } from "../../cssProps/colors";
+import { deepBlueBGColor, lightBlueBGColor, whiteText } from "../../cssProps/colors";
 import { radiusSm } from "../../cssProps/radius";
 import { normalShadow } from "../../cssProps/shadow";
 
@@ -33,6 +33,10 @@ const Wrapper = styled.button`
   height: 48px;
   border: none;
   outline: none !important;
+
+  :hover {
+    ${deepBlueBGColor}
+  }
 `;
 
 const Icon = styled.img.attrs<Props>(({svgPath,iconDescription}) => ({
