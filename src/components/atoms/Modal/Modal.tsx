@@ -118,8 +118,8 @@ const ModalBG = styled.div<Pick<Props, "isShow">>`
 const ModalMainWrapper = styled.div`
   ${centerPutByPosition}
   max-width: 940px;
+  min-height: 160px;
   width: calc(100% - 24px);
-  height: calc(100% - 48px);
 
   ${breakPoints.downTablet} {
     height: calc(100% - 54px);
