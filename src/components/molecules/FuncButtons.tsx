@@ -8,9 +8,9 @@ import scheduleIcon from "../../statics/svgs/schedule-icon.svg";
 function FuncButtons() {
   return(
     <Wrapper>
-      <IconButton svgPath={mapIcon} iconDescription="map" />
-      <IconButton svgPath={chatIcon} iconDescription="chat" />
-      <IconButton svgPath={scheduleIcon} iconDescription="plan" />
+      <IconButton svgPath={mapIcon} iconDescription="map" onClick={() => {console.log("run map")}} />
+      <IconButton svgPath={chatIcon} iconDescription="chat" onClick={() => {console.log("run chat")}} />
+      <IconButton svgPath={scheduleIcon} iconDescription="plan" onClick={() => {console.log("run plan")}} />
     </Wrapper>
   );
 }

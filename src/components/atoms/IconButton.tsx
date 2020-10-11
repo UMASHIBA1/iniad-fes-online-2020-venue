@@ -12,11 +12,11 @@ interface Props {
   onClick?: () => void;
 }
 
-function IconButton(props: Props) {
+function IconButton({svgPath, iconDescription, onClick}: Props) {
   return (
-  <Wrapper onClick={props.onClick}>
-    <Icon {...props} />
-    <Description>{props.iconDescription}</Description>
+  <Wrapper onClick={onClick}>
+    <Icon svgPath={svgPath} iconDescription={iconDescription} />
+    <Description>{iconDescription}</Description>
   </Wrapper>
   );
 }
