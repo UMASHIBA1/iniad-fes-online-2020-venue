@@ -38,3 +38,7 @@ export const deepBlueBGColor = css`
 export const blackText = css`
   color: ${blackColor};
 `;
+
+export const blackBGColor = css`
+  background-color: ${blackColor};
+`
