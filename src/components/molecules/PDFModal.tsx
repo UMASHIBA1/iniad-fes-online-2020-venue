@@ -6,20 +6,23 @@ import Modal from "../atoms/Modal/Modal";
 import PDFViewer from "../atoms/PDFViewer";
 import rightArrow from "../../statics/svgs/right-arrow.svg";
 import leftArrow from "../../statics/svgs/left-arrow.svg";
+import PDFProps from "../../typings/PDFProps";
 
 interface Props {
   isShow: boolean;
   onClose: () => void;
-  pdfPath: string;
+  pdfProps: PDFProps;
 }
 
-function PDFModal({ isShow, onClose, pdfPath }: Props) {
+function PDFModal({ isShow, onClose, pdfProps }: Props) {
   const [nowPageNum, changeNowPageNum] = useState(1);
 
 
   // FIXME: ページの数を引数にとって現在のページが最後のページだったら次のページにいけないようにする
   const gotoNextPage = () => {
-    changeNowPageNum(nowPageNum + 1);
+    if(nowPageNum < pdfProps.pageNum) {
+      changeNowPageNum(nowPageNum + 1);
+    }
   }
 
   const gotoAbovePage = () => {
@@ -35,10 +38,14 @@ function PDFModal({ isShow, onClose, pdfPath }: Props) {
         <IconButton iconDescription="back" svgPath={leftArrow} onClick={gotoAbovePage} />
         ):(
           // FIXME: noneはさすがにわかりにくそう
-        <IconButton iconDescription="none" svgPath={leftArrow} onClick={gotoAbovePage} />
+        <IconButton iconDescription="none" svgPath={leftArrow}/>
         )}
-        <PDFViewer pdfPath={pdfPath} nowPageNum={nowPageNum} />
+        <PDFViewer pdfPath={pdfProps.url} nowPageNum={nowPageNum} />
+        {nowPageNum < pdfProps.pageNum?(
         <IconButton iconDescription="next" svgPath={rightArrow} onClick={gotoNextPage} />
+        ): (
+        <IconButton iconDescription="none" svgPath={rightArrow} />
+        )}
       </PDFWrapper>
     </Modal>
   );

@@ -39,7 +39,10 @@ function FuncButtons() {
           onClose={() => {
             changeIsShowMap(false);
           }}
-          pdfPath="/sample.pdf"
+          pdfProps={{
+            url: "/sample.pdf",
+            pageNum: 2
+          }}
         />
     </>
   );
