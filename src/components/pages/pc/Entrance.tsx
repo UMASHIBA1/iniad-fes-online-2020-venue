@@ -6,8 +6,7 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
 import ObjectMark from "../../atoms/ObjectMark";
-import IconButton from "../../atoms/IconButton";
-import mapIcon from "../../../statics/svgs/map-icon.svg";
+import FuncButtons from "../../molecules/FuncButtons";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -35,7 +34,7 @@ function Entrance({entranceProps}: Props) {
       <div style={{margin: "300px"}}>
         <ObjectMark onClick={()=>console.log("Object Mark 実験")} />
       </div>
-      <IconButton svgPath={mapIcon} iconDescription="map"></IconButton>
+      <FuncButtons />
     </RoomWrapper>
   );
 }
