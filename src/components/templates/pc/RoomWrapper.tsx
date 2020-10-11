@@ -1,9 +1,6 @@
 import React, { ReactNode } from "react";
 import styled from "styled-components";
-import { shadowProps } from "../../../constants/colors";
 import centerPutChild from "../../../cssProps/centerPutChild";
-import { radiusLg } from "../../../cssProps/radius";
-import { normalShadow } from "../../../cssProps/shadow";
 
 interface Props {
   children: ReactNode;
@@ -22,15 +19,13 @@ function RoomWrapper({children, bgImg}: Props) {
 
 const Wrapper = styled.div`
   ${centerPutChild}
-  background-color: ${shadowProps};
+  background-color: #000000;
   width: 100vw;
   height: 100vh;
 `
 
 const RoomWrapperMain = styled.div<Pick<Props, "bgImg">>`
-  ${radiusLg}
-  ${normalShadow(12)}
-  width: calc(100vw - 24px);
+  width: 100vw;
   height: calc(1/2 * (100vw - 24px));
   position: relative;
   top: 0;
