@@ -18,7 +18,6 @@ function PDFModal({ isShow, onClose, pdfProps }: Props) {
   const [nowPageNum, changeNowPageNum] = useState(1);
 
 
-  // FIXME: ページの数を引数にとって現在のページが最後のページだったら次のページにいけないようにする
   const gotoNextPage = () => {
     if(nowPageNum < pdfProps.pageNum) {
       changeNowPageNum(nowPageNum + 1);
