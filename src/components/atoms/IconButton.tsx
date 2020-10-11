@@ -10,18 +10,21 @@ interface Props {
   svgPath: string;
   iconDescription: string;
   onClick?: () => void;
+  dataControllId?: string;
 }
 
-function IconButton({svgPath, iconDescription, onClick}: Props) {
+function IconButton({svgPath, iconDescription, onClick, dataControllId}: Props) {
   return (
-  <Wrapper onClick={onClick}>
+  <Wrapper onClick={onClick} dataControllId={dataControllId}>
     <Icon svgPath={svgPath} iconDescription={iconDescription} />
     <Description>{iconDescription}</Description>
   </Wrapper>
   );
 }
 
-const Wrapper = styled.button`
+const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(({dataControllId}) => ({
+  "data-controll-id": dataControllId
+}))<Pick<Props, "dataControllId">>`
   ${radiusSm}
   ${lightBlueBGColor}
   ${normalShadow(2)}

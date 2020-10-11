@@ -34,18 +34,9 @@ function PDFModal({ isShow, onClose, pdfProps }: Props) {
   return (
     <Modal isShow={isShow} onClose={onClose}>
       <PDFWrapper>
-        {nowPageNum > 1?(
-        <IconButton iconDescription="back" svgPath={leftArrow} onClick={gotoAbovePage} />
-        ):(
-          // FIXME: noneはさすがにわかりにくそう
-        <IconButton iconDescription="none" svgPath={leftArrow}/>
-        )}
+        <IconButton iconDescription="back" svgPath={leftArrow} onClick={gotoAbovePage} dataControllId={nowPageNum > 1?"":"disable-button"} />
         <PDFViewer pdfPath={pdfProps.url} nowPageNum={nowPageNum} />
-        {nowPageNum < pdfProps.pageNum?(
-        <IconButton iconDescription="next" svgPath={rightArrow} onClick={gotoNextPage} />
-        ): (
-        <IconButton iconDescription="none" svgPath={rightArrow} />
-        )}
+        <IconButton iconDescription="next" svgPath={rightArrow} onClick={gotoNextPage} dataControllId={nowPageNum < pdfProps.pageNum?"": "disable-button"} />
       </PDFWrapper>
     </Modal>
   );
@@ -60,6 +51,9 @@ const PDFWrapper = styled.div`
   > button {
     margin: 8px;
   }
+  button[data-controll-id="disable-button"] {
+      visibility: hidden;
+    }
 `;
 
 export default PDFModal;
