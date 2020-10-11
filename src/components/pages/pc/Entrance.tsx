@@ -7,6 +7,7 @@ import { RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
 import ObjectMark from "../../atoms/ObjectMark";
 import IconButton from "../../atoms/IconButton";
+import mapIcon from "../../../statics/svgs/map-icon.svg";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -24,6 +25,7 @@ function Entrance({entranceProps}: Props) {
       Entrance
       <Button
         text="door1"
+        mode="blue"
         onClick={() => {
           gotoTargetUrl(
             entranceProps[0] ? entranceProps[0].environment_attributes.door1.url : ""
@@ -33,7 +35,7 @@ function Entrance({entranceProps}: Props) {
       <div style={{margin: "300px"}}>
         <ObjectMark onClick={()=>console.log("Object Mark 実験")} />
       </div>
-      <IconButton>a</IconButton>
+      <IconButton svgPath={mapIcon} iconDescription="map"></IconButton>
     </RoomWrapper>
   );
 }

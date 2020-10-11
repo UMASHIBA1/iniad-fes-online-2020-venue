@@ -1,29 +1,51 @@
-import React, { ReactNode } from "react";
+import React from "react";
 import styled from "styled-components";
-import centerPutChild from "../../cssProps/centerPutChild";
-import { whiteBGColor } from "../../cssProps/colors";
+import { lightBlueBGColor, whiteText } from "../../cssProps/colors";
 import { radiusSm } from "../../cssProps/radius";
 import { normalShadow } from "../../cssProps/shadow";
 
 // NOTE: このサイト(https://material.io/resources/icons/?style=baseline)のsvgアイコンを使うことを想定したコンポーネントです。
 
 interface Props {
-  children: ReactNode;
+  svgPath: string;
+  iconDescription: string;
+  onClick?: () => void;
 }
 
 function IconButton(props: Props) {
-  return <Wrapper>{props.children}</Wrapper>;
+  return (
+  <Wrapper onClick={props.onClick}>
+    <Icon {...props} />
+    <Description>{props.iconDescription}</Description>
+  </Wrapper>
+  );
 }
 
 const Wrapper = styled.button`
-  ${centerPutChild}
   ${radiusSm}
-  ${whiteBGColor}
+  ${lightBlueBGColor}
   ${normalShadow(2)}
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 48px;
   height: 48px;
   border: none;
   outline: none !important;
 `;
+
+const Icon = styled.img.attrs<Props>(({svgPath,iconDescription}) => ({
+  src: svgPath,
+  alt: iconDescription + "icon"
+}))<Props>`
+  width: 24px;
+`
+
+const Description = styled.div`
+  ${whiteText}
+  font-size: 12px;
+  line-height: 1;
+`
 
 export default IconButton;
