@@ -3,7 +3,6 @@ import { Link, useHistory } from "react-router-dom";
 import Button from "../atoms/Button/Button";
 import IFrameWrap from "../atoms/IFrameWrap";
 import Modal from "../atoms/Modal/Modal";
-import PDFViewer from "../atoms/PDFViewer";
 
 function Home() {
   const history = useHistory();
@@ -21,7 +20,6 @@ function Home() {
           <Link to="/videopage">ビデオページへGO(やり方1) lll</Link>
           <button onClick={gotoVideoPage}>ビデオページへGO(やり方2)</button>
           <Modal isShow={isOpenModal} onClose={() => changeIsOpenModal(false)}>
-            {/* <PDFViewer pdfPath="/sample.pdf" nowPageNum={1} /> */}
           </Modal>
           <button onClick={() => changeIsOpenModal(true)}>開く</button>
           <IFrameWrap

@@ -3,7 +3,6 @@ import styled, { css } from "styled-components";
 import { whiteColor } from "../../../constants/colors";
 import centerPutChild from "../../../cssProps/centerPutChild";
 import centerPutByPosition from "../../../cssProps/centerPutByPosition";
-import overlay from "../../../cssProps/overlay";
 import topLeftZero from "../../../cssProps/topLeftZero";
 import calcPreviousTime, {
   AnimationPropsType,
@@ -73,8 +72,12 @@ const fadeInContent: AnimationPropsType = {
 };
 
 const Wrapper = styled.div<Pick<Props, "isShow">>`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   ${centerPutChild}
-  ${overlay}
   overflow: hidden;
   ${({ isShow }) =>
     isShow &&
@@ -114,7 +117,7 @@ const ModalBG = styled.div<Pick<Props, "isShow">>`
 
 const ModalMainWrapper = styled.div`
   ${centerPutByPosition}
-  max-width: 1000px;
+  max-width: 940px;
   width: calc(100% - 24px);
   height: calc(100% - 48px);
 
