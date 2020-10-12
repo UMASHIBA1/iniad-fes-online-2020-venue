@@ -3,7 +3,7 @@ import RoomWrapper from "../../templates/pc/RoomWrapper";
 import entranceImg from "../../../statics/totyo.png";
 import { EntranceProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
-import { RoomUrlType } from "../../../constants/links";
+import { pcLinks, RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
 import ObjectMark from "../../atoms/ObjectMark";
 import FuncButtons from "../../molecules/FuncButtons";
@@ -27,7 +27,7 @@ function Entrance({entranceProps}: Props) {
         mode="blue"
         onClick={() => {
           gotoTargetUrl(
-            entranceProps[0] ? entranceProps[0].environment_attributes.door1.url : ""
+            entranceProps[0] ? entranceProps[0].environment_attributes.door1.url : pcLinks.entrance
           );
         }}
       />

@@ -1,3 +1,4 @@
+import { RoomUrlType } from "../../constants/links";
 import VideoProps from "./VideoProps";
 
 // NOTE: ClassRoomPropsは記述量がとても多くなってしまったので別ファイルとして定義します。
@@ -6,10 +7,10 @@ import VideoProps from "./VideoProps";
 interface ExampleMode1EnvAttr {
   mode: "twoObj";
   door1: {
-    url: string;
+    url: RoomUrlType;
   };
   door2: {
-    url: string;
+    url: RoomUrlType;
   };
   obj1: {
     url: string;
@@ -24,7 +25,7 @@ interface ExampleMode1EnvAttr {
 interface ExampleMode2EnvAttr {
   mode: "oneObj";
   door1: {
-    url: string;
+    url: RoomUrlType;
   };
   obj1: {
     url: string;
