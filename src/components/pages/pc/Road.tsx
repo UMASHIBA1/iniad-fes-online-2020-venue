@@ -3,7 +3,7 @@ import RoomWrapper from "../../templates/pc/RoomWrapper";
 import roadImg from "../../../statics/road.png";
 import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
-import { RoomUrlType } from "../../../constants/links";
+import { pcLinks, RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
 import Button from "../../atoms/Button/Button";
 import FuncButtons from "../../molecules/FuncButtons";
@@ -28,7 +28,7 @@ function Road({roadProps}: Props) {
         text="1024教室へ"
         onClick={() => {
           gotoTargetUrl(
-            thisRoadProp ? thisRoadProp.environment_attributes.door1.url : ""
+            thisRoadProp ? thisRoadProp.environment_attributes.door1.url : pcLinks.entrance
           );
         }}
       />
@@ -36,7 +36,7 @@ function Road({roadProps}: Props) {
         text="ホールへ"
         onClick={() => {
           gotoTargetUrl(
-            thisRoadProp ? thisRoadProp.environment_attributes.door2.url : ""
+            thisRoadProp ? thisRoadProp.environment_attributes.door2.url : pcLinks.entrance
           );
         }}
       />

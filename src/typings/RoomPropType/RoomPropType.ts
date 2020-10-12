@@ -24,10 +24,10 @@ export interface RoadProps {
   name: string;
   environment_attributes: {
     door1: {
-      url: string;
+      url: RoomUrlType;
     };
     door2: {
-      url: string;
+      url: RoomUrlType;
     };
     [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
   },
@@ -39,7 +39,7 @@ export interface EntranceProps {
   name: string;
   environment_attributes: {
     door1: {
-      url: string;
+      url: RoomUrlType;
     }
     [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
   },
