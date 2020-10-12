@@ -7,6 +7,10 @@ import { pcLinks, RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
 import ObjectMark from "../../atoms/ObjectMark";
 import FuncButtons from "../../molecules/FuncButtons";
+import { useDispatch } from "react-redux";
+import { DispatchType } from "../../../redux/store";
+import useDidMount from "../../../hooks/useDidMount/useDidMount";
+import { toVisited } from "../../../redux/modules/isFirstVisit";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -14,10 +18,15 @@ interface Props {
 
 function Entrance({entranceProps}: Props) {
   const history = useHistory();
+  const dispatch: DispatchType = useDispatch();
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
+  useDidMount(() => {
+    dispatch(toVisited());
+  })
 
   return(
     <RoomWrapper bgImg={entranceImg}>
