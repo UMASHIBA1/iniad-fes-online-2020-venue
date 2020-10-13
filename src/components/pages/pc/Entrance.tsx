@@ -11,6 +11,9 @@ import { useDispatch } from "react-redux";
 import { DispatchType } from "../../../redux/store";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
+import RoomMark from "../../atoms/RoomMark";
+import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
+
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -43,6 +46,7 @@ function Entrance({entranceProps}: Props) {
       <div style={{margin: "300px"}}>
         <ObjectMark onClick={()=>console.log("Object Mark 実験")} />
       </div>
+      <RoomMark imgPath={iniadfesLogo} roomTitle="INIAD-FES 実行委員会案内所" />
       <FuncButtons />
     </RoomWrapper>
   );
