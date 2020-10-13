@@ -8,14 +8,15 @@ interface Props {
   imgPath: string;
   roomTitle: string;
   onClick?: () => void;
+  dataControllId?: string;
 }
 
-function RoomMark(props: Props) {
+function RoomMark({imgPath, roomTitle,onClick,dataControllId = ""}: Props) {
   return(
-    <Wrapper onClick={props.onClick}>
-      <IconImg imgPath={props.imgPath} roomTitle={props.roomTitle} />
+    <Wrapper onClick={onClick} dataControllId={dataControllId} >
+      <IconImg imgPath={imgPath} roomTitle={roomTitle} />
       <RoomTitle>
-        {props.roomTitle}
+        {roomTitle}
       </RoomTitle>
     </Wrapper>
   );
@@ -36,7 +37,9 @@ const RoomTitle = styled.div`
   font-size: 12px;
 `
 
-const Wrapper = styled.button`
+const Wrapper = styled.button.attrs<{dataControllId: string}>(({dataControllId}) =>({
+  "data-controll-id": dataControllId
+}))<{dataControllId: string}>`
   display: flex;
   flex-direction: column;
   justify-content: center;
