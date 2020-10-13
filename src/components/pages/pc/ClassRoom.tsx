@@ -5,70 +5,78 @@ import ClassRoomProps from "../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { RoomUrlType } from "../../../constants/links";
-import Button from "../../atoms/Button/Button";
 import FuncButtons from "../../molecules/FuncButtons";
+import styled from "styled-components";
+import RoomMark from "../../atoms/RoomMark";
+import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
 }
 
-function ClassRoom({classRoomProps}: Props) {
+function ClassRoom({ classRoomProps }: Props) {
   const history = useHistory();
   const [thisClassRoomProp] = useThisClassRoomProp(classRoomProps);
 
-  return(
+  return (
     <RoomWrapper bgImg={roomImg}>
-      {createthisModeRoom(history, thisClassRoomProp)}
-      <FuncButtons />
+      <Wrapper>
+        {createthisModeRoom(history, thisClassRoomProp)}
+        <FuncButtons />
+
+      </Wrapper>
     </RoomWrapper>
   );
 }
 
-const createthisModeRoom = (history: ReturnType<typeof useHistory>, thisClassRoomProp?: ClassRoomProps) => {
+const dataControllId = {
+  door: "classroom-left-door"
+}
 
+const Wrapper = styled.div`
+  position: relative;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  >button {
+    &[data-controll-id=${dataControllId.door}] {
+      position: absolute;
+      top: 47%;
+      left: 5%;
+    }
+  }
+`;
+
+const createthisModeRoom = (
+  history: ReturnType<typeof useHistory>,
+  thisClassRoomProp?: ClassRoomProps
+) => {
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
-  if(thisClassRoomProp) {
+  if (thisClassRoomProp) {
     const env = thisClassRoomProp.environment_attributes;
-    switch(env.mode) {
+    switch (env.mode) {
       case "oneObj":
-        return(
-          <React.Fragment>
-          ClassRoom mode oneObj
-          <Button
-            text="door1"
-            onClick={() => {
-              gotoTargetUrl(env.door1.url);
-            }}
-          />
-          </React.Fragment>
+        return (
+          <RoomMark imgPath={logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
+              gotoTargetUrl(env.door.url);
+        }} />
         );
       case "twoObj":
-        return(
-          <React.Fragment>
-          ClassRoom mode TwoObj
-          <Button
-            text="door1"
-            onClick={() => {
-              gotoTargetUrl(env.door1.url);
-            }}
-          />
-          <Button
-            text="door2"
-            onClick={() => {
-              gotoTargetUrl(env.door2.url);
-            }}
-          />
-          </React.Fragment>
-         );
-        default:
-          return ("この形式の部屋は存在しないみたい。。。🙏")
+        return (
+            <RoomMark imgPath={logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
+                gotoTargetUrl(env.door.url);
+        }} />
+        );
+      default:
+        return "この形式の部屋は存在しないみたい。。。🙏";
     }
-  }else {
-    return ("この部屋は存在しないみたい。。。🙇‍♂️");
+  } else {
+    return "この部屋は存在しないみたい。。。🙇‍♂️";
   }
-}
+};
 
 const useThisClassRoomProp = (classRoomProps: ClassRoomProps[]) => {
   const findThisClassRoomProp = (thisClassRoomName: ClassRoomProps["name"]) =>
@@ -81,7 +89,9 @@ const useThisClassRoomProp = (classRoomProps: ClassRoomProps[]) => {
     });
 
   const { name } = useTypedParams();
-  const [thisThisClasRoomProp, changeThisClassRoomProp] = useState(findThisClassRoomProp(name));
+  const [thisThisClasRoomProp, changeThisClassRoomProp] = useState(
+    findThisClassRoomProp(name)
+  );
 
   useEffect(() => {
     changeThisClassRoomProp(findThisClassRoomProp(name));

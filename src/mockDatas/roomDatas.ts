@@ -33,8 +33,9 @@ const roomDatas: RoomAPIType = [
     },
     environment_attributes: {
       mode: "oneObj",
-      door1: {
-        url: links.road("1024")
+      door: {
+        url: links.road("1024"),
+        title: "1024廊下"
       },
       obj1: {
         name: "exampleObj",
@@ -54,11 +55,9 @@ const roomDatas: RoomAPIType = [
     },
     environment_attributes: {
       mode: "twoObj",
-      door1: {
-        url: links.road("1024")
-      },
-      door2: {
-        url: links.classroom("1025")
+      door: {
+        url: links.road("1024"),
+        title: "1024廊下"
       },
       obj1: {
         name: "exampleObj1",
