@@ -18,18 +18,21 @@ export interface HallProps {
   video: VideoProps;
 }
 
+export interface RoomEnvLinkProps {
+  url: RoomUrlType;
+  title: string;
+}
 
 export interface RoadProps {
   type: "road";
   name: string;
   environment_attributes: {
-    door1: {
-      url: RoomUrlType;
-    };
-    door2: {
-      url: RoomUrlType;
-    };
-    [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
+    doorRight1: RoomEnvLinkProps;
+    doorLeft1: RoomEnvLinkProps;
+    doorRight2: RoomEnvLinkProps;
+    doorLeft2: RoomEnvLinkProps;
+    next: RoomEnvLinkProps;
+    back: RoomEnvLinkProps;
   },
   video: VideoProps;
 }

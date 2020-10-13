@@ -81,11 +81,29 @@ const roomDatas: RoomAPIType = [
       url: "example.com",
     },
     environment_attributes: {
-      door1: {
-        url: links.classroom("1024")
+      doorRight1: {
+        url: links.classroom("1024"),
+        title: "classroom 1024"
       },
-      door2: {
-        url: links.hall
+      doorLeft1: {
+        url: links.hall,
+        title: "hall"
+      },
+      doorRight2: {
+        url: links.hall,
+        title: "hall"
+      },
+      doorLeft2: {
+        url: links.hall,
+        title: "hall"
+      },
+      next: {
+        url: links.hall,
+        title: "next road"
+      },
+      back: {
+        url: links.hall,
+        title: "back road"
       }
     }
   },

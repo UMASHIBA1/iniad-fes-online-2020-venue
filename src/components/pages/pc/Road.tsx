@@ -5,7 +5,6 @@ import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
-import Button from "../../atoms/Button/Button";
 import FuncButtons from "../../molecules/FuncButtons";
 import styled from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
@@ -35,26 +34,26 @@ function Road({roadProps}: Props) {
     <RoomWrapper bgImg={roadImg}>
       <Wrapper>
       Road
-      <RoomMark imgPath={logoPath} roomTitle="dummy-title" dataControllId={controllIds.right1} />
-      <RoomMark imgPath={logoPath} roomTitle="dummy-title" dataControllId={controllIds.left1} />
-      <RoomMark imgPath={logoPath} roomTitle="dummy-title" dataControllId={controllIds.right2} />
-      <RoomMark imgPath={logoPath} roomTitle="dummy-title" dataControllId={controllIds.left2} />
-      <Button
-        text="1024教室へ"
-        onClick={() => {
-          gotoTargetUrl(
-            thisRoadProp ? thisRoadProp.environment_attributes.door1.url : pcLinks.entrance
-          );
-        }}
-      />
-      <Button
-        text="ホールへ"
-        onClick={() => {
-          gotoTargetUrl(
-            thisRoadProp ? thisRoadProp.environment_attributes.door2.url : pcLinks.entrance
-          );
-        }}
-      />
+      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorRight1.title: "空き部屋"} dataControllId={controllIds.right1} onClick={() => {
+                  gotoTargetUrl(
+                    thisRoadProp ? thisRoadProp.environment_attributes.doorRight1.url : pcLinks.entrance
+                  );
+      }} />
+      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorLeft1.title: "空き部屋"} dataControllId={controllIds.left1} onClick={() => {
+                  gotoTargetUrl(
+                    thisRoadProp ? thisRoadProp.environment_attributes.doorLeft1.url : pcLinks.entrance
+                  );
+      }} />
+      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorRight2.title: "空き部屋"} dataControllId={controllIds.right2} onClick={() => {
+                  gotoTargetUrl(
+                    thisRoadProp ? thisRoadProp.environment_attributes.doorRight2.url : pcLinks.entrance
+                  );
+      }} />
+      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorLeft2.title: "空き部屋"} dataControllId={controllIds.left2} onClick={() => {
+                  gotoTargetUrl(
+                    thisRoadProp ? thisRoadProp.environment_attributes.doorLeft2.url : pcLinks.entrance
+                  );
+      }} />
       <FuncButtons />
       </Wrapper>
 
