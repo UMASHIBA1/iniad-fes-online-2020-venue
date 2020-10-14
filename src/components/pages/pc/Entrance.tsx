@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import { DispatchType } from "../../../redux/store";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
+import Chat from "../../organisms/Chat/Chat";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -43,6 +44,7 @@ function Entrance({entranceProps}: Props) {
       <div style={{margin: "300px"}}>
         <ObjectMark onClick={()=>console.log("Object Mark 実験")} />
       </div>
+      <Chat />
       <FuncButtons />
     </RoomWrapper>
   );

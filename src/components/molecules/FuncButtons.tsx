@@ -64,8 +64,8 @@ const Wrapper = styled.div`
   display: grid;
   right: 8px;
   bottom: 8px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 1fr);
   gap: 8px;
 `;
 
