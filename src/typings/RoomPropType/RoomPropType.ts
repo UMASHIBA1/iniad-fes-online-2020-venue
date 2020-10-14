@@ -41,10 +41,7 @@ export interface EntranceProps {
   type: "entrance",
   name: string;
   environment_attributes: {
-    door1: {
-      url: RoomUrlType;
-    }
-    [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
+    door: RoomEnvLinkProps;
   },
   video: VideoProps;
 }

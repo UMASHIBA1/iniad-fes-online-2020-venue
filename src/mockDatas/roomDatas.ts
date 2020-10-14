@@ -117,8 +117,9 @@ const roomDatas: RoomAPIType = [
       url: "example.com",
     },
     environment_attributes: {
-      door1: {
-        url: links.road("1024")
+      door: {
+        url: links.road("1024"),
+        title: "廊下1024",
       }
     }
   }
