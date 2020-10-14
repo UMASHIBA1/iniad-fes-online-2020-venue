@@ -13,6 +13,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-redux": "^7.1.9",
     "@videojs/themes": "^1.0.0",
+    "actioncable": "^5.2.4-4",
     "dayjs": "^1.8.31",
     "js-cookie": "^2.2.1",
     "react": "^16.13.1",
@@ -51,6 +52,7 @@
     ]
   },
   "devDependencies": {
+    "@types/actioncable": "^5.2.3",
     "@types/js-cookie": "^2.2.6",
     "@types/react-pdf": "^4.0.6",
     "@types/react-router-dom": "^5.1.5",
