@@ -14,10 +14,12 @@ const roomDatas: RoomAPIType = [
     },
     environment_attributes: {
       door1: {
-        url: links.road("1024")
+        url: links.road("1024"),
+        title: "廊下1024"
       },
       door2: {
-        url: links.classroom("1024")
+        url: links.classroom("1024"),
+        title: "教室1024"
       }
     }
   },

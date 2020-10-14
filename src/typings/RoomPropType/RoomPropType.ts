@@ -7,13 +7,8 @@ export interface HallProps {
   name: string;
   environment_attributes: {
     // NOTE: 中庭側 + 食堂に近い方のドアをdoor1としてそこから時計回りでdoor2,door3となる
-    door1: {
-      url: RoomUrlType;
-    },
-    door2: {
-      url: RoomUrlType;
-    },
-    [key: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
+    door1: RoomEnvLinkProps;
+    door2: RoomEnvLinkProps;
   },
   video: VideoProps;
 }
