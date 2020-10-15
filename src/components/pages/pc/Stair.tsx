@@ -38,7 +38,13 @@ function Stair({stairProps}: Props) {
             }}  />
           ): null
         }
-
+        {
+          thisStairProp&&thisStairProp.environment_attributes.room?(
+            <RoomMark imgPath={iniadfesLogo} roomTitle={thisStairProp?thisStairProp.environment_attributes.room.title: ""} onClick={() => {
+              gotoTargetUrl(thisStairProp?thisStairProp.environment_attributes.room.url: pcLinks.entrance);
+            }}  />
+          ): null
+        }
       </Wrapper>
     </RoomWrapper>
   );

@@ -9,50 +9,91 @@ import { pcLinks, RoomUrlType } from "../../../constants/links";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import RoomMark from "../../atoms/RoomMark";
 
-
 interface Props {
   elevatorFrontProps: ElevatorFrontProps[];
 }
 
-function ElevatorFront({elevatorFrontProps}: Props) {
+function ElevatorFront({ elevatorFrontProps }: Props) {
   const history = useHistory();
   const [thisElevatorFrontProps] = useThisElevatorFrontProp(elevatorFrontProps);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
-  }
-  return(
+  };
+  return (
     <RoomWrapper bgImg={elevatorFrontImg}>
       ElevatorFront
       <Wrapper>
-      {
-          thisElevatorFrontProps&&thisElevatorFrontProps.environment_attributes.roadx1xx?(
-            <RoomMark imgPath={iniadfesLogo} roomTitle={thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx1xx.title: ""} onClick={() => {
-              gotoTargetUrl(thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx1xx.url: pcLinks.entrance);
-            }}  />
-          ): null
-        }
-              {
-          thisElevatorFrontProps&&thisElevatorFrontProps.environment_attributes.roadx2xx?(
-            <RoomMark imgPath={iniadfesLogo} roomTitle={thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx2xx.title: ""} onClick={() => {
-              gotoTargetUrl(thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx2xx.url: pcLinks.entrance);
-            }}  />
-          ): null
-        }
+        {thisElevatorFrontProps &&
+        thisElevatorFrontProps.environment_attributes.roadx1xx ? (
+          <RoomMark
+            imgPath={iniadfesLogo}
+            roomTitle={
+              thisElevatorFrontProps
+                ? thisElevatorFrontProps.environment_attributes.roadx1xx.title
+                : ""
+            }
+            onClick={() => {
+              gotoTargetUrl(
+                thisElevatorFrontProps
+                  ? thisElevatorFrontProps.environment_attributes.roadx1xx.url
+                  : pcLinks.entrance
+              );
+            }}
+          />
+        ) : null}
+        {thisElevatorFrontProps &&
+        thisElevatorFrontProps.environment_attributes.roadx2xx ? (
+          <RoomMark
+            imgPath={iniadfesLogo}
+            roomTitle={
+              thisElevatorFrontProps
+                ? thisElevatorFrontProps.environment_attributes.roadx2xx.title
+                : ""
+            }
+            onClick={() => {
+              gotoTargetUrl(
+                thisElevatorFrontProps
+                  ? thisElevatorFrontProps.environment_attributes.roadx2xx.url
+                  : pcLinks.entrance
+              );
+            }}
+          />
+        ) : null}
+                {thisElevatorFrontProps &&
+        thisElevatorFrontProps.environment_attributes.back ? (
+          <RoomMark
+            imgPath={iniadfesLogo}
+            roomTitle={
+              thisElevatorFrontProps
+                ? thisElevatorFrontProps.environment_attributes.back.title
+                : ""
+            }
+            onClick={() => {
+              gotoTargetUrl(
+                thisElevatorFrontProps
+                  ? thisElevatorFrontProps.environment_attributes.back.url
+                  : pcLinks.entrance
+              );
+            }}
+          />
+        ) : null}
       </Wrapper>
     </RoomWrapper>
   );
 }
 
 const Wrapper = styled.div`
-    position: relative;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-`
+`;
 
 const useThisElevatorFrontProp = (elevatorFrontProps: ElevatorFrontProps[]) => {
-  const findThisElevatorFrontProp = (thisElevatorFrontName: ElevatorFrontProps["name"]) =>
+  const findThisElevatorFrontProp = (
+    thisElevatorFrontName: ElevatorFrontProps["name"]
+  ) =>
     elevatorFrontProps.find((nowProps) => {
       if (nowProps.name === thisElevatorFrontName) {
         return true;
@@ -62,7 +103,9 @@ const useThisElevatorFrontProp = (elevatorFrontProps: ElevatorFrontProps[]) => {
     });
 
   const { name } = useTypedParams();
-  const [thisElevatorFrontProp, changeThisElevatorFrontProp] = useState(findThisElevatorFrontProp(name));
+  const [thisElevatorFrontProp, changeThisElevatorFrontProp] = useState(
+    findThisElevatorFrontProp(name)
+  );
 
   useEffect(() => {
     console.log(name);
