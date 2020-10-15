@@ -27,7 +27,6 @@ export interface RoadProps {
     next: RoomEnvLinkProps;
     back: RoomEnvLinkProps;
   },
-  video: VideoProps;
 }
 
 export interface ElevatorFrontProps {
@@ -36,6 +35,7 @@ export interface ElevatorFrontProps {
   environment_attributes: {
     roadx2xx: RoomEnvLinkProps;
     roadx1xx: RoomEnvLinkProps;
+    back: RoomEnvLinkProps;
   },
 }
 
@@ -52,7 +52,7 @@ export interface StairProps {
   type: "stair",
   name: string;
   environment_attributes: {
-    up: RoomEnvLinkProps;
+    up?: RoomEnvLinkProps;
     down: RoomEnvLinkProps;
     room: RoomEnvLinkProps;
   }

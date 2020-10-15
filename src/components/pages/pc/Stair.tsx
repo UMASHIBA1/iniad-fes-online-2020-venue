@@ -3,7 +3,7 @@ import styled from "styled-components";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import stairImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import RoomMark from "../../atoms/RoomMark";
-import { StairProps } from "../../../typings/RoomPropType/RoomPropType";
+import { RoomEnvLinkProps, StairProps } from "../../../typings/RoomPropType/RoomPropType";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { useHistory } from "react-router-dom";
@@ -25,9 +25,9 @@ function Stair({stairProps}: Props) {
       Stair
       <Wrapper>
         {
-          thisStairProp&&thisStairProp.environment_attributes.up?(
+          thisStairProp&&thisStairProp.environment_attributes.up !== undefined?(
             <RoomMark imgPath={iniadfesLogo} roomTitle={thisStairProp?thisStairProp.environment_attributes.up.title: ""} onClick={() => {
-              gotoTargetUrl(thisStairProp?thisStairProp.environment_attributes.up.url: pcLinks.entrance);
+              gotoTargetUrl(thisStairProp?(thisStairProp.environment_attributes.up as RoomEnvLinkProps).url: pcLinks.entrance);
             }}  />
           ): null
         }
@@ -38,6 +38,7 @@ function Stair({stairProps}: Props) {
             }}  />
           ): null
         }
+
       </Wrapper>
     </RoomWrapper>
   );
