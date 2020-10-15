@@ -7,46 +7,58 @@ export interface HallProps {
   name: string;
   environment_attributes: {
     // NOTE: 中庭側 + 食堂に近い方のドアをdoor1としてそこから時計回りでdoor2,door3となる
-    door1: {
-      url: RoomUrlType;
-    },
-    door2: {
-      url: RoomUrlType;
-    },
-    [key: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
+    door1: RoomEnvLinkProps;
+    door2: RoomEnvLinkProps;
   },
   video: VideoProps;
 }
 
+export interface RoomEnvLinkProps {
+  url: RoomUrlType;
+  title: string;
+}
 
 export interface RoadProps {
   type: "road";
   name: string;
   environment_attributes: {
-    door1: {
-      url: RoomUrlType;
-    };
-    door2: {
-      url: RoomUrlType;
-    };
-    [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
+    doorRight1: RoomEnvLinkProps;
+    doorLeft1: RoomEnvLinkProps;
+    next: RoomEnvLinkProps;
+    back: RoomEnvLinkProps;
   },
-  video: VideoProps;
+}
+
+export interface ElevatorFrontProps {
+  type: "elevatorFront";
+  name: string;
+  environment_attributes: {
+    roadx2xx: RoomEnvLinkProps;
+    roadx1xx: RoomEnvLinkProps;
+    back: RoomEnvLinkProps;
+  },
 }
 
 export interface EntranceProps {
-  type: "entrance",
+  type: "entrance";
   name: string;
   environment_attributes: {
-    door1: {
-      url: RoomUrlType;
-    }
-    [k: string]: any; // FIXME: 画像が完成次第ちゃんと型つける
+    door: RoomEnvLinkProps;
   },
   video: VideoProps;
 }
 
-type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps;
+export interface StairProps {
+  type: "stair",
+  name: string;
+  environment_attributes: {
+    up?: RoomEnvLinkProps;
+    down: RoomEnvLinkProps;
+    room: RoomEnvLinkProps;
+  }
+}
+
+type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps;
 
 export type RoomAPIType = RoomPropType[];
 
