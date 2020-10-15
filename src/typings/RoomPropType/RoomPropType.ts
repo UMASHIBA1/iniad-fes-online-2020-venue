@@ -32,8 +32,17 @@ export interface RoadProps {
   video: VideoProps;
 }
 
+export interface ElevatorFrontProps {
+  type: "elevatorFront";
+  name: string;
+  environment_attributes: {
+    road20xx: RoomEnvLinkProps;
+    road10xx: RoomEnvLinkProps;
+  },
+}
+
 export interface EntranceProps {
-  type: "entrance",
+  type: "entrance";
   name: string;
   environment_attributes: {
     door: RoomEnvLinkProps;
@@ -51,7 +60,7 @@ export interface StairProps {
   }
 }
 
-type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps;
+type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps;
 
 export type RoomAPIType = RoomPropType[];
 

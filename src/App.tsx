@@ -10,6 +10,7 @@ import PcClassRoom from "./components/pages/pc/ClassRoom";
 import { pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
 import Stair from "./components/pages/pc/Stair";
+import ElevatorFront from "./components/pages/pc/ElevatorFront";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -77,6 +78,9 @@ function App() {
             </Route>
             <Route path={pcLinks.stair(":name")}>
               <Stair stairProps={dividedRoomDatas.stair} />
+            </Route>
+            <Route path={pcLinks.elevatorFront(":name")}>
+              <ElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
             </Route>
             <Route path={pcLinks.entrance}>
               <PcEntrance entranceProps={dividedRoomDatas.entrance} />

@@ -14,7 +14,6 @@ interface Props {
 }
 
 function Stair({stairProps}: Props) {
-  console.log(stairProps);
   const history = useHistory();
   const [thisStairProp] = useThisStairProp(stairProps);
   const gotoTargetUrl = (url: RoomUrlType) => {

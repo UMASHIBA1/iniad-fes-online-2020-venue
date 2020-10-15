@@ -7,6 +7,7 @@ export const links = {
   hall: "/hall" as "/hall",
   stair: (name: string) => `/stair/${name}` as LinkUrlType,
   road: (name: string) =>`/road/${name}` as LinkUrlType,
+  elevatorFront: (name: string) => `/elevatorFront/${name}` as LinkUrlType,
   classroom: (name: string) => `/classroom/${name}` as LinkUrlType,
 };
 

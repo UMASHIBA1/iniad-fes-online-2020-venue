@@ -91,8 +91,8 @@ const roomDatas: RoomAPIType = [
         title: "3f 階段"
       },
       doorRight2: {
-        url: links.hall,
-        title: "hall"
+        url: links.elevatorFront("3f"),
+        title: "3階エレベーター前"
       },
       doorLeft2: {
         url: links.hall,
@@ -140,6 +140,20 @@ const roomDatas: RoomAPIType = [
       room: {
         url: links.entrance,
         title: "3Fエレベーター前"
+      }
+    }
+  },
+  {
+    type: "elevatorFront",
+    name: "3f",
+    environment_attributes: {
+      road10xx: {
+        url: links.road("1024"),
+        title: "廊下1024"
+      },
+      road20xx: {
+        url: links.hall,
+        title: "ホール"
       }
     }
   }
