@@ -41,7 +41,17 @@ export interface EntranceProps {
   video: VideoProps;
 }
 
-type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps;
+export interface StairProps {
+  type: "stair",
+  name: string;
+  environment_attributes: {
+    up: RoomEnvLinkProps;
+    down: RoomEnvLinkProps;
+    room: RoomEnvLinkProps;
+  }
+}
+
+type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps;
 
 export type RoomAPIType = RoomPropType[];
 

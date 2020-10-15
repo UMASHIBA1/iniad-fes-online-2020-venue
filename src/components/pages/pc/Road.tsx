@@ -20,10 +20,10 @@ const controllIds = {
   right2: "road-right2-button-controll",
   left2: "road-left2-button-controll",
   next: "road-next-button-controll",
-  back: "road-back-button-controll"
-}
+  back: "road-back-button-controll",
+};
 
-function Road({roadProps}: Props) {
+function Road({ roadProps }: Props) {
   const history = useHistory();
   const [thisRoadProp] = useThisRoadProp(roadProps);
 
@@ -31,44 +31,108 @@ function Road({roadProps}: Props) {
     history.push(url);
   };
 
-
-  return(
+  return (
     <RoomWrapper bgImg={roadImg}>
       <Wrapper>
-      Road
-      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorRight1.title: "空き部屋"} dataControllId={controllIds.right1} onClick={() => {
-                  gotoTargetUrl(
-                    thisRoadProp ? thisRoadProp.environment_attributes.doorRight1.url : pcLinks.entrance
-                  );
-      }} />
-      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorLeft1.title: "空き部屋"} dataControllId={controllIds.left1} onClick={() => {
-                  gotoTargetUrl(
-                    thisRoadProp ? thisRoadProp.environment_attributes.doorLeft1.url : pcLinks.entrance
-                  );
-      }} />
-      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorRight2.title: "空き部屋"} dataControllId={controllIds.right2} onClick={() => {
-                  gotoTargetUrl(
-                    thisRoadProp ? thisRoadProp.environment_attributes.doorRight2.url : pcLinks.entrance
-                  );
-      }} />
-      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.doorLeft2.title: "空き部屋"} dataControllId={controllIds.left2} onClick={() => {
-                  gotoTargetUrl(
-                    thisRoadProp ? thisRoadProp.environment_attributes.doorLeft2.url : pcLinks.entrance
-                  );
-      }} />
-      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.next.title: "空き部屋"} dataControllId={controllIds.next} onClick={() => {
-                  gotoTargetUrl(
-                    thisRoadProp ? thisRoadProp.environment_attributes.next.url : pcLinks.entrance
-                  );
-      }} />
-      <RoomMark imgPath={logoPath} roomTitle={thisRoadProp? thisRoadProp.environment_attributes.back.title: "空き部屋"} dataControllId={controllIds.back} onClick={() => {
-                  gotoTargetUrl(
-                    thisRoadProp ? thisRoadProp.environment_attributes.back.url : pcLinks.entrance
-                  );
-      }} />
-      <FuncButtons />
+        Road
+        <RoomMark
+          imgPath={logoPath}
+          roomTitle={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorRight1.title
+              : "空き部屋"
+          }
+          dataControllId={controllIds.right1}
+          onClick={() => {
+            gotoTargetUrl(
+              thisRoadProp
+                ? thisRoadProp.environment_attributes.doorRight1.url
+                : pcLinks.entrance
+            );
+          }}
+        />
+        <RoomMark
+          imgPath={logoPath}
+          roomTitle={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorLeft1.title
+              : "空き部屋"
+          }
+          dataControllId={controllIds.left1}
+          onClick={() => {
+            gotoTargetUrl(
+              thisRoadProp
+                ? thisRoadProp.environment_attributes.doorLeft1.url
+                : pcLinks.entrance
+            );
+          }}
+        />
+        <RoomMark
+          imgPath={logoPath}
+          roomTitle={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorRight2.title
+              : "空き部屋"
+          }
+          dataControllId={controllIds.right2}
+          onClick={() => {
+            gotoTargetUrl(
+              thisRoadProp
+                ? thisRoadProp.environment_attributes.doorRight2.url
+                : pcLinks.entrance
+            );
+          }}
+        />
+        <RoomMark
+          imgPath={logoPath}
+          roomTitle={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorLeft2.title
+              : "空き部屋"
+          }
+          dataControllId={controllIds.left2}
+          onClick={() => {
+            gotoTargetUrl(
+              thisRoadProp
+                ? thisRoadProp.environment_attributes.doorLeft2.url
+                : pcLinks.entrance
+            );
+          }}
+        />
+        <RoomMark
+          imgPath={logoPath}
+          roomTitle={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.next.title
+              : "空き部屋"
+          }
+          dataControllId={controllIds.next}
+          onClick={() => {
+            gotoTargetUrl(
+              thisRoadProp
+                ? thisRoadProp.environment_attributes.next.url
+                : pcLinks.entrance
+            );
+          }}
+        />
+        <RoomMark
+          imgPath={logoPath}
+          roomTitle={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.back.title
+              : "空き部屋"
+          }
+          dataControllId={controllIds.back}
+          onClick={() => {
+            gotoTargetUrl(
+              thisRoadProp
+                ? thisRoadProp.environment_attributes.back.url
+                : pcLinks.entrance
+            );
+          }}
+        />
+        <FuncButtons />
       </Wrapper>
-
     </RoomWrapper>
   );
 }
@@ -80,7 +144,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  >button {
+  > button {
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
       bottom: 20%;
@@ -112,8 +176,7 @@ const Wrapper = styled.div`
       left: 50%;
     }
   }
-
-`
+`;
 
 const useThisRoadProp = (roadProps: RoadProps[]) => {
   const findThisRoadProp = (thisRoadName: RoadProps["name"]) =>
@@ -126,7 +189,9 @@ const useThisRoadProp = (roadProps: RoadProps[]) => {
     });
 
   const { name } = useTypedParams();
-  const [thisThisRoadProp, changeThisRoadProp] = useState(findThisRoadProp(name));
+  const [thisThisRoadProp, changeThisRoadProp] = useState(
+    findThisRoadProp(name)
+  );
 
   useEffect(() => {
     changeThisRoadProp(findThisRoadProp(name));

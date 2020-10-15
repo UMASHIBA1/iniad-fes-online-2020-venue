@@ -9,6 +9,7 @@ import PcHall from "./components/pages/pc/Hall";
 import PcClassRoom from "./components/pages/pc/ClassRoom";
 import { pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
+import Stair from "./components/pages/pc/Stair";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -74,9 +75,13 @@ function App() {
             <Route path={pcLinks.classroom(":name")}>
               <PcClassRoom classRoomProps={dividedRoomDatas.classroom} />
             </Route>
+            <Route path={pcLinks.stair(":name")}>
+              <Stair stairProps={dividedRoomDatas.stair} />
+            </Route>
             <Route path={pcLinks.entrance}>
               <PcEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
+
           </Switch>
         </Router>
       </React.Fragment>

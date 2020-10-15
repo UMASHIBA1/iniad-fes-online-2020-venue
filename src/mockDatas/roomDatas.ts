@@ -4,7 +4,7 @@ import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 const roomDatas: RoomAPIType = [
   {
     type: "hall",
-    name: "hall-1",
+    name: links.hall,
     video: {
       start_at: {
         iso8601: "2020-10-31T10:00:00+09:00",
@@ -87,8 +87,8 @@ const roomDatas: RoomAPIType = [
         title: "classroom 1024"
       },
       doorLeft1: {
-        url: links.hall,
-        title: "hall"
+        url: links.stair("3f"),
+        title: "3f 階段"
       },
       doorRight2: {
         url: links.hall,
@@ -96,7 +96,7 @@ const roomDatas: RoomAPIType = [
       },
       doorLeft2: {
         url: links.hall,
-        title: "hall"
+        title: ""
       },
       next: {
         url: links.hall,
@@ -122,6 +122,24 @@ const roomDatas: RoomAPIType = [
       door: {
         url: links.road("1024"),
         title: "廊下1024",
+      }
+    }
+  },
+  {
+    type: "stair",
+    name: "3f",
+    environment_attributes: {
+      up: {
+        url: links.stair("4f"),
+        title: "4階"
+      },
+      down: {
+        url: links.entrance,
+        title: "エントランス"
+      },
+      room: {
+        url: links.entrance,
+        title: "3Fエレベーター前"
       }
     }
   }
