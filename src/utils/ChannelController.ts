@@ -24,15 +24,15 @@ export default class ChannelController<T1, T2> {
   ) {
     this.channel = this.cable.subscriptions.create(roomChannel, {
       connected: () => {
-        console.log("test: connect websocket");
+        console.log("connect websocket");
         onEvents.onConnected && onEvents.onConnected();
       },
       disconnected: () => {
-        console.log("test: disconnect websocket");
+        console.log("disconnect websocket");
         onEvents.onDisConnected && onEvents.onDisConnected();
       },
       received: (res: T1) => {
-        console.log("test: receive websocket");
+        console.log("receive websocket");
         onEvents.onReceive && onEvents.onReceive(res);
       }
     });
@@ -41,8 +41,6 @@ export default class ChannelController<T1, T2> {
   public send(data: T2) {
     console.log("channel", this.channel);
     if (this.channel !== null) {
-      console.log("send run");
-      // this.channel.send(data);
       this.channel.perform("speak", data);
     }
   }

@@ -14,6 +14,7 @@
     "@types/react-redux": "^7.1.9",
     "@videojs/themes": "^1.0.0",
     "actioncable": "^5.2.4-4",
+    "axios": "^0.20.0",
     "dayjs": "^1.8.31",
     "js-cookie": "^2.2.1",
     "react": "^16.13.1",

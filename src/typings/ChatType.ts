@@ -7,3 +7,16 @@ export default interface ChatType {
     timestamp: number;
   };
 }
+
+export interface ChatAPIType {
+  type: "chat";
+  payload: ChatType;
+}
+
+
+export interface ChatHistoryType {
+  status: string;
+  payload: {
+    history: ChatType[];
+  }
+}
