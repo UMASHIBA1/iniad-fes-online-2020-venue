@@ -3,7 +3,10 @@ import styled from "styled-components";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import stairImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import RoomMark from "../../atoms/RoomMark";
-import { RoomEnvLinkProps, StairProps } from "../../../typings/RoomPropType/RoomPropType";
+import {
+  RoomEnvLinkProps,
+  StairProps,
+} from "../../../typings/RoomPropType/RoomPropType";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { useHistory } from "react-router-dom";
@@ -13,50 +16,110 @@ interface Props {
   stairProps: StairProps[];
 }
 
-function Stair({stairProps}: Props) {
+const dataControllIds = {
+  up: 'stair-up',
+  down: 'stair-down',
+  room: 'stair-room'
+}
+
+function Stair({ stairProps }: Props) {
   const history = useHistory();
   const [thisStairProp] = useThisStairProp(stairProps);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
 
-  return(
+  return (
     <RoomWrapper bgImg={stairImg}>
       Stair
       <Wrapper>
-        {
-          thisStairProp&&thisStairProp.environment_attributes.up !== undefined?(
-            <RoomMark imgPath={iniadfesLogo} roomTitle={thisStairProp?thisStairProp.environment_attributes.up.title: ""} onClick={() => {
-              gotoTargetUrl(thisStairProp?(thisStairProp.environment_attributes.up as RoomEnvLinkProps).url: pcLinks.entrance);
-            }}  />
-          ): null
-        }
-        {
-          thisStairProp&&thisStairProp.environment_attributes.down?(
-            <RoomMark imgPath={iniadfesLogo} roomTitle={thisStairProp?thisStairProp.environment_attributes.down.title: ""} onClick={() => {
-              gotoTargetUrl(thisStairProp?thisStairProp.environment_attributes.down.url: pcLinks.entrance);
-            }}  />
-          ): null
-        }
-        {
-          thisStairProp&&thisStairProp.environment_attributes.room?(
-            <RoomMark imgPath={iniadfesLogo} roomTitle={thisStairProp?thisStairProp.environment_attributes.room.title: ""} onClick={() => {
-              gotoTargetUrl(thisStairProp?thisStairProp.environment_attributes.room.url: pcLinks.entrance);
-            }}  />
-          ): null
-        }
+        {thisStairProp &&
+        thisStairProp.environment_attributes.up !== undefined ? (
+          <RoomMark
+          dataControllId={dataControllIds.up}
+            imgPath={iniadfesLogo}
+            roomTitle={
+              thisStairProp ? thisStairProp.environment_attributes.up.title : ""
+            }
+            onClick={() => {
+              gotoTargetUrl(
+                thisStairProp
+                  ? (thisStairProp.environment_attributes
+                      .up as RoomEnvLinkProps).url
+                  : pcLinks.entrance
+              );
+            }}
+          />
+        ) : null}
+        {thisStairProp && thisStairProp.environment_attributes.down ? (
+          <RoomMark
+          dataControllId={dataControllIds.down}
+            imgPath={iniadfesLogo}
+            roomTitle={
+              thisStairProp
+                ? thisStairProp.environment_attributes.down.title
+                : ""
+            }
+            onClick={() => {
+              gotoTargetUrl(
+                thisStairProp
+                  ? thisStairProp.environment_attributes.down.url
+                  : pcLinks.entrance
+              );
+            }}
+          />
+        ) : null}
+        {thisStairProp && thisStairProp.environment_attributes.room ? (
+          <RoomMark
+          dataControllId={dataControllIds.room}
+            imgPath={iniadfesLogo}
+            roomTitle={
+              thisStairProp
+                ? thisStairProp.environment_attributes.room.title
+                : ""
+            }
+            onClick={() => {
+              gotoTargetUrl(
+                thisStairProp
+                  ? thisStairProp.environment_attributes.room.url
+                  : pcLinks.entrance
+              );
+            }}
+          />
+        ) : null}
       </Wrapper>
     </RoomWrapper>
   );
 }
 
 const Wrapper = styled.div`
-    position: relative;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-`
+
+  >button {
+    &[data-controll-id=${dataControllIds.up}] {
+      position: absolute;
+      top: 15%;
+      left: 25%;
+    }
+
+    &[data-controll-id=${dataControllIds.down}] {
+      position: absolute;
+      top: 15%;
+      right: 25%;
+    }
+
+    &[data-controll-id=${dataControllIds.room}] {
+      position: absolute;
+      bottom: 15%;
+      left: 50%;
+    }
+
+  }
+`;
 
 const useThisStairProp = (stairProps: StairProps[]) => {
   const findThisStairProp = (thisStairName: StairProps["name"]) =>
@@ -69,7 +132,9 @@ const useThisStairProp = (stairProps: StairProps[]) => {
     });
 
   const { name } = useTypedParams();
-  const [thisStairProp, changeThisStairProp] = useState(findThisStairProp(name));
+  const [thisStairProp, changeThisStairProp] = useState(
+    findThisStairProp(name)
+  );
 
   useEffect(() => {
     console.log(name);
@@ -79,4 +144,4 @@ const useThisStairProp = (stairProps: StairProps[]) => {
   return [thisStairProp];
 };
 
-export default Stair
+export default Stair;
