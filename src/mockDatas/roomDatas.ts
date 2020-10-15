@@ -90,14 +90,6 @@ const roomDatas: RoomAPIType = [
         url: links.stair("3f"),
         title: "3f 階段"
       },
-      doorRight2: {
-        url: links.elevatorFront("3f"),
-        title: "3階エレベーター前"
-      },
-      doorLeft2: {
-        url: links.hall,
-        title: ""
-      },
       next: {
         url: links.hall,
         title: "next road"
@@ -108,23 +100,7 @@ const roomDatas: RoomAPIType = [
       }
     }
   },
-  {
-    type: "entrance",
-    name: "entrance-1",
-    video: {
-      start_at: {
-        iso8601: "2020-10-31T10:00:00+09:00",
-        timestamp: 1604106001
-      },
-      url: "example.com",
-    },
-    environment_attributes: {
-      door: {
-        url: links.road("1024"),
-        title: "廊下1024",
-      }
-    }
-  },
+
   {
     type: "stair",
     name: "3f",
@@ -143,20 +119,7 @@ const roomDatas: RoomAPIType = [
       }
     }
   },
-  {
-    type: "elevatorFront",
-    name: "3f",
-    environment_attributes: {
-      road10xx: {
-        url: links.road("1024"),
-        title: "廊下1024"
-      },
-      road20xx: {
-        url: links.hall,
-        title: "ホール"
-      }
-    }
-  }
+
 ];
 
 export default roomDatas;

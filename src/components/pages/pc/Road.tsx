@@ -17,8 +17,6 @@ interface Props {
 const controllIds = {
   right1: "road-right1-button-controll",
   left1: "road-left1-button-controll",
-  right2: "road-right2-button-controll",
-  left2: "road-left2-button-controll",
   next: "road-next-button-controll",
   back: "road-back-button-controll",
 };
@@ -63,38 +61,6 @@ function Road({ roadProps }: Props) {
             gotoTargetUrl(
               thisRoadProp
                 ? thisRoadProp.environment_attributes.doorLeft1.url
-                : pcLinks.entrance
-            );
-          }}
-        />
-        <RoomMark
-          imgPath={logoPath}
-          roomTitle={
-            thisRoadProp
-              ? thisRoadProp.environment_attributes.doorRight2.title
-              : "空き部屋"
-          }
-          dataControllId={controllIds.right2}
-          onClick={() => {
-            gotoTargetUrl(
-              thisRoadProp
-                ? thisRoadProp.environment_attributes.doorRight2.url
-                : pcLinks.entrance
-            );
-          }}
-        />
-        <RoomMark
-          imgPath={logoPath}
-          roomTitle={
-            thisRoadProp
-              ? thisRoadProp.environment_attributes.doorLeft2.title
-              : "空き部屋"
-          }
-          dataControllId={controllIds.left2}
-          onClick={() => {
-            gotoTargetUrl(
-              thisRoadProp
-                ? thisRoadProp.environment_attributes.doorLeft2.url
                 : pcLinks.entrance
             );
           }}
@@ -153,16 +119,6 @@ const Wrapper = styled.div`
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
       bottom: 20%;
-      left: 20%;
-    }
-    &[data-controll-id=${controllIds.right2}] {
-      position: absolute;
-      top: 20%;
-      right: 20%;
-    }
-    &[data-controll-id=${controllIds.left2}] {
-      position: absolute;
-      top: 20%;
       left: 20%;
     }
     &[data-controll-id=${controllIds.next}] {

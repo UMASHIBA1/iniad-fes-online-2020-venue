@@ -24,8 +24,6 @@ export interface RoadProps {
   environment_attributes: {
     doorRight1: RoomEnvLinkProps;
     doorLeft1: RoomEnvLinkProps;
-    doorRight2: RoomEnvLinkProps;
-    doorLeft2: RoomEnvLinkProps;
     next: RoomEnvLinkProps;
     back: RoomEnvLinkProps;
   },
@@ -36,8 +34,8 @@ export interface ElevatorFrontProps {
   type: "elevatorFront";
   name: string;
   environment_attributes: {
-    road20xx: RoomEnvLinkProps;
-    road10xx: RoomEnvLinkProps;
+    roadx2xx: RoomEnvLinkProps;
+    roadx1xx: RoomEnvLinkProps;
   },
 }
 

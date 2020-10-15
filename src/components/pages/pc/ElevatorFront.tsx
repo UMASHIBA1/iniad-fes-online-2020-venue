@@ -25,16 +25,16 @@ function ElevatorFront({elevatorFrontProps}: Props) {
       ElevatorFront
       <Wrapper>
       {
-          thisElevatorFrontProps&&thisElevatorFrontProps.environment_attributes.road10xx?(
-            <RoomMark imgPath={iniadfesLogo} roomTitle={thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.road10xx.title: ""} onClick={() => {
-              gotoTargetUrl(thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.road10xx.url: pcLinks.entrance);
+          thisElevatorFrontProps&&thisElevatorFrontProps.environment_attributes.roadx1xx?(
+            <RoomMark imgPath={iniadfesLogo} roomTitle={thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx1xx.title: ""} onClick={() => {
+              gotoTargetUrl(thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx1xx.url: pcLinks.entrance);
             }}  />
           ): null
         }
               {
-          thisElevatorFrontProps&&thisElevatorFrontProps.environment_attributes.road20xx?(
-            <RoomMark imgPath={iniadfesLogo} roomTitle={thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.road20xx.title: ""} onClick={() => {
-              gotoTargetUrl(thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.road20xx.url: pcLinks.entrance);
+          thisElevatorFrontProps&&thisElevatorFrontProps.environment_attributes.roadx2xx?(
+            <RoomMark imgPath={iniadfesLogo} roomTitle={thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx2xx.title: ""} onClick={() => {
+              gotoTargetUrl(thisElevatorFrontProps?thisElevatorFrontProps.environment_attributes.roadx2xx.url: pcLinks.entrance);
             }}  />
           ): null
         }
