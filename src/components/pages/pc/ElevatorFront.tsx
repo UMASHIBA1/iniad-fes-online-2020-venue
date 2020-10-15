@@ -13,6 +13,12 @@ interface Props {
   elevatorFrontProps: ElevatorFrontProps[];
 }
 
+const dataControllIds = {
+  roadx1xx: "elevatorFront-roadx1xx-controll",
+  roadX2xx: "elevatorFront-roadx2xx-controll",
+  back: "elevatorFront-back-controll"
+}
+
 function ElevatorFront({ elevatorFrontProps }: Props) {
   const history = useHistory();
   const [thisElevatorFrontProps] = useThisElevatorFrontProp(elevatorFrontProps);
@@ -26,6 +32,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
         {thisElevatorFrontProps &&
         thisElevatorFrontProps.environment_attributes.roadx1xx ? (
           <RoomMark
+          dataControllId={dataControllIds.roadx1xx}
             imgPath={iniadfesLogo}
             roomTitle={
               thisElevatorFrontProps
@@ -44,6 +51,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
         {thisElevatorFrontProps &&
         thisElevatorFrontProps.environment_attributes.roadx2xx ? (
           <RoomMark
+          dataControllId={dataControllIds.roadX2xx}
             imgPath={iniadfesLogo}
             roomTitle={
               thisElevatorFrontProps
@@ -62,6 +70,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
                 {thisElevatorFrontProps &&
         thisElevatorFrontProps.environment_attributes.back ? (
           <RoomMark
+          dataControllId={dataControllIds.back}
             imgPath={iniadfesLogo}
             roomTitle={
               thisElevatorFrontProps
@@ -88,6 +97,26 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
+
+  >button {
+    &[data-controll-id=${dataControllIds.roadx1xx}] {
+      position: absolute;
+      top: 20%;
+      right: 10%;
+    }
+
+    &[data-controll-id=${dataControllIds.roadX2xx}] {
+      position: absolute;
+      top: 20%;
+      left: 20%;
+    }
+
+    &[data-controll-id=${dataControllIds.back}] {
+      position: absolute;
+      bottom: 10%;
+      left: 50%;
+    }
+  }
 `;
 
 const useThisElevatorFrontProp = (elevatorFrontProps: ElevatorFrontProps[]) => {
