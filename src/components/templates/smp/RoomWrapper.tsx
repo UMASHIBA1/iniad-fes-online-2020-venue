@@ -8,6 +8,7 @@ import IconButton from "../../atoms/IconButton";
 import { DispatchType, useTypedSelector } from "../../../redux/store";
 import { useDispatch } from "react-redux";
 import { toCenter, toLeft, toRight } from "../../../redux/modules/viewingScreen";
+import breakPoints from "../../../constants/breakPoints";
 
 interface Props {
   children: ReactNode;
@@ -65,8 +66,6 @@ function RoomWrapper({ children, bgImg }: Props) {
 }
 
 const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp}>`
-  width: 300vw;
-  height: calc(1 / 2 * 300vw);
   position: relative;
   top: 0;
   left: 0;
@@ -74,6 +73,12 @@ const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp}
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  width: 300vw;
+  height: calc(1/3 * 300vw);
+
+  ${breakPoints.downSm} {
+  height: calc(1 / 2 * 300vw);
+  }
 
   ${({ viewing }) =>
     viewing === "center" &&
