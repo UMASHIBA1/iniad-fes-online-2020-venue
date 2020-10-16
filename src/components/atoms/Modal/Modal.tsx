@@ -81,7 +81,6 @@ const Wrapper = styled.div<Pick<Props, "isShow" | "viewing">>`
   top: 0;
   left: 0;
   ${centerPutChild}
-  overflow: hidden;
 
   ${({ isShow }) =>
     isShow &&
