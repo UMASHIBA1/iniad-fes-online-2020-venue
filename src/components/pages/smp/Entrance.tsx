@@ -5,8 +5,8 @@ import styled from "styled-components";
 import Footer from "../../molecules/smp/Footer";
 
 function Entrance() {
-  return(
-    <RoomWrapper bgImg={entranceImg} viewing="left">
+  return (
+    <RoomWrapper bgImg={entranceImg}>
       <Wrapper>
         Entrance
         <Footer viewing="left" />
@@ -21,6 +21,6 @@ const Wrapper = styled.div`
   left: 0;
   width: 100%;
   height: 100%;
-`
+`;
 
-export default Entrance
+export default Entrance;

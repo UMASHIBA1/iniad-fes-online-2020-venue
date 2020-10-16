@@ -5,52 +5,87 @@ import ViewingProp from "../../../typings/ViewingProp";
 import rightArrow from "../../../statics/svgs/right-arrow.svg";
 import leftArrow from "../../../statics/svgs/left-arrow.svg";
 import IconButton from "../../atoms/IconButton";
+import { DispatchType, useTypedSelector } from "../../../redux/store";
+import { useDispatch } from "react-redux";
+import { toCenter, toLeft, toRight } from "../../../redux/modules/viewingScreen";
 
 interface Props {
   children: ReactNode;
   bgImg: string;
-  viewing:ViewingProp;
 }
 
 const dataControllIds = {
   leftButton: "roomwrapper-left-button",
-  rightButton: "roomwrapper-right-button"
+  rightButton: "roomwrapper-right-button",
+};
+
+const goOneLeft = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
+  if(nowViewingScreen === "center") {
+    dispatch(toLeft());
+  }else if(nowViewingScreen === "right") {
+    dispatch(toCenter());
+  }
 }
 
-function RoomWrapper({children, bgImg, viewing}: Props) {
-  return(
+const goOneRight = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
+  if(nowViewingScreen === "center") {
+    dispatch(toRight());
+  }else if(nowViewingScreen === "left") {
+    dispatch(toCenter());
+  }
+}
+
+function RoomWrapper({ children, bgImg }: Props) {
+  const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
+  const dispatch: DispatchType = useDispatch();
+
+  return (
     <Wrapper>
-      <RoomWrapperMain bgImg={bgImg} viewing={viewing}>
-        <IconButton svgPath={leftArrow} iconDescription="left" dataControllId={dataControllIds.leftButton}  />
+      <RoomWrapperMain bgImg={bgImg} viewing={viewingScreen}>
         {children}
-        <IconButton svgPath={rightArrow} iconDescription="right" dataControllId={dataControllIds.rightButton}  />
+        <IconButton
+          svgPath={leftArrow}
+          iconDescription="left"
+          dataControllId={dataControllIds.leftButton}
+          onClick={() => {
+            goOneLeft(dispatch, viewingScreen);
+          }}
+        />
+        <IconButton
+          svgPath={rightArrow}
+          iconDescription="right"
+          dataControllId={dataControllIds.rightButton}
+          onClick={() => {
+            goOneRight(dispatch, viewingScreen);
+          }}
+        />
       </RoomWrapperMain>
     </Wrapper>
   );
 }
 
-const RoomWrapperMain = styled.div<Pick<Props, "bgImg" | "viewing">>`
+const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp}>`
   width: 300vw;
   height: calc(1 / 2 * 300vw);
   position: relative;
   top: 0;
   left: 0;
-  background-image: url(${({bgImg}) => bgImg});
+  background-image: url(${({ bgImg }) => bgImg});
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
-  ${({viewing}) => (
-    viewing==="center" && css`
-    transform: translateX(-100vw);
-    `
-  )}
+  ${({ viewing }) =>
+    viewing === "center" &&
+    css`
+      transform: translateX(-100vw);
+    `}
 
-${({viewing}) => (
-    viewing==="right" && css`
-    transform: translateX(-200vw);
-    `
-  )}
+  ${({ viewing }) =>
+    viewing === "right" &&
+    css`
+      transform: translateX(-200vw);
+    `}
 
   >button {
     &[data-controll-id=${dataControllIds.leftButton}] {
@@ -58,22 +93,21 @@ ${({viewing}) => (
       top: 50%;
       left: 0;
       margin-left: 6px;
-      ${({viewing}) => (
-        viewing==="left"&&css`
-          /* transform: translate(, -50%); */
+      ${({ viewing }) =>
+        viewing === "left" &&
+        css`
           visibility: hidden;
-        `
-      )}
-            ${({viewing}) => (
-        viewing==="center"&&css`
+        `}
+      ${({ viewing }) =>
+        viewing === "center" &&
+        css`
           transform: translate(100vw, -50%);
-        `
-      )}
-      ${({viewing}) => (
-        viewing==="right"&&css`
+        `}
+      ${({ viewing }) =>
+        viewing === "right" &&
+        css`
           transform: translate(200vw, -50%);
-        `
-      )}
+        `}
     }
 
     &[data-controll-id=${dataControllIds.rightButton}] {
@@ -81,27 +115,24 @@ ${({viewing}) => (
       top: 50%;
       right: 0;
       margin-right: 6px;
-      ${({viewing}) => (
-        viewing==="left"&&css`
+      ${({ viewing }) =>
+        viewing === "left" &&
+        css`
           transform: translate(-200vw, -50%);
-        `
-      )}
-            ${({viewing}) => (
-        viewing==="center"&&css`
+        `}
+      ${({ viewing }) =>
+        viewing === "center" &&
+        css`
           transform: translate(-100vw, -50%);
-        `
-      )}
-      ${({viewing}) => (
-        viewing==="right"&&css`
+        `}
+      ${({ viewing }) =>
+        viewing === "right" &&
+        css`
           visibility: hidden;
-        `
-      )}
+        `}
     }
   }
-
-`
-
-
+`;
 
 const Wrapper = styled.div`
   ${centerPutChild}
@@ -109,6 +140,6 @@ const Wrapper = styled.div`
   width: 100vw;
   height: 100vh;
   overflow: hidden;
-`
+`;
 
-export default RoomWrapper
+export default RoomWrapper;

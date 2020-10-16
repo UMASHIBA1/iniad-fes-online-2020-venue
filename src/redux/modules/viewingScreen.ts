@@ -1,12 +1,13 @@
 import {createSlice} from "@reduxjs/toolkit";
+import ViewingProp from "../../typings/ViewingProp";
 
 const ViewingScreen = createSlice({
   name: "viewingScreen",
-  initialState: "left",
+  initialState: "left" as ViewingProp,
   reducers: {
-    toLeft: () => "left",
-    toCenter: () => "center",
-    toRight: () => "right"
+    toLeft: () => "left" as ViewingProp,
+    toCenter: () => "center" as ViewingProp,
+    toRight: () => "right" as ViewingProp
   }
 });
 

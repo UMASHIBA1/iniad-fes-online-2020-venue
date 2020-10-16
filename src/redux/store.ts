@@ -1,4 +1,4 @@
-import {configureStore} from "@reduxjs/toolkit";
+import { configureStore } from "@reduxjs/toolkit";
 import isFisrtVisitReducer from "./modules/isFirstVisit";
 import viewingScreenReducer from "./modules/viewingScreen";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
@@ -6,7 +6,7 @@ import { TypedUseSelectorHook, useSelector } from "react-redux";
 const store = configureStore({
   reducer: {
     isFirstVisit: isFisrtVisitReducer,
-    viewingScreen: viewingScreenReducer
+    viewingScreen: viewingScreenReducer,
   },
 });
 
