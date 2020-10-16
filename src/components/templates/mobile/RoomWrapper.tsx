@@ -9,6 +9,7 @@ import { DispatchType, useTypedSelector } from "../../../redux/store";
 import { useDispatch } from "react-redux";
 import { toCenter, toLeft, toRight } from "../../../redux/modules/viewingScreen";
 import breakPoints from "../../../constants/breakPoints";
+import useDidMount from "../../../hooks/useDidMount/useDidMount";
 
 interface Props {
   children: ReactNode;
@@ -39,6 +40,10 @@ const goOneRight = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
 function RoomWrapper({ children, bgImg }: Props) {
   const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
   const dispatch: DispatchType = useDispatch();
+
+  useDidMount(() => {
+    dispatch(toCenter());
+  })
 
   return (
     <Wrapper>
