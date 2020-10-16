@@ -1,11 +1,12 @@
 import React, { ReactNode } from "react";
 import styled, { css } from "styled-components";
 import centerPutChild from "../../../cssProps/centerPutChild";
+import ViewingProp from "../../../typings/ViewingProp";
 
 interface Props {
   children: ReactNode;
   bgImg: string;
-  viewing: "left" | "center" | "right";
+  viewing:ViewingProp;
 }
 
 function RoomWrapper({children, bgImg, viewing}: Props) {

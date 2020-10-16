@@ -1,26 +1,42 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { whiteColor } from "../../../constants/colors";
-import { lightBlueBGColor } from "../../../cssProps/colors";
+import { lightBlueBGColor, whiteText } from "../../../cssProps/colors";
+import ImgModal from "../ImgModal";
+import dummyImg from "../../../statics/dummy.png";
+import ViewingProp from "../../../typings/ViewingProp";
+
 
 interface Props {
-  viewing: "left" | "center" | "right";
+  viewing: ViewingProp;
 }
 
 function Footer({ viewing }: Props) {
+  const [isShowPlan, changeIsShowPlan] = useState(false);
   return (
     <Wrapper viewing={viewing}>
-      <OneFunc />
-      <OneFunc />
-      <OneFunc />
+      <OneFunc>Chat</OneFunc>
+      <OneFunc>Map</OneFunc>
+      <OneFunc onClick={() => changeIsShowPlan(true)}>Plan</OneFunc>
+      <ImgModal
+      isShow={isShowPlan}
+      onClose={() => {
+        changeIsShowPlan(false);
+      }}
+      src={dummyImg}
+      // FIXME: もし画像でプランを表示させるなら視覚障がい者ようにaltでちゃんとしたプランの一覧を書かないといけない
+      alt="plan"
+      viewing={viewing}
+      />
     </Wrapper>
   );
 }
 
-const OneFunc = styled.div`
+const OneFunc = styled.button`
   outline: none !important;
   border: 1px solid ${whiteColor};
   ${lightBlueBGColor};
+  ${whiteText}
 `;
 
 const Wrapper = styled.div<Pick<Props, "viewing">>`

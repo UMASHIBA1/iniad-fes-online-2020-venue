@@ -11,17 +11,19 @@ import breakPoints from "../../../constants/breakPoints";
 import useRestrictBodyScroll from "../../../hooks/useRestrictBodyScroll/useRestrictBodyScroll";
 import { radiusMd } from "../../../cssProps/radius";
 import { normalShadow } from "../../../cssProps/shadow";
+import ViewingProp from "../../../typings/ViewingProp";
 
 interface Props {
   children: ReactNode;
   isShow: boolean;
   onClose: () => void;
+  viewing?: ViewingProp;
 }
 
-function Modal({ children, isShow, onClose }: Props) {
+function Modal({ children, isShow, onClose, viewing = "left" }: Props) {
   useRestrictBodyScroll(isShow);
   return (
-    <Wrapper isShow={isShow}>
+    <Wrapper isShow={isShow} viewing={viewing}>
       <ModalBG onClick={onClose} isShow={isShow} data-testid="modal-bg" />
       <ModalMainWrapper>
         <ModalMain isShow={isShow}>{children}</ModalMain>
@@ -71,11 +73,10 @@ const fadeInContent: AnimationPropsType = {
   delay: calcPreviousTime(expandMain),
 };
 
-const Wrapper = styled.div<Pick<Props, "isShow">>`
+const Wrapper = styled.div<Pick<Props, "isShow" | "viewing">>`
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+
+  width: 100vw;
   height: 100%;
   ${centerPutChild}
   overflow: hidden;
@@ -92,6 +93,26 @@ const Wrapper = styled.div<Pick<Props, "isShow">>`
       transition: visibility ${disableAll.duration}ms ease-in
         ${disableAll.delay}ms;
       visibility: hidden;
+    `}
+
+    ${({ viewing }) =>
+    viewing === "left" &&
+    css`
+      top: 0;
+      left: 0;
+    `}
+    ${({ viewing }) =>
+    viewing === "center" &&
+    css`
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    `}
+    ${({ viewing }) =>
+    viewing === "right" &&
+    css`
+      top: 0;
+      right: 0;
     `}
 `;
 
