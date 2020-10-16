@@ -15,6 +15,7 @@ import MobileElevatorFront from "./components/pages/mobile/ElevatorFront";
 import MobileEntrance from "./components/pages/mobile/Entrance";
 import MobileHall from "./components/pages/mobile/Hall";
 import MobileRoad from "./components/pages/mobile/Road";
+import MobileClassRoom from "./components/pages/mobile/ClassRoom";
 
 
 
@@ -67,6 +68,9 @@ function App() {
             </Route>
             <Route path={mobileLinks.hall}>
               <MobileHall hallProps={dividedRoomDatas.hall} />
+            </Route>
+            <Route path={mobileLinks.classroom(":name")}>
+              <MobileClassRoom classRoomProps={dividedRoomDatas.classroom} />
             </Route>
             <Route path={mobileLinks.elevatorFront(":name")}>
               <MobileElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
