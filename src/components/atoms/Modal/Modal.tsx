@@ -75,11 +75,17 @@ const fadeInContent: AnimationPropsType = {
 
 const Wrapper = styled.div<Pick<Props, "isShow" | "viewing">>`
   position: fixed;
-
-  width: 100vw;
+  width: 100%;
   height: 100%;
+  top: 0;
+  left: 0;
   ${centerPutChild}
   overflow: hidden;
+
+  ${breakPoints.downTablet} {
+    position: absolute;
+  }
+
   ${({ isShow }) =>
     isShow &&
     css`
@@ -138,12 +144,13 @@ const ModalBG = styled.div<Pick<Props, "isShow">>`
 
 const ModalMainWrapper = styled.div`
   ${centerPutByPosition}
+  width: 100%;
   max-width: 940px;
   min-height: 160px;
-  width: calc(100% - 24px);
 
   ${breakPoints.downTablet} {
     height: calc(100% - 54px);
+    width: calc(100% - 54px);
   }
 `;
 

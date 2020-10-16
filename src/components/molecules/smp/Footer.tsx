@@ -14,11 +14,13 @@ function Footer() {
   const [isShowMap, changeIsShowMap] = useState(false);
   const viewing = useTypedSelector(({viewingScreen}) => viewingScreen);
   return (
+    <React.Fragment>
     <Wrapper viewingScreen={viewing}>
       <OneFunc>Chat</OneFunc>
       <OneFunc onClick={() => changeIsShowMap(true)}>Map</OneFunc>
       <OneFunc onClick={() => changeIsShowPlan(true)}>Plan</OneFunc>
-      <PDFModal
+    </Wrapper>
+    <PDFModal
         isShow={isShowMap}
         onClose={() => {
           changeIsShowMap(false);
@@ -39,7 +41,8 @@ function Footer() {
       alt="plan"
       viewing={viewing}
       />
-    </Wrapper>
+    </React.Fragment>
+
   );
 }
 
