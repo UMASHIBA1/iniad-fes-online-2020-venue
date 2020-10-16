@@ -4,7 +4,7 @@ import entranceImg from "../../../statics/totyo.png";
 import { EntranceProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
-import FuncButtons from "../../molecules/FuncButtons";
+import FuncButtons from "../../molecules/pc/FuncButtons";
 import { useDispatch } from "react-redux";
 import { DispatchType } from "../../../redux/store";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";

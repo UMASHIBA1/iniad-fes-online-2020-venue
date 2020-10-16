@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import IconButton from "../atoms/IconButton";
+import IconButton from "../../atoms/IconButton";
 import mapIcon from "../../statics/svgs/map-icon.svg";
 import chatIcon from "../../statics/svgs/chat-icon.svg";
 import scheduleIcon from "../../statics/svgs/schedule-icon.svg";
-import PDFModal from "./PDFModal";
+import PDFModal from "../PDFModal";
 import dummyImg from "../../statics/dummy.png";
-import ImgModal from "./ImgModal";
+import ImgModal from "../ImgModal";
 
 function FuncButtons() {
   const [isShowMap, changeIsShowMap] = useState(false);

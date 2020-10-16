@@ -5,7 +5,7 @@ import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
 import { HallProps } from "../../../typings/RoomPropType/RoomPropType";
-import FuncButtons from "../../molecules/FuncButtons";
+import FuncButtons from "../../molecules/pc/FuncButtons";
 import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";

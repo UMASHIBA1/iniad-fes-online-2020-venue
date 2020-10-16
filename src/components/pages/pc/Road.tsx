@@ -5,7 +5,7 @@ import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
-import FuncButtons from "../../molecules/FuncButtons";
+import FuncButtons from "../../molecules/pc/FuncButtons";
 import styled from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
