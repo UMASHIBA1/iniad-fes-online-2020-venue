@@ -9,7 +9,7 @@ function Entrance() {
     <RoomWrapper bgImg={entranceImg}>
       <Wrapper>
         Entrance
-        <Footer viewing="left" />
+        <Footer />
       </Wrapper>
     </RoomWrapper>
   );

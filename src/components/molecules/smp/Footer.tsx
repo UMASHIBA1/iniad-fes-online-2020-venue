@@ -4,19 +4,17 @@ import { whiteColor } from "../../../constants/colors";
 import { lightBlueBGColor, whiteText } from "../../../cssProps/colors";
 import ImgModal from "../ImgModal";
 import dummyImg from "../../../statics/dummy.png";
-import ViewingProp from "../../../typings/ViewingProp";
 import PDFModal from "../PDFModal";
+import { useTypedSelector } from "../../../redux/store";
+import ViewingProp from "../../../typings/ViewingProp";
 
 
-interface Props {
-  viewing: ViewingProp;
-}
-
-function Footer({ viewing }: Props) {
+function Footer() {
   const [isShowPlan, changeIsShowPlan] = useState(false);
   const [isShowMap, changeIsShowMap] = useState(false);
+  const viewing = useTypedSelector(({viewingScreen}) => viewingScreen);
   return (
-    <Wrapper viewing={viewing}>
+    <Wrapper viewingScreen={viewing}>
       <OneFunc>Chat</OneFunc>
       <OneFunc onClick={() => changeIsShowMap(true)}>Map</OneFunc>
       <OneFunc onClick={() => changeIsShowPlan(true)}>Plan</OneFunc>
@@ -52,7 +50,7 @@ const OneFunc = styled.button`
   ${whiteText}
 `;
 
-const Wrapper = styled.div<Pick<Props, "viewing">>`
+const Wrapper = styled.div<{viewingScreen: ViewingProp}>`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: 1fr;
@@ -61,20 +59,20 @@ const Wrapper = styled.div<Pick<Props, "viewing">>`
   width: calc(100% / 3);
   height: 52px;
 
-  ${({ viewing }) =>
+  ${({ viewingScreen: viewing }) =>
     viewing === "left" &&
     css`
       left: 0;
     `}
 
-  ${({ viewing }) =>
+  ${({ viewingScreen: viewing }) =>
     viewing === "center" &&
     css`
       left: 50%;
       transform: translateX(-50%);
     `}
 
-${({ viewing }) =>
+${({ viewingScreen: viewing }) =>
     viewing === "right" &&
     css`
       right: 0;
