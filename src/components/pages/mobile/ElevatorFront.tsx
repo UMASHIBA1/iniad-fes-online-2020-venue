@@ -8,6 +8,7 @@ import useTypedParams from "../../../hooks/useTypedParams";
 import { mobileLinks, RoomUrlType } from "../../../constants/links";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import RoomMark from "../../atoms/RoomMark";
+import Footer from "../../molecules/mobile/Footer";
 
 interface Props {
   elevatorFrontProps: ElevatorFrontProps[];
@@ -86,6 +87,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
             }}
           />
         ) : null}
+        <Footer />
       </Wrapper>
     </RoomWrapper>
   );
