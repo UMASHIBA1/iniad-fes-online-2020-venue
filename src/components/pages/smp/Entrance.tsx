@@ -2,12 +2,14 @@ import React from "react";
 import RoomWrapper from "../../templates/smp/RoomWrapper";
 import entranceImg from "../../../statics/totyo.png";
 import styled from "styled-components";
+import Footer from "../../molecules/smp/Footer";
 
 function Entrance() {
   return(
-    <RoomWrapper bgImg={entranceImg} viewing="left">
+    <RoomWrapper bgImg={entranceImg} viewing="right">
       <Wrapper>
         Entrance
+        <Footer viewing="right" />
       </Wrapper>
     </RoomWrapper>
   );
