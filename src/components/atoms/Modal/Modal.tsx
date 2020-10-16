@@ -75,6 +75,7 @@ const fadeInContent: AnimationPropsType = {
 
 const Wrapper = styled.div<Pick<Props, "isShow" | "viewing">>`
   position: fixed;
+  z-index: 2;
   width: 100vw;
   height: 100%;
   top: 0;
