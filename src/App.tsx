@@ -13,6 +13,8 @@ import Stair from "./components/pages/pc/Stair";
 import PcElevatorFront from "./components/pages/pc/ElevatorFront";
 import MobileElevatorFront from "./components/pages/mobile/ElevatorFront";
 import MobileEntrance from "./components/pages/mobile/Entrance";
+import MobileHall from "./components/pages/mobile/Hall";
+
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -57,6 +59,9 @@ function App() {
             </Route>
             <Route path="/debug">
               <MobileHome /> {/* FIXME: デバッグ用ページ、後で消す */}
+            </Route>
+            <Route path={mobileLinks.hall}>
+              <MobileHall hallProps={dividedRoomDatas.hall} />
             </Route>
             <Route path={mobileLinks.elevatorFront(":name")}>
               <MobileElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
