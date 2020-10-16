@@ -6,10 +6,10 @@ import Footer from "../../molecules/smp/Footer";
 
 function Entrance() {
   return(
-    <RoomWrapper bgImg={entranceImg} viewing="right">
+    <RoomWrapper bgImg={entranceImg} viewing="left">
       <Wrapper>
         Entrance
-        <Footer viewing="right" />
+        <Footer viewing="left" />
       </Wrapper>
     </RoomWrapper>
   );
