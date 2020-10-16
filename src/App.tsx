@@ -7,10 +7,11 @@ import PcEntrance from "./components/pages/pc/Entrance";
 import PcRoad from "./components/pages/pc/Road";
 import PcHall from "./components/pages/pc/Hall";
 import PcClassRoom from "./components/pages/pc/ClassRoom";
-import { pcLinks } from "./constants/links";
+import { mobileLinks, pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
 import Stair from "./components/pages/pc/Stair";
-import ElevatorFront from "./components/pages/pc/ElevatorFront";
+import PcElevatorFront from "./components/pages/pc/ElevatorFront";
+import MobileElevatorFront from "./components/pages/smp/ElevatorFront";
 import MobileEntrance from "./components/pages/smp/Entrance";
 
 const useDeviceType = () => {
@@ -57,7 +58,10 @@ function App() {
             <Route path="/debug">
               <MobileHome /> {/* FIXME: デバッグ用ページ、後で消す */}
             </Route>
-            <Route path="/">
+            <Route path={mobileLinks.elevatorFront(":name")}>
+              <MobileElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
+            </Route>
+            <Route path={mobileLinks.entrance}>
               <MobileEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
           </Switch>
@@ -84,7 +88,7 @@ function App() {
               <Stair stairProps={dividedRoomDatas.stair} />
             </Route>
             <Route path={pcLinks.elevatorFront(":name")}>
-              <ElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
+              <PcElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
             </Route>
             <Route path={pcLinks.entrance}>
               <PcEntrance entranceProps={dividedRoomDatas.entrance} />
