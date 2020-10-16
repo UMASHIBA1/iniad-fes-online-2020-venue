@@ -1,8 +1,8 @@
 import React from "react";
-import RoomWrapper from "../../templates/smp/RoomWrapper";
+import RoomWrapper from "../../templates/mobile/RoomWrapper";
 import entranceImg from "../../../statics/totyo.png";
 import styled from "styled-components";
-import Footer from "../../molecules/smp/Footer";
+import Footer from "../../molecules/mobile/Footer";
 import RoomMark from "../../atoms/RoomMark";
 import iniadfeslogo from "../../../statics/svgs/iniadfes-logo.svg";
 import { EntranceProps } from "../../../typings/RoomPropType/RoomPropType";

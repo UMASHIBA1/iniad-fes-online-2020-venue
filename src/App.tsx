@@ -11,8 +11,8 @@ import { mobileLinks, pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
 import Stair from "./components/pages/pc/Stair";
 import PcElevatorFront from "./components/pages/pc/ElevatorFront";
-import MobileElevatorFront from "./components/pages/smp/ElevatorFront";
-import MobileEntrance from "./components/pages/smp/Entrance";
+import MobileElevatorFront from "./components/pages/mobile/ElevatorFront";
+import MobileEntrance from "./components/pages/mobile/Entrance";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");

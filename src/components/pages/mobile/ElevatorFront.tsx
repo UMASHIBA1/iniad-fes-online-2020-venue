@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import RoomWrapper from "../../templates/smp/RoomWrapper";
+import RoomWrapper from "../../templates/mobile/RoomWrapper";
 import elevatorFrontImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import { ElevatorFrontProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
