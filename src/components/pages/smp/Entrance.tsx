@@ -5,7 +5,7 @@ import styled from "styled-components";
 
 function Entrance() {
   return(
-    <RoomWrapper bgImg={entranceImg}>
+    <RoomWrapper bgImg={entranceImg} viewing="left">
       <Wrapper>
         Entrance
       </Wrapper>
