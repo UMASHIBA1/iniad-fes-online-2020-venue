@@ -11,6 +11,7 @@ import { pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
 import Stair from "./components/pages/pc/Stair";
 import ElevatorFront from "./components/pages/pc/ElevatorFront";
+import MobileEntrance from "./components/pages/smp/Entrance";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -50,11 +51,14 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
-            <Route path="/videopage">
+            <Route path="/videopage">{/* FIXME: デバッグ用ページ、後で消す */}
               <VideoPage />
             </Route>
+            <Route path="/debug">
+              <MobileHome /> {/* FIXME: デバッグ用ページ、後で消す */}
+            </Route>
             <Route path="/">
-              <MobileHome />
+              <MobileEntrance />
             </Route>
           </Switch>
         </Router>
