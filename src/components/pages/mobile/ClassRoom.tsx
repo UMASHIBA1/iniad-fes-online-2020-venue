@@ -8,6 +8,7 @@ import { RoomUrlType } from "../../../constants/links";
 import styled from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
+import Footer from "../../molecules/mobile/Footer";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -21,6 +22,7 @@ function ClassRoom({ classRoomProps }: Props) {
     <RoomWrapper bgImg={roomImg}>
       <Wrapper>
         {createthisModeRoom(history, thisClassRoomProp)}
+        <Footer />
       </Wrapper>
     </RoomWrapper>
   );
