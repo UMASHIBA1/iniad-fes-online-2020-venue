@@ -14,6 +14,8 @@ import PcElevatorFront from "./components/pages/pc/ElevatorFront";
 import MobileElevatorFront from "./components/pages/mobile/ElevatorFront";
 import MobileEntrance from "./components/pages/mobile/Entrance";
 import MobileHall from "./components/pages/mobile/Hall";
+import MobileRoad from "./components/pages/mobile/Road";
+
 
 
 const useDeviceType = () => {
@@ -59,6 +61,9 @@ function App() {
             </Route>
             <Route path="/debug">
               <MobileHome /> {/* FIXME: デバッグ用ページ、後で消す */}
+            </Route>
+            <Route path={mobileLinks.road(":name")}>
+              <MobileRoad roadProps={dividedRoomDatas.road} />
             </Route>
             <Route path={mobileLinks.hall}>
               <MobileHall hallProps={dividedRoomDatas.hall} />
