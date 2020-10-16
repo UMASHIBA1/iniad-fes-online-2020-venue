@@ -58,7 +58,7 @@ function App() {
               <MobileHome /> {/* FIXME: デバッグ用ページ、後で消す */}
             </Route>
             <Route path="/">
-              <MobileEntrance />
+              <MobileEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
           </Switch>
         </Router>
