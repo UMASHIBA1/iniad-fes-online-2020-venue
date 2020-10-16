@@ -7,14 +7,16 @@ import PDFViewer from "../atoms/PDFViewer";
 import rightArrow from "../../statics/svgs/right-arrow.svg";
 import leftArrow from "../../statics/svgs/left-arrow.svg";
 import PDFProps from "../../typings/PDFProps";
+import ViewingProp from "../../typings/ViewingProp";
 
 interface Props {
   isShow: boolean;
   onClose: () => void;
   pdfProps: PDFProps;
+  viewing?: ViewingProp;
 }
 
-function PDFModal({ isShow, onClose, pdfProps }: Props) {
+function PDFModal({ isShow, onClose, pdfProps, viewing }: Props) {
   const [nowPageNum, changeNowPageNum] = useState(1);
 
 
@@ -31,7 +33,7 @@ function PDFModal({ isShow, onClose, pdfProps }: Props) {
   }
 
   return (
-    <Modal isShow={isShow} onClose={onClose}>
+    <Modal isShow={isShow} onClose={onClose} viewing={viewing}>
       <PDFWrapper>
         <IconButton iconDescription="back" svgPath={leftArrow} onClick={gotoAbovePage} dataControllId={nowPageNum > 1?"":"disable-button"} />
         <PDFViewer pdfPath={pdfProps.url} nowPageNum={nowPageNum} />

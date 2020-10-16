@@ -5,6 +5,7 @@ import { lightBlueBGColor, whiteText } from "../../../cssProps/colors";
 import ImgModal from "../ImgModal";
 import dummyImg from "../../../statics/dummy.png";
 import ViewingProp from "../../../typings/ViewingProp";
+import PDFModal from "../PDFModal";
 
 
 interface Props {
@@ -13,11 +14,23 @@ interface Props {
 
 function Footer({ viewing }: Props) {
   const [isShowPlan, changeIsShowPlan] = useState(false);
+  const [isShowMap, changeIsShowMap] = useState(false);
   return (
     <Wrapper viewing={viewing}>
       <OneFunc>Chat</OneFunc>
-      <OneFunc>Map</OneFunc>
+      <OneFunc onClick={() => changeIsShowMap(true)}>Map</OneFunc>
       <OneFunc onClick={() => changeIsShowPlan(true)}>Plan</OneFunc>
+      <PDFModal
+        isShow={isShowMap}
+        onClose={() => {
+          changeIsShowMap(false);
+        }}
+        pdfProps={{
+          url: "/sample.pdf",
+          pageNum: 2,
+        }}
+        viewing={viewing}
+      />
       <ImgModal
       isShow={isShowPlan}
       onClose={() => {
