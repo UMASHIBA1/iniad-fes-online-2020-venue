@@ -6,9 +6,20 @@ import MobileHome from "./components/pages/Home";
 import PcEntrance from "./components/pages/pc/Entrance";
 import PcRoad from "./components/pages/pc/Road";
 import PcHall from "./components/pages/pc/Hall";
-import PcClassRoom from "./components/pages/pc/ClassRoom";
-import { pcLinks } from "./constants/links";
+import PcClassRoom from "./components/pages/pc/ClassRoom/ClassRoom";
+import { mobileLinks, pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
+import PcStair from "./components/pages/pc/Stair";
+import PcElevatorFront from "./components/pages/pc/ElevatorFront";
+import MobileElevatorFront from "./components/pages/mobile/ElevatorFront";
+import MobileEntrance from "./components/pages/mobile/Entrance";
+import MobileHall from "./components/pages/mobile/Hall";
+import MobileRoad from "./components/pages/mobile/Road";
+import MobileClassRoom from "./components/pages/mobile/ClassRoom/ClassRoom";
+import MobileStair from "./components/pages/mobile/Stair";
+
+
+
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -48,11 +59,29 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
-            <Route path="/videopage">
+            <Route path="/videopage">{/* FIXME: デバッグ用ページ、後で消す */}
               <VideoPage />
             </Route>
-            <Route path="/">
-              <MobileHome />
+            <Route path="/debug">
+              <MobileHome /> {/* FIXME: デバッグ用ページ、後で消す */}
+            </Route>
+            <Route path={mobileLinks.road(":name")}>
+              <MobileRoad roadProps={dividedRoomDatas.road} />
+            </Route>
+            <Route path={mobileLinks.hall}>
+              <MobileHall hallProps={dividedRoomDatas.hall} />
+            </Route>
+            <Route path={mobileLinks.classroom(":name")}>
+              <MobileClassRoom classRoomProps={dividedRoomDatas.classroom} />
+            </Route>
+            <Route path={mobileLinks.stair(":name")}>
+              <MobileStair stairProps={dividedRoomDatas.stair} />
+            </Route>
+            <Route path={mobileLinks.elevatorFront(":name")}>
+              <MobileElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
+            </Route>
+            <Route path={mobileLinks.entrance}>
+              <MobileEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
           </Switch>
         </Router>
@@ -74,9 +103,16 @@ function App() {
             <Route path={pcLinks.classroom(":name")}>
               <PcClassRoom classRoomProps={dividedRoomDatas.classroom} />
             </Route>
+            <Route path={pcLinks.stair(":name")}>
+              <PcStair stairProps={dividedRoomDatas.stair} />
+            </Route>
+            <Route path={pcLinks.elevatorFront(":name")}>
+              <PcElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
+            </Route>
             <Route path={pcLinks.entrance}>
               <PcEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
+
           </Switch>
         </Router>
       </React.Fragment>

@@ -1,4 +1,4 @@
-import {createSlice} from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const IsFirstVisit = createSlice({
   name: "isFirstVisit",
@@ -8,6 +8,6 @@ const IsFirstVisit = createSlice({
   },
 });
 
-export const {toVisited} = IsFirstVisit.actions;
+export const { toVisited } = IsFirstVisit.actions;
 
 export default IsFirstVisit.reducer;

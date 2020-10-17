@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import RoomWrapper from "../../templates/pc/RoomWrapper";
+import RoomWrapper from "../../templates/mobile/RoomWrapper";
 import roadImg from "../../../statics/road.png";
 import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
-import { pcLinks, RoomUrlType } from "../../../constants/links";
+import { mobileLinks, RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
-import FuncButtons from "../../molecules/pc/FuncButtons";
 import styled from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
+import Footer from "../../molecules/mobile/Footer";
 
 interface Props {
   roadProps: RoadProps[];
@@ -45,7 +45,7 @@ function Road({ roadProps }: Props) {
             gotoTargetUrl(
               thisRoadProp
                 ? thisRoadProp.environment_attributes.doorRight1.url
-                : pcLinks.entrance
+                : mobileLinks.entrance
             );
           }}
         />
@@ -61,7 +61,7 @@ function Road({ roadProps }: Props) {
             gotoTargetUrl(
               thisRoadProp
                 ? thisRoadProp.environment_attributes.doorLeft1.url
-                : pcLinks.entrance
+                : mobileLinks.entrance
             );
           }}
         />
@@ -77,7 +77,7 @@ function Road({ roadProps }: Props) {
             gotoTargetUrl(
               thisRoadProp
                 ? thisRoadProp.environment_attributes.next.url
-                : pcLinks.entrance
+                : mobileLinks.entrance
             );
           }}
         />
@@ -93,11 +93,11 @@ function Road({ roadProps }: Props) {
             gotoTargetUrl(
               thisRoadProp
                 ? thisRoadProp.environment_attributes.back.url
-                : pcLinks.entrance
+                : mobileLinks.entrance
             );
           }}
         />
-        <FuncButtons />
+        <Footer />
       </Wrapper>
     </RoomWrapper>
   );
@@ -128,7 +128,7 @@ const Wrapper = styled.div`
     }
     &[data-controll-id=${controllIds.back}] {
       position: absolute;
-      bottom: 5%;
+      bottom: 15%;
       left: 50%;
     }
   }

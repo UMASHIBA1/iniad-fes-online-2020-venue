@@ -39,7 +39,7 @@ const Wrapper = styled.div`
 
 const RoomWrapperMain = styled.div<Pick<Props, "bgImg">>`
   width: 100vw;
-  height: calc(1/2 * (100vw - 24px));
+  height: calc(1/2 * 100vw);
   position: relative;
   top: 0;
   left: 0;
