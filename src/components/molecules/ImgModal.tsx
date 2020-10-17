@@ -1,17 +1,19 @@
 import React from "react";
 import styled from "styled-components";
+import ViewingProp from "../../typings/ViewingProp";
 import Modal from "../atoms/Modal/Modal";
 
 interface Props {
   isShow: boolean;
   onClose: () => void;
   src: string;
-  alt: string
+  alt: string;
+  viewing?: ViewingProp;
 }
 
-function ImgModal({isShow, onClose, src, alt}: Props) {
+function ImgModal({isShow, onClose, src, alt, viewing = "left"}: Props) {
   return(
-    <Modal isShow={isShow} onClose={onClose}>
+    <Modal isShow={isShow} onClose={onClose} viewing={viewing}>
       <Img src={src} alt={alt} />
     </Modal>
   );

@@ -1,14 +1,13 @@
 import React from "react";
-import RoomWrapper from "../../templates/pc/RoomWrapper";
+import RoomWrapper from "../../templates/mobile/RoomWrapper";
 import hallImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import { useHistory } from "react-router-dom";
-import { pcLinks, RoomUrlType } from "../../../constants/links";
-import Button from "../../atoms/Button/Button";
+import { mobileLinks, RoomUrlType } from "../../../constants/links";
 import { HallProps } from "../../../typings/RoomPropType/RoomPropType";
-import FuncButtons from "../../molecules/pc/FuncButtons";
 import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
+import Footer from "../../molecules/mobile/Footer";
 
 interface Props {
   hallProps: HallProps[];
@@ -30,26 +29,6 @@ function Hall({ hallProps }: Props) {
     <RoomWrapper bgImg={hallImg}>
       <Wrapper>
         Hall
-        <Button
-          text="door1"
-          onClick={() => {
-            gotoTargetUrl(
-              hallProps[0]
-                ? hallProps[0].environment_attributes.door1.url
-                : pcLinks.entrance
-            );
-          }}
-        />
-        <Button
-          text="door2"
-          onClick={() => {
-            gotoTargetUrl(
-              hallProps[0]
-                ? hallProps[0].environment_attributes.door2.url
-                : pcLinks.entrance
-            );
-          }}
-        />
         <RoomMark
           imgPath={iniadfesLogo}
           roomTitle={
@@ -61,7 +40,7 @@ function Hall({ hallProps }: Props) {
             gotoTargetUrl(
               hallProps[0]
                 ? hallProps[0].environment_attributes.door1.url
-                : pcLinks.entrance
+                : mobileLinks.entrance
             );
           }}
           dataControllId={dataControllIds.door1}
@@ -77,12 +56,12 @@ function Hall({ hallProps }: Props) {
             gotoTargetUrl(
               hallProps[0]
                 ? hallProps[0].environment_attributes.door2.url
-                : pcLinks.entrance
+                : mobileLinks.entrance
             );
           }}
           dataControllId={dataControllIds.door2}
         />
-        <FuncButtons />
+        <Footer />
       </Wrapper>
     </RoomWrapper>
   );
@@ -98,12 +77,12 @@ const Wrapper = styled.div`
     &[data-controll-id=${dataControllIds.door1}] {
       position: absolute;
       top: 13%;
-      right: 33%;
+      right: 50%;
     }
     &[data-controll-id=${dataControllIds.door2}] {
       position: absolute;
       bottom: 13%;
-      right: 33%;
+      right: 50%;
     }
   }
 `;

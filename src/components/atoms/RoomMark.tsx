@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import breakPoints from "../../constants/breakPoints";
 import { blackText, whiteBGColor } from "../../cssProps/colors";
 import { radius50percent } from "../../cssProps/radius";
 import { normalShadow } from "../../cssProps/shadow";
@@ -29,12 +30,18 @@ const IconImg = styled.img.attrs<Pick<Props, "imgPath" | "roomTitle">>(({imgPath
   object-fit: fill;
   width: 40%;
   margin-bottom: 12px;
+  ${breakPoints.downTablet} {
+    margin-bottom: 0;
+  }
 `
 
 const RoomTitle = styled.div`
   width: 70%;
   width: 74%;
   font-size: 12px;
+  ${breakPoints.downTablet} {
+    display: none;
+  }
 `
 
 const Wrapper = styled.button.attrs<{dataControllId: string}>(({dataControllId}) =>({
@@ -51,6 +58,11 @@ const Wrapper = styled.button.attrs<{dataControllId: string}>(({dataControllId})
   width: 160px;
   height: 160px;
   outline: none !important;
+
+  ${breakPoints.downTablet} {
+    width: 64px;
+    height: 64px
+  }
 `
 
 export default RoomMark;

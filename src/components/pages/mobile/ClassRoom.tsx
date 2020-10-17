@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import RoomWrapper from "../../templates/pc/RoomWrapper";
+import RoomWrapper from "../../templates/mobile/RoomWrapper";
 import roomImg from "../../../statics/classroom1.png";
 import ClassRoomProps from "../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { RoomUrlType } from "../../../constants/links";
-import FuncButtons from "../../molecules/pc/FuncButtons";
 import styled from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
+import Footer from "../../molecules/mobile/Footer";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -22,8 +22,7 @@ function ClassRoom({ classRoomProps }: Props) {
     <RoomWrapper bgImg={roomImg}>
       <Wrapper>
         {createthisModeRoom(history, thisClassRoomProp)}
-        <FuncButtons />
-
+        <Footer />
       </Wrapper>
     </RoomWrapper>
   );
@@ -43,7 +42,7 @@ const Wrapper = styled.div`
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
       top: 47%;
-      left: 5%;
+      left: 15%;
     }
   }
 `;
