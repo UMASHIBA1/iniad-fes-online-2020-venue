@@ -35,8 +35,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 70vh;
   min-height: 300px;
-  max-width: 95%;
-  max-height: 90vh;
+  max-width: 98%;
 `
 
 export default VideoModal;

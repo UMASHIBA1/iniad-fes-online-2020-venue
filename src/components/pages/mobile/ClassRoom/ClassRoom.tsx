@@ -12,6 +12,7 @@ import Footer from "../../../molecules/mobile/Footer";
 import MusicRoomContent from "./MusicRoomContent";
 import { useTypedSelector } from "../../../../redux/store";
 import ViewingProp from "../../../../typings/ViewingProp";
+import VideoRoomContent from "./VideoRoomContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -78,6 +79,10 @@ const createthisModeRoom = (
       case "musics":
         return(
           <MusicRoomContent history={history} musicEnvProps={env} viewingScreen={viewingScreen} />
+        )
+      case "video":
+        return(
+          <VideoRoomContent history={history} videoEnvProps={env} />
         )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
