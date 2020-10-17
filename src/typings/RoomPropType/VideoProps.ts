@@ -4,4 +4,5 @@ export default interface VideoProps {
     timestamp: number;
   },
   url: string; // NOTE: e.g. /room1.m3u8
+  mode: "streaming" | "mp4";
 }

@@ -13,6 +13,7 @@ const sampleVideo: ClassRoomProps["video"] = {
     timestamp: 1604106001,
   },
   url: "example.com",
+  mode: "mp4"
 };
 
 const roomDatas: RoomAPIType = [
@@ -26,6 +27,7 @@ const roomDatas: RoomAPIType = [
         timestamp: 1604106001,
       },
       url: "example.com",
+      mode: "mp4"
     },
     environment_attributes: {
       door: {
@@ -246,8 +248,15 @@ const roomDatas: RoomAPIType = [
         title: "3階廊下1",
         url: links.road("3101"),
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      mode: "video",
+      VideoProps: {
+        url: "https://bento-api-test.herokuapp.com/movie.mp4",
+        mode: "mp4",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000
+        }
+      }
     },
     video: sampleVideo,
   },
