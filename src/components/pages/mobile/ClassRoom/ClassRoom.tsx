@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from "react";
-import RoomWrapper from "../../templates/mobile/RoomWrapper";
-import roomImg from "../../../statics/classroom1.png";
-import ClassRoomProps from "../../../typings/RoomPropType/ClassRoomProps";
+import RoomWrapper from "../../../templates/mobile/RoomWrapper";
+import roomImg from "../../../../statics/classroom1.png";
+import ClassRoomProps from "../../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
-import useTypedParams from "../../../hooks/useTypedParams";
-import { RoomUrlType } from "../../../constants/links";
+import useTypedParams from "../../../../hooks/useTypedParams";
+import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
-import RoomMark from "../../atoms/RoomMark";
-import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
-import Footer from "../../molecules/mobile/Footer";
+import RoomMark from "../../../atoms/RoomMark";
+import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
+import Footer from "../../../molecules/mobile/Footer";
+import MusicRoomContent from "./MusicRoomContent";
+import { useTypedSelector } from "../../../../redux/store";
+import ViewingProp from "../../../../typings/ViewingProp";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -17,11 +20,12 @@ interface Props {
 function ClassRoom({ classRoomProps }: Props) {
   const history = useHistory();
   const [thisClassRoomProp] = useThisClassRoomProp(classRoomProps);
+  const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
 
   return (
     <RoomWrapper bgImg={roomImg}>
       <Wrapper>
-        {createthisModeRoom(history, thisClassRoomProp)}
+        {createthisModeRoom(history, viewingScreen,thisClassRoomProp)}
         <Footer />
       </Wrapper>
     </RoomWrapper>
@@ -49,11 +53,13 @@ const Wrapper = styled.div`
 
 const createthisModeRoom = (
   history: ReturnType<typeof useHistory>,
-  thisClassRoomProp?: ClassRoomProps
+  viewingScreen: ViewingProp,
+  thisClassRoomProp?: ClassRoomProps,
 ) => {
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
   if (thisClassRoomProp) {
     const env = thisClassRoomProp.environment_attributes;
     switch (env.mode) {
@@ -69,6 +75,10 @@ const createthisModeRoom = (
                 gotoTargetUrl(env.door.url);
         }} />
         );
+      case "musics":
+        return(
+          <MusicRoomContent history={history} musicEnvProps={env} viewingScreen={viewingScreen} />
+        )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
     }

@@ -4,16 +4,16 @@ import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 
 const sampleObj = {
   url: "example.com",
-  name: "example"
+  name: "example",
 };
 
 const sampleVideo: ClassRoomProps["video"] = {
   start_at: {
-    iso8601:"2020-10-31T10:00:00+09:00",
-    timestamp: 1604106001
+    iso8601: "2020-10-31T10:00:00+09:00",
+    timestamp: 1604106001,
   },
-  url: "example.com"
-}
+  url: "example.com",
+};
 
 const roomDatas: RoomAPIType = [
   // entrance
@@ -49,8 +49,8 @@ const roomDatas: RoomAPIType = [
       },
       back: {
         url: links.stair("3f"),
-        title: "3階階段"
-      }
+        title: "3階階段",
+      },
     },
   },
   {
@@ -59,17 +59,17 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       roadx1xx: {
         url: links.road("4101"),
-        title: "4階廊下1"
+        title: "4階廊下1",
       },
       roadx2xx: {
         url: links.hall,
-        title: "ホール"
+        title: "ホール",
       },
       back: {
         url: links.stair("4f"),
-        title: "4階階段"
-      }
-    }
+        title: "4階階段",
+      },
+    },
   },
   // stair
   {
@@ -78,7 +78,7 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       up: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前"
+        title: "4階エレベーター前",
       },
       down: {
         url: links.entrance,
@@ -86,9 +86,9 @@ const roomDatas: RoomAPIType = [
       },
       room: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前"
-    }
-    }
+        title: "3階エレベーター前",
+      },
+    },
   },
   {
     type: "stair",
@@ -96,13 +96,13 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       down: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前"
+        title: "3階エレベーター前",
       },
       room: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前"
-      }
-    }
+        title: "4階エレベーター前",
+      },
+    },
   },
   // road
   {
@@ -199,21 +199,21 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       back: {
         url: links.road("4101"),
-        title: "4階廊下1"
+        title: "4階廊下1",
       },
       next: {
         url: links.road("4103"),
-        title: "4階廊下3"
+        title: "4階廊下3",
       },
       doorLeft1: {
         url: links.classroom("4106"),
-        title: "RAISON DETRE"
+        title: "RAISON DETRE",
       },
       doorRight1: {
         url: links.classroom("4105"),
-        title: "TATFO"
-      }
-    }
+        title: "TATFO",
+      },
+    },
   },
   {
     type: "road",
@@ -221,21 +221,21 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       back: {
         url: links.road("4102"),
-        title: "4階廊下2"
+        title: "4階廊下2",
       },
       next: {
         url: links.classroom("4100"),
-        title: "Art Works"
+        title: "Art Works",
       },
       doorLeft1: {
         url: links.classroom("4102"),
-        title: "Hello Vietnam"
+        title: "Hello Vietnam",
       },
       doorRight1: {
         url: links.classroom("4101"),
-        title: "Noah's Ark"
-      }
-    }
+        title: "Noah's Ark",
+      },
+    },
   },
   // classroom
   {
@@ -244,12 +244,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "3階廊下1",
-        url: links.road("3101")
+        url: links.road("3101"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -257,12 +257,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "3階廊下1",
-        url: links.road("3101")
+        url: links.road("3101"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -270,12 +270,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "3階廊下2",
-        url: links.road("3102")
+        url: links.road("3102"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -283,12 +283,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "3階廊下2",
-        url: links.road("3102")
+        url: links.road("3102"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -296,12 +296,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "3階廊下3",
-        url: links.road("3103")
+        url: links.road("3103"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -309,12 +309,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "3階廊下3",
-        url: links.road("3103")
+        url: links.road("3103"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -322,12 +322,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "4階廊下1",
-        url: links.road("4101")
+        url: links.road("4101"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -335,12 +335,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "4階廊下1",
-        url: links.road("4101")
+        url: links.road("4101"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -348,7 +348,7 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "4階廊下2",
-        url: links.road("4102")
+        url: links.road("4102"),
       },
       mode: "musics",
       musicIframes: [
@@ -362,9 +362,9 @@ const roomDatas: RoomAPIType = [
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
-      ]
+      ],
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -372,12 +372,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "4階廊下2",
-        url: links.road("4102")
+        url: links.road("4102"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -385,12 +385,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "4階廊下3",
-        url: links.road("4103")
+        url: links.road("4103"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -398,12 +398,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "4階廊下3",
-        url: links.road("4103")
+        url: links.road("4103"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -411,12 +411,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       door: {
         title: "4階廊下3",
-        url: links.road("4103")
+        url: links.road("4103"),
       },
       mode: "oneObj",
-      obj1:sampleObj,
+      obj1: sampleObj,
     },
-    video: sampleVideo
+    video: sampleVideo,
   },
 ];
 export default roomDatas;

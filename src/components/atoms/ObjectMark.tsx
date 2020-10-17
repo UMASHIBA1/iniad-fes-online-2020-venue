@@ -8,7 +8,7 @@ interface Props {
 }
 
 function ObjectMark(props: Props) {
-  return(
+  return (
     <Wrapper onClick={props.onClick} dataControllId={props.dataControllId}>
       <WhiteCircle />
       <AnimeCircle />
@@ -28,26 +28,27 @@ const circleAnime = keyframes`
     transform: scale(2);
     opacity: 0;
   }
-`
+`;
 
 const WhiteCircle = styled.div`
-    position: absolute;
+  position: absolute;
   top: calc(50% - 16px);
   left: calc(50% - 16px);
   ${whiteBGColor}
   border-radius: 50%;
   height: 32px;
   width: 32px;
-`
+`;
 
 const AnimeCircle = styled(WhiteCircle)`
   animation: ${circleAnime} 2400ms ease-in infinite;
-`
+`;
 
-
-const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(({dataControllId}) =>({
-  "data-controll-id": dataControllId
-}))<Pick<Props, "dataControllId">>`
+const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(
+  ({ dataControllId }) => ({
+    "data-controll-id": dataControllId,
+  })
+)<Pick<Props, "dataControllId">>`
   cursor: pointer;
   outline: none !important;
 
@@ -63,10 +64,7 @@ const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(({dataControl
     :nth-child(3) {
       animation-delay: 1600ms;
     }
-
   }
-`
-
-
+`;
 
 export default ObjectMark;

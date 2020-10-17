@@ -8,13 +8,13 @@ import IFrameWrap from "../atoms/IFrameWrap";
 interface Props {
   isShow: boolean;
   onClose: () => void;
-  viewing?: ViewingProp;
+  viewingScreen?: ViewingProp;
   musics: MusicEnvAttr["musicIframes"];
 }
 
-function MusicModal({isShow, onClose, viewing, musics}: Props) {
+function MusicModal({isShow, onClose, viewingScreen, musics}: Props) {
   return(
-    <Modal isShow={isShow} onClose={onClose} viewing={viewing} >
+    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen} >
       <Wrapper>
         {musics.map((musicIframe) => (
           <OneMusic>
@@ -29,6 +29,7 @@ function MusicModal({isShow, onClose, viewing, musics}: Props) {
 const OneMusic = styled.div`
   margin: 24px;
   width: 360px;
+  max-width: 98%;
   height: 300px;
 `
 

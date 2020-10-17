@@ -15,7 +15,7 @@ import MobileElevatorFront from "./components/pages/mobile/ElevatorFront";
 import MobileEntrance from "./components/pages/mobile/Entrance";
 import MobileHall from "./components/pages/mobile/Hall";
 import MobileRoad from "./components/pages/mobile/Road";
-import MobileClassRoom from "./components/pages/mobile/ClassRoom";
+import MobileClassRoom from "./components/pages/mobile/ClassRoom/ClassRoom";
 import MobileStair from "./components/pages/mobile/Stair";
 
 
