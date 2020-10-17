@@ -12,16 +12,12 @@ function Chat() {
   return (
     <Wrapper>
       <LineWrapper>
-      {chatDatas.map((data) => {
+      {chatDatas.map((data, index) => {
         return (
           <Line
             key={
               data.text +
-              data.time +
-              "is_admin" +
-              data.is_admin +
-              "is_circle_staff" +
-              data.is_circle_staff
+              data.time + index
             }
             {...data}
           />
