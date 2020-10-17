@@ -6,7 +6,7 @@ import MobileHome from "./components/pages/Home";
 import PcEntrance from "./components/pages/pc/Entrance";
 import PcRoad from "./components/pages/pc/Road";
 import PcHall from "./components/pages/pc/Hall";
-import PcClassRoom from "./components/pages/pc/ClassRoom";
+import PcClassRoom from "./components/pages/pc/ClassRoom/ClassRoom";
 import { mobileLinks, pcLinks } from "./constants/links";
 import { useDividedRoomDatas } from "./hooks/useRoomDatas";
 import PcStair from "./components/pages/pc/Stair";

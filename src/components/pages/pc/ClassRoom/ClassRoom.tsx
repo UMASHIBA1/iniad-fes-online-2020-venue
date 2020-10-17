@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import RoomWrapper from "../../templates/pc/RoomWrapper";
-import roomImg from "../../../statics/classroom1.png";
-import ClassRoomProps from "../../../typings/RoomPropType/ClassRoomProps";
+import RoomWrapper from "../../../templates/pc/RoomWrapper";
+import roomImg from "../../../../statics/classroom1.png";
+import ClassRoomProps from "../../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
-import useTypedParams from "../../../hooks/useTypedParams";
-import { RoomUrlType } from "../../../constants/links";
-import FuncButtons from "../../molecules/pc/FuncButtons";
+import useTypedParams from "../../../../hooks/useTypedParams";
+import { RoomUrlType } from "../../../../constants/links";
+import FuncButtons from "../../../molecules/pc/FuncButtons";
 import styled from "styled-components";
-import RoomMark from "../../atoms/RoomMark";
-import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
+import RoomMark from "../../../atoms/RoomMark";
+import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
+import MusicRoomContent from "./MusicRoomContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -69,6 +70,10 @@ const createthisModeRoom = (
             <RoomMark imgPath={logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
                 gotoTargetUrl(env.door.url);
         }} />
+        );
+      case "musics":
+        return(
+          <MusicRoomContent history={history} musicEnvProps={env} />
         );
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";

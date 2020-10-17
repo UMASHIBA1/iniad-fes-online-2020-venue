@@ -26,7 +26,13 @@ interface ExampleMode2EnvAttr {
   };
 }
 
-type EnvAttr = ExampleMode1EnvAttr | ExampleMode2EnvAttr;
+export interface MusicEnvAttr {
+  mode: "musics";
+  door: RoomEnvLinkProps;
+  musicIframes: string[];
+}
+
+type EnvAttr = ExampleMode1EnvAttr | ExampleMode2EnvAttr | MusicEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";

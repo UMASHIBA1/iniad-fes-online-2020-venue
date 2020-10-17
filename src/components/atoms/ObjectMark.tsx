@@ -4,11 +4,12 @@ import { whiteBGColor } from "../../cssProps/colors";
 
 interface Props {
   onClick?: () => void;
+  dataControllId?: string;
 }
 
 function ObjectMark(props: Props) {
   return(
-    <Wrapper onClick={props.onClick}>
+    <Wrapper onClick={props.onClick} dataControllId={props.dataControllId}>
       <WhiteCircle />
       <AnimeCircle />
       <AnimeCircle />
@@ -44,11 +45,11 @@ const AnimeCircle = styled(WhiteCircle)`
 `
 
 
-const Wrapper = styled.div`
-  position: relative;
-  top: 0;
-  left: 0;
+const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(({dataControllId}) =>({
+  "data-controll-id": dataControllId
+}))<Pick<Props, "dataControllId">>`
   cursor: pointer;
+  outline: none !important;
 
   ${AnimeCircle} {
     :nth-child(1) {
