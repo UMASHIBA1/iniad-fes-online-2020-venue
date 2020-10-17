@@ -32,7 +32,17 @@ export interface MusicEnvAttr {
   musicIframes: string[];
 }
 
-type EnvAttr = ExampleMode1EnvAttr | ExampleMode2EnvAttr | MusicEnvAttr;
+export interface VideoEnvAttr {
+  mode: "video";
+  door: RoomEnvLinkProps;
+  VideoProps: VideoProps;
+}
+
+type EnvAttr =
+  | ExampleMode1EnvAttr
+  | ExampleMode2EnvAttr
+  | MusicEnvAttr
+  | VideoEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
