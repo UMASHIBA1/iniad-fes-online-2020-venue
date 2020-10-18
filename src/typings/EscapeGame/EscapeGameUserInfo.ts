@@ -9,7 +9,7 @@ interface BaseUserInfo {
 }
 
 interface EngineerAndDesignUserInfo {
-  course: "engineer" | "design";
+  course: "engineer" | "design" | null;
   userAnswer: {
     q2: AnswerSelection;
     q4: string;
@@ -17,7 +17,7 @@ interface EngineerAndDesignUserInfo {
 }
 
 interface CivilUserInfo {
-  course: "civil";
+  course: "civil" | null;
   userAnswer: {
     q2: AnswerSelection;
     q4: string;
@@ -25,7 +25,7 @@ interface CivilUserInfo {
 }
 
 interface BusinessUserInfo {
-  course: "business";
+  course: "business" | null;
   userAnswer: {
     q2: string;
     q4: string;
