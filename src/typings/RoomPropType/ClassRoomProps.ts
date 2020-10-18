@@ -1,3 +1,4 @@
+import EscapeGameQuestion from "../EscapeGame/EscapeGameQuestion";
 import { RoomEnvLinkProps } from "./RoomPropType";
 import VideoProps from "./VideoProps";
 
@@ -30,12 +31,14 @@ export interface MusicEnvAttr {
   mode: "musics";
   door: RoomEnvLinkProps;
   musicIframes: string[];
+  escapeGameQuestion?: EscapeGameQuestion;
 }
 
 export interface VideoEnvAttr {
   mode: "video";
   door: RoomEnvLinkProps;
   VideoProps: VideoProps;
+  escapeGameQuestion?: EscapeGameQuestion;
 }
 
 interface TwitterProps {
@@ -54,6 +57,7 @@ export interface PhotoListEnvAttr {
   title: string;
   description: string;
   photos: (TwitterProps | InstagramProps)[];
+  escapeGameQuestion?: EscapeGameQuestion;
 }
 
 type EnvAttr =
