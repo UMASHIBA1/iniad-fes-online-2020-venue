@@ -1,15 +1,16 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
-import { whiteBGColor } from "../../cssProps/colors";
+import styled, { css, keyframes } from "styled-components";
+import { lightBlueBGColor, whiteBGColor } from "../../cssProps/colors";
 
 interface Props {
   onClick?: () => void;
   dataControllId?: string;
+  color?: "white" | "blue";
 }
 
 function ObjectMark(props: Props) {
   return (
-    <Wrapper onClick={props.onClick} dataControllId={props.dataControllId}>
+    <Wrapper onClick={props.onClick} dataControllId={props.dataControllId} color={props.color}>
       <WhiteCircle />
       <AnimeCircle />
       <AnimeCircle />
@@ -48,11 +49,24 @@ const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(
   ({ dataControllId }) => ({
     "data-controll-id": dataControllId,
   })
-)<Pick<Props, "dataControllId">>`
+)<Pick<Props, "dataControllId" | "color">>`
   cursor: pointer;
   outline: none !important;
 
   ${AnimeCircle} {
+
+    ${({color}) =>(
+      color==="white" && css`
+        ${whiteBGColor}
+      `
+    )}
+
+        ${({color}) =>(
+      color==="blue" && css`
+        ${lightBlueBGColor}
+      `
+    )}
+
     :nth-child(1) {
       animation-delay: 0ms;
     }
