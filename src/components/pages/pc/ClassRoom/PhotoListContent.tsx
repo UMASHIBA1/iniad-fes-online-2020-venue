@@ -41,7 +41,7 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
       <PhotoListModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        photoIframes={photoListEnvProps.photoIframes}
+        photos={photoListEnvProps.photos}
         title={photoListEnvProps.title}
         description={photoListEnvProps.description}
       />

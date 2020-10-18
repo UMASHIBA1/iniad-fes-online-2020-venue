@@ -5,15 +5,15 @@ import { whiteBGColor } from "../../cssProps/colors";
 import { PhotoListEnvAttr } from "../../typings/RoomPropType/ClassRoomProps";
 import ViewingProp from "../../typings/ViewingProp";
 import Description from "../atoms/Description";
-import IFrameWrap from "../atoms/IFrameWrap";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
+import { Tweet } from 'react-twitter-widgets'
 
 interface Props {
   isShow: boolean;
   onClose: () => void;
   viewingScreen?: ViewingProp;
-  photoIframes: PhotoListEnvAttr["photoIframes"];
+  photos: PhotoListEnvAttr["photos"];
   title: string;
   description: string;
 }
@@ -22,10 +22,12 @@ function PhotoListModal({
   isShow,
   onClose,
   viewingScreen,
-  photoIframes,
+  photos,
   title,
   description
 }: Props) {
+
+
   return (
     <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen}>
       <Wrapper>
@@ -34,9 +36,16 @@ function PhotoListModal({
         <Description description={description} />
       </TextWrapper>
       <ListWrapper>
-        {photoIframes.map((photocode, i) => (
-            <IFrameWrap iframeCode={photocode} key={i} />
-        ))}
+        {photos.map((snsProp) => {
+          if(snsProp.sns === "twitter" ){
+            return(
+          <Tweet tweetId={snsProp.tweetId} />
+            )
+          }else {
+            return(null);
+          }
+        }
+        )}
       </ListWrapper>
       </Wrapper>
     </Modal>
