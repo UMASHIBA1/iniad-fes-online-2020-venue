@@ -1,4 +1,4 @@
-type AnswerSelection = "a" | "b" | "c" | "d";
+export type AnswerSelection = "a" | "b" | "c" | "d";
 
 interface BaseUserInfo {
   grade: 1 | 2 | 3 |4;
@@ -28,7 +28,7 @@ interface BusinessUserInfo {
   course: "business";
   userAnswer: {
     q2: string;
-    q4: AnswerSelection;
+    q4: string;
   }
 }
 
