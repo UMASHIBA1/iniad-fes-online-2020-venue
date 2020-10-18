@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import Description from "../../../atoms/Description";
 import Title from "../../../atoms/Title";
 
 
@@ -8,6 +9,7 @@ function PhotoListContent() {
     <Wrapper>
       PhotoListContent
       <Title title="ID/graph" />
+      <Description description="しゃしんたくさんとったのでみてね！ by ID/graph" />
     </Wrapper>
   );
 }
