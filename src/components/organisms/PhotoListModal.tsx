@@ -17,6 +17,7 @@ interface Props {
   photos: PhotoListEnvAttr["photos"];
   title: string;
   description: string;
+  isMobile: boolean;
 }
 
 function PhotoListModal({
@@ -25,12 +26,13 @@ function PhotoListModal({
   viewingScreen,
   photos,
   title,
-  description
+  description,
+  isMobile
 }: Props) {
 
 
   return (
-    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen}>
+    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen} isMobile={isMobile}>
       <Wrapper>
       <TextWrapper>
         <Title title={title} />

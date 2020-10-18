@@ -44,6 +44,7 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
         photos={photoListEnvProps.photos}
         title={photoListEnvProps.title}
         description={photoListEnvProps.description}
+        isMobile={false}
       />
     </Wrapper>
   );

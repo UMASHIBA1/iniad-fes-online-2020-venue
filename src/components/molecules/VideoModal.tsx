@@ -10,11 +10,12 @@ interface Props {
   onClose: () => void;
   viewingScreen?: ViewingProp;
   videoProps: VideoProps;
+  isMobile: boolean;
 }
 
-function VideoModal({isShow, onClose, viewingScreen, videoProps}: Props) {
+function VideoModal({isShow, onClose, viewingScreen, videoProps, isMobile}: Props) {
   return(
-    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen}>
+    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen} isMobile={isMobile}>
     <Wrapper>
       {isShow?(<VideoPlayer
           controls={true}

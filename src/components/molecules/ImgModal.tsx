@@ -9,11 +9,12 @@ interface Props {
   src: string;
   alt: string;
   viewing?: ViewingProp;
+  isMobile: boolean;
 }
 
-function ImgModal({isShow, onClose, src, alt, viewing = "left"}: Props) {
+function ImgModal({isShow, onClose, src, alt, viewing = "left", isMobile}: Props) {
   return(
-    <Modal isShow={isShow} onClose={onClose} viewing={viewing}>
+    <Modal isShow={isShow} onClose={onClose} viewing={viewing} isMobile={isMobile}>
       <Img src={src} alt={alt} />
     </Modal>
   );

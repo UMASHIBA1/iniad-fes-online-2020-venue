@@ -47,6 +47,7 @@ function PhotoListContent({ photoListEnvProps, history, viewingScreen }: Props) 
         title={photoListEnvProps.title}
         description={photoListEnvProps.description}
         viewingScreen={viewingScreen}
+        isMobile={true}
       />
     </Wrapper>
   );

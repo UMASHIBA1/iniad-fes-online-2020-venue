@@ -40,6 +40,7 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
       isShow={isShowModal}
       onClose={() => changeIsShowModal(false)}
       videoProps={videoEnvProps.VideoProps}
+        isMobile={false}
       />
     </Wrapper>
   );

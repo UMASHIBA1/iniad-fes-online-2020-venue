@@ -18,14 +18,20 @@ interface Props {
   isShow: boolean;
   onClose: () => void;
   viewing?: ViewingProp;
+  isMobile: boolean;
 }
 
-
-function Modal({ children, isShow, onClose, viewing = "left" }: Props) {
+function Modal({
+  children,
+  isShow,
+  onClose,
+  viewing = "left",
+  isMobile,
+}: Props) {
   useRestrictBodyScroll(isShow);
   return (
     <Wrapper isShow={isShow} viewing={viewing}>
-      <ModalBG onClick={onClose} isShow={isShow} data-testid="modal-bg" />
+      <ModalBG onClick={onClose} isShow={isShow} isMobile={isMobile} data-testid="modal-bg" />
       <ModalMainWrapper>
         <ModalMain isShow={isShow}>{children}</ModalMain>
       </ModalMainWrapper>
@@ -120,17 +126,23 @@ const Wrapper = styled.div<Pick<Props, "isShow" | "viewing">>`
     `}
 `;
 
-const ModalBG = styled.div<Pick<Props, "isShow">>`
+const ModalBG = styled.div<Pick<Props, "isShow" | "isMobile">>`
   ${centerPutChild}
   ${topLeftZero}
   width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.4);
-  transform: translateY(calc(-50vh + 50vw));
 
-  ${breakPoints.downSm} {
-    transform: translateY(calc(-50vh + 75vw));
-  }
+  ${({ isMobile }) =>
+    isMobile &&
+    css`
+      transform: translateY(calc(-50vh + 50vw));
+
+      ${breakPoints.downSm} {
+        transform: translateY(calc(-50vh + 75vw));
+      }
+    `}
+
   ${({ isShow }) =>
     isShow &&
     css`
