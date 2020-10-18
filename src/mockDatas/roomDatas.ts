@@ -13,7 +13,7 @@ const sampleVideo: ClassRoomProps["video"] = {
     timestamp: 1604106001,
   },
   url: "example.com",
-  mode: "mp4"
+  mode: "mp4",
 };
 
 const roomDatas: RoomAPIType = [
@@ -27,7 +27,7 @@ const roomDatas: RoomAPIType = [
         timestamp: 1604106001,
       },
       url: "example.com",
-      mode: "mp4"
+      mode: "mp4",
     },
     environment_attributes: {
       door: {
@@ -254,9 +254,9 @@ const roomDatas: RoomAPIType = [
         mode: "mp4",
         start_at: {
           iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000
-        }
-      }
+          timestamp: 1604106000,
+        },
+      },
     },
     video: sampleVideo,
   },
@@ -352,21 +352,37 @@ const roomDatas: RoomAPIType = [
       photos: [
         {
           sns: "twitter",
-          tweetId: "1313082319150837760"
+          tweetId: "1313082319150837760",
         },
         {
           sns: "twitter",
-          tweetId: "1313056707556249602"
+          tweetId: "1313056707556249602",
         },
         {
           sns: "twitter",
-          tweetId: "1297489002572857347"
+          tweetId: "1297489002572857347",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/B37KdHpnnDG/",
         },
         {
           sns: "twitter",
-          tweetId: "1317668126276734976"
-        }
-      ]
+          tweetId: "1317668126276734976",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/CGPUaQoHz_X/",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/CGPUaQoHz_X/",
+        },
+      ],
     },
     video: sampleVideo,
   },

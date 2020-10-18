@@ -8,6 +8,7 @@ import Description from "../atoms/Description";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
 import { Tweet } from 'react-twitter-widgets'
+import InstagramEmbed from 'react-instagram-embed';
 
 interface Props {
   isShow: boolean;
@@ -42,7 +43,11 @@ function PhotoListModal({
           <Tweet tweetId={snsProp.tweetId} />
             )
           }else {
-            return(null);
+            return(
+              <InstagramEmbed
+              url={snsProp.instagramLink}
+              />
+            )
           }
         }
         )}
