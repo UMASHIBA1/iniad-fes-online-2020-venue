@@ -150,6 +150,10 @@ const ModalMainWrapper = styled.div`
   ${breakPoints.downTablet} {
     width: calc(100% - 54px);
   }
+
+  ${breakPoints.downSm} {
+    width: calc(100% - 16px);
+  }
 `;
 
 const ModalMain = styled.div<Pick<Props, "isShow">>`

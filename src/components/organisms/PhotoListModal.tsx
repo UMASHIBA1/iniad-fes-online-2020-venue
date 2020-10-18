@@ -87,15 +87,19 @@ const ListWrapper = styled.div`
   width: 100%;
 
   ${breakPoints.downSm} {
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 326px);
   }
 `;
 
 const Wrapper = styled.div`
   ${whiteBGColor}
   height: 90vh;
-  width: calc(100% - 16px);
+  width: calc(100% - 8px);
   overflow: auto;
+
+  ${breakPoints.downSm} {
+  height: 80vh;
+  }
 `
 
 export default PhotoListModal;
