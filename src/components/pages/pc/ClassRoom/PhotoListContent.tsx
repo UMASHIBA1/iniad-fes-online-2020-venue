@@ -3,8 +3,6 @@ import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
 import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
-import Description from "../../../atoms/Description";
-import Title from "../../../atoms/Title";
 import PhotoListModal from "../../../organisms/PhotoListModal";
 
 interface Props {
@@ -20,12 +18,12 @@ function PhotoListContent({photoListEnvProps, history}: Props) {
   return(
     <Wrapper>
       PhotoListContent
-      <Title title="ID/graph" />
-      <Description description="しゃしんたくさんとったのでみてね！ by ID/graph" />
       <PhotoListModal
       isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
         photoIframes={photoListEnvProps.photoIframes}
+        title={photoListEnvProps.title}
+        description={photoListEnvProps.description}
         />
     </Wrapper>
   );

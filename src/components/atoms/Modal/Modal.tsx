@@ -20,6 +20,8 @@ interface Props {
   viewing?: ViewingProp;
 }
 
+
+// FIXME: スマホ版の時横スクロールが入るようになってしまっているのでModalを修正する
 function Modal({ children, isShow, onClose, viewing = "left" }: Props) {
   useRestrictBodyScroll(isShow);
   return (
