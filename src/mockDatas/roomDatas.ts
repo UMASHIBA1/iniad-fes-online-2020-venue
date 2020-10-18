@@ -1,6 +1,7 @@
 import { links } from "../constants/links";
 import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
+import q1Img from "../statics/escapeGame/q1.png"
 
 const sampleObj = {
   url: "example.com",
@@ -257,6 +258,13 @@ const roomDatas: RoomAPIType = [
           timestamp: 1604106000,
         },
       },
+      escapeGameQuestion: {
+        grade: 1,
+        course: null,
+        mode: "text",
+        answer: "INIAD",
+        questionImg: q1Img,
+      }
     },
     video: sampleVideo,
   },
