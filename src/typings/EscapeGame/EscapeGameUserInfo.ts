@@ -33,6 +33,9 @@ interface BusinessUserInfo {
 }
 
 
-type EscapeGameUserInfo = EngineerAndDesignUserInfo | CivilUserInfo | BusinessUserInfo;
+type EscapeGameUserInfo = BaseUserInfo &  (EngineerAndDesignUserInfo | CivilUserInfo | BusinessUserInfo);
 
 export default EscapeGameUserInfo;
+
+export type EscapeGameCourses = EscapeGameUserInfo["course"];
+export type EscapeGameGrades = EscapeGameUserInfo["grade"]
