@@ -2,44 +2,48 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
-import { VideoEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
+import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
+import PhotoListModal from "../../../organisms/PhotoListModal";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
-import VideoModal from "../../../molecules/VideoModal";
-
 
 interface Props {
-  videoEnvProps: VideoEnvAttr;
+  photoListEnvProps: PhotoListEnvAttr;
   history: ReturnType<typeof useHistory>;
 }
 
 const dataControllId = {
-  objButton: "videoroomcontent-obj-button",
-  door: "videoroomcontent-left-door",
+  objButton: "photolistRoomContent-obj-button",
+  door: "photolistRoomContent-left-door",
 };
 
-function VideoRoomContent({ videoEnvProps, history }: Props) {
-    const [isShowModal, changeIsShowModal] = useState(false);
+function PhotoListContent({ photoListEnvProps, history }: Props) {
+  const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
-  return(
+  return (
     <Wrapper>
-      Video Room
+      PhotoListContent
       <RoomMark
-              imgPath={logoPath}
+        imgPath={logoPath}
         dataControllId={dataControllId.door}
-        roomTitle={videoEnvProps.door.title}
+        roomTitle={photoListEnvProps.door.title}
         onClick={() => {
-          gotoTargetUrl(videoEnvProps.door.url);
+          gotoTargetUrl(photoListEnvProps.door.url);
         }}
       />
-      <ObjectMark onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
-      <VideoModal
-      isShow={isShowModal}
-      onClose={() => changeIsShowModal(false)}
-      videoProps={videoEnvProps.VideoProps}
+      <ObjectMark
+        onClick={() => changeIsShowModal(true)}
+        dataControllId={dataControllId.objButton}
+      />
+      <PhotoListModal
+        isShow={isShowModal}
+        onClose={() => changeIsShowModal(false)}
+        photos={photoListEnvProps.photos}
+        title={photoListEnvProps.title}
+        description={photoListEnvProps.description}
         isMobile={false}
       />
     </Wrapper>
@@ -53,7 +57,7 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-    > button {
+  > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
       top: 60%;
@@ -65,7 +69,6 @@ const Wrapper = styled.div`
       top: 50%;
       left: 45%;
     }
-  }
-`
+  }`
 
-export default VideoRoomContent;
+export default PhotoListContent;

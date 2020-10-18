@@ -10,11 +10,12 @@ interface Props {
   onClose: () => void;
   viewingScreen?: ViewingProp;
   musics: MusicEnvAttr["musicIframes"];
+  isMobile: boolean;
 }
 
-function MusicModal({isShow, onClose, viewingScreen, musics}: Props) {
+function MusicModal({isShow, onClose, viewingScreen, musics, isMobile}: Props) {
   return(
-    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen} >
+    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen} isMobile={isMobile} >
       <Wrapper>
         {musics.map((musicIframe) => (
           <OneMusic>

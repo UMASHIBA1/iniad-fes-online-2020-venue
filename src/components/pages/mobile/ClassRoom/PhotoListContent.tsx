@@ -1,46 +1,51 @@
 import React, { useState } from "react";
-import { MusicEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
-import ObjectMark from "../../../atoms/ObjectMark";
-import RoomMark from "../../../atoms/RoomMark";
-import MusicModal from "../../../organisms/MusicModal";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import { useHistory } from "react-router-dom";
-import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
+import { RoomUrlType } from "../../../../constants/links";
+import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
+import RoomMark from "../../../atoms/RoomMark";
+import PhotoListModal from "../../../organisms/PhotoListModal";
+import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
+import ObjectMark from "../../../atoms/ObjectMark";
 import ViewingProp from "../../../../typings/ViewingProp";
 
 interface Props {
-  musicEnvProps: MusicEnvAttr;
+  photoListEnvProps: PhotoListEnvAttr;
   history: ReturnType<typeof useHistory>;
   viewingScreen: ViewingProp;
 }
 
 const dataControllId = {
-  objButton: "musicroomcontent-obj-button",
-  door: "musicroomcontent-left-door",
+  objButton: "photolistRoomContent-obj-button",
+  door: "photolistRoomContent-left-door",
 };
 
-function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
+function PhotoListContent({ photoListEnvProps, history, viewingScreen }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
   return (
     <Wrapper>
-      Music Room
+      PhotoListContent
       <RoomMark
         imgPath={logoPath}
         dataControllId={dataControllId.door}
-        roomTitle={musicEnvProps.door.title}
+        roomTitle={photoListEnvProps.door.title}
         onClick={() => {
-          gotoTargetUrl(musicEnvProps.door.url);
+          gotoTargetUrl(photoListEnvProps.door.url);
         }}
       />
-      <ObjectMark onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
-      <MusicModal
+      <ObjectMark
+        onClick={() => changeIsShowModal(true)}
+        dataControllId={dataControllId.objButton}
+      />
+      <PhotoListModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        musics={musicEnvProps.musicIframes}
+        photos={photoListEnvProps.photos}
+        title={photoListEnvProps.title}
+        description={photoListEnvProps.description}
         viewingScreen={viewingScreen}
         isMobile={true}
       />
@@ -49,7 +54,7 @@ function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
 }
 
 const Wrapper = styled.div`
-  position: relative;
+    position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -67,7 +72,6 @@ const Wrapper = styled.div`
       top: 50%;
       left: 45%;
     }
-  }
-`;
+  }`
 
-export default MusicRoomContent;
+export default PhotoListContent;

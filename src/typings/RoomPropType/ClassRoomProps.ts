@@ -38,11 +38,30 @@ export interface VideoEnvAttr {
   VideoProps: VideoProps;
 }
 
+interface TwitterProps {
+  sns: "twitter";
+  tweetId: string;
+}
+
+interface InstagramProps {
+  sns: "instagram";
+  instagramLink: string;
+}
+
+export interface PhotoListEnvAttr {
+  mode: "photoList";
+  door: RoomEnvLinkProps;
+  title: string;
+  description: string;
+  photos: (TwitterProps | InstagramProps)[];
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
-  | VideoEnvAttr;
+  | VideoEnvAttr
+  | PhotoListEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";

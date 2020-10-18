@@ -13,6 +13,7 @@ import MusicRoomContent from "./MusicRoomContent";
 import { useTypedSelector } from "../../../../redux/store";
 import ViewingProp from "../../../../typings/ViewingProp";
 import VideoRoomContent from "./VideoRoomContent";
+import PhotoListContent from "./PhotoListContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -83,6 +84,10 @@ const createthisModeRoom = (
       case "video":
         return(
           <VideoRoomContent history={history} videoEnvProps={env} />
+        )
+      case "photoList":
+        return(
+          <PhotoListContent history={history} photoListEnvProps={env} viewingScreen={viewingScreen} />
         )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
