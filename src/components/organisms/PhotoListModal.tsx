@@ -14,36 +14,39 @@ interface Props {
   photoIframes: PhotoListEnvAttr["photoIframes"];
 }
 
-function PhotoListModal({isShow, onClose, viewingScreen, photoIframes}: Props) {
-  return(
-    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen} >
-    <Wrapper>
-      {
-        photoIframes.map((photocode, i) => (
-          <OnePhoto  key={i} >
-          <IFrameWrap iframeCode={photocode} />
+function PhotoListModal({
+  isShow,
+  onClose,
+  viewingScreen,
+  photoIframes,
+}: Props) {
+  return (
+    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen}>
+      <Wrapper>
+        {photoIframes.map((photocode, i) => (
+          <OnePhoto key={i}>
+            <IFrameWrap iframeCode={photocode} />
           </OnePhoto>
-        ))
-      }
-    </Wrapper>
+        ))}
+      </Wrapper>
     </Modal>
-
   );
 }
 
 const OnePhoto = styled.div`
-  width: 400px;
   ${radiusMd}
   ${whiteBGColor}
-  margin: 8px;
-`
+`;
 
 const Wrapper = styled.div`
-display: flex;
-justify-content: center;
-flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 400px);
+  grid-auto-flow: dense;
+  justify-content: center;
+  gap: 8px;
   height: 90vh;
   width: 100%;
-`
+  margin: 16px;
+`;
 
-export default PhotoListModal
+export default PhotoListModal;
