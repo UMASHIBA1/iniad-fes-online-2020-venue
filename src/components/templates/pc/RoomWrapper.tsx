@@ -17,7 +17,7 @@ function RoomWrapper({children, bgImg}: Props) {
 
   useDidMount(() => {
     if(isFirstVisit) {
-      history.push(pcLinks.entrance);
+      // history.push(pcLinks.entrance); FIXME: デバッグ用にエントランスへの強制移動する処理をコメントアウト
     }
   })
 
