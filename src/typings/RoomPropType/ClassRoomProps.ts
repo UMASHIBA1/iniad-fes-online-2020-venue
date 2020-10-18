@@ -38,11 +38,20 @@ export interface VideoEnvAttr {
   VideoProps: VideoProps;
 }
 
+export interface PhotoListEnvAttr {
+  mode: "photoList";
+  door: RoomEnvLinkProps;
+  title: string;
+  description: string;
+  photoIframes: string[];
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
-  | VideoEnvAttr;
+  | VideoEnvAttr
+  | PhotoListEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
