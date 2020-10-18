@@ -1,12 +1,13 @@
 import React from "react";
 import styled from "styled-components";
+import Title from "../../../atoms/Title";
 
 
 function PhotoListContent() {
   return(
     <Wrapper>
       PhotoListContent
-      {/*  */}
+      <Title title="ID/graph" />
     </Wrapper>
   );
 }
