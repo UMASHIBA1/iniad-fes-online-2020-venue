@@ -83,7 +83,7 @@ const createthisModeRoom = (
         )
       case "photoList":
         return(
-          <PhotoListContent />
+          <PhotoListContent history={history} photoListEnvProps={env} />
         );
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
