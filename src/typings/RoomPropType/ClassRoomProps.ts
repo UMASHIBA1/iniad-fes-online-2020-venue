@@ -56,16 +56,25 @@ export interface PhotoListEnvAttr {
   photos: (TwitterProps | InstagramProps)[];
 }
 
+export interface IGC2EnvAttr {
+  mode: "igc2";
+  title: string;
+  door: RoomEnvLinkProps;
+  gameLink: string;
+  video: VideoProps;
+  imgPath: string;
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
   | VideoEnvAttr
-  | PhotoListEnvAttr;
+  | PhotoListEnvAttr
+  | IGC2EnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
   name: string;
   environment_attributes: EnvAttr;
-  video: VideoProps;
 }

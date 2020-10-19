@@ -1,20 +1,13 @@
 import { links } from "../constants/links";
 import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
+import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 
 const sampleObj = {
   url: "example.com",
   name: "example",
 };
 
-const sampleVideo: ClassRoomProps["video"] = {
-  start_at: {
-    iso8601: "2020-10-31T10:00:00+09:00",
-    timestamp: 1604106001,
-  },
-  url: "example.com",
-  mode: "mp4",
-};
 
 const roomDatas: RoomAPIType = [
   // entrance
@@ -264,7 +257,6 @@ const roomDatas: RoomAPIType = [
         },
       },
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -277,7 +269,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -290,7 +281,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -303,7 +293,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -316,7 +305,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -329,7 +317,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -339,10 +326,19 @@ const roomDatas: RoomAPIType = [
         title: "4階廊下1",
         url: links.road("4101"),
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      mode: "igc2",
+      gameLink: "https://igc2.jp/exhibition/",
+      title: "igc2 ゲーム",
+      video: {
+        mode: "streaming",
+        url: "https://meets.iniad.net/movie/vE4nGEr3ApTmkULYuNxzamhw3Vg8i7dWYzA3rVi7oiNLLXLNztaVza8XLe8rJ3BX/stream.m3u8",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+        imgPath: igc2Sumbnail,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -390,7 +386,6 @@ const roomDatas: RoomAPIType = [
         },
       ],
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -414,7 +409,6 @@ const roomDatas: RoomAPIType = [
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
       ],
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -427,7 +421,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -440,7 +433,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -453,7 +445,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -466,7 +457,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
 ];
 export default roomDatas;
