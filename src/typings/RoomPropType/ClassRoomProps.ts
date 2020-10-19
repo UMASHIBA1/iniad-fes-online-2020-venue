@@ -29,6 +29,7 @@ interface ExampleMode2EnvAttr {
 export interface MusicEnvAttr {
   mode: "musics";
   door: RoomEnvLinkProps;
+  title: string;
   musicIframes: string[];
 }
 
