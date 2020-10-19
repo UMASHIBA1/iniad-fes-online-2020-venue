@@ -45,6 +45,7 @@ function FuncButtons() {
           url: "/sample.pdf",
           pageNum: 2,
         }}
+        isMobile={false}
       />
       <ImgModal
         isShow={isShowPlan}
@@ -54,6 +55,7 @@ function FuncButtons() {
         src={dummyImg}
         // FIXME: もし画像でプランを表示させるなら視覚障がい者ようにaltでちゃんとしたプランの一覧を書かないといけない
         alt="plan"
+        isMobile={false}
       />
     </>
   );

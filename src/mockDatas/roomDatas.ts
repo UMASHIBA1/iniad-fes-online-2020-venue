@@ -1,20 +1,13 @@
 import { links } from "../constants/links";
 import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
+import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 
 const sampleObj = {
   url: "example.com",
   name: "example",
 };
 
-const sampleVideo: ClassRoomProps["video"] = {
-  start_at: {
-    iso8601: "2020-10-31T10:00:00+09:00",
-    timestamp: 1604106001,
-  },
-  url: "example.com",
-  mode: "mp4"
-};
 
 const roomDatas: RoomAPIType = [
   // entrance
@@ -27,7 +20,7 @@ const roomDatas: RoomAPIType = [
         timestamp: 1604106001,
       },
       url: "example.com",
-      mode: "mp4"
+      mode: "mp4",
     },
     environment_attributes: {
       door: {
@@ -111,6 +104,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3101",
     environment_attributes: {
+      mode: "front",
       back: {
         url: links.elevatorFront("3f"),
         title: "3階エレベーター前",
@@ -133,6 +127,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3102",
     environment_attributes: {
+      mode: "center",
       back: {
         url: links.road("3101"),
         title: "3階廊下1",
@@ -155,6 +150,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3103",
     environment_attributes: {
+      mode: "end",
       back: {
         url: links.road("3102"),
         title: "3階廊下2",
@@ -177,6 +173,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4101",
     environment_attributes: {
+      mode: "front",
       back: {
         url: links.elevatorFront("4f"),
         title: "4階エレベーター前",
@@ -199,6 +196,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4102",
     environment_attributes: {
+      mode: "center",
       back: {
         url: links.road("4101"),
         title: "4階廊下1",
@@ -221,6 +219,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4103",
     environment_attributes: {
+      mode: "end",
       back: {
         url: links.road("4102"),
         title: "4階廊下2",
@@ -254,11 +253,10 @@ const roomDatas: RoomAPIType = [
         mode: "mp4",
         start_at: {
           iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000
-        }
-      }
+          timestamp: 1604106000,
+        },
+      },
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -271,7 +269,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -284,7 +281,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -297,7 +293,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -310,7 +305,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -323,7 +317,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -333,10 +326,19 @@ const roomDatas: RoomAPIType = [
         title: "4階廊下1",
         url: links.road("4101"),
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      mode: "igc2",
+      gameLink: "https://igc2.jp/exhibition/",
+      title: "igc2 ゲーム",
+      video: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+        imgPath: igc2Sumbnail,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -346,10 +348,44 @@ const roomDatas: RoomAPIType = [
         title: "4階廊下1",
         url: links.road("4101"),
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      mode: "photoList",
+      title: "ID/graph",
+      description: "ID/graphです！私たちがとった写真を是非見ていってください！",
+      photos: [
+        {
+          sns: "twitter",
+          tweetId: "1313082319150837760",
+        },
+        {
+          sns: "twitter",
+          tweetId: "1313056707556249602",
+        },
+        {
+          sns: "twitter",
+          tweetId: "1297489002572857347",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/B37KdHpnnDG/",
+        },
+        {
+          sns: "twitter",
+          tweetId: "1317668126276734976",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/CGPUaQoHz_X/",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
+        },
+        {
+          sns: "instagram",
+          instagramLink: "https://www.instagram.com/p/CGPUaQoHz_X/",
+        },
+      ],
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -373,7 +409,6 @@ const roomDatas: RoomAPIType = [
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
       ],
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -386,7 +421,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -399,7 +433,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -412,7 +445,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -425,7 +457,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
 ];
 export default roomDatas;

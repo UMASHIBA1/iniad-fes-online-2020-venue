@@ -11,6 +11,8 @@ import RoomMark from "../../../atoms/RoomMark";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import MusicRoomContent from "./MusicRoomContent";
 import VideoRoomContent from "./VideoRoomContent";
+import PhotoListContent from "./PhotoListContent";
+import IGC2RoomContent from "./IGC2RoomContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -80,6 +82,14 @@ const createthisModeRoom = (
         return(
           <VideoRoomContent history={history} videoEnvProps={env} />
         )
+      case "photoList":
+        return(
+          <PhotoListContent history={history} photoListEnvProps={env} />
+        );
+      case "igc2":
+        return(
+          <IGC2RoomContent history={history} igc2EnvProps={env} />
+          )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
     }

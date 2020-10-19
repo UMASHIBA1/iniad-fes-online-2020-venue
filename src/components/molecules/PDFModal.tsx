@@ -14,9 +14,10 @@ interface Props {
   onClose: () => void;
   pdfProps: PDFProps;
   viewing?: ViewingProp;
+  isMobile: boolean;
 }
 
-function PDFModal({ isShow, onClose, pdfProps, viewing }: Props) {
+function PDFModal({ isShow, onClose, pdfProps, viewing, isMobile }: Props) {
   const [nowPageNum, changeNowPageNum] = useState(1);
 
 
@@ -33,7 +34,7 @@ function PDFModal({ isShow, onClose, pdfProps, viewing }: Props) {
   }
 
   return (
-    <Modal isShow={isShow} onClose={onClose} viewing={viewing}>
+    <Modal isShow={isShow} onClose={onClose} viewing={viewing} isMobile={isMobile}>
       <PDFWrapper>
         <IconButton iconDescription="back" svgPath={leftArrow} onClick={gotoAbovePage} dataControllId={nowPageNum > 1?"":"disable-button"} />
         <PDFViewer pdfPath={pdfProps.url} nowPageNum={nowPageNum} />

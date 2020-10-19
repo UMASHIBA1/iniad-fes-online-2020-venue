@@ -38,15 +38,43 @@ export interface VideoEnvAttr {
   VideoProps: VideoProps;
 }
 
+interface TwitterProps {
+  sns: "twitter";
+  tweetId: string;
+}
+
+interface InstagramProps {
+  sns: "instagram";
+  instagramLink: string;
+}
+
+export interface PhotoListEnvAttr {
+  mode: "photoList";
+  door: RoomEnvLinkProps;
+  title: string;
+  description: string;
+  photos: (TwitterProps | InstagramProps)[];
+}
+
+export interface IGC2EnvAttr {
+  mode: "igc2";
+  title: string;
+  door: RoomEnvLinkProps;
+  gameLink: string;
+  video: VideoProps;
+  imgPath: string;
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
-  | VideoEnvAttr;
+  | VideoEnvAttr
+  | PhotoListEnvAttr
+  | IGC2EnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
   name: string;
   environment_attributes: EnvAttr;
-  video: VideoProps;
 }

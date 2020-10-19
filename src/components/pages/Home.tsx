@@ -19,7 +19,7 @@ function Home() {
           ホームだよ
           <Link to="/videopage">ビデオページへGO(やり方1) lll</Link>
           <button onClick={gotoVideoPage}>ビデオページへGO(やり方2)</button>
-          <Modal isShow={isOpenModal} onClose={() => changeIsOpenModal(false)}>
+          <Modal isShow={isOpenModal} onClose={() => changeIsOpenModal(false)} isMobile={true}>
           </Modal>
           <button onClick={() => changeIsOpenModal(true)}>開く</button>
           <IFrameWrap
