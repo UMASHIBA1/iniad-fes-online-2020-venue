@@ -261,6 +261,7 @@ const roomDatas: RoomAPIType = [
       escapeGameQuestion: {
         grade: 1,
         course: null,
+        title: "INIAD脱出ゲーム学年1 問題",
         mode: "text",
         answer: "INIAD",
         questionImg: q1Img,

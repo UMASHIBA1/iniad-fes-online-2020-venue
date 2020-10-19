@@ -3,6 +3,7 @@ import { EscapeGameCourses, EscapeGameGrades, AnswerSelection } from "./EscapeGa
 interface EscapeGameQuestion {
   course: EscapeGameCourses;
   grade: EscapeGameGrades;
+  title: string;
   questionImg: string;
   mode: "text" | "select";
   answer: AnswerSelection | string;

@@ -7,6 +7,8 @@ import RoomMark from "../../../atoms/RoomMark";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
+import Modal from "../../../atoms/Modal/Modal";
+import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 
 
 interface Props {
@@ -17,10 +19,12 @@ interface Props {
 const dataControllId = {
   objButton: "videoroomcontent-obj-button",
   door: "videoroomcontent-left-door",
+  escapeGameButton: "videoroomcontent-escapegame-button",
 };
 
 function VideoRoomContent({ videoEnvProps, history }: Props) {
-    const [isShowModal, changeIsShowModal] = useState(false);
+    const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
+    const [isShowEscapeGameModal, changeIsShowEscapeGameModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
@@ -35,13 +39,27 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
           gotoTargetUrl(videoEnvProps.door.url);
         }}
       />
-      <ObjectMark onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
+      <ObjectMark onClick={() => changeIsShowVideoModal(true)} dataControllId={dataControllId.objButton} />
       <VideoModal
-      isShow={isShowModal}
-      onClose={() => changeIsShowModal(false)}
+      isShow={isShowVideoModal}
+      onClose={() => changeIsShowVideoModal(false)}
       videoProps={videoEnvProps.VideoProps}
         isMobile={false}
       />
+      {videoEnvProps.escapeGameQuestion?(
+        <React.Fragment>
+      <ObjectMark onClick={() => changeIsShowEscapeGameModal(true)} dataControllId={dataControllId.escapeGameButton} color="blue" />
+      <EscapeGameQuestionModal
+        isShow={isShowEscapeGameModal}
+        onClose={() => {
+        changeIsShowEscapeGameModal(false)
+      }}
+      isMobile={false}
+      escapeGameProps={videoEnvProps.escapeGameQuestion}
+      />
+        </React.Fragment>
+      ):null}
+
     </Wrapper>
   );
 }
@@ -64,6 +82,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 50%;
       left: 45%;
+    }
+
+    &[data-controll-id=${dataControllId.escapeGameButton}] {
+      position: absolute;
+      top: 70%;
+      right: 30%;
     }
   }
 `
