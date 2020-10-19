@@ -21,6 +21,16 @@ const controllIds = {
   back: "road-back-button-controll",
 };
 
+const judgeBGImg = (mode: RoadProps["environment_attributes"]["mode"]) => {
+  if(mode === "front") {
+    return roadImg; // FIXME: 画像変更
+  }else if(mode === "center") {
+    return roadImg; // FIXME: 画像変更
+  }else {
+    return roadImg; // FIXME: 画像変更
+  }
+}
+
 function Road({ roadProps }: Props) {
   const history = useHistory();
   const [thisRoadProp] = useThisRoadProp(roadProps);
@@ -30,7 +40,7 @@ function Road({ roadProps }: Props) {
   };
 
   return (
-    <RoomWrapper bgImg={roadImg}>
+    <RoomWrapper bgImg={judgeBGImg(thisRoadProp?thisRoadProp.environment_attributes.mode: "front")}>
       <Wrapper>
         Road
         <RoomMark
