@@ -111,6 +111,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3101",
     environment_attributes: {
+      mode: "front",
       back: {
         url: links.elevatorFront("3f"),
         title: "3階エレベーター前",
@@ -133,6 +134,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3102",
     environment_attributes: {
+      mode: "center",
       back: {
         url: links.road("3101"),
         title: "3階廊下1",
@@ -155,6 +157,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3103",
     environment_attributes: {
+      mode: "end",
       back: {
         url: links.road("3102"),
         title: "3階廊下2",
@@ -177,6 +180,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4101",
     environment_attributes: {
+      mode: "front",
       back: {
         url: links.elevatorFront("4f"),
         title: "4階エレベーター前",
@@ -199,6 +203,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4102",
     environment_attributes: {
+      mode: "center",
       back: {
         url: links.road("4101"),
         title: "4階廊下1",
@@ -221,6 +226,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4103",
     environment_attributes: {
+      mode: "end",
       back: {
         url: links.road("4102"),
         title: "4階廊下2",
