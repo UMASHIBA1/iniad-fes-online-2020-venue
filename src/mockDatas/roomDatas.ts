@@ -331,7 +331,7 @@ const roomDatas: RoomAPIType = [
       title: "igc2 ゲーム",
       video: {
         mode: "streaming",
-        url: "https://meets.iniad.net/movie/vE4nGEr3ApTmkULYuNxzamhw3Vg8i7dWYzA3rVi7oiNLLXLNztaVza8XLe8rJ3BX/stream.m3u8",
+        url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
         start_at: {
           iso8601: "2020-10-31T10:00:00+09:00",
           timestamp: 1604106000,
