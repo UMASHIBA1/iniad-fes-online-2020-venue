@@ -30,6 +30,7 @@ export interface MusicEnvAttr {
   mode: "musics";
   door: RoomEnvLinkProps;
   title: string;
+  pickUpIframes: string[];
   musicIframes: string[];
 }
 

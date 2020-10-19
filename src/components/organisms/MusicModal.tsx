@@ -6,12 +6,15 @@ import { MusicEnvAttr } from "../../typings/RoomPropType/ClassRoomProps";
 import IFrameWrap from "../atoms/IFrameWrap";
 import Title from "../atoms/Title";
 import breakPoints from "../../constants/breakPoints";
+import { radiusMd } from "../../cssProps/radius";
+import H2 from "../atoms/H2";
 
 interface Props {
   isShow: boolean;
   onClose: () => void;
   viewingScreen?: ViewingProp;
   title: string;
+  pickupMusics: MusicEnvAttr["pickUpIframes"];
   musics: MusicEnvAttr["musicIframes"];
   isMobile: boolean;
 }
@@ -22,6 +25,7 @@ function MusicModal({
   viewingScreen,
   title,
   musics,
+  pickupMusics,
   isMobile,
 }: Props) {
   return (
@@ -36,11 +40,21 @@ function MusicModal({
           <Title title={title} />
         </TitleWrapper>
         <MusicWrapper>
-          {musics.map((musicIframe) => (
-            <OneMusic>
-              <IFrameWrap iframeCode={musicIframe} />
-            </OneMusic>
-          ))}
+          <PickUpWrapper>
+            <H2 color="#ff7700">Pick Up!</H2>
+            {pickupMusics.map((musicIframe) => (
+              <OneMusic key={musicIframe}>
+                <IFrameWrap iframeCode={musicIframe} />
+              </OneMusic>
+            ))}
+          </PickUpWrapper>
+          <NormalMusicWrapper>
+            {musics.map((musicIframe) => (
+              <OneMusic key={musicIframe}>
+                <IFrameWrap iframeCode={musicIframe} />
+              </OneMusic>
+            ))}
+          </NormalMusicWrapper>
         </MusicWrapper>
       </Wrapper>
     </Modal>
@@ -52,6 +66,31 @@ const OneMusic = styled.div`
   width: 360px;
   max-width: 98%;
   height: 300px;
+`;
+
+const PickUpWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: calc(100% - 32px);
+  border: #ff7700 2px solid;
+  ${radiusMd}
+
+  >${H2} {
+    padding: 24px 0 8px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+`;
+
+const NormalMusicWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: calc(100% - 32px);
 `;
 
 const MusicWrapper = styled.div`
@@ -78,7 +117,7 @@ const Wrapper = styled.div`
   height: 90vh;
 
   ${breakPoints.downSm} {
-  grid-template-rows: 64px 1fr;
+    grid-template-rows: 64px 1fr;
   }
 `;
 
