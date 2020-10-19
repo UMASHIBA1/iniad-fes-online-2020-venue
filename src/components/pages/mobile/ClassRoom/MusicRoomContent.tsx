@@ -42,6 +42,7 @@ function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
         onClose={() => changeIsShowModal(false)}
         title={musicEnvProps.title}
         musics={musicEnvProps.musicIframes}
+        pickupMusics={musicEnvProps.pickUpIframes}
         viewingScreen={viewingScreen}
         isMobile={true}
       />
