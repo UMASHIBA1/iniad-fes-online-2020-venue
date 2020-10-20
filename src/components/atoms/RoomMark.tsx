@@ -55,15 +55,18 @@ const Wrapper = styled.button.attrs<{dataControllId: string}>(({dataControllId})
   ${radius50percent}
   ${blackText}
   box-shadow: 8px 8px 16px rgba(43, 46, 68, 0.3);
-  width: 9vw;
-  height: 9vw;
-  max-width: 180px;
-  max-height: 180px;
+  width: 6vw;
+  height: 6vw;
   outline: none !important;
   transition: transform 200ms ease-in;
 
   :hover {
     transform: scale(1.2);
+  }
+
+  @media screen and (max-width: 1700px) {
+    width: 9vw;
+    height: 9vw;
   }
 
   ${breakPoints.downTablet} {
