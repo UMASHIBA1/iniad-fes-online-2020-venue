@@ -36,25 +36,24 @@ function VideoModal({
           <Title title={title} />
         </TitleWrapper>
         <VideoListWrapper>
-        {isShow
-          ? videoPropList.map((oneVideoProp) => (
-              <VideoWrapper>
-                <VideoPlayer
-                  key={oneVideoProp.url}
-                  controls={true}
-                  sources={[
-                    {
-                      src: oneVideoProp.url,
-                      type:
-                        oneVideoProp.mode === "streaming"
-                          ? "application/x-mpegURL"
-                          : "video/mp4",
-                    },
-                  ]}
-                />
-              </VideoWrapper>
-            ))
-          : null}
+          {isShow
+            ? videoPropList.map((oneVideoProp) => (
+                <VideoWrapper key={oneVideoProp.url}>
+                  <VideoPlayer
+                    controls={true}
+                    sources={[
+                      {
+                        src: oneVideoProp.url,
+                        type:
+                          oneVideoProp.mode === "streaming"
+                            ? "application/x-mpegURL"
+                            : "video/mp4",
+                      },
+                    ]}
+                  />
+                </VideoWrapper>
+              ))
+            : null}
         </VideoListWrapper>
       </Wrapper>
     </Modal>
@@ -73,13 +72,13 @@ const VideoWrapper = styled.div`
 const VideoListWrapper = styled.div`
   width: 100%;
   overflow-y: auto;
-`
+`;
 
 const TitleWrapper = styled.div`
   display: grid;
   justify-content: center;
   align-items: center;
-`
+`;
 
 const Wrapper = styled.div`
   display: grid;
@@ -93,7 +92,7 @@ const Wrapper = styled.div`
   overflow: hidden;
 
   ${breakPoints.downSm} {
-  grid-template-rows: 64px 1fr;
+    grid-template-rows: 64px 1fr;
     padding: 0 16px;
   }
 `;
