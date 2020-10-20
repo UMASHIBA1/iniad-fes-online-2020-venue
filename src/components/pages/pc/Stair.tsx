@@ -101,8 +101,8 @@ const Wrapper = styled.div`
   >button {
     &[data-controll-id=${dataControllIds.up}] {
       position: absolute;
-      top: 13%;
-      left: 35%;
+      top: 8%;
+      left: 39%;
     }
 
     &[data-controll-id=${dataControllIds.down}] {
