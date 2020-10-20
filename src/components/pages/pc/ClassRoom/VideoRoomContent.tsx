@@ -37,6 +37,7 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
       />
       <ObjectMark onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
       <VideoModal
+      title={videoEnvProps.title}
       isShow={isShowModal}
       onClose={() => changeIsShowModal(false)}
       videoPropList={videoEnvProps.VideoProps}

@@ -37,6 +37,7 @@ export interface MusicEnvAttr {
 export interface VideoEnvAttr {
   mode: "video";
   door: RoomEnvLinkProps;
+  title: string;
   VideoProps: VideoProps[];
 }
 

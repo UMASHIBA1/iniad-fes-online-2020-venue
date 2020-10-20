@@ -1,5 +1,4 @@
 import { links } from "../constants/links";
-import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 
@@ -247,6 +246,7 @@ const roomDatas: RoomAPIType = [
         url: links.road("3101"),
       },
       mode: "video",
+      title: "INIActors",
       VideoProps: [
         {
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
