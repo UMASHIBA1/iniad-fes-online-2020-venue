@@ -38,6 +38,7 @@ export interface VideoEnvAttr {
   mode: "video";
   door: RoomEnvLinkProps;
   title: string;
+  description?: string;
   VideoProps: VideoProps[];
 }
 

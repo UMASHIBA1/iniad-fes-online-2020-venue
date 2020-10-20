@@ -247,6 +247,7 @@ const roomDatas: RoomAPIType = [
       },
       mode: "video",
       title: "INIActors",
+      description: "※劇場でやるよ、気を付けてね！",
       VideoProps: [
         {
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
