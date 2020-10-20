@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import RoomWrapper from "../../templates/mobile/RoomWrapper";
-import stairImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import stairImg from "../../../statics/stair.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import RoomMark from "../../atoms/RoomMark";
 import {
   RoomEnvLinkProps,
@@ -31,7 +31,7 @@ function Stair({ stairProps }: Props) {
   };
 
   return (
-    <RoomWrapper bgImg={stairImg}>
+    <RoomWrapper bgImg={stairImg} isOneScreen={true}>
       Stair
       <Wrapper>
         {thisStairProp &&
@@ -104,20 +104,20 @@ const Wrapper = styled.div`
   >button {
     &[data-controll-id=${dataControllIds.up}] {
       position: absolute;
-      top: 15%;
-      left: 25%;
+      top: 6%;
+      left: 40%;
     }
 
     &[data-controll-id=${dataControllIds.down}] {
       position: absolute;
-      top: 15%;
-      right: 25%;
+      top: 53%;
+      right: 40%;
     }
 
     &[data-controll-id=${dataControllIds.room}] {
       position: absolute;
-      bottom: 15%;
-      left: 50%;
+      bottom: 10%;
+      left: 48%;
     }
 
   }

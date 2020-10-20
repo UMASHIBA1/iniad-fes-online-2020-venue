@@ -26,7 +26,7 @@ function ClassRoom({ classRoomProps }: Props) {
   const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
 
   return (
-    <RoomWrapper bgImg={roomImg}>
+    <RoomWrapper bgImg={roomImg} isOneScreen={false}>
       <Wrapper>
         {createthisModeRoom(history, viewingScreen,thisClassRoomProp)}
         <Footer />
