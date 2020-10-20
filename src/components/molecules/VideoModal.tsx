@@ -3,6 +3,7 @@ import styled from "styled-components";
 import breakPoints from "../../constants/breakPoints";
 import VideoProps from "../../typings/RoomPropType/VideoProps";
 import ViewingProp from "../../typings/ViewingProp";
+import Description from "../atoms/Description";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
 import VideoPlayer from "../atoms/VideoPlayer";
@@ -12,6 +13,7 @@ interface Props {
   onClose: () => void;
   viewingScreen?: ViewingProp;
   title: string;
+  description?: string;
   videoPropList: VideoProps[];
   isMobile: boolean;
 }
@@ -21,6 +23,7 @@ function VideoModal({
   onClose,
   viewingScreen,
   title,
+  description,
   videoPropList,
   isMobile,
 }: Props) {
@@ -35,6 +38,9 @@ function VideoModal({
         <TitleWrapper>
           <Title title={title} />
         </TitleWrapper>
+        <DescriptionWrapper>
+        <Description description={description ? description : ""} />
+        </DescriptionWrapper>
         <VideoListWrapper>
           {isShow
             ? videoPropList.map((oneVideoProp) => (
@@ -59,6 +65,7 @@ function VideoModal({
     </Modal>
   );
 }
+
 const VideoWrapper = styled.div`
   padding: 0 0 32px;
   box-sizing: border-box;
@@ -76,23 +83,35 @@ const VideoListWrapper = styled.div`
 
 const TitleWrapper = styled.div`
   display: grid;
-  justify-content: center;
+  justify-content: start;
+  margin: 32px 0 16px;
+  ${breakPoints.downSm} {
+    margin: 16px 0 8px;
+  }
+`;
+
+const DescriptionWrapper = styled.div`
+  display: grid;
+  justify-content: start;
   align-items: center;
+  padding: 0 0 24px;
+    ${breakPoints.downSm} {
+  padding: 0 0 16px;
+  }
 `;
 
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 128px 1fr;
+  grid-template-rows: auto auto 1fr;
   width: calc(100% - 16px);
-  max-height: 80vh;
+  max-height: 90vh;
   min-height: 300px;
   max-width: 98%;
   padding: 0 32px;
   overflow: hidden;
 
   ${breakPoints.downSm} {
-    grid-template-rows: 64px 1fr;
     padding: 0 16px;
   }
 `;
