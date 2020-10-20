@@ -37,7 +37,7 @@ export interface MusicEnvAttr {
 export interface VideoEnvAttr {
   mode: "video";
   door: RoomEnvLinkProps;
-  VideoProps: VideoProps;
+  VideoProps: VideoProps[];
 }
 
 interface TwitterProps {
