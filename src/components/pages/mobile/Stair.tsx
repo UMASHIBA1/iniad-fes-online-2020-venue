@@ -31,7 +31,7 @@ function Stair({ stairProps }: Props) {
   };
 
   return (
-    <RoomWrapper bgImg={stairImg}>
+    <RoomWrapper bgImg={stairImg} isOneScreen={true}>
       Stair
       <Wrapper>
         {thisStairProp &&

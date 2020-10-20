@@ -26,7 +26,7 @@ function Hall({ hallProps }: Props) {
   };
 
   return (
-    <RoomWrapper bgImg={hallImg}>
+    <RoomWrapper isOneScreen={false} bgImg={hallImg}>
       <Wrapper>
         Hall
         <RoomMark

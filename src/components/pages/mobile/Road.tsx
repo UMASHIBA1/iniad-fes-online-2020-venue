@@ -40,7 +40,7 @@ function Road({ roadProps }: Props) {
   };
 
   return (
-    <RoomWrapper bgImg={judgeBGImg(thisRoadProp?thisRoadProp.environment_attributes.mode: "front")}>
+    <RoomWrapper isOneScreen={false} bgImg={judgeBGImg(thisRoadProp?thisRoadProp.environment_attributes.mode: "front")}>
       <Wrapper>
         Road
         <RoomMark

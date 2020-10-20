@@ -32,7 +32,7 @@ function Entrance({ entranceProps }: Props) {
   });
 
   return (
-    <RoomWrapper bgImg={entranceImg}>
+    <RoomWrapper isOneScreen={false} bgImg={entranceImg}>
       <Wrapper>
         Entrance
         <RoomMark
