@@ -86,7 +86,7 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 128px 1fr;
   width: calc(100% - 16px);
-  height: 80vh;
+  max-height: 80vh;
   min-height: 300px;
   max-width: 98%;
   padding: 0 32px;

@@ -5,7 +5,6 @@ import { IGC2EnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
-import IGC2Modal from "../../../organisms/IGC2Modal";
 import Img from "../../../atoms/Img";
 import Link from "../../../atoms/Link";
 import styled from "styled-components";
@@ -13,6 +12,7 @@ import { whiteText } from "../../../../cssProps/colors";
 import { radiusMd } from "../../../../cssProps/radius";
 import breakPoints from "../../../../constants/breakPoints";
 import ViewingProp from "../../../../typings/ViewingProp";
+import VideoModal from "../../../molecules/VideoModal";
 
 
 interface Props {
@@ -46,17 +46,15 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
-      <IGC2Modal
-        gameLink={env.gameLink}
-        isMobile={false}
-        isShow={isShowModal}
-        viewingScreen={viewingScreen}
-        onClose={() => {
+      <VideoModal
+      isMobile={true}
+      isShow={isShowModal}
+      viewingScreen={viewingScreen}
+      onClose={() => {
           changeIsShowModal(false);
         }}
-        sumbnialImg={env.imgPath}
         title={env.title}
-        videoProps={env.video}
+        videoPropList={[env.video]}
       />
       <LinkWrapper>
         <Link link={env.gameLink}>
