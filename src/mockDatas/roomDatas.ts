@@ -1,5 +1,4 @@
 import { links } from "../constants/links";
-import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 
@@ -247,7 +246,9 @@ const roomDatas: RoomAPIType = [
         url: links.road("3101"),
       },
       mode: "video",
-      VideoProps: {
+      title: "INIActors",
+      VideoProps: [
+        {
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
         mode: "mp4",
         start_at: {
@@ -255,6 +256,31 @@ const roomDatas: RoomAPIType = [
           timestamp: 1604106000,
         },
       },
+              {
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
+        mode: "mp4",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+              {
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=b",
+        mode: "mp4",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+              {
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=c",
+        mode: "mp4",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+    ]
     },
   },
   {
