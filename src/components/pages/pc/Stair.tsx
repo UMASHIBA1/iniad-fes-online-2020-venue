@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
-import stairImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import stairImg from "../../../statics/stair.png";
 import RoomMark from "../../atoms/RoomMark";
 import {
   RoomEnvLinkProps,
@@ -31,7 +31,6 @@ function Stair({ stairProps }: Props) {
 
   return (
     <RoomWrapper bgImg={stairImg}>
-      Stair
       <Wrapper>
         {thisStairProp &&
         thisStairProp.environment_attributes.up !== undefined ? (
@@ -102,20 +101,20 @@ const Wrapper = styled.div`
   >button {
     &[data-controll-id=${dataControllIds.up}] {
       position: absolute;
-      top: 15%;
-      left: 25%;
+      top: 13%;
+      left: 35%;
     }
 
     &[data-controll-id=${dataControllIds.down}] {
       position: absolute;
-      top: 15%;
-      right: 25%;
+      bottom: 36%;
+      right:38%;
     }
 
     &[data-controll-id=${dataControllIds.room}] {
       position: absolute;
-      bottom: 15%;
-      left: 50%;
+      bottom: 7%;
+      left: 48%;
     }
 
   }
