@@ -6,12 +6,12 @@ import RoomMark from "../../../atoms/RoomMark";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
 import styled from "styled-components";
-import IGC2Modal from "../../../organisms/IGC2Modal";
-import {  whiteText } from "../../../../cssProps/colors";
+import { whiteText } from "../../../../cssProps/colors";
 import { radiusLg, radiusMd } from "../../../../cssProps/radius";
 import breakPoints from "../../../../constants/breakPoints";
 import Img from "../../../atoms/Img";
 import Link from "../../../atoms/Link";
+import VideoModal from "../../../molecules/VideoModal";
 
 interface Props {
   igc2EnvProps: IGC2EnvAttr;
@@ -43,16 +43,14 @@ function IGC2RoomContent({ igc2EnvProps: env, history }: Props) {
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
-      <IGC2Modal
-        gameLink={env.gameLink}
+      <VideoModal
         isMobile={false}
         isShow={isShowModal}
         onClose={() => {
           changeIsShowModal(false);
         }}
-        sumbnialImg={env.imgPath}
         title={env.title}
-        videoProps={env.video}
+        videoPropList={[env.video]}
       />
       <LinkWrapper>
         <Link link={env.gameLink}>
