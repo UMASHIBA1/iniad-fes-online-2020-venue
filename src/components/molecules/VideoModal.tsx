@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import breakPoints from "../../constants/breakPoints";
 import VideoProps from "../../typings/RoomPropType/VideoProps";
 import ViewingProp from "../../typings/ViewingProp";
 import Modal from "../atoms/Modal/Modal";
@@ -55,6 +56,11 @@ const VideoWrapper = styled.div`
   padding: 32px;
   box-sizing: border-box;
   width: 100%;
+
+  ${breakPoints.downSm} {
+    padding: 16px;
+  }
+
 `;
 
 const Wrapper = styled.div`
