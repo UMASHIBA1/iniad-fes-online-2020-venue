@@ -67,13 +67,13 @@ const Wrapper = styled.button.attrs<{dataControllId: string}>(({dataControllId})
   }
 
   ${breakPoints.downTablet} {
-    width: 12vw;
-    height: 12vw;
+    width: 10vw;
+    height: 10vw;
   }
 
   ${breakPoints.downSm} {
-    width: 16vw;
-    height: 16vw;
+    width: 12vw;
+    height: 12vw;
   }
 `
 
