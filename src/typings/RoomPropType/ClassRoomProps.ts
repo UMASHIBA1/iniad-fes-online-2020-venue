@@ -84,8 +84,7 @@ export interface TATFOEnvAttr {
   door: RoomEnvLinkProps;
   description: string;
   videoProps: VideoProps;
-  downloadPDFProps: PDFProps[];
-  viewingPDFProps: PDFProps;
+  pdfPropList: PDFProps[];
 }
 
 type EnvAttr =

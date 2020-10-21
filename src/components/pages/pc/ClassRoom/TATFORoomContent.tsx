@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
 import PDFModal from "../../../molecules/PDFModal";
+import VideoModal from "../../../molecules/VideoModal";
 
 interface Props {
   tatfoEnvProps: TATFOEnvAttr;
@@ -14,12 +15,20 @@ interface Props {
 }
 
 const dataControllId = {
-  objButton: "tatforoomcontent-obj-button",
+  objButton1: "tatforoomcontent-obj-button1",
+  objButton2: "tatforoomcontent-obj-button2",
+  objButton3: "tatforoomcontent-obj-button3",
+  objButton4: "tatforoomcontent-obj-button4",
+  videoButton: "tatfovideocntent-obj-button",
   door: "tatforoomcontent-left-door",
 };
 
 function TATFORoomContent({ tatfoEnvProps, history }: Props) {
-  const [isShowViewingPDFModal, changeIsShowViewingPDFModal] = useState(false);
+  const [isShowPDF1Modal, changeIsShowPDF1Modal] = useState(false);
+  const [isShowPDF2Modal, changeIsShowPDF2Modal] = useState(false);
+  const [isShowPDF3Modal, changeIsShowPDF3Modal] = useState(false);
+  const [isShowPDF4Modal, changeIsShowPDF4Modal] = useState(false);
+  const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
@@ -34,12 +43,61 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
           gotoTargetUrl(tatfoEnvProps.door.url);
         }}
       />
-      <ObjectMark title="PDF" onClick={() => changeIsShowViewingPDFModal(true)} dataControllId={dataControllId.objButton} />
+      <ObjectMark
+        title="すごろくでSDGsを知ろう！"
+        onClick={() => changeIsShowPDF1Modal(true)}
+        dataControllId={dataControllId.objButton1}
+      />
       <PDFModal
-        isShow={isShowViewingPDFModal}
-        onClose={() => changeIsShowViewingPDFModal(false)}
+        isShow={isShowPDF1Modal}
+        onClose={() => changeIsShowPDF1Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.viewingPDFProps}
+        pdfProps={tatfoEnvProps.pdfPropList[0]}
+      />
+      <ObjectMark
+        title="あなたの願う未来は?"
+        onClick={() => changeIsShowPDF2Modal(true)}
+        dataControllId={dataControllId.objButton2}
+      />
+      <PDFModal
+        isShow={isShowPDF2Modal}
+        onClose={() => changeIsShowPDF1Modal(false)}
+        isMobile={false}
+        pdfProps={tatfoEnvProps.pdfPropList[1]}
+      />
+      <ObjectMark
+        title="SDGsを知ろう！"
+        onClick={() => changeIsShowPDF3Modal(true)}
+        dataControllId={dataControllId.objButton3}
+      />
+      <PDFModal
+        isShow={isShowPDF3Modal}
+        onClose={() => changeIsShowPDF1Modal(false)}
+        isMobile={false}
+        pdfProps={tatfoEnvProps.pdfPropList[2]}
+      />
+      <ObjectMark
+        title="TATFOの願う未来"
+        onClick={() => changeIsShowPDF4Modal(true)}
+        dataControllId={dataControllId.objButton4}
+      />
+      <PDFModal
+        isShow={isShowPDF4Modal}
+        onClose={() => changeIsShowPDF1Modal(false)}
+        isMobile={false}
+        pdfProps={tatfoEnvProps.pdfPropList[3]}
+      />
+      <ObjectMark
+        title="動画"
+        onClick={() => changeIsShowVideoModal(true)}
+        dataControllId={dataControllId.videoButton}
+      />
+      <VideoModal
+      isShow={isShowVideoModal}
+      onClose={() => changeIsShowVideoModal(false)}
+      isMobile={false}
+      videoPropList={[tatfoEnvProps.videoProps]}
+      title="動画"
       />
     </Wrapper>
   );
@@ -59,10 +117,30 @@ const Wrapper = styled.div`
       left: 20%;
     }
 
-    &[data-controll-id=${dataControllId.objButton}] {
+    &[data-controll-id=${dataControllId.objButton1}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 30%;
+      left: 30%;
+    }
+    &[data-controll-id=${dataControllId.objButton2}] {
+      position: absolute;
+      top: 30%;
+      right: 30%;
+    }
+    &[data-controll-id=${dataControllId.objButton3}] {
+      position: absolute;
+      bottom: 30%;
+      left: 30%;
+    }
+    &[data-controll-id=${dataControllId.objButton4}] {
+      position: absolute;
+      bottom: 30%;
+      right: 30%;
+    }
+        &[data-controll-id=${dataControllId.videoButton}] {
+      position: absolute;
+      bottom: 20%;
+      right: 20%;
     }
   }
 `;
