@@ -1,3 +1,4 @@
+import PDFProps from "../PDFProps";
 import { RoomEnvLinkProps } from "./RoomPropType";
 import VideoProps from "./VideoProps";
 
@@ -24,6 +25,14 @@ interface ExampleMode2EnvAttr {
     url: string;
     name: string;
   };
+}
+
+export interface PDFRoomEnvAttr {
+  mode: "pdfRoom";
+  door: RoomEnvLinkProps;
+  title: string;
+  description: string;
+  pdfProps: PDFProps;
 }
 
 export interface MusicEnvAttr {
@@ -75,7 +84,8 @@ type EnvAttr =
   | MusicEnvAttr
   | VideoEnvAttr
   | PhotoListEnvAttr
-  | IGC2EnvAttr;
+  | IGC2EnvAttr
+  | PDFRoomEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
