@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import centerPutChild from "../../cssProps/centerPutChild";
 import IconButton from "../atoms/IconButton";
 import Modal from "../atoms/Modal/Modal";
 import PDFViewer from "../atoms/PDFViewer";
