@@ -312,13 +312,18 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3105",
     environment_attributes: {
+      mode: "pdfRoom",
+      title: "Digi Health",
+      description: "",
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
       },
-      mode: "oneObj",
-      obj1: sampleObj,
-    },
+      pdfProps: {
+        url: "/digihealth.pdf",
+        pageNum: 27
+      }
+    }
   },
   {
     type: "classroom",
