@@ -6,7 +6,6 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
 import PDFModal from "../../../molecules/PDFModal";
-import VideoModal from "../../../molecules/VideoModal";
 import ClassRoomVideo from "../../../organisms/ClassRoomVideo";
 
 interface Props {
@@ -19,7 +18,6 @@ const dataControllId = {
   objButton2: "tatforoomcontent-obj-button2",
   objButton3: "tatforoomcontent-obj-button3",
   objButton4: "tatforoomcontent-obj-button4",
-  videoButton: "tatfovideocntent-obj-button",
   door: "tatforoomcontent-left-door",
 };
 
@@ -101,34 +99,29 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 47%;
+      left: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton1}] {
       position: absolute;
-      top: 30%;
-      left: 30%;
+      top: 27%;
+      left: 28%;
     }
     &[data-controll-id=${dataControllId.objButton2}] {
       position: absolute;
-      top: 30%;
+      top: 28%;
       right: 30%;
     }
     &[data-controll-id=${dataControllId.objButton3}] {
       position: absolute;
-      bottom: 30%;
-      left: 30%;
+      top: 25%;
+      left: 35%;
     }
     &[data-controll-id=${dataControllId.objButton4}] {
       position: absolute;
-      bottom: 30%;
-      right: 30%;
-    }
-        &[data-controll-id=${dataControllId.videoButton}] {
-      position: absolute;
-      bottom: 20%;
-      right: 20%;
+      top: 18%;
+      right: 16.5%;
     }
   }
 `;
