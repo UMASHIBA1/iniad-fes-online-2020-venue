@@ -8,6 +8,7 @@ import rightArrow from "../../statics/svgs/right-arrow.svg";
 import leftArrow from "../../statics/svgs/left-arrow.svg";
 import PDFProps from "../../typings/PDFProps";
 import ViewingProp from "../../typings/ViewingProp";
+import breakPoints from "../../constants/breakPoints";
 
 interface Props {
   isShow: boolean;
@@ -46,14 +47,38 @@ function PDFModal({ isShow, onClose, pdfProps, viewing, isMobile }: Props) {
 
 const PDFWrapper = styled.div`
   ${centerPutChild}
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
   justify-content: center;
+  grid-template-rows: 1fr;
   width: calc(100% - 12px);
+  max-height: 90vh;
   > button {
     margin: 8px;
     &[data-controll-id="disable-button"] {
       visibility: hidden;
+    }
+  }
+
+  ${breakPoints.downSm} {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr auto;
+
+    > div {
+      grid-row: 1;
+      grid-column: 1 / 3;
+    }
+
+    > button {
+      :nth-child(1) {
+        grid-row: 2;
+        grid-column: 1;
+      }
+
+      :nth-child(2) {
+        grid-row: 2;
+        grid-column: 2;
+      }
     }
   }
 
