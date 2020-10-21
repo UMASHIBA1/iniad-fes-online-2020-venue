@@ -33,7 +33,7 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
 
   return (
     <Wrapper>
-      Music Room
+    PDF ROOM
       <RoomMark
         imgPath={logoPath}
         dataControllId={dataControllId.door}
