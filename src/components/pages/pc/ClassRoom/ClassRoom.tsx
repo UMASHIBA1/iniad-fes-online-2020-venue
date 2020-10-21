@@ -29,7 +29,6 @@ function ClassRoom({ classRoomProps }: Props) {
       <Wrapper>
         {createthisModeRoom(history, thisClassRoomProp)}
         <FuncButtons />
-
       </Wrapper>
     </RoomWrapper>
   );
