@@ -190,9 +190,9 @@ const roomDatas: RoomAPIType = [
         imgPath:iniadfesLogoIcon
       },
       next: {
-        url: links.hall,
-        title: "ホール",
-        imgPath:iniadfesLogoIcon
+        url: links.classroom("3100"),
+        title: "クイ研",
+        imgPath: quizIcon
       },
       doorLeft1: {
         url: links.classroom("3102"),
@@ -302,38 +302,38 @@ const roomDatas: RoomAPIType = [
       description: "※劇場でやるよ、気を付けてね！",
       VideoProps: [
         {
-        url: "https://bento-api-test.herokuapp.com/movie.mp4",
-        mode: "mp4",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
+          url: "https://bento-api-test.herokuapp.com/movie.mp4",
+          mode: "mp4",
+          start_at: {
+            iso8601: "2020-10-31T10:00:00+09:00",
+            timestamp: 1604106000,
+          },
         },
-      },
-              {
-        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
-        mode: "mp4",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
+        {
+          url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
+          mode: "mp4",
+          start_at: {
+            iso8601: "2020-10-31T10:00:00+09:00",
+            timestamp: 1604106000,
+          },
         },
-      },
-              {
-        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=b",
-        mode: "mp4",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
+        {
+          url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=b",
+          mode: "mp4",
+          start_at: {
+            iso8601: "2020-10-31T10:00:00+09:00",
+            timestamp: 1604106000,
+          },
         },
-      },
-              {
-        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=c",
-        mode: "mp4",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
+        {
+          url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=c",
+          mode: "mp4",
+          start_at: {
+            iso8601: "2020-10-31T10:00:00+09:00",
+            timestamp: 1604106000,
+          },
         },
-      },
-    ]
+      ],
     },
   },
   {
@@ -366,13 +366,18 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3105",
     environment_attributes: {
+      mode: "pdfRoom",
+      title: "Digi Health",
+      description: "",
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
         imgPath:iniadfesLogoIcon
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      pdfProps: {
+        url: "/digihealth.pdf",
+        pageNum: 27,
+      },
     },
   },
   {
@@ -396,6 +401,19 @@ const roomDatas: RoomAPIType = [
         title: "3階廊下3",
         url: links.road("3103"),
         imgPath:iniadfesLogoIcon
+      },
+      mode: "oneObj",
+      obj1: sampleObj,
+    },
+  },
+  {
+    type: "classroom",
+    name: "3100",
+    environment_attributes: {
+      door: {
+        title: "3階廊下3",
+        url: links.road("3103"),
+        imgPath: iniadfesLogoIcon
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -516,13 +534,40 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4105",
     environment_attributes: {
+      mode: "tatfo",
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
         imgPath:iniadfesLogoIcon
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      title: "TATFO",
+      description: "TATFOのお部屋です",
+      pdfPropList: [
+        {
+          url: "/sample.pdf",
+          pageNum: 2,
+        },
+        {
+          url: "/sample.pdf",
+          pageNum: 2,
+        },
+        {
+          url: "/sample.pdf",
+          pageNum: 2,
+        },
+        {
+          url: "/sample.pdf",
+          pageNum: 2,
+        },
+      ],
+      videoProps: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
     },
   },
   {

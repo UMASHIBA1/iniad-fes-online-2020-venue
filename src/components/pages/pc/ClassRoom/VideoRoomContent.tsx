@@ -35,7 +35,7 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
           gotoTargetUrl(videoEnvProps.door.url);
         }}
       />
-      <ObjectMark onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
+      <ObjectMark title="動画" onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
       <VideoModal
       title={videoEnvProps.title}
       description={videoEnvProps.description}

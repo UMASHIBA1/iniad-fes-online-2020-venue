@@ -14,7 +14,9 @@ import { useTypedSelector } from "../../../../redux/store";
 import ViewingProp from "../../../../typings/ViewingProp";
 import VideoRoomContent from "./VideoRoomContent";
 import PhotoListContent from "./PhotoListContent";
-import IGC2RoomContent from "../ClassRoom/IGC2RoomContent";
+import IGC2RoomContent from "./IGC2RoomContent";
+import PDFRoomContent from "./PDFRoomContent";
+import TATFORoomContent from "./TATFORoomContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -93,6 +95,14 @@ const createthisModeRoom = (
       case "igc2":
         return(
           <IGC2RoomContent history={history} igc2EnvProps={env} viewingScreen={viewingScreen} />
+        );
+      case "pdfRoom":
+        return(
+          <PDFRoomContent history={history} pdfEnvProps={env} viewingScreen={viewingScreen} />
+        )
+      case "tatfo":
+        return(
+          <TATFORoomContent history={history} tatfoEnvProps={env} viewingScreen={viewingScreen} />
         );
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";

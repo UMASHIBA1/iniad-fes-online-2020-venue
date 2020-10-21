@@ -2,57 +2,66 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
-import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
+import { PDFRoomEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
-import PhotoListModal from "../../../organisms/PhotoListModal";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
+import PDFModal from "../../../molecules/PDFModal";
+import useDidMount from "../../../../hooks/useDidMount/useDidMount";
+import ViewingProp from "../../../../typings/ViewingProp";
 
 interface Props {
-  photoListEnvProps: PhotoListEnvAttr;
+  pdfEnvProps: PDFRoomEnvAttr;
   history: ReturnType<typeof useHistory>;
+  viewingScreen: ViewingProp;
 }
 
 const dataControllId = {
-  objButton: "photolistRoomContent-obj-button",
-  door: "photolistRoomContent-left-door",
+  objButton: "pdfroomContent-obj-button",
+  door: "pdfroomContent-left-door",
 };
 
-function PhotoListContent({ photoListEnvProps, history }: Props) {
+function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
+  useDidMount(() =>{
+    setTimeout(() => {
+    changeIsShowModal(true);
+    }, 300);
+  })
+
   return (
     <Wrapper>
-      PhotoListContent
+      PDFRoom
       <RoomMark
         imgPath={logoPath}
         dataControllId={dataControllId.door}
-        roomTitle={photoListEnvProps.door.title}
+        roomTitle={pdfEnvProps.door.title}
         onClick={() => {
-          gotoTargetUrl(photoListEnvProps.door.url);
+          gotoTargetUrl(pdfEnvProps.door.url);
         }}
       />
       <ObjectMark
-      title="写真"
+      title="PDF"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
-      <PhotoListModal
+      <PDFModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        photos={photoListEnvProps.photos}
-        title={photoListEnvProps.title}
-        description={photoListEnvProps.description}
-        isMobile={false}
+        pdfProps={pdfEnvProps.pdfProps}
+        viewing={viewingScreen}
+        isMobile={true}
       />
     </Wrapper>
   );
 }
 
 const Wrapper = styled.div`
-    position: relative;
+  position: relative;
   top: 0;
   left: 0;
   width: 100%;
@@ -70,6 +79,7 @@ const Wrapper = styled.div`
       top: 50%;
       left: 45%;
     }
-  }`
+  }
+`;
 
-export default PhotoListContent;
+export default PDFRoomContent;
