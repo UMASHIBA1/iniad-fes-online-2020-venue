@@ -106,9 +106,6 @@ const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(
     "data-controll-id": dataControllId,
   })
 )<Pick<Props, "dataControllId">>`
-  position: relative;
-  top: 0;
-  left: 0;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 20px 92px;
