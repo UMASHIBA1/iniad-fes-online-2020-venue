@@ -154,8 +154,8 @@ const roomDatas: RoomAPIType = [
         title: "3階廊下2",
       },
       next: {
-        url: links.hall,
-        title: "ホール",
+        url: links.classroom("3100"),
+        title: "クイ研",
       },
       doorLeft1: {
         url: links.classroom("3102"),
@@ -348,6 +348,18 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
+  },
+  {
+    type: "classroom",
+    name: "3100",
+    environment_attributes: {
+      door: {
+        title: "3階廊下3",
+        url: links.road("3103"),
+      },
+      mode: "oneObj",
+      obj1: sampleObj
+    }
   },
   {
     type: "classroom",
