@@ -82,7 +82,7 @@ const AnimeCircle = styled(WhiteCircle)`
   animation: ${circleAnime} 2400ms ease-in infinite;
 `;
 
-const CircleWrapper = styled.button`
+const CircleWrapper = styled.div`
   cursor: pointer;
   outline: none !important;
 
