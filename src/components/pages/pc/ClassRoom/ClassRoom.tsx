@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../../templates/pc/RoomWrapper";
-import roomImg from "../../../../statics/classroom1.png";
+import roomImg from "../../../../statics/classroom.jpg";
 import ClassRoomProps from "../../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../../hooks/useTypedParams";
@@ -29,7 +29,6 @@ function ClassRoom({ classRoomProps }: Props) {
       <Wrapper>
         {createthisModeRoom(history, thisClassRoomProp)}
         <FuncButtons />
-
       </Wrapper>
     </RoomWrapper>
   );

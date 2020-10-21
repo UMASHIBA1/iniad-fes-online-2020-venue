@@ -7,6 +7,7 @@ import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
 import PDFModal from "../../../molecules/PDFModal";
 import VideoModal from "../../../molecules/VideoModal";
+import ClassRoomVideo from "../../../organisms/ClassRoomVideo";
 
 interface Props {
   tatfoEnvProps: TATFOEnvAttr;
@@ -27,7 +28,6 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
   const [isShowPDF2Modal, changeIsShowPDF2Modal] = useState(false);
   const [isShowPDF3Modal, changeIsShowPDF3Modal] = useState(false);
   const [isShowPDF4Modal, changeIsShowPDF4Modal] = useState(false);
-  const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
@@ -86,18 +86,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
         isMobile={false}
         pdfProps={tatfoEnvProps.pdfPropList[3]}
       />
-      <ObjectMark
-        title="動画"
-        onClick={() => changeIsShowVideoModal(true)}
-        dataControllId={dataControllId.videoButton}
-      />
-      <VideoModal
-      isShow={isShowVideoModal}
-      onClose={() => changeIsShowVideoModal(false)}
-      isMobile={false}
-      videoPropList={[tatfoEnvProps.videoProps]}
-      title="動画"
-      />
+      <ClassRoomVideo videoProps={tatfoEnvProps.videoProps} />
     </Wrapper>
   );
 }
