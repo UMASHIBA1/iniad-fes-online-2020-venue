@@ -38,7 +38,9 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
       <MusicModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
+        title={musicEnvProps.title}
         musics={musicEnvProps.musicIframes}
+        pickupMusics={musicEnvProps.pickUpIframes}
         isMobile={false}
       />
     </Wrapper>

@@ -7,7 +7,6 @@ import RoomMark from "../../../atoms/RoomMark";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
-import Modal from "../../../atoms/Modal/Modal";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 
 
@@ -41,10 +40,12 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
       />
       <ObjectMark onClick={() => changeIsShowVideoModal(true)} dataControllId={dataControllId.objButton} />
       <VideoModal
+      title={videoEnvProps.title}
+      description={videoEnvProps.description}
       isShow={isShowVideoModal}
       onClose={() => changeIsShowVideoModal(false)}
-      videoProps={videoEnvProps.VideoProps}
-        isMobile={false}
+      videoPropList={videoEnvProps.VideoProps}
+      isMobile={false}
       />
       {videoEnvProps.escapeGameQuestion?(
         <React.Fragment>

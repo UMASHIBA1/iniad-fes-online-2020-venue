@@ -30,6 +30,8 @@ interface ExampleMode2EnvAttr {
 export interface MusicEnvAttr {
   mode: "musics";
   door: RoomEnvLinkProps;
+  title: string;
+  pickUpIframes: string[];
   musicIframes: string[];
   escapeGameQuestion?: EscapeGameQuestion;
 }
@@ -37,8 +39,10 @@ export interface MusicEnvAttr {
 export interface VideoEnvAttr {
   mode: "video";
   door: RoomEnvLinkProps;
-  VideoProps: VideoProps;
   escapeGameQuestion?: EscapeGameQuestion;
+  title: string;
+  description?: string;
+  VideoProps: VideoProps[];
 }
 
 interface TwitterProps {
@@ -60,16 +64,26 @@ export interface PhotoListEnvAttr {
   escapeGameQuestion?: EscapeGameQuestion;
 }
 
+export interface IGC2EnvAttr {
+  mode: "igc2";
+  title: string;
+  door: RoomEnvLinkProps;
+  gameLink: string;
+  video: VideoProps;
+  imgPath: string;
+  escapeGameQuestion?: EscapeGameQuestion;
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
   | VideoEnvAttr
-  | PhotoListEnvAttr;
+  | PhotoListEnvAttr
+  | IGC2EnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
   name: string;
   environment_attributes: EnvAttr;
-  video: VideoProps;
 }

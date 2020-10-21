@@ -14,6 +14,7 @@ import useDidMount from "../../../hooks/useDidMount/useDidMount";
 interface Props {
   children: ReactNode;
   bgImg: string;
+  isOneScreen: boolean;
 }
 
 const dataControllIds = {
@@ -37,7 +38,7 @@ const goOneRight = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
   }
 }
 
-function RoomWrapper({ children, bgImg }: Props) {
+function RoomWrapper({ children, bgImg, isOneScreen }: Props) {
   const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
   const dispatch: DispatchType = useDispatch();
 
@@ -47,7 +48,7 @@ function RoomWrapper({ children, bgImg }: Props) {
 
   return (
     <Wrapper>
-      <RoomWrapperMain bgImg={bgImg} viewing={viewingScreen}>
+      <RoomWrapperMain bgImg={bgImg} viewing={viewingScreen} isOneScreen={isOneScreen}>
         {children}
         <IconButton
           svgPath={leftArrow}
@@ -70,7 +71,7 @@ function RoomWrapper({ children, bgImg }: Props) {
   );
 }
 
-const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp}>`
+const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp, isOneScreen: boolean}>`
   position: relative;
   top: 0;
   left: 0;
@@ -118,6 +119,11 @@ const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp}
         css`
           transform: translate(200vw, -50%);
         `}
+
+        ${({isOneScreen}) =>
+        isOneScreen && css`
+          visibility: hidden;
+        `}
     }
 
     &[data-controll-id=${dataControllIds.rightButton}] {
@@ -138,6 +144,10 @@ const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp}
       ${({ viewing }) =>
         viewing === "right" &&
         css`
+          visibility: hidden;
+        `}
+      ${({isOneScreen}) =>
+        isOneScreen && css`
           visibility: hidden;
         `}
     }

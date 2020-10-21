@@ -1,20 +1,11 @@
 import { links } from "../constants/links";
-import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 import q1Img from "../statics/escapeGame/q1.png"
+import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 
 const sampleObj = {
   url: "example.com",
   name: "example",
-};
-
-const sampleVideo: ClassRoomProps["video"] = {
-  start_at: {
-    iso8601: "2020-10-31T10:00:00+09:00",
-    timestamp: 1604106001,
-  },
-  url: "example.com",
-  mode: "mp4",
 };
 
 const roomDatas: RoomAPIType = [
@@ -112,6 +103,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3101",
     environment_attributes: {
+      mode: "front",
       back: {
         url: links.elevatorFront("3f"),
         title: "3階エレベーター前",
@@ -134,6 +126,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3102",
     environment_attributes: {
+      mode: "center",
       back: {
         url: links.road("3101"),
         title: "3階廊下1",
@@ -156,6 +149,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "3103",
     environment_attributes: {
+      mode: "end",
       back: {
         url: links.road("3102"),
         title: "3階廊下2",
@@ -178,6 +172,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4101",
     environment_attributes: {
+      mode: "front",
       back: {
         url: links.elevatorFront("4f"),
         title: "4階エレベーター前",
@@ -200,6 +195,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4102",
     environment_attributes: {
+      mode: "center",
       back: {
         url: links.road("4101"),
         title: "4階廊下1",
@@ -222,6 +218,7 @@ const roomDatas: RoomAPIType = [
     type: "road",
     name: "4103",
     environment_attributes: {
+      mode: "end",
       back: {
         url: links.road("4102"),
         title: "4階廊下2",
@@ -250,7 +247,18 @@ const roomDatas: RoomAPIType = [
         url: links.road("3101"),
       },
       mode: "video",
-      VideoProps: {
+      title: "INIActors",
+      description: "※劇場でやるよ、気を付けてね！",
+            escapeGameQuestion: {
+        grade: 1,
+        course: null,
+        title: "INIAD脱出ゲーム学年1 問題",
+        mode: "text",
+        answer: "INIAD",
+        questionImg: q1Img,
+      },
+      VideoProps: [
+        {
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
         mode: "mp4",
         start_at: {
@@ -258,16 +266,32 @@ const roomDatas: RoomAPIType = [
           timestamp: 1604106000,
         },
       },
-      escapeGameQuestion: {
-        grade: 1,
-        course: null,
-        title: "INIAD脱出ゲーム学年1 問題",
-        mode: "text",
-        answer: "INIAD",
-        questionImg: q1Img,
-      }
+              {
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
+        mode: "mp4",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+              {
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=b",
+        mode: "mp4",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+              {
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=c",
+        mode: "mp4",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+    ]
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -280,7 +304,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -293,7 +316,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -306,7 +328,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -319,7 +340,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -332,7 +352,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -342,10 +361,19 @@ const roomDatas: RoomAPIType = [
         title: "4階廊下1",
         url: links.road("4101"),
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      mode: "igc2",
+      gameLink: "https://igc2.jp/exhibition/",
+      title: "igc2 ゲーム",
+      video: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
+      imgPath: igc2Sumbnail,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -393,7 +421,6 @@ const roomDatas: RoomAPIType = [
         },
       ],
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -403,21 +430,36 @@ const roomDatas: RoomAPIType = [
         title: "4階廊下2",
         url: links.road("4102"),
       },
+      title: "RAISON DETRE",
       mode: "musics",
+      pickUpIframes: [
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887618911&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-summer-beach-remix" title="RYDEEN (Summer Beach Remix)" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN (Summer Beach Remix)</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887617879&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-ver" title="RYDEEN Orchestra style" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN Orchestra style</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887616274&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/midnight-rydeen-city" title="Midnight Rydeen City" target="_blank" style="color: #cccccc; text-decoration: none;">Midnight Rydeen City</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887614282&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/0731-rydeentaguchi-ren-taguchi" title="RYDEEN ～iroiro short remix～" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN ～iroiro short remix～</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887612497&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen" title="RYDEEN (応援曲アレンジ)" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN (応援曲アレンジ)</a></div>',
+      ],
       musicIframes: [
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/734545279&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/phillplay" title="Phillplay" target="_blank" style="color: #cccccc; text-decoration: none;">Phillplay</a> · <a href="https://soundcloud.com/phillplay/phill-second-set" title="Pioneer Moscow" target="_blank" style="color: #cccccc; text-decoration: none;">Pioneer Moscow</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/896801923&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/jun-honda-3" title="JUUNN" target="_blank" style="color: #cccccc; text-decoration: none;">JUUNN</a> · <a href="https://soundcloud.com/jun-honda-3/claris-cheers-punk-goes-pop-style-easycore-poppunk-remix" title="はたらく細胞 ClariS - CheerS  (Punk Goes Pop Style / Easycore Poppunk Remix )" target="_blank" style="color: #cccccc; text-decoration: none;">はたらく細胞 ClariS - CheerS  (Punk Goes Pop Style / Easycore Poppunk Remix )</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/591087501&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/mugatunesofficial" title="MugaTunes" target="_blank" style="color: #cccccc; text-decoration: none;">MugaTunes</a> · <a href="https://soundcloud.com/mugatunesofficial/sets/audible-adderall-14" title="Study, Chill, Relax, Gaming ~ Audible Adderall #14" target="_blank" style="color: #cccccc; text-decoration: none;">Study, Chill, Relax, Gaming ~ Audible Adderall #14</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/206559958&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/silkmusic" title="Silk Music" target="_blank" style="color: #cccccc; text-decoration: none;">Silk Music</a> · <a href="https://soundcloud.com/silkmusic/silksf099-1" title="Delectatio - Numinous [Silk Music]" target="_blank" style="color: #cccccc; text-decoration: none;">Delectatio - Numinous [Silk Music]</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/265040990&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/otto-knows" title="Otto Knows" target="_blank" style="color: #cccccc; text-decoration: none;">Otto Knows</a> · <a href="https://soundcloud.com/otto-knows/otto-knows-ft-avicii-back-where-i-belong" title="Otto Knows ft. Avicii - Back Where I Belong" target="_blank" style="color: #cccccc; text-decoration: none;">Otto Knows ft. Avicii - Back Where I Belong</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
-        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/169508644&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/thefatrat" title="TheFatRat" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat</a> · <a href="https://soundcloud.com/thefatrat/thefatrat-unity-1" title="TheFatRat - Unity" target="_blank" style="color: #cccccc; text-decoration: none;">TheFatRat - Unity</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/912471097&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/ineffable-logic" title="Ineffable logic" target="_blank" style="color: #cccccc; text-decoration: none;">Ineffable logic</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/912470191&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/pipeline" title="Pipeline" target="_blank" style="color: #cccccc; text-decoration: none;">Pipeline</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/912469822&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/s04mhrjeabcw" title="セピア色のスピークイージー" target="_blank" style="color: #cccccc; text-decoration: none;">セピア色のスピークイージー</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/912469138&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/board-game" title="Board Game !" target="_blank" style="color: #cccccc; text-decoration: none;">Board Game !</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/912468148&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/1eiye1yock3u" title="収穫祭" target="_blank" style="color: #cccccc; text-decoration: none;">収穫祭</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/912467110&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/opvkbepinv9h" title="浜辺の朝の夢" target="_blank" style="color: #cccccc; text-decoration: none;">浜辺の朝の夢</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861854836&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/our-bromance" title="Our bromance" target="_blank" style="color: #cccccc; text-decoration: none;">Our bromance</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861853681&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/silent-fight-song" title="Silent Fight Song" target="_blank" style="color: #cccccc; text-decoration: none;">Silent Fight Song</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861853468&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/reverse-solidus" title="Reverse Solidus" target="_blank" style="color: #cccccc; text-decoration: none;">Reverse Solidus</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861853141&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/niwdhnlbn81g" title="羨望" target="_blank" style="color: #cccccc; text-decoration: none;">羨望</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861852700&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/90ilwxmzh87s" title="おほしさま" target="_blank" style="color: #cccccc; text-decoration: none;">おほしさま</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861851707&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/deep-high" title="Deep High" target="_blank" style="color: #cccccc; text-decoration: none;">Deep High</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861851515&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/in-to-the-midnight" title="In To The Midnight" target="_blank" style="color: #cccccc; text-decoration: none;">In To The Midnight</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861851323&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/witching-hour" title="Witching Hour..." target="_blank" style="color: #cccccc; text-decoration: none;">Witching Hour...</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861849421&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/gebunden-reflection" title="Gebunden Reflection" target="_blank" style="color: #cccccc; text-decoration: none;">Gebunden Reflection</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861847438&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/before-daylight-2019-mix" title="Before Daylight (2019 Mix)" target="_blank" style="color: #cccccc; text-decoration: none;">Before Daylight (2019 Mix)</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861836455&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/n4kd-sp4rk" title="N4KﾖD SP4RK" target="_blank" style="color: #cccccc; text-decoration: none;">N4KﾖD SP4RK</a></div>',
+        '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/861834823&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/out-of-clamor" title="out of clamor" target="_blank" style="color: #cccccc; text-decoration: none;">out of clamor</a></div>',
       ],
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -430,7 +472,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -443,7 +484,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -456,7 +496,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
   {
     type: "classroom",
@@ -469,7 +508,6 @@ const roomDatas: RoomAPIType = [
       mode: "oneObj",
       obj1: sampleObj,
     },
-    video: sampleVideo,
   },
 ];
 export default roomDatas;

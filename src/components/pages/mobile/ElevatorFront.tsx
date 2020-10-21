@@ -27,7 +27,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
     history.push(url);
   };
   return (
-    <RoomWrapper bgImg={elevatorFrontImg}>
+    <RoomWrapper isOneScreen={false} bgImg={elevatorFrontImg}>
       ElevatorFront
       <Wrapper>
         {thisElevatorFrontProps &&

@@ -22,6 +22,7 @@ export interface RoadProps {
   type: "road";
   name: string;
   environment_attributes: {
+    mode: "front" | "center" | "end";
     doorRight1: RoomEnvLinkProps;
     doorLeft1: RoomEnvLinkProps;
     next: RoomEnvLinkProps;
