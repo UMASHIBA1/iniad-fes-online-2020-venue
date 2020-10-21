@@ -45,6 +45,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
       <ObjectMark
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
+        title="動画"
       />
       <VideoModal
       isMobile={true}
