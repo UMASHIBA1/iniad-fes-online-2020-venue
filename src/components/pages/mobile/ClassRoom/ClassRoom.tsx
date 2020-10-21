@@ -7,7 +7,6 @@ import useTypedParams from "../../../../hooks/useTypedParams";
 import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
 import RoomMark from "../../../atoms/RoomMark";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import Footer from "../../../molecules/mobile/Footer";
 import MusicRoomContent from "./MusicRoomContent";
 import { useTypedSelector } from "../../../../redux/store";
@@ -70,13 +69,13 @@ const createthisModeRoom = (
     switch (env.mode) {
       case "oneObj":
         return (
-          <RoomMark imgPath={logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
+          <RoomMark imgPath={env.door.imgPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
               gotoTargetUrl(env.door.url);
         }} />
         );
       case "twoObj":
         return (
-            <RoomMark imgPath={logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
+            <RoomMark imgPath={env.door.imgPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
                 gotoTargetUrl(env.door.url);
         }} />
         );

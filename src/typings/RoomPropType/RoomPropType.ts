@@ -16,6 +16,7 @@ export interface HallProps {
 export interface RoomEnvLinkProps {
   url: RoomUrlType;
   title: string;
+  imgPath:string;
 }
 
 export interface RoadProps {

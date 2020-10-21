@@ -51,7 +51,7 @@ function Hall({ hallProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.door1.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
               ? hallProps[0].environment_attributes.door1.title
@@ -67,7 +67,7 @@ function Hall({ hallProps }: Props) {
           dataControllId={dataControllIds.door1}
         />
         <RoomMark
-          imgPath={iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.door2.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
               ? hallProps[0].environment_attributes.door2.title
