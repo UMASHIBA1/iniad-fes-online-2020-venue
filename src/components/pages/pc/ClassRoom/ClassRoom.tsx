@@ -66,13 +66,13 @@ const createthisModeRoom = (
     switch (env.mode) {
       case "oneObj":
         return (
-          <RoomMark imgPath={logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
+          <RoomMark imgPath={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.imgPath: logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
               gotoTargetUrl(env.door.url);
         }} />
         );
       case "twoObj":
         return (
-            <RoomMark imgPath={logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
+            <RoomMark imgPath={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.imgPath:logoPath} dataControllId={dataControllId.door} roomTitle={thisClassRoomProp?thisClassRoomProp.environment_attributes.door.title: ""} onClick={() => {
                 gotoTargetUrl(env.door.url);
         }} />
         );

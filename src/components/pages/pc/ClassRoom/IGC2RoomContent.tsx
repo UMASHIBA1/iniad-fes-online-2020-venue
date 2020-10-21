@@ -3,7 +3,6 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import { IGC2EnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
 import styled from "styled-components";
 import { whiteText } from "../../../../cssProps/colors";
@@ -32,7 +31,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history }: Props) {
     <Wrapper>
       IGC2
       <RoomMark
-        imgPath={logoPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
         roomTitle={env.door.title}
         onClick={() => {

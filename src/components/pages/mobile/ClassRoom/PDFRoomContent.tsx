@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
 import { PDFRoomEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
 import PDFModal from "../../../molecules/PDFModal";
 import useDidMount from "../../../../hooks/useDidMount/useDidMount";
@@ -37,7 +36,7 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
     <Wrapper>
       PDFRoom
       <RoomMark
-        imgPath={logoPath}
+        imgPath={pdfEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
         roomTitle={pdfEnvProps.door.title}
         onClick={() => {

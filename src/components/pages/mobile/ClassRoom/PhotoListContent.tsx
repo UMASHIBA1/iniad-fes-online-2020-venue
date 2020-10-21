@@ -5,7 +5,6 @@ import { RoomUrlType } from "../../../../constants/links";
 import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import PhotoListModal from "../../../organisms/PhotoListModal";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
 import ViewingProp from "../../../../typings/ViewingProp";
 
@@ -29,7 +28,7 @@ function PhotoListContent({ photoListEnvProps, history, viewingScreen }: Props) 
     <Wrapper>
       PhotoListContent
       <RoomMark
-        imgPath={logoPath}
+        imgPath={photoListEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
         roomTitle={photoListEnvProps.door.title}
         onClick={() => {

@@ -22,14 +22,14 @@ const controllIds = {
 };
 
 const judgeBGImg = (mode: RoadProps["environment_attributes"]["mode"]) => {
-  if(mode === "front") {
+  if (mode === "front") {
     return roadImg; // FIXME: 画像変更
-  }else if(mode === "center") {
+  } else if (mode === "center") {
     return roadImg; // FIXME: 画像変更
-  }else {
+  } else {
     return roadImg; // FIXME: 画像変更
   }
-}
+};
 
 function Road({ roadProps }: Props) {
   const history = useHistory();
@@ -40,11 +40,19 @@ function Road({ roadProps }: Props) {
   };
 
   return (
-    <RoomWrapper bgImg={judgeBGImg(thisRoadProp?thisRoadProp.environment_attributes.mode: "front")}>
+    <RoomWrapper
+      bgImg={judgeBGImg(
+        thisRoadProp ? thisRoadProp.environment_attributes.mode : "front"
+      )}
+    >
       <Wrapper>
         Road
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorRight1.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.doorRight1.title
@@ -60,7 +68,11 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorLeft1.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.doorLeft1.title
@@ -76,7 +88,11 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.next.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.next.title
@@ -92,7 +108,11 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.back.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.back.title

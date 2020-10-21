@@ -36,7 +36,7 @@ function Stair({ stairProps }: Props) {
         thisStairProp.environment_attributes.up !== undefined ? (
           <RoomMark
           dataControllId={dataControllIds.up}
-            imgPath={iniadfesLogo}
+            imgPath={thisStairProp?thisStairProp.environment_attributes.up.imgPath: iniadfesLogo}
             roomTitle={
               thisStairProp ? thisStairProp.environment_attributes.up.title : ""
             }
@@ -53,7 +53,7 @@ function Stair({ stairProps }: Props) {
         {thisStairProp && thisStairProp.environment_attributes.down ? (
           <RoomMark
           dataControllId={dataControllIds.down}
-            imgPath={iniadfesLogo}
+            imgPath={thisStairProp?thisStairProp.environment_attributes.down.imgPath:iniadfesLogo}
             roomTitle={
               thisStairProp
                 ? thisStairProp.environment_attributes.down.title
@@ -71,7 +71,7 @@ function Stair({ stairProps }: Props) {
         {thisStairProp && thisStairProp.environment_attributes.room ? (
           <RoomMark
           dataControllId={dataControllIds.room}
-            imgPath={iniadfesLogo}
+            imgPath={thisStairProp?thisStairProp.environment_attributes.room.imgPath:iniadfesLogo}
             roomTitle={
               thisStairProp
                 ? thisStairProp.environment_attributes.room.title

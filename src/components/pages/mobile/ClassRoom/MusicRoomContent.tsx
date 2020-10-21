@@ -3,7 +3,6 @@ import { MusicEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import ObjectMark from "../../../atoms/ObjectMark";
 import RoomMark from "../../../atoms/RoomMark";
 import MusicModal from "../../../organisms/MusicModal";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
@@ -29,14 +28,18 @@ function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
     <Wrapper>
       Music Room
       <RoomMark
-        imgPath={logoPath}
+        imgPath={musicEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
         roomTitle={musicEnvProps.door.title}
         onClick={() => {
           gotoTargetUrl(musicEnvProps.door.url);
         }}
       />
-      <ObjectMark title="音楽" onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
+      <ObjectMark
+        title="音楽"
+        onClick={() => changeIsShowModal(true)}
+        dataControllId={dataControllId.objButton}
+      />
       <MusicModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}

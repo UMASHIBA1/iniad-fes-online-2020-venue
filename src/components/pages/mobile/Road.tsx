@@ -44,7 +44,7 @@ function Road({ roadProps }: Props) {
       <Wrapper>
         Road
         <RoomMark
-          imgPath={logoPath}
+          imgPath={thisRoadProp?thisRoadProp.environment_attributes.doorRight1.imgPath:logoPath}
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.doorRight1.title
@@ -60,7 +60,7 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={thisRoadProp?thisRoadProp.environment_attributes.doorLeft1.imgPath:logoPath}
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.doorLeft1.title
@@ -76,7 +76,7 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={thisRoadProp?thisRoadProp.environment_attributes.next.imgPath:logoPath}
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.next.title
@@ -92,7 +92,7 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={thisRoadProp?thisRoadProp.environment_attributes.back.imgPath:logoPath}
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.back.title
