@@ -34,7 +34,7 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
           gotoTargetUrl(musicEnvProps.door.url);
         }}
       />
-      <ObjectMark onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
+      <ObjectMark title="音楽" onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
       <MusicModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}

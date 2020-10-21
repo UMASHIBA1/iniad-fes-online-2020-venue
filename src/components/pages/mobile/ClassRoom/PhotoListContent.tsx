@@ -37,6 +37,7 @@ function PhotoListContent({ photoListEnvProps, history, viewingScreen }: Props) 
         }}
       />
       <ObjectMark
+      title="写真"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />

@@ -40,6 +40,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history }: Props) {
         }}
       />
       <ObjectMark
+      title="動画"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />

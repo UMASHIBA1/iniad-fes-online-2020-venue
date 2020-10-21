@@ -45,6 +45,7 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
         }}
       />
       <ObjectMark
+      title="PDF"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
