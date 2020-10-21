@@ -42,12 +42,13 @@ function PhotoListModal({
         {photos.map((snsProp) => {
           if(snsProp.sns === "twitter" ){
             return(
-          <Tweet tweetId={snsProp.tweetId} />
+          <Tweet tweetId={snsProp.tweetId} key={snsProp.tweetId} />
             )
           }else {
             return(
               <InstagramEmbed
               url={snsProp.instagramLink}
+              key={snsProp.instagramLink}
               />
             )
           }
