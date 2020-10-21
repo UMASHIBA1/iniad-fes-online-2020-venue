@@ -54,11 +54,10 @@ const TitleWrapper = styled.div`
 `;
 
 const Title = styled.div`
-  z-index:2;
+${whiteBGColor}
 `;
 
 const Rectangle = styled.div`
-  z-index:1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -66,6 +65,7 @@ const Rectangle = styled.div`
   width: 10px;
   height: 10px;
   ${whiteBGColor}
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
 `;
 
 const WhiteCircle = styled.div`
