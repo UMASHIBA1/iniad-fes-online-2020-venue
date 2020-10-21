@@ -54,11 +54,10 @@ const TitleWrapper = styled.div`
 `;
 
 const Title = styled.div`
-  z-index:2;
+${whiteBGColor}
 `;
 
 const Rectangle = styled.div`
-  z-index:1;
   position: absolute;
   top: 50%;
   left: 50%;
@@ -66,6 +65,7 @@ const Rectangle = styled.div`
   width: 10px;
   height: 10px;
   ${whiteBGColor}
+  clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
 `;
 
 const WhiteCircle = styled.div`
@@ -82,7 +82,7 @@ const AnimeCircle = styled(WhiteCircle)`
   animation: ${circleAnime} 2400ms ease-in infinite;
 `;
 
-const CircleWrapper = styled.button`
+const CircleWrapper = styled.div`
   cursor: pointer;
   outline: none !important;
 
@@ -106,9 +106,6 @@ const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(
     "data-controll-id": dataControllId,
   })
 )<Pick<Props, "dataControllId">>`
-  position: relative;
-  top: 0;
-  left: 0;
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 20px 92px;

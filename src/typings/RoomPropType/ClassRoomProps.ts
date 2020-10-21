@@ -78,6 +78,15 @@ export interface IGC2EnvAttr {
   imgPath: string;
 }
 
+export interface TATFOEnvAttr {
+  mode: "tatfo";
+  title: string;
+  door: RoomEnvLinkProps;
+  description: string;
+  videoProps: VideoProps;
+  pdfPropList: PDFProps[];
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
@@ -85,7 +94,8 @@ type EnvAttr =
   | VideoEnvAttr
   | PhotoListEnvAttr
   | IGC2EnvAttr
-  | PDFRoomEnvAttr;
+  | PDFRoomEnvAttr
+  | TATFOEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
