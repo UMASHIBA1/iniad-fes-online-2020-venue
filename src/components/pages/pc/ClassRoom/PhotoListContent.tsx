@@ -6,6 +6,7 @@ import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProp
 import RoomMark from "../../../atoms/RoomMark";
 import PhotoListModal from "../../../organisms/PhotoListModal";
 import ObjectMark from "../../../atoms/ObjectMark";
+import useDidMount from "../../../../hooks/useDidMount/useDidMount";
 
 interface Props {
   photoListEnvProps: PhotoListEnvAttr;
@@ -22,9 +23,15 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
+  useDidMount(() => {
+    setTimeout(() => {
+      changeIsShowModal(true);
+    }, 200);
+  })
+
   return (
     <Wrapper>
-      PhotoListContent
       <RoomMark
         imgPath={photoListEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
@@ -60,14 +67,14 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 47%;
+      left: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 30%;
+      right: 33%;
     }
   }`
 
