@@ -61,7 +61,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
       />
       <PDFModal
         isShow={isShowPDF2Modal}
-        onClose={() => changeIsShowPDF1Modal(false)}
+        onClose={() => changeIsShowPDF2Modal(false)}
         isMobile={false}
         pdfProps={tatfoEnvProps.pdfPropList[1]}
       />
@@ -72,7 +72,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
       />
       <PDFModal
         isShow={isShowPDF3Modal}
-        onClose={() => changeIsShowPDF1Modal(false)}
+        onClose={() => changeIsShowPDF3Modal(false)}
         isMobile={false}
         pdfProps={tatfoEnvProps.pdfPropList[2]}
       />
@@ -83,7 +83,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
       />
       <PDFModal
         isShow={isShowPDF4Modal}
-        onClose={() => changeIsShowPDF1Modal(false)}
+        onClose={() => changeIsShowPDF4Modal(false)}
         isMobile={false}
         pdfProps={tatfoEnvProps.pdfPropList[3]}
       />
