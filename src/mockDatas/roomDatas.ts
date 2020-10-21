@@ -473,14 +473,36 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4105",
     environment_attributes: {
+      mode: "tatfo",
       door: {
         title: "4階廊下2",
-        url: links.road("4102"),
+        url: links.road("4102")
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      title: "TATFO",
+      description: "TATFOのお部屋です",
+      downloadPDFProps: [{
+        url: "/sample.pdf",
+        pageNum: 2
+      },
+      {
+        url: "/sample.pdf",
+        pageNum: 2
+      },
+    ],
+    viewingPDFProps: {
+      url: "/sample.pdf",
+      pageNum: 2
+    },
+    videoProps: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
     },
   },
+},
   {
     type: "classroom",
     name: "4102",
