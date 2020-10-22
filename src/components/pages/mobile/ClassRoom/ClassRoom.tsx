@@ -17,6 +17,7 @@ import PhotoListContent from "./PhotoListContent";
 import IGC2RoomContent from "./IGC2RoomContent";
 import PDFRoomContent from "./PDFRoomContent";
 import TATFORoomContent from "./TATFORoomContent";
+import OneVideoContent from "./OneVideoContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -112,6 +113,10 @@ const createthisModeRoom = (
         return(
           <TATFORoomContent history={history} tatfoEnvProps={env} viewingScreen={viewingScreen} />
         );
+      case "oneVideo":
+        return(
+          <OneVideoContent history={history} oneVideoProps={env} viewingScreen={viewingScreen} />
+        )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
     }

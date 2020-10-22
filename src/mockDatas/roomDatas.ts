@@ -411,7 +411,7 @@ const roomDatas: RoomAPIType = [
       title: "INIAD Developers",
       description: "INIAD Developersです",
       door: {
-        url: links.road("3101"),
+        url: links.road("3103"),
         title: "3階廊下3",
         imgPath: iniadfesLogoIcon
       },
