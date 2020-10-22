@@ -44,7 +44,6 @@ function Road({ roadProps }: Props) {
   return (
     <RoomWrapper isOneScreen={false} bgImg={judgeBGImg(thisRoadProp?thisRoadProp.environment_attributes.mode: "front")}>
       <Wrapper mode={thisRoadProp?thisRoadProp.environment_attributes.mode: "front"}>
-        Road
         <RoomMark
           imgPath={thisRoadProp?thisRoadProp.environment_attributes.doorRight1.imgPath:logoPath}
           roomTitle={
@@ -140,13 +139,13 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
     ${({mode}) => mode==="center" && css`
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
-      bottom: 70%;
-      right: 15%;
+      bottom: 68%;
+      right: 13%;
     }
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
       bottom: 70%;
-      left:28%;
+      left:13%;
     }
     `}
 
@@ -159,7 +158,7 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
       bottom: 70%;
-      left: 28%;
+      left: 10%;
     }
     `}
 
