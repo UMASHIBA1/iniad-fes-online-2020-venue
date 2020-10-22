@@ -407,13 +407,22 @@ const roomDatas: RoomAPIType = [
     name: "3101",
     environment_attributes: {
       leftOrRight: "right",
+      mode: "oneVideo",
+      title: "INIAD Developers",
+      description: "INIAD Developersです",
       door: {
+        url: links.road("3101"),
         title: "3階廊下3",
-        url: links.road("3103"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      videoProps: {
+        mode: "streaming",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+            timestamp: 1604106000,
+        },
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a"
+      }
     },
   },
   {
