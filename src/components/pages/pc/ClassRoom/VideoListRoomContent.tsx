@@ -17,7 +17,7 @@ const dataControllId = {
   door: "videoroomcontent-left-door",
 };
 
-function VideoRoomContent({ videoEnvProps, history }: Props) {
+function VideoListRoomContent({ videoEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -90,4 +90,4 @@ const Wrapper = styled.div<{leftOrRight: VideoListEnvAttr["leftOrRight"]}>`
   }
 `;
 
-export default VideoRoomContent;
+export default VideoListRoomContent;

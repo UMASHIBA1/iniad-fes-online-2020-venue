@@ -11,11 +11,12 @@ import styled from "styled-components";
 import RoomMark from "../../../atoms/RoomMark";
 import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import MusicRoomContent from "./MusicRoomContent";
-import VideoRoomContent from "./VideoRoomContent";
+import VideoListRoomContent from "./VideoListRoomContent";
 import PhotoListContent from "./PhotoListContent";
 import IGC2RoomContent from "./IGC2RoomContent";
 import PDFRoomContent from "./PDFRoomContent";
 import TATFORoomContent from "./TATFORoomContent";
+import OneVideoContent from "./OneVideoContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -90,7 +91,7 @@ const createthisModeRoom = (
         );
       case "videoList":
         return(
-          <VideoRoomContent history={history} videoEnvProps={env} />
+          <VideoListRoomContent history={history} videoEnvProps={env} />
         )
       case "photoList":
         return(
@@ -108,6 +109,10 @@ const createthisModeRoom = (
         return(
           <TATFORoomContent history={history} tatfoEnvProps={env} />
         );
+      case "oneVideo":
+        return(
+          <OneVideoContent history={history} oneVideoProps={env} />
+        )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
     }
