@@ -7,6 +7,7 @@ import VideoProps from "./VideoProps";
 // FIXME: とりあえずどんな部屋を作ればいいのかわからないからExampleMode1,2を作ります。サークルがどんな部屋を必要としているかがわかったらもっと具体的なmodeを作る
 interface ExampleMode1EnvAttr {
   mode: "twoObj";
+  leftOrRight: LeftOrRight;
   door: RoomEnvLinkProps;
   obj1: {
     url: string;
@@ -18,8 +19,11 @@ interface ExampleMode1EnvAttr {
   };
 }
 
+type LeftOrRight = "left" | "right";
+
 interface ExampleMode2EnvAttr {
   mode: "oneObj";
+  leftOrRight: LeftOrRight;
   door: RoomEnvLinkProps;
   obj1: {
     url: string;
@@ -33,6 +37,7 @@ export interface PDFRoomEnvAttr {
   title: string;
   description: string;
   pdfProps: PDFProps;
+  leftOrRight: LeftOrRight;
 }
 
 export interface MusicEnvAttr {
@@ -41,6 +46,7 @@ export interface MusicEnvAttr {
   title: string;
   pickUpIframes: string[];
   musicIframes: string[];
+  leftOrRight: LeftOrRight;
 }
 
 export interface VideoEnvAttr {
@@ -49,6 +55,7 @@ export interface VideoEnvAttr {
   title: string;
   description?: string;
   VideoProps: VideoProps[];
+  leftOrRight: LeftOrRight;
 }
 
 interface TwitterProps {
@@ -67,6 +74,7 @@ export interface PhotoListEnvAttr {
   title: string;
   description: string;
   photos: (TwitterProps | InstagramProps)[];
+  leftOrRight: LeftOrRight;
 }
 
 export interface IGC2EnvAttr {
@@ -76,6 +84,7 @@ export interface IGC2EnvAttr {
   gameLink: string;
   video: VideoProps;
   imgPath: string;
+  leftOrRight: LeftOrRight;
 }
 
 export interface TATFOEnvAttr {
@@ -85,6 +94,7 @@ export interface TATFOEnvAttr {
   description: string;
   videoProps: VideoProps;
   pdfPropList: PDFProps[];
+  leftOrRight: LeftOrRight;
 }
 
 type EnvAttr =

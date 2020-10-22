@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../../templates/mobile/RoomWrapper";
-import roomImg from "../../../../statics/classroom.jpg";
+import roomImg from "../../../../statics/right-classroom.jpg";
 import ClassRoomProps from "../../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../../hooks/useTypedParams";
