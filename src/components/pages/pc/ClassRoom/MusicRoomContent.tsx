@@ -53,6 +53,7 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
   );
 }
 
+// NOTE: RAISON DETREしかないので左側のみ作る
 const Wrapper = styled.div`
   position: relative;
   top: 0;
@@ -64,13 +65,13 @@ const Wrapper = styled.div`
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
       top: 47%;
-      left: 5%;
+      right: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
       top: 31%;
-      right: 33%;
+      left: 33%;
     }
   }
 `;
