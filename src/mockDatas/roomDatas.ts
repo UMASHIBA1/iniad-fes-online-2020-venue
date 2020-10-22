@@ -303,6 +303,7 @@ const roomDatas: RoomAPIType = [
       },
       mode: "video",
       title: "INIActors",
+      leftOrRight: "left",
       description: "※劇場でやるよ、気を付けてね！",
       VideoProps: [
         {
@@ -344,6 +345,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3109",
     environment_attributes: {
+      leftOrRight: "right",
       door: {
         title: "3階廊下1",
         url: links.road("3101"),
@@ -357,6 +359,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3106",
     environment_attributes: {
+      leftOrRight: "left",
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
@@ -370,6 +373,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3105",
     environment_attributes: {
+      leftOrRight: "right",
       mode: "pdfRoom",
       title: "Digi Health",
       description: "",
@@ -388,6 +392,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3102",
     environment_attributes: {
+      leftOrRight: "left",
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
@@ -401,6 +406,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3101",
     environment_attributes: {
+      leftOrRight: "right",
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
@@ -414,6 +420,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3100",
     environment_attributes: {
+      leftOrRight: "right",
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
@@ -427,6 +434,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4110",
     environment_attributes: {
+      leftOrRight: "left",
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
@@ -450,6 +458,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4109",
     environment_attributes: {
+      leftOrRight: "right",
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
@@ -494,6 +503,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4106",
     environment_attributes: {
+      leftOrRight: 'left',
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
@@ -535,6 +545,7 @@ const roomDatas: RoomAPIType = [
     name: "4105",
     environment_attributes: {
       mode: "tatfo",
+      leftOrRight: "right",
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
@@ -574,6 +585,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4102",
     environment_attributes: {
+      leftOrRight: "left",
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
@@ -587,6 +599,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4101",
     environment_attributes: {
+      leftOrRight: "right",
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
@@ -600,6 +613,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4100",
     environment_attributes: {
+      leftOrRight: "left",
       door: {
         title: "4階廊下3",
         url: links.road("4103"),

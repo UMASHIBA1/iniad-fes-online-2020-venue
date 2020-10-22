@@ -18,7 +18,6 @@ interface Props {
 }
 
 const dataControllId = {
-  objButton: "igc2RoomContent-obj-button",
   door: "igc2RoomContent-left-door",
 };
 
@@ -28,7 +27,6 @@ function IGC2RoomContent({ igc2EnvProps: env, history }: Props) {
   };
   return (
     <Wrapper>
-      IGC2
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
@@ -50,6 +48,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history }: Props) {
   );
 }
 
+// NOTE: IGC2Roomは左側しか存在しないのでleftOrRightの判定をしない
 const Wrapper = styled.div`
   position: relative;
   top: 0;
@@ -60,14 +59,8 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 47%;
-      left: 5%;
-    }
-
-    &[data-controll-id=${dataControllId.objButton}] {
-      position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 40%;
+      right: 3%;
     }
   }
 `;
@@ -92,7 +85,7 @@ const LinkWrapper = styled.div`
   ${radiusMd}
   position: absolute;
   top: 31%;
-  right: 31%;
+  left: 31%;
 `;
 
 const ImgWrapper = styled.div`

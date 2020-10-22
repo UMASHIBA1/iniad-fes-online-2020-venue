@@ -26,7 +26,6 @@ function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
   };
   return (
     <Wrapper>
-      Music Room
       <RoomMark
         imgPath={musicEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
@@ -60,17 +59,18 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
+  // NOTE: RAISON DETREしかないので左側教室版のみ作る
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 47%;
+      right: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 28%;
+      left: 36%;
     }
   }
 `;

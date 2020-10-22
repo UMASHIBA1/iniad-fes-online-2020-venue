@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
 import { VideoEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
@@ -26,8 +26,7 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
   const viewingScreen = useTypedSelector(({ viewingScreen }) => viewingScreen);
 
   return (
-    <Wrapper>
-      Video Room
+    <Wrapper leftOrRight={videoEnvProps.leftOrRight}>
       <RoomMark
         imgPath={videoEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
@@ -54,7 +53,7 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{leftOrRight: VideoEnvAttr["leftOrRight"]}>`
   position: relative;
   top: 0;
   left: 0;
@@ -62,17 +61,36 @@ const Wrapper = styled.div`
   height: 100%;
 
   > button {
+
+    ${({leftOrRight}) => (leftOrRight === "left"&& css`
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 50%;
+      right: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 25%;
+      left: 37%;
     }
+    `)}
+
+    ${({leftOrRight}) => (leftOrRight === "right"&& css`
+    &[data-controll-id=${dataControllId.door}] {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+    }
+
+    &[data-controll-id=${dataControllId.objButton}] {
+      position: absolute;
+      top: 25%;
+      right: 37%;
+    }
+    `)}
+
+
   }
 `;
 

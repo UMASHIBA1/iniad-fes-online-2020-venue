@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../../templates/pc/RoomWrapper";
-import roomImg from "../../../../statics/classroom.jpg";
+import rightRoomImg from "../../../../statics/right-classroom.jpg";
+import leftRoomImg from "../../../../statics/left-classroom.jpg";
 import ClassRoomProps from "../../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../../hooks/useTypedParams";
@@ -20,12 +21,20 @@ interface Props {
   classRoomProps: ClassRoomProps[];
 }
 
+const judgeRoomImg = (leftOrRight: ClassRoomProps["environment_attributes"]["leftOrRight"]) => {
+    if(leftOrRight === "right") {
+      return rightRoomImg;
+    }else {
+      return leftRoomImg;
+    }
+}
+
 function ClassRoom({ classRoomProps }: Props) {
   const history = useHistory();
   const [thisClassRoomProp] = useThisClassRoomProp(classRoomProps);
 
   return (
-    <RoomWrapper bgImg={roomImg}>
+    <RoomWrapper bgImg={judgeRoomImg(thisClassRoomProp?thisClassRoomProp.environment_attributes.leftOrRight: "left")}>
       <Wrapper>
         {createthisModeRoom(history, thisClassRoomProp)}
         <FuncButtons />
