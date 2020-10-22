@@ -92,7 +92,7 @@ const createthisModeRoom = (
         return(
           <MusicRoomContent history={history} musicEnvProps={env} viewingScreen={viewingScreen} />
         )
-      case "video":
+      case "videoList":
         return(
           <VideoRoomContent history={history} videoEnvProps={env} />
         )

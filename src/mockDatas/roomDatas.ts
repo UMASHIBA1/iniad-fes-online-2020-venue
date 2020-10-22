@@ -301,7 +301,7 @@ const roomDatas: RoomAPIType = [
         url: links.road("3101"),
         imgPath:iniadfesLogoIcon
       },
-      mode: "video",
+      mode: "videoList",
       title: "INIActors",
       leftOrRight: "left",
       description: "※劇場でやるよ、気を付けてね！",

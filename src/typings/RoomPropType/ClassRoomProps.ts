@@ -49,8 +49,8 @@ export interface MusicEnvAttr {
   leftOrRight: LeftOrRight;
 }
 
-export interface VideoEnvAttr {
-  mode: "video";
+export interface VideoListEnvAttr {
+  mode: "videoList";
   door: RoomEnvLinkProps;
   title: string;
   description?: string;
@@ -101,7 +101,7 @@ type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
-  | VideoEnvAttr
+  | VideoListEnvAttr
   | PhotoListEnvAttr
   | IGC2EnvAttr
   | PDFRoomEnvAttr

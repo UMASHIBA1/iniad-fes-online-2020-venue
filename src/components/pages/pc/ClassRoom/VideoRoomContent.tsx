@@ -2,13 +2,13 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
-import { VideoEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
+import { VideoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
 
 interface Props {
-  videoEnvProps: VideoEnvAttr;
+  videoEnvProps: VideoListEnvAttr;
   history: ReturnType<typeof useHistory>;
 }
 
@@ -50,7 +50,7 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
   );
 }
 
-const Wrapper = styled.div<{leftOrRight: VideoEnvAttr["leftOrRight"]}>`
+const Wrapper = styled.div<{leftOrRight: VideoListEnvAttr["leftOrRight"]}>`
   position: relative;
   top: 0;
   left: 0;
