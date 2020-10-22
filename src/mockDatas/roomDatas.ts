@@ -151,7 +151,7 @@ const roomDatas: RoomAPIType = [
       },
       doorRight1: {
         url: links.classroom("3109"),
-        title: "実行委員",
+        title: "ラジオ",
         imgPath:iniadfesLogoIcon
       },
     },
