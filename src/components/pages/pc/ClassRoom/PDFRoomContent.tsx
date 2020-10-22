@@ -32,7 +32,6 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
 
   return (
     <Wrapper>
-    PDF ROOM
       <RoomMark
         imgPath={pdfEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
@@ -66,14 +65,14 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 47%;
+      left: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 30%;
+      right: 33%;
     }
   }
 `;

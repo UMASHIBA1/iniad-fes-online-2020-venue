@@ -487,10 +487,6 @@ const roomDatas: RoomAPIType = [
           sns: "instagram",
           instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
         },
-        {
-          sns: "instagram",
-          instagramLink: "https://www.instagram.com/p/CGPUaQoHz_X/",
-        },
       ],
     },
   },

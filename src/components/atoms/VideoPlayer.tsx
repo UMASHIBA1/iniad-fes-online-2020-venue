@@ -21,7 +21,6 @@ const useVideo = <T extends HTMLElement>(props: VideoJsPlayerOptions) => {
   const videoRef = useRef<T>(null);
 
   useEffect(() => {
-    console.log(videoRef.current);
     const player = videojs(
       videoRef.current,
       {
@@ -32,7 +31,6 @@ const useVideo = <T extends HTMLElement>(props: VideoJsPlayerOptions) => {
         console.log("videoPlayer ready");
       }
     );
-    return () => player.dispose();
   }, [props, videoRef]);
 
   return [videoRef];

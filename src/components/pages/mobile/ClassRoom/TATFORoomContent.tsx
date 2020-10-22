@@ -119,34 +119,34 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 50%;
+      left: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton1}] {
       position: absolute;
-      top: 20%;
-      left: 16%;
+      top: 21%;
+      left: 34%;
     }
     &[data-controll-id=${dataControllId.objButton2}] {
       position: absolute;
-      top: 20%;
-      right: 16%;
+      top: 12%;
+      right: 14%;
     }
     &[data-controll-id=${dataControllId.objButton3}] {
       position: absolute;
-      bottom: 40%;
-      left: 16%;
+      top: 23%;
+      left: 22%;
     }
     &[data-controll-id=${dataControllId.objButton4}] {
       position: absolute;
-      bottom: 20%;
-      right: 20%;
+      top: 24%;
+      right: 22%;
     }
     &[data-controll-id=${dataControllId.videoButton}] {
       position: absolute;
-      bottom: 20%;
-      right: 50%;
+      top: 23%;
+      right: 36%;
     }
   }
 `;
