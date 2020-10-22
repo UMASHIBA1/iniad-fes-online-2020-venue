@@ -12,6 +12,7 @@ import { radiusMd } from "../../../../cssProps/radius";
 import breakPoints from "../../../../constants/breakPoints";
 import ViewingProp from "../../../../typings/ViewingProp";
 import VideoModal from "../../../molecules/VideoModal";
+import { normalShadow } from "../../../../cssProps/shadow";
 
 
 interface Props {
@@ -68,6 +69,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
   );
 }
 
+// NOTE: IGC2Roomは左側しか存在しないのでleftOrRightの判定をしない
 const Wrapper = styled.div`
   position: relative;
   top: 0;
@@ -78,14 +80,14 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 50%;
+      right: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 24%;
+      left: 28%;
     }
   }
 `;
@@ -95,22 +97,27 @@ const GoGame = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 14px;
   ${whiteText}
   ${radiusMd}
   font-weight: bold;
 
   ${breakPoints.downSm} {
-    font-size: 16px;
+    font-size: 12px;
   }
 `;
 
 const LinkWrapper = styled.div`
-  width: 160px;
+  width: 140px;
   ${radiusMd}
   position: absolute;
-  top: 40%;
-  right: 10%;
+  top: 25%;
+  left: 34%;
+
+  ${breakPoints.downSm} {
+    width: 120px;
+  }
+
 `;
 
 const ImgWrapper = styled.div`
@@ -125,6 +132,7 @@ const ImgWrapper = styled.div`
 
   > ${Img} {
     ${radiusMd}
+  ${normalShadow(5)}
   }
 `;
 
