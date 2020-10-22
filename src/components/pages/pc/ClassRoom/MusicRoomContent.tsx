@@ -53,7 +53,7 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
   );
 }
 
-// NOTE: RAISON DETREしかないので左側のみ作る
+// NOTE: RAISON DETREしかないので左側教室版のみ作る
 const Wrapper = styled.div`
   position: relative;
   top: 0;
