@@ -25,11 +25,11 @@ const controllIds = {
 
 const judgeBGImg = (mode: RoadProps["environment_attributes"]["mode"]) => {
   if (mode === "front") {
-    return roadImg1; // FIXME: 画像変更
+    return roadImg1;
   } else if (mode === "center") {
-    return roadImg2; // FIXME: 画像変更
+    return roadImg2;
   } else {
-    return roadImg3; // FIXME: 画像変更
+    return roadImg3;
   }
 };
 

@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../templates/mobile/RoomWrapper";
-import roadImg from "../../../statics/road.png";
+import roadImg1 from "../../../statics/road-1.png";
+import roadImg2 from "../../../statics/road-2.png";
+import roadImg3 from "../../../statics/road-3.png";
 import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { mobileLinks, RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
 import Footer from "../../molecules/mobile/Footer";
@@ -23,11 +25,11 @@ const controllIds = {
 
 const judgeBGImg = (mode: RoadProps["environment_attributes"]["mode"]) => {
   if(mode === "front") {
-    return roadImg; // FIXME: 画像変更
+    return roadImg1;
   }else if(mode === "center") {
-    return roadImg; // FIXME: 画像変更
+    return roadImg2;
   }else {
-    return roadImg; // FIXME: 画像変更
+    return roadImg3;
   }
 }
 
@@ -41,7 +43,7 @@ function Road({ roadProps }: Props) {
 
   return (
     <RoomWrapper isOneScreen={false} bgImg={judgeBGImg(thisRoadProp?thisRoadProp.environment_attributes.mode: "front")}>
-      <Wrapper>
+      <Wrapper mode={thisRoadProp?thisRoadProp.environment_attributes.mode: "front"}>
         Road
         <RoomMark
           imgPath={thisRoadProp?thisRoadProp.environment_attributes.doorRight1.imgPath:logoPath}
@@ -113,7 +115,7 @@ function Road({ roadProps }: Props) {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
   position: relative;
   top: 0;
   left: 0;
@@ -121,16 +123,46 @@ const Wrapper = styled.div`
   height: 100%;
 
   > button {
+
+        ${({mode}) => mode==="front" && css`
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
-      bottom: 20%;
-      right: 20%;
+      bottom: 50%;
+      right: 12%;
     }
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
-      bottom: 20%;
-      left: 20%;
+      bottom: 60%;
+      left: 16%;
     }
+    `}
+
+    ${({mode}) => mode==="center" && css`
+    &[data-controll-id=${controllIds.right1}] {
+      position: absolute;
+      bottom: 70%;
+      right: 15%;
+    }
+    &[data-controll-id=${controllIds.left1}] {
+      position: absolute;
+      bottom: 70%;
+      left:28%;
+    }
+    `}
+
+    ${({mode}) => mode==="end" && css`
+    &[data-controll-id=${controllIds.right1}] {
+      position: absolute;
+      bottom: 70%;
+      right: 10%;
+    }
+    &[data-controll-id=${controllIds.left1}] {
+      position: absolute;
+      bottom: 70%;
+      left: 28%;
+    }
+    `}
+
     &[data-controll-id=${controllIds.next}] {
       position: absolute;
       top: 5%;
