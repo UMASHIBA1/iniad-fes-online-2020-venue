@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import RoomWrapper from "../../templates/mobile/RoomWrapper";
-import elevatorFrontImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import elevatorFrontImg from "../../../statics/elevator-front.png";
 import { ElevatorFrontProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../hooks/useTypedParams";
@@ -27,7 +27,6 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
   };
   return (
     <RoomWrapper isOneScreen={false} bgImg={elevatorFrontImg}>
-      ElevatorFront
       <Wrapper>
         {thisElevatorFrontProps &&
         thisElevatorFrontProps.environment_attributes.roadx1xx ? (
@@ -103,19 +102,19 @@ const Wrapper = styled.div`
     &[data-controll-id=${dataControllIds.roadx1xx}] {
       position: absolute;
       top: 20%;
-      right: 10%;
+      right: 18%;
     }
 
     &[data-controll-id=${dataControllIds.roadX2xx}] {
       position: absolute;
-      top: 20%;
-      left: 20%;
+      top: 40%;
+      left: 18%;
     }
 
     &[data-controll-id=${dataControllIds.back}] {
       position: absolute;
       bottom: 10%;
-      left: 50%;
+      left: 48%;
     }
   }
 `;
