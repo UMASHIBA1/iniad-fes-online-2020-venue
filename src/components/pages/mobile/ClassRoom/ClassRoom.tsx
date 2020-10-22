@@ -12,7 +12,7 @@ import Footer from "../../../molecules/mobile/Footer";
 import MusicRoomContent from "./MusicRoomContent";
 import { useTypedSelector } from "../../../../redux/store";
 import ViewingProp from "../../../../typings/ViewingProp";
-import VideoRoomContent from "./VideoRoomContent";
+import VideoListRoomContent from "./VideoListRoomContent";
 import PhotoListContent from "./PhotoListContent";
 import IGC2RoomContent from "./IGC2RoomContent";
 import PDFRoomContent from "./PDFRoomContent";
@@ -95,7 +95,7 @@ const createthisModeRoom = (
         )
       case "videoList":
         return(
-          <VideoRoomContent history={history} videoEnvProps={env} />
+          <VideoListRoomContent history={history} videoEnvProps={env} />
         )
       case "photoList":
         return(

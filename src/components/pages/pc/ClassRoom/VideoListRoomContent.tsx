@@ -13,8 +13,8 @@ interface Props {
 }
 
 const dataControllId = {
-  objButton: "videoroomcontent-obj-button",
-  door: "videoroomcontent-left-door",
+  objButton: "videoListroomcontent-obj-button",
+  door: "videoListroomcontent-left-door",
 };
 
 function VideoListRoomContent({ videoEnvProps, history }: Props) {

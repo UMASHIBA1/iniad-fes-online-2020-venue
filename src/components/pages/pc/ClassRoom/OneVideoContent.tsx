@@ -12,7 +12,7 @@ interface Props {
 }
 
 const dataControllId = {
-  door: "igc2RoomContent-left-door",
+  door: "oneVideoRoomContent-left-door",
 };
 
 function OneVideoContent({ oneVideoProps: env, history }: Props) {
