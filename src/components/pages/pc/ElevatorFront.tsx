@@ -101,13 +101,13 @@ const Wrapper = styled.div`
     &[data-controll-id=${dataControllIds.roadx1xx}] {
       position: absolute;
       top: 20%;
-      right: 30%;
+      right: 20%;
     }
 
     &[data-controll-id=${dataControllIds.roadX2xx}] {
       position: absolute;
-      top: 60%;
-      left: 5%;
+      top: 40%;
+      left: 20%;
     }
 
     &[data-controll-id=${dataControllIds.back}] {
