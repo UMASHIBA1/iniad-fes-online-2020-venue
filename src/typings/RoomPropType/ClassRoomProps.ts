@@ -49,8 +49,8 @@ export interface MusicEnvAttr {
   leftOrRight: LeftOrRight;
 }
 
-export interface VideoEnvAttr {
-  mode: "video";
+export interface VideoListEnvAttr {
+  mode: "videoList";
   door: RoomEnvLinkProps;
   title: string;
   description?: string;
@@ -97,15 +97,25 @@ export interface TATFOEnvAttr {
   leftOrRight: LeftOrRight;
 }
 
+export interface OneVideoEnvAttr {
+  mode: "oneVideo";
+  title: string;
+  door: RoomEnvLinkProps;
+  description: string;
+  videoProps: VideoProps;
+  leftOrRight: LeftOrRight;
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
-  | VideoEnvAttr
+  | VideoListEnvAttr
   | PhotoListEnvAttr
   | IGC2EnvAttr
   | PDFRoomEnvAttr
-  | TATFOEnvAttr;
+  | TATFOEnvAttr
+  | OneVideoEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";

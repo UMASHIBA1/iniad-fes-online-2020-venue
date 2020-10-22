@@ -12,11 +12,12 @@ import Footer from "../../../molecules/mobile/Footer";
 import MusicRoomContent from "./MusicRoomContent";
 import { useTypedSelector } from "../../../../redux/store";
 import ViewingProp from "../../../../typings/ViewingProp";
-import VideoRoomContent from "./VideoRoomContent";
+import VideoListRoomContent from "./VideoListRoomContent";
 import PhotoListContent from "./PhotoListContent";
 import IGC2RoomContent from "./IGC2RoomContent";
 import PDFRoomContent from "./PDFRoomContent";
 import TATFORoomContent from "./TATFORoomContent";
+import OneVideoContent from "./OneVideoContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -92,9 +93,9 @@ const createthisModeRoom = (
         return(
           <MusicRoomContent history={history} musicEnvProps={env} viewingScreen={viewingScreen} />
         )
-      case "video":
+      case "videoList":
         return(
-          <VideoRoomContent history={history} videoEnvProps={env} />
+          <VideoListRoomContent history={history} videoEnvProps={env} />
         )
       case "photoList":
         return(
@@ -112,6 +113,10 @@ const createthisModeRoom = (
         return(
           <TATFORoomContent history={history} tatfoEnvProps={env} viewingScreen={viewingScreen} />
         );
+      case "oneVideo":
+        return(
+          <OneVideoContent history={history} oneVideoProps={env} viewingScreen={viewingScreen} />
+        )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
     }

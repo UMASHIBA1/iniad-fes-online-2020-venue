@@ -2,29 +2,31 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
-import { VideoEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
+import { VideoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
+import { useTypedSelector } from "../../../../redux/store";
 
 interface Props {
-  videoEnvProps: VideoEnvAttr;
+  videoEnvProps: VideoListEnvAttr;
   history: ReturnType<typeof useHistory>;
 }
 
 const dataControllId = {
-  objButton: "videoroomcontent-obj-button",
-  door: "videoroomcontent-left-door",
+  objButton: "videolistroomcontent-obj-button",
+  door: "videolistroomcontent-left-door",
 };
 
-function VideoRoomContent({ videoEnvProps, history }: Props) {
+function VideoListRoomContent({ videoEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+  const viewingScreen = useTypedSelector(({ viewingScreen }) => viewingScreen);
+
   return (
     <Wrapper leftOrRight={videoEnvProps.leftOrRight}>
-      Video Room
       <RoomMark
         imgPath={videoEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
@@ -39,18 +41,19 @@ function VideoRoomContent({ videoEnvProps, history }: Props) {
         dataControllId={dataControllId.objButton}
       />
       <VideoModal
-        title={videoEnvProps.title}
-        description={videoEnvProps.description}
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
+        title={videoEnvProps.title}
+        description={videoEnvProps.description}
         videoPropList={videoEnvProps.VideoProps}
-        isMobile={false}
+        viewingScreen={viewingScreen}
+        isMobile={true}
       />
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div<{leftOrRight: VideoEnvAttr["leftOrRight"]}>`
+const Wrapper = styled.div<{leftOrRight: VideoListEnvAttr["leftOrRight"]}>`
   position: relative;
   top: 0;
   left: 0;
@@ -59,35 +62,36 @@ const Wrapper = styled.div<{leftOrRight: VideoEnvAttr["leftOrRight"]}>`
 
   > button {
 
-    ${({leftOrRight}) => (leftOrRight==="right"&&css`
+    ${({leftOrRight}) => (leftOrRight === "left"&& css`
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top:  47%;
-      left: 5%;
-    }
-
-    &[data-controll-id=${dataControllId.objButton}] {
-      position: absolute;
-      top: 30%;
-      right: 33%;
-    }
-    `)}
-
-        ${({leftOrRight}) => (leftOrRight==="left"&&css`
-    &[data-controll-id=${dataControllId.door}] {
-      position: absolute;
-      top:  47%;
+      top: 50%;
       right: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 30%;
-      left: 33%;
+      top: 25%;
+      left: 37%;
     }
     `)}
+
+    ${({leftOrRight}) => (leftOrRight === "right"&& css`
+    &[data-controll-id=${dataControllId.door}] {
+      position: absolute;
+      top: 50%;
+      left: 5%;
+    }
+
+    &[data-controll-id=${dataControllId.objButton}] {
+      position: absolute;
+      top: 25%;
+      right: 37%;
+    }
+    `)}
+
 
   }
 `;
 
-export default VideoRoomContent;
+export default VideoListRoomContent;
