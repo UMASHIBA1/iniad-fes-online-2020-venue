@@ -48,7 +48,6 @@ function Road({ roadProps }: Props) {
       )}
     >
       <Wrapper mode={thisRoadProp?thisRoadProp.environment_attributes.mode: "front"}>
-        Road
         <RoomMark
           imgPath={
             thisRoadProp
@@ -144,6 +143,17 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
 
   > button {
 
+    &[data-controll-id=${controllIds.next}] {
+      position: absolute;
+      top: 4%;
+      left: 48%;
+    }
+    &[data-controll-id=${controllIds.back}] {
+      position: absolute;
+      bottom: 5%;
+      left: 50%;
+    }
+
     ${({mode}) => mode==="front" && css`
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
@@ -160,13 +170,13 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
     ${({mode}) => mode==="center" && css`
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
-      bottom: 70%;
-      right: 15%;
+      bottom: 62%;
+      right: 12%;
     }
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
-      bottom: 70%;
-      left:28%;
+      bottom: 60%;
+      left:13%;
     }
     `}
 
@@ -178,21 +188,12 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
     }
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
-      bottom: 70%;
-      left: 28%;
+      bottom: 60%;
+      left: 10%;
     }
     `}
 
-    &[data-controll-id=${controllIds.next}] {
-      position: absolute;
-      top: 16%;
-      left: 50%;
-    }
-    &[data-controll-id=${controllIds.back}] {
-      position: absolute;
-      bottom: 5%;
-      left: 50%;
-    }
+
   }
 `;
 
