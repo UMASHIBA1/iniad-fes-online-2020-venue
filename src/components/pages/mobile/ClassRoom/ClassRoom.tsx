@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../../templates/mobile/RoomWrapper";
-import roomImg from "../../../../statics/right-classroom.jpg";
+import rightRoomImg from "../../../../statics/right-classroom.jpg";
+import leftRoomImg from "../../../../statics/left-classroom.jpg";
 import ClassRoomProps from "../../../../typings/RoomPropType/ClassRoomProps";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../../hooks/useTypedParams";
@@ -21,13 +22,21 @@ interface Props {
   classRoomProps: ClassRoomProps[];
 }
 
+const judgeRoomImg = (leftOrRight: ClassRoomProps["environment_attributes"]["leftOrRight"]) => {
+    if(leftOrRight === "right") {
+      return rightRoomImg;
+    }else {
+      return leftRoomImg;
+    }
+}
+
 function ClassRoom({ classRoomProps }: Props) {
   const history = useHistory();
   const [thisClassRoomProp] = useThisClassRoomProp(classRoomProps);
   const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
 
   return (
-    <RoomWrapper bgImg={roomImg} isOneScreen={false}>
+    <RoomWrapper bgImg={judgeRoomImg(thisClassRoomProp?thisClassRoomProp.environment_attributes.leftOrRight:"left")} isOneScreen={false}>
       <Wrapper>
         {createthisModeRoom(history, viewingScreen,thisClassRoomProp)}
         <Footer />
