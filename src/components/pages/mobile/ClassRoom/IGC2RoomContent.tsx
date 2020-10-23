@@ -69,7 +69,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
   );
 }
 
-// NOTE: IGC2Roomは左側しか存在しないのでleftOrRightの判定をしない
+// NOTE: ArtWorksは左側しか存在しないのでleftOrRightの判定をしない
 const Wrapper = styled.div`
   position: relative;
   top: 0;
