@@ -1,21 +1,21 @@
 import { links } from "../constants/links";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
-import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg"
-import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png"
-import btlIcon from "../statics/circleIcons/BTL - Ritsu ISHI.png"
-import digiHealth from "../statics/circleIcons/Digi×Health - Natsuki OKAYASU.png"
-import raisonDetleIcon from "../statics/circleIcons/icon - Hayato FUKUI.png"
-import idgraphIcon from "../statics/circleIcons/IDgraph_20201013 - Mari TAKEBA.png"
-import IGC2Icon from "../statics/circleIcons/IGC2 - Masaki ASAO.png"
-import iniactorsIcon from "../statics/circleIcons/INIActors_2 - Yuri MAEDA.png"
-import iniadTimesIcon from "../statics/circleIcons/INIAD Times icon - Ayame TATEMATSU.svg"
-import tatfoIcon from "../statics/circleIcons/INIAD-FES-2020-TATFO-02 - Haruki UMEDA.png"
-import iniadGrassIcon from "../statics/circleIcons/INIADGrass200 - Ryota TOKUNAGA.png"
-import iniadTutorialIcon from "../statics/circleIcons/INIADTUTORIAL_logo_200 - Akira MIYAMOTO.png"
-import hoasenIcon from "../statics/circleIcons/logo hoa sen - LUONG NGUYEN VAN.png"
-import noahsArkIcon from "../statics/circleIcons/Noah_s Ark_ logo - Takuma Sunohara.png"
-import quizIcon from "../statics/circleIcons/quiz - Kensuke SUZUKI.png"
+import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
+import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
+import btlIcon from "../statics/circleIcons/BTL - Ritsu ISHI.png";
+import digiHealth from "../statics/circleIcons/Digi×Health - Natsuki OKAYASU.png";
+import raisonDetleIcon from "../statics/circleIcons/icon - Hayato FUKUI.png";
+import idgraphIcon from "../statics/circleIcons/IDgraph_20201013 - Mari TAKEBA.png";
+import IGC2Icon from "../statics/circleIcons/IGC2 - Masaki ASAO.png";
+import iniactorsIcon from "../statics/circleIcons/INIActors_2 - Yuri MAEDA.png";
+import iniadTimesIcon from "../statics/circleIcons/INIAD Times icon - Ayame TATEMATSU.svg";
+import tatfoIcon from "../statics/circleIcons/INIAD-FES-2020-TATFO-02 - Haruki UMEDA.png";
+import iniadGrassIcon from "../statics/circleIcons/INIADGrass200 - Ryota TOKUNAGA.png";
+import iniadTutorialIcon from "../statics/circleIcons/INIADTUTORIAL_logo_200 - Akira MIYAMOTO.png";
+import hoasenIcon from "../statics/circleIcons/logo hoa sen - LUONG NGUYEN VAN.png";
+import noahsArkIcon from "../statics/circleIcons/Noah_s Ark_ logo - Takuma Sunohara.png";
+import quizIcon from "../statics/circleIcons/quiz - Kensuke SUZUKI.png";
 import stairIcon from "../statics/svgs/stair-icon.svg";
 import arrowBackIcon from "../statics/svgs/arrow-back.svg";
 import arrowNextIcon from "../statics/svgs/arrow-next.svg";
@@ -43,7 +43,7 @@ const roomDatas: RoomAPIType = [
       door: {
         url: links.elevatorFront("3f"),
         title: "3Fエレベーター前",
-        imgPath: iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
     },
   },
@@ -55,17 +55,17 @@ const roomDatas: RoomAPIType = [
       roadx1xx: {
         url: links.road("3101"),
         title: "3階廊下1",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       roadx2xx: {
         url: links.hall,
         title: "ホール",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       back: {
         url: links.stair("3f"),
         title: "3階階段",
-        imgPath:stairIcon
+        imgPath: stairIcon,
       },
     },
   },
@@ -76,17 +76,17 @@ const roomDatas: RoomAPIType = [
       roadx1xx: {
         url: links.road("4101"),
         title: "4階廊下1",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       roadx2xx: {
         url: links.hall,
         title: "ホール",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       back: {
         url: links.stair("4f"),
         title: "4階階段",
-        imgPath:stairIcon
+        imgPath: stairIcon,
       },
     },
   },
@@ -98,17 +98,17 @@ const roomDatas: RoomAPIType = [
       up: {
         url: links.elevatorFront("4f"),
         title: "4階エレベーター前",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       down: {
         url: links.entrance,
         title: "糖朝",
-        imgPath: entranceIcon
+        imgPath: entranceIcon,
       },
       room: {
         url: links.elevatorFront("3f"),
         title: "3階エレベーター前",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
     },
   },
@@ -119,12 +119,12 @@ const roomDatas: RoomAPIType = [
       down: {
         url: links.elevatorFront("3f"),
         title: "3階エレベーター前",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       room: {
         url: links.elevatorFront("4f"),
         title: "4階エレベーター前",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
     },
   },
@@ -137,22 +137,22 @@ const roomDatas: RoomAPIType = [
       back: {
         url: links.elevatorFront("3f"),
         title: "3階エレベーター前",
-        imgPath: arrowBackIcon
+        imgPath: arrowBackIcon,
       },
       next: {
         url: links.road("3102"),
         title: "3階廊下2",
-        imgPath:arrowNextIcon
+        imgPath: arrowNextIcon,
       },
       doorLeft1: {
         url: links.classroom("3110"),
         title: "INIActors",
-        imgPath:iniactorsIcon
+        imgPath: iniactorsIcon,
       },
       doorRight1: {
         url: links.classroom("3109"),
         title: "ラジオ",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
     },
   },
@@ -164,22 +164,22 @@ const roomDatas: RoomAPIType = [
       back: {
         url: links.road("3101"),
         title: "3階廊下1",
-        imgPath:arrowBackIcon
+        imgPath: arrowBackIcon,
       },
       next: {
         url: links.road("3103"),
         title: "3階廊下3",
-        imgPath:arrowNextIcon
+        imgPath: arrowNextIcon,
       },
       doorLeft1: {
         url: links.classroom("3106"),
         title: "Web研究会",
-        imgPath:iniadTimesIcon
+        imgPath: iniadTimesIcon,
       },
       doorRight1: {
         url: links.classroom("3105"),
         title: "DigiHealth",
-        imgPath:digiHealth
+        imgPath: digiHealth,
       },
     },
   },
@@ -191,22 +191,22 @@ const roomDatas: RoomAPIType = [
       back: {
         url: links.road("3102"),
         title: "3階廊下2",
-        imgPath:arrowBackIcon
+        imgPath: arrowBackIcon,
       },
       next: {
         url: links.classroom("3100"),
         title: "クイ研",
-        imgPath: quizIcon
+        imgPath: quizIcon,
       },
       doorLeft1: {
         url: links.classroom("3102"),
         title: "INIAD Minecraft",
-        imgPath:iniadGrassIcon
+        imgPath: iniadGrassIcon,
       },
       doorRight1: {
         url: links.classroom("3101"),
         title: "INIAD Developers",
-        imgPath:iniadTutorialIcon
+        imgPath: iniadTutorialIcon,
       },
     },
   },
@@ -218,22 +218,22 @@ const roomDatas: RoomAPIType = [
       back: {
         url: links.elevatorFront("4f"),
         title: "4階エレベーター前",
-        imgPath: iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       next: {
         url: links.road("4102"),
         title: "4階廊下2",
-        imgPath:arrowNextIcon
+        imgPath: arrowNextIcon,
       },
       doorLeft1: {
         url: links.classroom("4110"),
         title: "IGC2",
-        imgPath:IGC2Icon
+        imgPath: IGC2Icon,
       },
       doorRight1: {
         url: links.classroom("4109"),
         title: "ID/graph",
-        imgPath:idgraphIcon
+        imgPath: idgraphIcon,
       },
     },
   },
@@ -245,22 +245,22 @@ const roomDatas: RoomAPIType = [
       back: {
         url: links.road("4101"),
         title: "4階廊下1",
-        imgPath:arrowBackIcon
+        imgPath: arrowBackIcon,
       },
       next: {
         url: links.road("4103"),
         title: "4階廊下3",
-        imgPath:arrowNextIcon
+        imgPath: arrowNextIcon,
       },
       doorLeft1: {
         url: links.classroom("4106"),
         title: "RAISON DETRE",
-        imgPath:raisonDetleIcon
+        imgPath: raisonDetleIcon,
       },
       doorRight1: {
         url: links.classroom("4105"),
         title: "TATFO",
-        imgPath:tatfoIcon
+        imgPath: tatfoIcon,
       },
     },
   },
@@ -272,22 +272,22 @@ const roomDatas: RoomAPIType = [
       back: {
         url: links.road("4102"),
         title: "4階廊下2",
-        imgPath:arrowBackIcon
+        imgPath: arrowBackIcon,
       },
       next: {
         url: links.classroom("4100"),
         title: "Art Works",
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       doorLeft1: {
         url: links.classroom("4102"),
         title: "Hello Vietnam",
-        imgPath:hoasenIcon
+        imgPath: hoasenIcon,
       },
       doorRight1: {
         url: links.classroom("4101"),
         title: "Noah's Ark",
-        imgPath:noahsArkIcon
+        imgPath: noahsArkIcon,
       },
     },
   },
@@ -299,7 +299,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下1",
         url: links.road("3101"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "videoList",
       title: "INIActors",
@@ -349,7 +349,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下1",
         url: links.road("3101"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -363,7 +363,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -380,7 +380,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       pdfProps: {
         url: "/digihealth.pdf",
@@ -396,7 +396,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -413,16 +413,16 @@ const roomDatas: RoomAPIType = [
       door: {
         url: links.road("3103"),
         title: "3階廊下3",
-        imgPath: iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       videoProps: {
         mode: "streaming",
         start_at: {
           iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
+          timestamp: 1604106000,
         },
-        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a"
-      }
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
+      },
     },
   },
   {
@@ -433,7 +433,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
-        imgPath: iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -447,7 +447,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "igc2",
       gameLink: "https://igc2.jp/exhibition/",
@@ -471,7 +471,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "photoList",
       title: "ID/graph",
@@ -512,11 +512,11 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4106",
     environment_attributes: {
-      leftOrRight: 'left',
+      leftOrRight: "left",
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       title: "RAISON DETRE",
       mode: "musics",
@@ -558,7 +558,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       title: "TATFO",
       description: "TATFOのお部屋です",
@@ -598,7 +598,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -612,7 +612,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -626,10 +626,35 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath:iniadfesLogoIcon
+        imgPath: iniadfesLogoIcon,
       },
       mode: "artList",
-      artList: [],
+      artList: [
+        {
+          title: "なんか",
+          url: iniadTutorialIcon,
+        },
+        {
+          title: "nannka",
+          url: raisonDetleIcon,
+        },
+        {
+          title: "nannkadayo",
+          url: quizIcon,
+        },
+        {
+          title: "doudesyouka1",
+          url: iniadfesLogoIcon,
+        },
+        {
+          title: "doudesyouka2",
+          url: iniadfesLogoIcon,
+        },
+        {
+          title: "doudesyouka3",
+          url: iniadfesLogoIcon,
+        },
+      ],
       description: "Art Worksの書いてきた絵です",
       title: "Art Works",
     },
