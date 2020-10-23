@@ -106,6 +106,18 @@ export interface OneVideoEnvAttr {
   leftOrRight: LeftOrRight;
 }
 
+export interface ArtListEnvAttr {
+  mode: "artList";
+  title: string;
+  door: RoomEnvLinkProps;
+  description: string;
+  artList: {
+    url: string;
+    title: string;
+  }[];
+  leftOrRight: LeftOrRight;
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
@@ -115,7 +127,8 @@ type EnvAttr =
   | IGC2EnvAttr
   | PDFRoomEnvAttr
   | TATFOEnvAttr
-  | OneVideoEnvAttr;
+  | OneVideoEnvAttr
+  | ArtListEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";

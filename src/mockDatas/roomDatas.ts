@@ -628,8 +628,10 @@ const roomDatas: RoomAPIType = [
         url: links.road("4103"),
         imgPath:iniadfesLogoIcon
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      mode: "artList",
+      artList: [],
+      description: "Art Worksの書いてきた絵です",
+      title: "Art Works",
     },
   },
 ];
