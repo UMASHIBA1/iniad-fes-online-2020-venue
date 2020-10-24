@@ -9,6 +9,7 @@ import FuncButtons from "../../molecules/pc/FuncButtons";
 import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
+import ClassRoomVideo from "../../organisms/ClassRoomVideo";
 
 interface Props {
   hallProps: HallProps[];
@@ -29,54 +30,34 @@ function Hall({ hallProps }: Props) {
   return (
     <RoomWrapper bgImg={hallImg}>
       <Wrapper>
-        Hall
-        <Button
-          text="door1"
-          onClick={() => {
-            gotoTargetUrl(
-              hallProps[0]
-                ? hallProps[0].environment_attributes.door1.url
-                : pcLinks.entrance
-            );
-          }}
-        />
-        <Button
-          text="door2"
-          onClick={() => {
-            gotoTargetUrl(
-              hallProps[0]
-                ? hallProps[0].environment_attributes.door2.url
-                : pcLinks.entrance
-            );
-          }}
-        />
+        <ClassRoomVideo videoProps={hallProps[0].environment_attributes.video} positionLeft="41%" positionTop="16%" />
         <RoomMark
-          imgPath={hallProps[0]?hallProps[0].environment_attributes.door1.imgPath: iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorLeft.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
-              ? hallProps[0].environment_attributes.door1.title
+              ? hallProps[0].environment_attributes.doorLeft.title
               : "空き部屋"
           }
           onClick={() => {
             gotoTargetUrl(
               hallProps[0]
-                ? hallProps[0].environment_attributes.door1.url
+                ? hallProps[0].environment_attributes.doorLeft.url
                 : pcLinks.entrance
             );
           }}
           dataControllId={dataControllIds.door1}
         />
         <RoomMark
-          imgPath={hallProps[0]?hallProps[0].environment_attributes.door2.imgPath: iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorRight.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
-              ? hallProps[0].environment_attributes.door2.title
+              ? hallProps[0].environment_attributes.doorRight.title
               : "空き部屋"
           }
           onClick={() => {
             gotoTargetUrl(
               hallProps[0]
-                ? hallProps[0].environment_attributes.door2.url
+                ? hallProps[0].environment_attributes.doorRight.url
                 : pcLinks.entrance
             );
           }}
@@ -97,13 +78,13 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllIds.door1}] {
       position: absolute;
-      top: 13%;
-      right: 33%;
+      bottom: 13%;
+      right: 10%;
     }
     &[data-controll-id=${dataControllIds.door2}] {
       position: absolute;
       bottom: 13%;
-      right: 33%;
+      left: 10%;
     }
   }
 `;

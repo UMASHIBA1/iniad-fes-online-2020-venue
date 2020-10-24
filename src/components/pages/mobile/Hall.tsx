@@ -30,32 +30,32 @@ function Hall({ hallProps }: Props) {
       <Wrapper>
         Hall
         <RoomMark
-          imgPath={hallProps[0]?hallProps[0].environment_attributes.door1.imgPath: iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorLeft.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
-              ? hallProps[0].environment_attributes.door1.title
+              ? hallProps[0].environment_attributes.doorLeft.title
               : "空き部屋"
           }
           onClick={() => {
             gotoTargetUrl(
               hallProps[0]
-                ? hallProps[0].environment_attributes.door1.url
+                ? hallProps[0].environment_attributes.doorLeft.url
                 : mobileLinks.entrance
             );
           }}
           dataControllId={dataControllIds.door1}
         />
         <RoomMark
-          imgPath={hallProps[0]?hallProps[0].environment_attributes.door2.imgPath: iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorRight.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
-              ? hallProps[0].environment_attributes.door2.title
+              ? hallProps[0].environment_attributes.doorRight.title
               : "空き部屋"
           }
           onClick={() => {
             gotoTargetUrl(
               hallProps[0]
-                ? hallProps[0].environment_attributes.door2.url
+                ? hallProps[0].environment_attributes.doorRight.url
                 : mobileLinks.entrance
             );
           }}
