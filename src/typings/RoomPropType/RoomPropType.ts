@@ -6,16 +6,16 @@ export interface HallProps {
   type: "hall",
   name: string;
   environment_attributes: {
-    // NOTE: 中庭側 + 食堂に近い方のドアをdoor1としてそこから時計回りでdoor2,door3となる
-    door1: RoomEnvLinkProps;
-    door2: RoomEnvLinkProps;
+    doorLeft: RoomEnvLinkProps;
+    doorRight: RoomEnvLinkProps;
+    video: VideoProps;
   },
-  video: VideoProps;
 }
 
 export interface RoomEnvLinkProps {
   url: RoomUrlType;
   title: string;
+  imgPath:string;
 }
 
 export interface RoadProps {

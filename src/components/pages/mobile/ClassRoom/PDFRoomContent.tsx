@@ -1,51 +1,57 @@
 import React, { useState } from "react";
-import { MusicEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
-import ObjectMark from "../../../atoms/ObjectMark";
-import RoomMark from "../../../atoms/RoomMark";
-import MusicModal from "../../../organisms/MusicModal";
 import { useHistory } from "react-router-dom";
-import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
+import { RoomUrlType } from "../../../../constants/links";
+import { PDFRoomEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
+import RoomMark from "../../../atoms/RoomMark";
+import ObjectMark from "../../../atoms/ObjectMark";
+import PDFModal from "../../../molecules/PDFModal";
+import useDidMount from "../../../../hooks/useDidMount/useDidMount";
 import ViewingProp from "../../../../typings/ViewingProp";
 
 interface Props {
-  musicEnvProps: MusicEnvAttr;
+  pdfEnvProps: PDFRoomEnvAttr;
   history: ReturnType<typeof useHistory>;
   viewingScreen: ViewingProp;
 }
 
 const dataControllId = {
-  objButton: "musicroomcontent-obj-button",
-  door: "musicroomcontent-left-door",
+  objButton: "pdfroomContent-obj-button",
+  door: "pdfroomContent-left-door",
 };
 
-function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
+function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
+  useDidMount(() =>{
+    setTimeout(() => {
+    changeIsShowModal(true);
+    }, 300);
+  })
+
   return (
     <Wrapper>
       <RoomMark
-        imgPath={musicEnvProps.door.imgPath}
+        imgPath={pdfEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={musicEnvProps.door.title}
+        roomTitle={pdfEnvProps.door.title}
         onClick={() => {
-          gotoTargetUrl(musicEnvProps.door.url);
+          gotoTargetUrl(pdfEnvProps.door.url);
         }}
       />
       <ObjectMark
-        title="音楽"
+      title="PDF"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
-      <MusicModal
+      <PDFModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        title={musicEnvProps.title}
-        musics={musicEnvProps.musicIframes}
-        pickupMusics={musicEnvProps.pickUpIframes}
-        viewingScreen={viewingScreen}
+        pdfProps={pdfEnvProps.pdfProps}
+        viewing={viewingScreen}
         isMobile={true}
       />
     </Wrapper>
@@ -59,20 +65,19 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  // NOTE: RAISON DETREしかないので左側教室版のみ作る
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 47%;
-      right: 5%;
+      top: 50%;
+      left: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 28%;
+      top: 22%;
       left: 36%;
     }
   }
 `;
 
-export default MusicRoomContent;
+export default PDFRoomContent;

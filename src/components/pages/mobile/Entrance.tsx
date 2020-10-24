@@ -36,7 +36,7 @@ function Entrance({ entranceProps }: Props) {
       <Wrapper>
         Entrance
         <RoomMark
-          imgPath={iniadfeslogo}
+          imgPath={entranceProps[0]?entranceProps[0].environment_attributes.door.imgPath: iniadfeslogo}
           roomTitle={
             entranceProps[0]
               ? entranceProps[0].environment_attributes.door.title

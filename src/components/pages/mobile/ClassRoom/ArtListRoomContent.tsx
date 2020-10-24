@@ -1,57 +1,47 @@
 import React, { useState } from "react";
-import { MusicEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
+import { ArtListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import ObjectMark from "../../../atoms/ObjectMark";
 import RoomMark from "../../../atoms/RoomMark";
-import MusicModal from "../../../organisms/MusicModal";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
+import ArtListModal from "../../../organisms/ArtListModal";
 import ViewingProp from "../../../../typings/ViewingProp";
 
 interface Props {
-  musicEnvProps: MusicEnvAttr;
+  artListEnvProps: ArtListEnvAttr;
   history: ReturnType<typeof useHistory>;
   viewingScreen: ViewingProp;
 }
 
 const dataControllId = {
-  objButton: "musicroomcontent-obj-button",
-  door: "musicroomcontent-left-door",
+  objButton: "artlistroomcontent-obj-button",
+  door: "artlistroomcontent-left-door",
 };
 
-function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
+function ArtListRoomContent({ artListEnvProps: env, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
   return (
     <Wrapper>
       <RoomMark
-        imgPath={musicEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={musicEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(musicEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
-      <ObjectMark
-        title="音楽"
-        onClick={() => changeIsShowModal(true)}
-        dataControllId={dataControllId.objButton}
-      />
-      <MusicModal
-        isShow={isShowModal}
-        onClose={() => changeIsShowModal(false)}
-        title={musicEnvProps.title}
-        musics={musicEnvProps.musicIframes}
-        pickupMusics={musicEnvProps.pickUpIframes}
-        viewingScreen={viewingScreen}
-        isMobile={true}
-      />
+      <ObjectMark title="イラスト" onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
+      <ArtListModal artList={env.artList} isMobile={false} isShow={isShowModal} onClose={() => changeIsShowModal(false)} title={env.title} />
     </Wrapper>
   );
 }
 
+// NOTE: ArtWorksは左側しかないので左側教室版のみ作る
 const Wrapper = styled.div`
   position: relative;
   top: 0;
@@ -59,7 +49,6 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
 
-  // NOTE: RAISON DETREしかないので左側教室版のみ作る
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
@@ -69,10 +58,10 @@ const Wrapper = styled.div`
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 28%;
-      left: 36%;
+      top: 25%;
+      left: 35%;
     }
   }
 `;
 
-export default MusicRoomContent;
+export default ArtListRoomContent;

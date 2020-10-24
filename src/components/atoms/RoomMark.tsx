@@ -75,8 +75,8 @@ const Wrapper = styled.button.attrs<{dataControllId: string}>(({dataControllId})
   }
 
   ${breakPoints.downSm} {
-    width: 12vw;
-    height: 12vw;
+    width: 16vw;
+    height: 16vw;
   }
 `
 

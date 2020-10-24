@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
-import roadImg from "../../../statics/road.png";
+import roadImg1 from "../../../statics/road-1.png";
+import roadImg2 from "../../../statics/road-2.png";
+import roadImg3 from "../../../statics/road-3.png";
 import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
 import FuncButtons from "../../molecules/pc/FuncButtons";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
 
@@ -22,14 +24,14 @@ const controllIds = {
 };
 
 const judgeBGImg = (mode: RoadProps["environment_attributes"]["mode"]) => {
-  if(mode === "front") {
-    return roadImg; // FIXME: 画像変更
-  }else if(mode === "center") {
-    return roadImg; // FIXME: 画像変更
-  }else {
-    return roadImg; // FIXME: 画像変更
+  if (mode === "front") {
+    return roadImg1;
+  } else if (mode === "center") {
+    return roadImg2;
+  } else {
+    return roadImg3;
   }
-}
+};
 
 function Road({ roadProps }: Props) {
   const history = useHistory();
@@ -40,11 +42,18 @@ function Road({ roadProps }: Props) {
   };
 
   return (
-    <RoomWrapper bgImg={judgeBGImg(thisRoadProp?thisRoadProp.environment_attributes.mode: "front")}>
-      <Wrapper>
-        Road
+    <RoomWrapper
+      bgImg={judgeBGImg(
+        thisRoadProp ? thisRoadProp.environment_attributes.mode : "front"
+      )}
+    >
+      <Wrapper mode={thisRoadProp?thisRoadProp.environment_attributes.mode: "front"}>
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorRight1.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.doorRight1.title
@@ -60,7 +69,11 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.doorLeft1.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.doorLeft1.title
@@ -76,7 +89,11 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.next.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.next.title
@@ -92,7 +109,11 @@ function Road({ roadProps }: Props) {
           }}
         />
         <RoomMark
-          imgPath={logoPath}
+          imgPath={
+            thisRoadProp
+              ? thisRoadProp.environment_attributes.back.imgPath
+              : logoPath
+          }
           roomTitle={
             thisRoadProp
               ? thisRoadProp.environment_attributes.back.title
@@ -113,7 +134,7 @@ function Road({ roadProps }: Props) {
   );
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
   position: relative;
   top: 0;
   left: 0;
@@ -121,26 +142,58 @@ const Wrapper = styled.div`
   height: 100%;
 
   > button {
-    &[data-controll-id=${controllIds.right1}] {
-      position: absolute;
-      bottom: 20%;
-      right: 20%;
-    }
-    &[data-controll-id=${controllIds.left1}] {
-      position: absolute;
-      bottom: 20%;
-      left: 20%;
-    }
+
     &[data-controll-id=${controllIds.next}] {
       position: absolute;
-      top: 5%;
-      left: 50%;
+      top: 4%;
+      left: 48%;
     }
     &[data-controll-id=${controllIds.back}] {
       position: absolute;
       bottom: 5%;
       left: 50%;
     }
+
+    ${({mode}) => mode==="front" && css`
+    &[data-controll-id=${controllIds.right1}] {
+      position: absolute;
+      bottom: 50%;
+      right: 12%;
+    }
+    &[data-controll-id=${controllIds.left1}] {
+      position: absolute;
+      bottom: 60%;
+      left: 16%;
+    }
+    `}
+
+    ${({mode}) => mode==="center" && css`
+    &[data-controll-id=${controllIds.right1}] {
+      position: absolute;
+      bottom: 62%;
+      right: 12%;
+    }
+    &[data-controll-id=${controllIds.left1}] {
+      position: absolute;
+      bottom: 60%;
+      left:13%;
+    }
+    `}
+
+    ${({mode}) => mode==="end" && css`
+    &[data-controll-id=${controllIds.right1}] {
+      position: absolute;
+      bottom: 70%;
+      right: 10%;
+    }
+    &[data-controll-id=${controllIds.left1}] {
+      position: absolute;
+      bottom: 60%;
+      left: 10%;
+    }
+    `}
+
+
   }
 `;
 
