@@ -47,6 +47,31 @@ const roomDatas: RoomAPIType = [
       },
     },
   },
+  // hal
+  {
+    type: "hall",
+    name: "hall",
+    environment_attributes: {
+      doorLeft: {
+        url: links.elevatorFront("3f"),
+        title: "3Fエレベーター前",
+        imgPath: iniadfesLogoIcon,
+      },
+      doorRight: {
+        url: links.elevatorFront("4f"),
+        title: "4Fエレベーター前",
+        imgPath: iniadfesLogoIcon,
+      },
+      video: {
+        mode: "streaming",
+        start_at: {
+        iso8601: "2020-10-31T10:00:00+09:00",
+        timestamp: 1604106001,
+        },
+        url: "https://bento-api-test.herokuapp.com/movie.mp4",
+      }
+    }
+  },
   // elevatorFront
   {
     type: "elevatorFront",
