@@ -1,6 +1,6 @@
 import { links } from "../constants/links";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
-import q1Img from "../statics/escapeGame/q1.png"
+import q1Img from "../statics/escapeGame/q1.png";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
 import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
@@ -66,12 +66,12 @@ const roomDatas: RoomAPIType = [
       video: {
         mode: "streaming",
         start_at: {
-        iso8601: "2020-10-31T10:00:00+09:00",
-        timestamp: 1604106001,
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106001,
         },
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
-      }
-    }
+      },
+    },
   },
   // elevatorFront
   {
@@ -331,7 +331,7 @@ const roomDatas: RoomAPIType = [
       title: "INIActors",
       leftOrRight: "left",
       description: "※劇場でやるよ、気を付けてね！",
-            escapeGameQuestion: {
+      escapeGameQuestion: {
         grade: 1,
         course: null,
         title: "INIAD脱出ゲーム学年1 問題",

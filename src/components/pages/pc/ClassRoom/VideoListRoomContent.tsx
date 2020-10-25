@@ -6,6 +6,7 @@ import { VideoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProp
 import RoomMark from "../../../atoms/RoomMark";
 import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
+import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 
 interface Props {
   videoEnvProps: VideoListEnvAttr;
@@ -14,11 +15,13 @@ interface Props {
 
 const dataControllId = {
   objButton: "videoListroomcontent-obj-button",
+  escapeGameButton: "videolistroom-escapegame-button",
   door: "videoListroomcontent-left-door",
 };
 
 function VideoListRoomContent({ videoEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
+  const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
@@ -46,11 +49,26 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
         videoPropList={videoEnvProps.VideoProps}
         isMobile={false}
       />
+      {videoEnvProps.escapeGameQuestion ? (
+        <React.Fragment>
+          <ObjectMark
+            title={videoEnvProps.escapeGameQuestion.title}
+            onClick={() => changeIsShowQuestionModal(true)}
+            dataControllId={dataControllId.escapeGameButton}
+          />
+          <EscapeGameQuestionModal
+            escapeGameProps={videoEnvProps.escapeGameQuestion}
+            isMobile={false}
+            isShow={isShowQuestionModal}
+            onClose={() => changeIsShowQuestionModal(false)}
+          />
+        </React.Fragment>
+      ) : null}
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div<{leftOrRight: VideoListEnvAttr["leftOrRight"]}>`
+const Wrapper = styled.div<{ leftOrRight: VideoListEnvAttr["leftOrRight"] }>`
   position: relative;
   top: 0;
   left: 0;
@@ -58,35 +76,43 @@ const Wrapper = styled.div<{leftOrRight: VideoListEnvAttr["leftOrRight"]}>`
   height: 100%;
 
   > button {
+    ${({ leftOrRight }) =>
+      leftOrRight === "right" &&
+      css`
+        &[data-controll-id=${dataControllId.door}] {
+          position: absolute;
+          top: 47%;
+          left: 5%;
+        }
 
-    ${({leftOrRight}) => (leftOrRight==="right"&&css`
-    &[data-controll-id=${dataControllId.door}] {
-      position: absolute;
-      top:  47%;
-      left: 5%;
-    }
+        &[data-controll-id=${dataControllId.objButton}] {
+          position: absolute;
+          top: 30%;
+          right: 33%;
+        }
+      `}
 
-    &[data-controll-id=${dataControllId.objButton}] {
-      position: absolute;
-      top: 30%;
-      right: 33%;
-    }
-    `)}
+    ${({ leftOrRight }) =>
+      leftOrRight === "left" &&
+      css`
+        &[data-controll-id=${dataControllId.door}] {
+          position: absolute;
+          top: 47%;
+          right: 5%;
+        }
 
-        ${({leftOrRight}) => (leftOrRight==="left"&&css`
-    &[data-controll-id=${dataControllId.door}] {
-      position: absolute;
-      top:  47%;
-      right: 5%;
-    }
+        &[data-controll-id=${dataControllId.objButton}] {
+          position: absolute;
+          top: 30%;
+          left: 33%;
+        }
 
-    &[data-controll-id=${dataControllId.objButton}] {
-      position: absolute;
-      top: 30%;
-      left: 33%;
-    }
-    `)}
-
+        &[data-controll-id=${dataControllId.escapeGameButton}] {
+          position: absolute;
+          top: 28%;
+          right: 33%;
+        }
+      `}
   }
 `;
 
