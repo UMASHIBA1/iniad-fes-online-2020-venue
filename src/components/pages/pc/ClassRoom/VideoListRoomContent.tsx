@@ -30,7 +30,6 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
   };
   const dispatch: DispatchType = useDispatch();
   const q1Answer = useTypedSelector(({escapeGameUserInfo}) => escapeGameUserInfo.userAnswer.q1);
-  console.log(q1Answer);
 
   return (
     <Wrapper leftOrRight={videoEnvProps.leftOrRight}>
