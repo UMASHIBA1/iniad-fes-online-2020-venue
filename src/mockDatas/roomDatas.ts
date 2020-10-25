@@ -428,8 +428,8 @@ const roomDatas: RoomAPIType = [
         grade: 2,
         course: "engineer",
         title: "INIAD脱出ゲーム学年2 問題",
-        mode: "select",
-        answer: "INIAD",
+        mode: "selectThree",
+        answer: "2",
         questionImg: q2EngImg,
       },
       designEscapeGameQuestion: {
@@ -437,7 +437,7 @@ const roomDatas: RoomAPIType = [
         course: "design",
         title: "INIAD脱出ゲーム学年2 問題",
         mode: "multiSelect",
-        answer: "INIAD",
+        answer: ["2","4"],
         questionImg: q2DesignImg,
       },
       busiEscapeGameQuestion: {
@@ -453,7 +453,7 @@ const roomDatas: RoomAPIType = [
         course: "civil",
         title: "INIAD脱出ゲーム学年2 問題",
         mode: "select",
-        answer: "INIAD",
+        answer: "2",
         questionImg: q2CivilImg,
       },
       door: {

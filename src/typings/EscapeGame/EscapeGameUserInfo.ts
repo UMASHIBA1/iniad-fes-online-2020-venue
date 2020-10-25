@@ -1,4 +1,4 @@
-export type AnswerSelection = "a" | "b" | "c" | "d" | null;
+export type AnswerSelection = "1" | "2" | "3" | "4" | null;
 export type AnswerText = string | null;
 
 interface BaseUserInfo {
