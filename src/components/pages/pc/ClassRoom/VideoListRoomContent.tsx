@@ -7,6 +7,9 @@ import RoomMark from "../../../atoms/RoomMark";
 import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
+import { useDispatch } from "react-redux";
+import { DispatchType, useTypedSelector } from "../../../../redux/store";
+import { answerQ1 } from "../../../../redux/modules/escapeGameUserInfo";
 
 interface Props {
   videoEnvProps: VideoListEnvAttr;
@@ -25,9 +28,12 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+  const dispatch: DispatchType = useDispatch();
+  const q1Answer = useTypedSelector(({escapeGameUserInfo}) => escapeGameUserInfo.userAnswer.q1);
+  console.log(q1Answer);
+
   return (
     <Wrapper leftOrRight={videoEnvProps.leftOrRight}>
-      Video Room
       <RoomMark
         imgPath={videoEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
@@ -51,17 +57,23 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
       />
       {videoEnvProps.escapeGameQuestion ? (
         <React.Fragment>
+          {q1Answer === null&&(
           <ObjectMark
             title={videoEnvProps.escapeGameQuestion.title}
             onClick={() => changeIsShowQuestionModal(true)}
             dataControllId={dataControllId.escapeGameButton}
           />
+          )}
           <EscapeGameQuestionModal
             escapeGameProps={videoEnvProps.escapeGameQuestion}
             isMobile={false}
             isShow={isShowQuestionModal}
             onClose={() => changeIsShowQuestionModal(false)}
-            onSubmit={() => {console.log("run submit")}}
+            onSubmit={(str) => {
+              dispatch(answerQ1(str))
+              changeIsShowQuestionModal(false);
+              alert("問題1の答えを受け取ったよ！");
+            }}
           />
         </React.Fragment>
       ) : null}
