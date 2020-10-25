@@ -39,7 +39,10 @@ export interface PDFRoomEnvAttr {
   description: string;
   pdfProps: PDFProps;
   leftOrRight: LeftOrRight;
-  escapeGameQuestion?: EscapeGameQuestion[];
+  engEscapeGameQuestion?: EscapeGameQuestion;
+  designEscapeGameQuestion?: EscapeGameQuestion;
+  busiEscapeGameQuestion?: EscapeGameQuestion;
+  civilEscapeGameQuetion?: EscapeGameQuestion;
 }
 
 export interface MusicEnvAttr {

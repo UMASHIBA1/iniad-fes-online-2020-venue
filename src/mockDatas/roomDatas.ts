@@ -424,7 +424,7 @@ const roomDatas: RoomAPIType = [
       mode: "pdfRoom",
       title: "Digi Health",
       description: "",
-      escapeGameQuestion: [{
+      engEscapeGameQuestion: {
         grade: 2,
         course: "engineer",
         title: "INIAD脱出ゲーム学年2 問題",
@@ -432,31 +432,30 @@ const roomDatas: RoomAPIType = [
         answer: "INIAD",
         questionImg: q2EngImg,
       },
-    {
+      designEscapeGameQuestion: {
         grade: 2,
         course: "design",
         title: "INIAD脱出ゲーム学年2 問題",
         mode: "multiSelect",
         answer: "INIAD",
         questionImg: q2DesignImg,
-    },
-        {
+      },
+      busiEscapeGameQuestion: {
         grade: 2,
         course: "business",
         title: "INIAD脱出ゲーム学年2 問題",
         mode: "threeText",
         answer: "INIAD",
-        questionImg: q2DesignImg,
-    },
-        {
+        questionImg: q2BusiImg,
+      },
+      civilEscapeGameQuetion: {
         grade: 2,
         course: "civil",
         title: "INIAD脱出ゲーム学年2 問題",
         mode: "select",
         answer: "INIAD",
-        questionImg: q2DesignImg,
-    },
-  ],
+        questionImg: q2CivilImg,
+      },
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
