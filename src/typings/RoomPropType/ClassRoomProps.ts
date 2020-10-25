@@ -39,6 +39,7 @@ export interface PDFRoomEnvAttr {
   description: string;
   pdfProps: PDFProps;
   leftOrRight: LeftOrRight;
+  escapeGameQuestion?: EscapeGameQuestion[];
 }
 
 export interface MusicEnvAttr {

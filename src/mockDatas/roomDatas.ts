@@ -1,6 +1,10 @@
 import { links } from "../constants/links";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
 import q1Img from "../statics/escapeGame/q1.png";
+import q2BusiImg from "../statics/escapeGame/q2-busi.png";
+import q2EngImg from "../statics/escapeGame/q2-eng.png";
+import q2CivilImg from "../statics/escapeGame/q2-civil.png";
+import q2DesignImg from "../statics/escapeGame/q2-design.png";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
 import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
@@ -420,6 +424,39 @@ const roomDatas: RoomAPIType = [
       mode: "pdfRoom",
       title: "Digi Health",
       description: "",
+      escapeGameQuestion: [{
+        grade: 2,
+        course: "engineer",
+        title: "INIAD脱出ゲーム学年2 問題",
+        mode: "select",
+        answer: "INIAD",
+        questionImg: q2EngImg,
+      },
+    {
+        grade: 2,
+        course: "design",
+        title: "INIAD脱出ゲーム学年2 問題",
+        mode: "multiSelect",
+        answer: "INIAD",
+        questionImg: q2DesignImg,
+    },
+        {
+        grade: 2,
+        course: "business",
+        title: "INIAD脱出ゲーム学年2 問題",
+        mode: "threeText",
+        answer: "INIAD",
+        questionImg: q2DesignImg,
+    },
+        {
+        grade: 2,
+        course: "civil",
+        title: "INIAD脱出ゲーム学年2 問題",
+        mode: "select",
+        answer: "INIAD",
+        questionImg: q2DesignImg,
+    },
+  ],
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
