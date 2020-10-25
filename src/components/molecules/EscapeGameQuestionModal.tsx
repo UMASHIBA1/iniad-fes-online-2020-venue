@@ -5,7 +5,7 @@ import { AnswerSelection } from "../../typings/EscapeGame/EscapeGameUserInfo";
 import ViewingProp from "../../typings/ViewingProp";
 import Button from "../atoms/Button/Button";
 import Modal from "../atoms/Modal/Modal";
-import Select from "../atoms/Select";
+import Select from "../atoms/RadioSelect";
 import TextInput from "../atoms/TextInput";
 
 interface Props {

@@ -4,7 +4,7 @@ import ViewingProp from "../../typings/ViewingProp";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
 import breakPoints from "../../constants/breakPoints";
-import Select from "../atoms/Select";
+import Select from "../atoms/RadioSelect";
 import Button from "../atoms/Button/Button";
 
 interface Props {
