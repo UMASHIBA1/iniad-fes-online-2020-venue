@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
@@ -9,7 +9,9 @@ import VideoModal from "../../../molecules/VideoModal";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 import { useDispatch } from "react-redux";
 import { DispatchType, useTypedSelector } from "../../../../redux/store";
-import { answerQ1 } from "../../../../redux/modules/escapeGameUserInfo";
+import { answerQ1, changeCourse, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
+import SelectCourseModal from "../../../organisms/SelectCourseModal";
+import { EscapeGameCourses } from "../../../../typings/EscapeGame/EscapeGameUserInfo";
 
 interface Props {
   videoEnvProps: VideoListEnvAttr;
@@ -25,11 +27,19 @@ const dataControllId = {
 function VideoListRoomContent({ videoEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
+  const [isShowSelectCourseModal, changeIsShowSelectCourseModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
   const dispatch: DispatchType = useDispatch();
-  const q1Answer = useTypedSelector(({escapeGameUserInfo}) => escapeGameUserInfo.userAnswer.q1);
+  const { grade, userAnswer } = useTypedSelector(
+    ({ escapeGameUserInfo }) => escapeGameUserInfo
+  );
+  const q1Answer = userAnswer.q1;
+
+  useEffect(() => {
+    changeIsShowSelectCourseModal(grade === 1 && q1Answer !== null);
+  }, [grade, userAnswer]);
 
   return (
     <Wrapper leftOrRight={videoEnvProps.leftOrRight}>
@@ -56,13 +66,13 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
       />
       {videoEnvProps.escapeGameQuestion ? (
         <React.Fragment>
-          {q1Answer === null&&(
-          <ObjectMark
-            color="blue"
-            title={videoEnvProps.escapeGameQuestion.title}
-            onClick={() => changeIsShowQuestionModal(true)}
-            dataControllId={dataControllId.escapeGameButton}
-          />
+          {q1Answer === null && (
+            <ObjectMark
+              color="blue"
+              title={videoEnvProps.escapeGameQuestion.title}
+              onClick={() => changeIsShowQuestionModal(true)}
+              dataControllId={dataControllId.escapeGameButton}
+            />
           )}
           <EscapeGameQuestionModal
             escapeGameProps={videoEnvProps.escapeGameQuestion}
@@ -70,11 +80,41 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
             isShow={isShowQuestionModal}
             onClose={() => changeIsShowQuestionModal(false)}
             onSubmit={(str) => {
-              dispatch(answerQ1(str))
+              dispatch(answerQ1(str));
               changeIsShowQuestionModal(false);
               alert("問題1の答えを受け取ったよ！");
             }}
           />
+          {grade === 1 ? (
+            <SelectCourseModal
+              isMobile={false}
+              isShow={isShowSelectCourseModal}
+              onSubmit={(selected) => {
+                dispatch(changeCourse(selected as EscapeGameCourses));
+                dispatch(incrementGrade());
+              }}
+              onClose={() => {}}
+              title={"2年生になるよ！ どのコースに進む？"}
+              optionList={[
+                {
+                  label: "エンジニア",
+                  value: "engineer",
+                },
+                {
+                  label: "デザイン",
+                  value: "design",
+                },
+                {
+                  label: "ビジネス",
+                  value: "business",
+                },
+                {
+                  label: "シビル",
+                  value: "civil",
+                },
+              ]}
+            />
+          ) : null}
         </React.Fragment>
       ) : null}
     </Wrapper>
