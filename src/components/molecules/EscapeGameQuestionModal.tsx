@@ -5,6 +5,7 @@ import { AnswerSelection } from "../../typings/EscapeGame/EscapeGameUserInfo";
 import ViewingProp from "../../typings/ViewingProp";
 import Button from "../atoms/Button/Button";
 import Modal from "../atoms/Modal/Modal";
+import Select from "../atoms/Select";
 import TextInput from "../atoms/TextInput";
 
 interface Props {
@@ -25,6 +26,7 @@ function EscapeGameQuestionModal({
   onSubmit
 }: Props) {
   const [textValue, changeTextValue] = useState("");
+  const [selectValue, changeSelectValue] = useState<AnswerSelection | null>(null);
 
   return (
     <Modal
@@ -50,6 +52,37 @@ function EscapeGameQuestionModal({
             <Button text="提出" mode="blue" type="submit" useShadow={false} />
           </Form>
         ) : null}
+        {
+          escapeGameProps.mode === "selectThree"? (
+            <Form onSubmit={(e) => {
+              if(selectValue !== null) {
+                onSubmit(selectValue);
+              }
+              e.preventDefault();
+            }}>
+              <Select
+              name={escapeGameProps.title}
+              value={selectValue?selectValue: ""}
+              onChange={(value) => {value !== "" && changeSelectValue(value as AnswerSelection)}}
+              optionList={[
+                {
+                  label: "1",
+                  value: "1"
+                },
+                {
+                  label: "2",
+                  value: "2"
+                },
+                {
+                  label: "3",
+                  value: "3"
+                }
+              ]}
+              />
+            <Button text="提出" mode="blue" type="submit" useShadow={false} />
+            </Form>
+          ): null
+        }
       </Wrapper>
     </Modal>
   );
