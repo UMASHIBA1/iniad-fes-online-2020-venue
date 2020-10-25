@@ -59,6 +59,7 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
         <React.Fragment>
           {q1Answer === null&&(
           <ObjectMark
+            color="blue"
             title={videoEnvProps.escapeGameQuestion.title}
             onClick={() => changeIsShowQuestionModal(true)}
             dataControllId={dataControllId.escapeGameButton}
