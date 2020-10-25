@@ -5,7 +5,7 @@ interface EscapeGameQuestion {
   grade: EscapeGameGrades;
   title: string;
   questionImg: string;
-  mode: "text" | "select" | "multiSelect";
+  mode: "text" | "select" | "multiSelect" | "threeText";
   answer: AnswerSelection | string;
 }
 
