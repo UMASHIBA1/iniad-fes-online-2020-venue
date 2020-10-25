@@ -10,7 +10,7 @@ import { DispatchType, useTypedSelector } from "../../../../redux/store";
 import { useDispatch } from "react-redux";
 import EscapeGameUserInfo from "../../../../typings/EscapeGame/EscapeGameUserInfo";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
-import { answerQ2 } from "../../../../redux/modules/escapeGameUserInfo";
+import { answerQ2, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
 
 interface Props {
   pdfEnvProps: PDFRoomEnvAttr;
@@ -19,7 +19,7 @@ interface Props {
 
 const dataControllId = {
   objButton: "pdfroomContent-obj-button",
-  escapeGameButton: "videolistroom-escapegame-button",
+  escapeGameButton: "pdfroom-escapegame-button",
   door: "pdfroomContent-left-door",
 };
 
@@ -87,6 +87,7 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
             onClose={() => changeIsShowQuestionModal(false)}
             onSubmit={(str) => {
               dispatch(answerQ2(str));
+              dispatch(incrementGrade());
               changeIsShowQuestionModal(false);
               alert("問題2の答えを受け取ったよ！");
             }}
