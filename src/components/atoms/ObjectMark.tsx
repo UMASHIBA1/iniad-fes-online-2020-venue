@@ -11,15 +11,15 @@ interface Props {
   title: string;
 }
 
-function ObjectMark(props: Props) {
+function ObjectMark({title, color = "white", dataControllId, onClick}: Props) {
   return (
-    <Wrapper onClick={props.onClick} dataControllId={props.dataControllId} color={props.color}>
+    <Wrapper onClick={onClick} dataControllId={dataControllId} color={color}>
       <TitleWrapper>
         <Rectangle />
-        <Title>{props.title}</Title>
+        <Title>{title}</Title>
       </TitleWrapper>
-      <CircleWrapper onClick={props.onClick}>
-        <WhiteCircle />
+      <CircleWrapper onClick={onClick} color={color}>
+        <Circle />
         <AnimeCircle />
         <AnimeCircle />
         <AnimeCircle />
@@ -69,20 +69,20 @@ const Rectangle = styled.div`
   clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
 `;
 
-const WhiteCircle = styled.div`
+const Circle = styled.div`
   position: absolute;
   top: calc(50% - 16px);
   left: calc(50% - 16px);
-  ${whiteBGColor}
   border-radius: 50%;
   height: 32px;
   width: 32px;
 `;
 
-const AnimeCircle = styled(WhiteCircle)`
+const AnimeCircle = styled(Circle)`
   animation: ${circleAnime} 2400ms ease-in infinite;
 `;
-const CircleWrapper = styled.div`
+
+const CircleWrapper = styled.div<Required<Pick<Props, "color">>>`
   cursor: pointer;
   outline: none !important;
 
