@@ -1,3 +1,4 @@
+import PDFProps from "../PDFProps";
 import { RoomEnvLinkProps } from "./RoomPropType";
 import VideoProps from "./VideoProps";
 
@@ -6,6 +7,7 @@ import VideoProps from "./VideoProps";
 // FIXME: とりあえずどんな部屋を作ればいいのかわからないからExampleMode1,2を作ります。サークルがどんな部屋を必要としているかがわかったらもっと具体的なmodeを作る
 interface ExampleMode1EnvAttr {
   mode: "twoObj";
+  leftOrRight: LeftOrRight;
   door: RoomEnvLinkProps;
   obj1: {
     url: string;
@@ -17,8 +19,11 @@ interface ExampleMode1EnvAttr {
   };
 }
 
+type LeftOrRight = "left" | "right";
+
 interface ExampleMode2EnvAttr {
   mode: "oneObj";
+  leftOrRight: LeftOrRight;
   door: RoomEnvLinkProps;
   obj1: {
     url: string;
@@ -26,16 +31,31 @@ interface ExampleMode2EnvAttr {
   };
 }
 
+export interface PDFRoomEnvAttr {
+  mode: "pdfRoom";
+  door: RoomEnvLinkProps;
+  title: string;
+  description: string;
+  pdfProps: PDFProps;
+  leftOrRight: LeftOrRight;
+}
+
 export interface MusicEnvAttr {
   mode: "musics";
   door: RoomEnvLinkProps;
+  title: string;
+  pickUpIframes: string[];
   musicIframes: string[];
+  leftOrRight: LeftOrRight;
 }
 
-export interface VideoEnvAttr {
-  mode: "video";
+export interface VideoListEnvAttr {
+  mode: "videoList";
   door: RoomEnvLinkProps;
-  VideoProps: VideoProps;
+  title: string;
+  description?: string;
+  VideoProps: VideoProps[];
+  leftOrRight: LeftOrRight;
 }
 
 interface TwitterProps {
@@ -54,6 +74,7 @@ export interface PhotoListEnvAttr {
   title: string;
   description: string;
   photos: (TwitterProps | InstagramProps)[];
+  leftOrRight: LeftOrRight;
 }
 
 export interface IGC2EnvAttr {
@@ -63,15 +84,51 @@ export interface IGC2EnvAttr {
   gameLink: string;
   video: VideoProps;
   imgPath: string;
+  leftOrRight: LeftOrRight;
+}
+
+export interface TATFOEnvAttr {
+  mode: "tatfo";
+  title: string;
+  door: RoomEnvLinkProps;
+  description: string;
+  videoProps: VideoProps;
+  pdfPropList: PDFProps[];
+  leftOrRight: LeftOrRight;
+}
+
+export interface OneVideoEnvAttr {
+  mode: "oneVideo";
+  title: string;
+  door: RoomEnvLinkProps;
+  description: string;
+  videoProps: VideoProps;
+  leftOrRight: LeftOrRight;
+}
+
+export interface ArtListEnvAttr {
+  mode: "artList";
+  title: string;
+  door: RoomEnvLinkProps;
+  description: string;
+  artList: {
+    url: string;
+    title: string;
+  }[];
+  leftOrRight: LeftOrRight;
 }
 
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
   | MusicEnvAttr
-  | VideoEnvAttr
+  | VideoListEnvAttr
   | PhotoListEnvAttr
-  | IGC2EnvAttr;
+  | IGC2EnvAttr
+  | PDFRoomEnvAttr
+  | TATFOEnvAttr
+  | OneVideoEnvAttr
+  | ArtListEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";

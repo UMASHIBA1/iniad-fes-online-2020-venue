@@ -5,8 +5,8 @@ import { RoomUrlType } from "../../../../constants/links";
 import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import PhotoListModal from "../../../organisms/PhotoListModal";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
+import useDidMount from "../../../../hooks/useDidMount/useDidMount";
 
 interface Props {
   photoListEnvProps: PhotoListEnvAttr;
@@ -23,11 +23,17 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
+  useDidMount(() => {
+    setTimeout(() => {
+      changeIsShowModal(true);
+    }, 200);
+  })
+
   return (
     <Wrapper>
-      PhotoListContent
       <RoomMark
-        imgPath={logoPath}
+        imgPath={photoListEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
         roomTitle={photoListEnvProps.door.title}
         onClick={() => {
@@ -35,6 +41,7 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
         }}
       />
       <ObjectMark
+      title="写真"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
@@ -60,14 +67,14 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 47%;
+      left: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 30%;
+      right: 33%;
     }
   }`
 

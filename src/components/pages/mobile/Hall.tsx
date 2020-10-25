@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import RoomWrapper from "../../templates/mobile/RoomWrapper";
 import hallImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
 import { useHistory } from "react-router-dom";
@@ -8,54 +8,62 @@ import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
 import Footer from "../../molecules/mobile/Footer";
+import ObjectMark from "../../atoms/ObjectMark";
+import VideoModal from "../../molecules/VideoModal";
+import { useTypedSelector } from "../../../redux/store";
 
 interface Props {
   hallProps: HallProps[];
 }
 
 const dataControllIds = {
+  objButton: "hall-obj-button-controll",
   door1: "hall-door1-controll",
   door2: "hall-door2-controll",
 };
 
 function Hall({ hallProps }: Props) {
   const history = useHistory();
+  const [isShowModal, changeIsShowModal] = useState(false);
+  const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
+
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
 
   return (
-    <RoomWrapper bgImg={hallImg}>
+    <RoomWrapper isOneScreen={false} bgImg={hallImg}>
       <Wrapper>
-        Hall
         <RoomMark
-          imgPath={iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorLeft.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
-              ? hallProps[0].environment_attributes.door1.title
+              ? hallProps[0].environment_attributes.doorLeft.title
               : "空き部屋"
           }
           onClick={() => {
             gotoTargetUrl(
               hallProps[0]
-                ? hallProps[0].environment_attributes.door1.url
+                ? hallProps[0].environment_attributes.doorLeft.url
                 : mobileLinks.entrance
             );
           }}
           dataControllId={dataControllIds.door1}
         />
+        <ObjectMark title="動画" onClick={() => {changeIsShowModal(true)}} dataControllId={dataControllIds.objButton} />
+        <VideoModal isMobile={true} isShow={isShowModal} onClose={() => {changeIsShowModal(false)}} title="" description="" videoPropList={[hallProps[0].environment_attributes.video]} viewingScreen={viewingScreen} />
         <RoomMark
-          imgPath={iniadfesLogo}
+          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorRight.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
-              ? hallProps[0].environment_attributes.door2.title
+              ? hallProps[0].environment_attributes.doorRight.title
               : "空き部屋"
           }
           onClick={() => {
             gotoTargetUrl(
               hallProps[0]
-                ? hallProps[0].environment_attributes.door2.url
+                ? hallProps[0].environment_attributes.doorRight.url
                 : mobileLinks.entrance
             );
           }}
@@ -74,15 +82,21 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   > button {
+    &[data-controll-id=${dataControllIds.objButton}] {
+      position: absolute;
+      top: 45%;
+      left: 48%;
+    }
+
     &[data-controll-id=${dataControllIds.door1}] {
       position: absolute;
-      top: 13%;
-      right: 50%;
+      bottom: 20%;
+      left: 5%;
     }
     &[data-controll-id=${dataControllIds.door2}] {
       position: absolute;
-      bottom: 13%;
-      right: 50%;
+      bottom: 20%;
+      right: 5%;
     }
   }
 `;

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import RoomWrapper from "../../templates/mobile/RoomWrapper";
-import elevatorFrontImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import elevatorFrontImg from "../../../statics/elevator-front.png";
 import { ElevatorFrontProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { mobileLinks, RoomUrlType } from "../../../constants/links";
-import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import RoomMark from "../../atoms/RoomMark";
 import Footer from "../../molecules/mobile/Footer";
 
@@ -27,14 +26,13 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
     history.push(url);
   };
   return (
-    <RoomWrapper bgImg={elevatorFrontImg}>
-      ElevatorFront
+    <RoomWrapper isOneScreen={false} bgImg={elevatorFrontImg}>
       <Wrapper>
         {thisElevatorFrontProps &&
         thisElevatorFrontProps.environment_attributes.roadx1xx ? (
           <RoomMark
           dataControllId={dataControllIds.roadx1xx}
-            imgPath={iniadfesLogo}
+            imgPath={thisElevatorFrontProps.environment_attributes.roadx1xx.imgPath}
             roomTitle={
               thisElevatorFrontProps
                 ? thisElevatorFrontProps.environment_attributes.roadx1xx.title
@@ -53,7 +51,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
         thisElevatorFrontProps.environment_attributes.roadx2xx ? (
           <RoomMark
           dataControllId={dataControllIds.roadX2xx}
-            imgPath={iniadfesLogo}
+            imgPath={thisElevatorFrontProps.environment_attributes.roadx2xx.imgPath}
             roomTitle={
               thisElevatorFrontProps
                 ? thisElevatorFrontProps.environment_attributes.roadx2xx.title
@@ -72,7 +70,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
         thisElevatorFrontProps.environment_attributes.back ? (
           <RoomMark
           dataControllId={dataControllIds.back}
-            imgPath={iniadfesLogo}
+            imgPath={thisElevatorFrontProps.environment_attributes.back.imgPath}
             roomTitle={
               thisElevatorFrontProps
                 ? thisElevatorFrontProps.environment_attributes.back.title
@@ -104,19 +102,19 @@ const Wrapper = styled.div`
     &[data-controll-id=${dataControllIds.roadx1xx}] {
       position: absolute;
       top: 20%;
-      right: 10%;
+      right: 18%;
     }
 
     &[data-controll-id=${dataControllIds.roadX2xx}] {
       position: absolute;
-      top: 20%;
-      left: 20%;
+      top: 40%;
+      left: 18%;
     }
 
     &[data-controll-id=${dataControllIds.back}] {
       position: absolute;
       bottom: 10%;
-      left: 50%;
+      left: 48%;
     }
   }
 `;

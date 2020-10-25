@@ -3,9 +3,7 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import { IGC2EnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
-import logoPath from "../../../../statics/svgs/iniadfes-logo.svg";
 import ObjectMark from "../../../atoms/ObjectMark";
-import IGC2Modal from "../../../organisms/IGC2Modal";
 import Img from "../../../atoms/Img";
 import Link from "../../../atoms/Link";
 import styled from "styled-components";
@@ -13,6 +11,8 @@ import { whiteText } from "../../../../cssProps/colors";
 import { radiusMd } from "../../../../cssProps/radius";
 import breakPoints from "../../../../constants/breakPoints";
 import ViewingProp from "../../../../typings/ViewingProp";
+import VideoModal from "../../../molecules/VideoModal";
+import { normalShadow } from "../../../../cssProps/shadow";
 
 
 interface Props {
@@ -35,7 +35,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
     <Wrapper>
       IGC2
       <RoomMark
-        imgPath={logoPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
         roomTitle={env.door.title}
         onClick={() => {
@@ -45,18 +45,17 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
       <ObjectMark
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
+        title="動画"
       />
-      <IGC2Modal
-        gameLink={env.gameLink}
-        isMobile={false}
-        isShow={isShowModal}
-        viewingScreen={viewingScreen}
-        onClose={() => {
+      <VideoModal
+      isMobile={true}
+      isShow={isShowModal}
+      viewingScreen={viewingScreen}
+      onClose={() => {
           changeIsShowModal(false);
         }}
-        sumbnialImg={env.imgPath}
         title={env.title}
-        videoProps={env.video}
+        videoPropList={[env.video]}
       />
       <LinkWrapper>
         <Link link={env.gameLink}>
@@ -70,6 +69,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
   );
 }
 
+// NOTE: ArtWorksは左側しか存在しないのでleftOrRightの判定をしない
 const Wrapper = styled.div`
   position: relative;
   top: 0;
@@ -80,14 +80,14 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllId.door}] {
       position: absolute;
-      top: 60%;
-      left: 20%;
+      top: 50%;
+      right: 5%;
     }
 
     &[data-controll-id=${dataControllId.objButton}] {
       position: absolute;
-      top: 50%;
-      left: 45%;
+      top: 24%;
+      left: 28%;
     }
   }
 `;
@@ -97,22 +97,27 @@ const GoGame = styled.div`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 16px;
+  font-size: 14px;
   ${whiteText}
   ${radiusMd}
   font-weight: bold;
 
   ${breakPoints.downSm} {
-    font-size: 16px;
+    font-size: 12px;
   }
 `;
 
 const LinkWrapper = styled.div`
-  width: 160px;
+  width: 140px;
   ${radiusMd}
   position: absolute;
-  top: 40%;
-  right: 10%;
+  top: 25%;
+  left: 34%;
+
+  ${breakPoints.downSm} {
+    width: 120px;
+  }
+
 `;
 
 const ImgWrapper = styled.div`
@@ -127,6 +132,7 @@ const ImgWrapper = styled.div`
 
   > ${Img} {
     ${radiusMd}
+  ${normalShadow(5)}
   }
 `;
 

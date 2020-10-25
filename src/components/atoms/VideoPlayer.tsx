@@ -8,7 +8,7 @@ const videoTheme = "fantasy";
 function VideoPlayer(props: VideoJsPlayerOptions) {
   const [videoRef] = useVideo<HTMLVideoElement>(props);
   return (
-    <div className="h-full w-full flex items-center justify-center">
+    <div className="w-full flex items-center justify-center">
       <video
         ref={videoRef}
         className={`video-js vjs-theme-${videoTheme}`}
@@ -21,7 +21,6 @@ const useVideo = <T extends HTMLElement>(props: VideoJsPlayerOptions) => {
   const videoRef = useRef<T>(null);
 
   useEffect(() => {
-    console.log(videoRef.current);
     const player = videojs(
       videoRef.current,
       {
@@ -32,7 +31,6 @@ const useVideo = <T extends HTMLElement>(props: VideoJsPlayerOptions) => {
         console.log("videoPlayer ready");
       }
     );
-    return () => player.dispose();
   }, [props, videoRef]);
 
   return [videoRef];
