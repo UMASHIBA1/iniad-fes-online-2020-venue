@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import EscapeGameQuestion from "../../typings/EscapeGame/EscapeGameQuestion";
+import { AnswerSelection } from "../../typings/EscapeGame/EscapeGameUserInfo";
 import ViewingProp from "../../typings/ViewingProp";
+import Button from "../atoms/Button/Button";
 import Modal from "../atoms/Modal/Modal";
 import TextInput from "../atoms/TextInput";
 
@@ -11,6 +13,7 @@ interface Props {
   viewing?: ViewingProp;
   isMobile: boolean;
   escapeGameProps: EscapeGameQuestion;
+  onSubmit: (textInput: string | AnswerSelection) => void;
 }
 
 function EscapeGameQuestionModal({
@@ -19,6 +22,7 @@ function EscapeGameQuestionModal({
   viewing = "left",
   isMobile,
   escapeGameProps,
+  onSubmit
 }: Props) {
   const [textValue, changeTextValue] = useState("");
 
@@ -32,7 +36,10 @@ function EscapeGameQuestionModal({
       <Wrapper>
         <Img src={escapeGameProps.questionImg} alt={escapeGameProps.title} />
         {escapeGameProps.mode === "text" ? (
-          <Form>
+          <Form onSubmit={(e) => {
+            onSubmit(textValue);
+            e.preventDefault();
+            }}>
             <TextInput
               required={true}
               name={escapeGameProps.title}
@@ -40,6 +47,7 @@ function EscapeGameQuestionModal({
               value={textValue}
               changeValueFC={(nextValue) => changeTextValue(nextValue)}
             />
+            <Button text="提出" mode="blue" type="submit" useShadow={false} />
           </Form>
         ) : null}
       </Wrapper>

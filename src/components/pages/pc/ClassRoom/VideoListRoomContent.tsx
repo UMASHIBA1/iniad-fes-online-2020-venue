@@ -61,6 +61,7 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
             isMobile={false}
             isShow={isShowQuestionModal}
             onClose={() => changeIsShowQuestionModal(false)}
+            onSubmit={() => {console.log("run submit")}}
           />
         </React.Fragment>
       ) : null}
