@@ -147,6 +147,43 @@ function EscapeGameQuestionModal({
             <Button text="提出" mode="blue" type="submit" useShadow={false} />
           </Form>
         ) : null}
+        {escapeGameProps.mode === "select" ? (
+          <Form
+            onSubmit={(e) => {
+              if (selectValue !== null) {
+                onSubmit&&onSubmit(selectValue);
+              }
+              e.preventDefault();
+            }}
+          >
+            <Select
+              name={escapeGameProps.title}
+              value={selectValue ? selectValue : ""}
+              onChange={(value) => {
+                value !== "" && changeSelectValue(value as AnswerSelection);
+              }}
+              optionList={[
+                {
+                  label: "1",
+                  value: "1",
+                },
+                {
+                  label: "2",
+                  value: "2",
+                },
+                {
+                  label: "3",
+                  value: "3",
+                },
+                {
+                  label: "4",
+                  value: "4",
+                },
+              ]}
+            />
+            <Button text="提出" mode="blue" type="submit" useShadow={false} />
+          </Form>
+        ) : null}
       </Wrapper>
     </Modal>
   );
