@@ -36,7 +36,7 @@ interface CivilUserInfo {
 interface BusinessUserInfo {
   course: "business" | null;
   userAnswer: {
-    q2: AnswerText;
+    q2: AnswerText[];
     q4: AnswerText;
   }
 }

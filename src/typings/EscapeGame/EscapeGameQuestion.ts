@@ -18,10 +18,19 @@ interface EscapeGameQuestionText {
   grade: EscapeGameGrades;
   title: string;
   questionImg: string;
-  mode: "text" | "threeText";
+  mode: "text";
   answer: string;
 }
 
-type EscapeGameQuestion = EscapeGameQuestionSelect | EscapeGameQuestionText;
+interface EscapeGameQuestionThreeText {
+  course: EscapeGameCourses;
+  grade: EscapeGameGrades;
+  title: string;
+  questionImg: string;
+  mode: "threeText";
+  answer: string[];
+}
+
+type EscapeGameQuestion = EscapeGameQuestionSelect | EscapeGameQuestionText | EscapeGameQuestionThreeText;
 
 export default EscapeGameQuestion;

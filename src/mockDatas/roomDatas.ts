@@ -445,7 +445,7 @@ const roomDatas: RoomAPIType = [
         course: "business",
         title: "INIAD脱出ゲーム学年2 問題",
         mode: "threeText",
-        answer: "INIAD",
+        answer: ["Ariticial Intelligent", "Internet of things", "social networking service"],
         questionImg: q2BusiImg,
       },
       civilEscapeGameQuetion: {

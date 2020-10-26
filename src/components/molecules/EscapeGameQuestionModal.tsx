@@ -99,7 +99,6 @@ function EscapeGameQuestionModal({
           <Form
             onSubmit={(e) => {
               if (selectedValueList.length > 0) {
-                console.log("runsubmit");
                 onSubmitMulti&&onSubmitMulti(selectedValueList);
               }
               e.preventDefault();

@@ -8,7 +8,7 @@ import ObjectMark from "../../../atoms/ObjectMark";
 import PDFModal from "../../../molecules/PDFModal";
 import { DispatchType, useTypedSelector } from "../../../../redux/store";
 import { useDispatch } from "react-redux";
-import EscapeGameUserInfo from "../../../../typings/EscapeGame/EscapeGameUserInfo";
+import EscapeGameUserInfo, { AnswerSelection } from "../../../../typings/EscapeGame/EscapeGameUserInfo";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 import { answerQ2, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
 
@@ -86,7 +86,7 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
             isShow={isShowQuestionModal}
             onClose={() => changeIsShowQuestionModal(false)}
             onSubmit={(str) => {
-              dispatch(answerQ2(str));
+              dispatch(answerQ2(str as AnswerSelection)); // NOTE: Q2でテキストを選択させるものはないよってAnswerSelectionでasしておけ
               dispatch(incrementGrade());
               changeIsShowQuestionModal(false);
               alert("問題2の答えを受け取ったよ！");
