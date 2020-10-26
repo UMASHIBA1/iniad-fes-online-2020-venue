@@ -7,6 +7,10 @@ import RoomMark from "../../../atoms/RoomMark";
 import PhotoListModal from "../../../organisms/PhotoListModal";
 import ObjectMark from "../../../atoms/ObjectMark";
 import useDidMount from "../../../../hooks/useDidMount/useDidMount";
+import { DispatchType, useTypedSelector } from "../../../../redux/store";
+import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
+import { useDispatch } from "react-redux";
+import { answerQ3, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
 
 interface Props {
   photoListEnvProps: PhotoListEnvAttr;
@@ -15,20 +19,21 @@ interface Props {
 
 const dataControllId = {
   objButton: "photolistRoomContent-obj-button",
+  escapeGameButton: "photolistRoomContent-escapeGame-button",
   door: "photolistRoomContent-left-door",
 };
 
 function PhotoListContent({ photoListEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
+  const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
+  const dispatch: DispatchType = useDispatch();
+
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
-
-  useDidMount(() => {
-    setTimeout(() => {
-      changeIsShowModal(true);
-    }, 200);
-  })
+    const q3Answer = useTypedSelector(
+    ({ escapeGameUserInfo }) => escapeGameUserInfo.userAnswer.q3
+  );
 
   return (
     <Wrapper>
@@ -53,6 +58,32 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
         description={photoListEnvProps.description}
         isMobile={false}
       />
+      {
+        photoListEnvProps.escapeGameQuestion?(
+          <React.Fragment>
+            {q3Answer === null && (
+              <ObjectMark
+              color="blue"
+              title={photoListEnvProps.escapeGameQuestion.title}
+              onClick={() => changeIsShowQuestionModal(true)}
+              dataControllId={dataControllId.escapeGameButton}
+              />
+            )}
+            <EscapeGameQuestionModal
+            escapeGameProps={photoListEnvProps.escapeGameQuestion}
+            isMobile={false}
+            isShow={isShowQuestionModal}
+            onClose={() => changeIsShowQuestionModal(false)}
+            onSubmitMulti={(strList) => {
+              dispatch(answerQ3(strList));
+              dispatch(incrementGrade());
+              changeIsShowQuestionModal(false);
+              alert("問題3の答えを受け取ったよ！");
+            }}
+            />
+          </React.Fragment>
+        ): null
+      }
     </Wrapper>
   );
 }
@@ -76,6 +107,12 @@ const Wrapper = styled.div`
       top: 30%;
       right: 33%;
     }
+    &[data-controll-id=${dataControllId.escapeGameButton}] {
+      position: absolute;
+      top: 26%;
+      left: 33%;
+    }
+
   }`
 
 export default PhotoListContent;

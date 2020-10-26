@@ -52,8 +52,8 @@ const escapeGameUserInfo = createSlice({
     incrementGrade: (state) => {
       const nextState = {
         ...state,
-        grade: (state.grade < 4 ? state.grade + 1 : 4) as EscapeGameGrades,
-      };
+        grade: (state.grade < 4 ? state.grade + 1 : 4),
+      } as EscapeGameUserInfo;
       saveToLocalStorage(nextState);
       return nextState;
     },

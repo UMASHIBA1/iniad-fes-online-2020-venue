@@ -5,6 +5,7 @@ import q2BusiImg from "../statics/escapeGame/q2-busi.png";
 import q2EngImg from "../statics/escapeGame/q2-eng.png";
 import q2CivilImg from "../statics/escapeGame/q2-civil.png";
 import q2DesignImg from "../statics/escapeGame/q2-design.png";
+import q3Img from "../statics/escapeGame/q3.png";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
 import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
@@ -585,6 +586,14 @@ const roomDatas: RoomAPIType = [
           instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
         },
       ],
+      escapeGameQuestion: {
+        grade: 3,
+        course: null,
+        title: "INIAD脱出ゲーム学年3 問題",
+        mode: "threeText",
+        answer: ["貧困をなくそう", "産業と技術革新の基盤をつくろう", "パートナーシップで目標を達成しよう"],
+        questionImg: q3Img
+      }
     },
   },
   {
