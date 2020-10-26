@@ -16,7 +16,7 @@ interface Props {
   isMobile: boolean;
   escapeGameProps: EscapeGameQuestion;
   onSubmit?: (result: string | AnswerSelection) => void;
-  onSubmitMulti?: (result: AnswerSelection[]) => void;
+  onSubmitMulti?: (result: AnswerSelection[] | string[]) => void;
 }
 
 function EscapeGameQuestionModal({
@@ -32,6 +32,7 @@ function EscapeGameQuestionModal({
   const [selectValue, changeSelectValue] = useState<AnswerSelection | null>(
     null
   );
+  const [textValueList, changeTextValueList] = useState<string[]>([]);
   const [selectedValueList, changeSelectedValueList] = useState<
     AnswerSelection[]
   >([]);
@@ -128,6 +129,21 @@ function EscapeGameQuestionModal({
                 },
               ]}
             />
+            <Button text="提出" mode="blue" type="submit" useShadow={false} />
+          </Form>
+        ) : null}
+        {escapeGameProps.mode === "threeText" ? (
+          <Form
+            onSubmit={(e) => {
+              if (textValueList.length >= 3) {
+                onSubmitMulti&&onSubmitMulti(textValueList);
+              }
+              e.preventDefault();
+            }}
+          >
+            <TextInput required={true} placeholder="1つ目の答え" value={textValueList[0]} changeValueFC={(value) => {changeTextValueList([value, textValueList[1], textValueList[2]])}} />
+            <TextInput required={true} placeholder="2つ目の答え" value={textValueList[1]} changeValueFC={(value) => {changeTextValueList([textValueList[0], value, textValueList[2]])}} />
+            <TextInput required={true} placeholder="3つ目の答え" value={textValueList[2]} changeValueFC={(value) => {changeTextValueList([textValueList[0], textValueList[1], value])}} />
             <Button text="提出" mode="blue" type="submit" useShadow={false} />
           </Form>
         ) : null}
