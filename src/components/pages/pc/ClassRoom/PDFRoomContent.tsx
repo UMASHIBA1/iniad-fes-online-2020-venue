@@ -91,6 +91,12 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
               changeIsShowQuestionModal(false);
               alert("問題2の答えを受け取ったよ！");
             }}
+            onSubmitMulti={(multiAnswer) => {
+              dispatch(answerQ2(multiAnswer));
+              dispatch(incrementGrade());
+              changeIsShowQuestionModal(false);
+              alert("問題2の答えを受け取ったよ！")
+            }}
           />
         </React.Fragment>
       ): null}
