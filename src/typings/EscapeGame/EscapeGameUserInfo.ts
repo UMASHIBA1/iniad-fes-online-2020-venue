@@ -9,10 +9,18 @@ interface BaseUserInfo {
   }
 }
 
-interface EngineerAndDesignUserInfo {
-  course: "engineer" | "design" | null;
+interface EngineerUserInfo {
+  course: "engineer" | null;
   userAnswer: {
     q2: AnswerSelection;
+    q4: AnswerText;
+  }
+}
+
+interface DesignUserInfo {
+    course: "design" | null;
+  userAnswer: {
+    q2: AnswerSelection[];
     q4: AnswerText;
   }
 }
@@ -34,7 +42,7 @@ interface BusinessUserInfo {
 }
 
 
-type EscapeGameUserInfo = BaseUserInfo &  (EngineerAndDesignUserInfo | CivilUserInfo | BusinessUserInfo);
+type EscapeGameUserInfo = BaseUserInfo &  (EngineerUserInfo | DesignUserInfo | CivilUserInfo | BusinessUserInfo);
 
 export default EscapeGameUserInfo;
 
