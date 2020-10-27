@@ -450,7 +450,7 @@ const roomDatas: RoomAPIType = [
         course: "business",
         title: "INIAD脱出ゲーム学年2 問題",
         mode: "threeText",
-        answer: ["Ariticial Intelligent", "Internet of things", "social networking service"],
+        answer: [["Ariticial Intelligent", "Internet of things", "social networking service"]],
         questionImg: q2BusiImg,
       },
       civilEscapeGameQuetion: {
@@ -595,7 +595,7 @@ const roomDatas: RoomAPIType = [
         course: null,
         title: "INIAD脱出ゲーム学年3 問題",
         mode: "threeText",
-        answer: ["貧困をなくそう", "産業と技術革新の基盤をつくろう", "パートナーシップで目標を達成しよう"],
+        answer: [["貧困をなくそう", "産業と技術革新の基盤をつくろう", "パートナーシップで目標を達成しよう"], ["1.貧困をなくそう", "9.産業と技術革新の基盤をつくろう", "17.パートナーシップで目標を達成しよう"]],
         questionImg: q3Img
       }
     },
@@ -625,7 +625,7 @@ const roomDatas: RoomAPIType = [
         course: "design",
         title: "INIAD脱出ゲーム学年4 問題",
         mode: "twoText",
-        answer: ["白", "黒"],
+        answer: [["白", "黒"], ["white", "black"]],
         questionImg: q4DesignImg,
       },
       busiEscapeGameQuestion: {
@@ -633,7 +633,7 @@ const roomDatas: RoomAPIType = [
         course: "business",
         title: "INIAD脱出ゲーム学年4 問題",
         mode: "threeText",
-        answer: ["Deep Blue", "ボンクラーズ", "AlphaGo"],
+        answer: [["Deep Blue", "ボンクラーズ", "AlphaGo"], ],
         questionImg: q4BusiImg,
       },
       civilEscapeGameQuetion: {

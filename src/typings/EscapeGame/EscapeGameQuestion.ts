@@ -28,7 +28,7 @@ interface EscapeGameQuestionThreeText {
   title: string;
   questionImg: string;
   mode: "threeText" | "twoText";
-  answer: string[];
+  answer: string[][];
 }
 
 type EscapeGameQuestion = EscapeGameQuestionSelect | EscapeGameQuestionText | EscapeGameQuestionThreeText;
