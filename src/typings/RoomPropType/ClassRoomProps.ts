@@ -138,6 +138,13 @@ export interface YoutubeEnvAttr {
   leftOrRight: LeftOrRight;
 }
 
+export interface IframeEnvAttr {
+  mode:"iframeRoom";
+  door: RoomEnvLinkProps;
+  iframeCode: string;
+  leftOrRight: LeftOrRight;
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
@@ -149,7 +156,8 @@ type EnvAttr =
   | TATFOEnvAttr
   | OneVideoEnvAttr
   | ArtListEnvAttr
-  | YoutubeEnvAttr;
+  | YoutubeEnvAttr
+  | IframeEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";

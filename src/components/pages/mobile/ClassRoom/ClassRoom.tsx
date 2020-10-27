@@ -20,6 +20,7 @@ import TATFORoomContent from "./TATFORoomContent";
 import OneVideoContent from "./OneVideoContent";
 import ArtListRoomContent from "./ArtListRoomContent";
 import YouTubeRoomContent from "./YouTubeRoomContent";
+import IFrameRoomContent from "./IFrameRoomContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -127,6 +128,10 @@ const createthisModeRoom = (
         return(
           <YouTubeRoomContent history={history} youtubeRoomProps={env} viewingScreen={viewingScreen}/>
         )
+      case "iframeRoom":
+        return(
+          <IFrameRoomContent history={history} iframeRoomProps={env} viewingScreen={viewingScreen} />
+        );
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
     }
