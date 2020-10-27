@@ -23,7 +23,18 @@ import entranceIcon from "../statics/svgs/restaurant.svg";
 import roadIcon from "../statics/svgs/road.svg";
 import hallIcon from "../statics/svgs/hall.svg";
 import crossIcon from "../statics/svgs/cross.svg";
-import { busiQuestion2, busiQuestion4, civilQuestion2, civilQuestion4, designQuestion2, designQuestion4, engQuestion2, engQuestion4, question1, question3 } from "./escapeGameQuestionDatas";
+import {
+  busiQuestion2,
+  busiQuestion4,
+  civilQuestion2,
+  civilQuestion4,
+  designQuestion2,
+  designQuestion4,
+  engQuestion2,
+  engQuestion4,
+  question1,
+  question3,
+} from "./escapeGameQuestionDatas";
 
 const sampleObj = {
   url: "example.com",
@@ -51,7 +62,7 @@ const roomDatas: RoomAPIType = [
       },
     },
   },
-  // hal
+  // hall
   {
     type: "hall",
     name: "hall",
@@ -405,7 +416,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath: roadIcon
+        imgPath: roadIcon,
       },
       videoProps: {
         mode: "streaming",
@@ -414,7 +425,7 @@ const roomDatas: RoomAPIType = [
           timestamp: 1604106000,
         },
         url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
-      }
+      },
     },
   },
   {
@@ -445,13 +456,14 @@ const roomDatas: RoomAPIType = [
     name: "3102",
     environment_attributes: {
       leftOrRight: "left",
+      mode: "youtube",
       door: {
-        title: "3階廊下3",
         url: links.road("3103"),
+        title: "3階廊下3",
         imgPath: roadIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      title: "INIAD Minecraft",
+      youtubelink: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/EsCwBm1bxDM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
     },
   },
   {
@@ -558,7 +570,7 @@ const roomDatas: RoomAPIType = [
           instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
         },
       ],
-      escapeGameQuestion: question3
+      escapeGameQuestion: question3,
     },
   },
   {
