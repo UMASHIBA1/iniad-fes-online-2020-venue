@@ -50,7 +50,7 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
   };
 
   const dispatch: DispatchType = useDispatch();
-  const { userAnswer, course } = useTypedSelector(
+  const { userAnswer, course, grade } = useTypedSelector(
     ({ escapeGameUserInfo }) => escapeGameUserInfo
   );
   const q4Answer = userAnswer.q4;
@@ -82,7 +82,7 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
       />
       {usersCourseQuestion ? (
         <React.Fragment>
-          {q4Answer === null && (
+          {q4Answer === null && grade===4 && (
             <ObjectMark
               color="blue"
               title={usersCourseQuestion.title}
