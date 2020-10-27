@@ -398,14 +398,23 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3106",
     environment_attributes: {
+      mode: "oneVideo",
       leftOrRight: "left",
+      description: "",
+      title: "Web研究会",
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath: roadIcon,
+        imgPath: roadIcon
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      videoProps: {
+        mode: "streaming",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
+      }
     },
   },
   {
