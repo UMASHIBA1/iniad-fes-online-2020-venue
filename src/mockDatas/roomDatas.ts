@@ -20,6 +20,9 @@ import stairIcon from "../statics/svgs/stair-icon.svg";
 import arrowBackIcon from "../statics/svgs/arrow-back.svg";
 import arrowNextIcon from "../statics/svgs/arrow-next.svg";
 import entranceIcon from "../statics/svgs/restaurant.svg";
+import roadIcon from "../statics/svgs/road.svg";
+import hallIcon from "../statics/svgs/hall.svg";
+import crossIcon from "../statics/svgs/cross.svg";
 import { busiQuestion2, busiQuestion4, civilQuestion2, civilQuestion4, designQuestion2, designQuestion4, engQuestion2, engQuestion4, question1, question3 } from "./escapeGameQuestionDatas";
 
 const sampleObj = {
@@ -42,9 +45,9 @@ const roomDatas: RoomAPIType = [
     },
     environment_attributes: {
       door: {
-        url: links.elevatorFront("3f"),
-        title: "3Fエレベーター前",
-        imgPath: iniadfesLogoIcon,
+        url: links.stair("3f"),
+        title: "3階階段",
+        imgPath: crossIcon,
       },
     },
   },
@@ -55,13 +58,13 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       doorLeft: {
         url: links.elevatorFront("3f"),
-        title: "3Fエレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "3F分岐路",
+        imgPath: crossIcon,
       },
       doorRight: {
         url: links.elevatorFront("4f"),
-        title: "4Fエレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4F分岐路",
+        imgPath: crossIcon,
       },
       video: {
         mode: "streaming",
@@ -81,12 +84,12 @@ const roomDatas: RoomAPIType = [
       roadx1xx: {
         url: links.road("3101"),
         title: "3階廊下1",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       roadx2xx: {
         url: links.hall,
         title: "ホール",
-        imgPath: iniadfesLogoIcon,
+        imgPath: hallIcon,
       },
       back: {
         url: links.stair("3f"),
@@ -102,12 +105,12 @@ const roomDatas: RoomAPIType = [
       roadx1xx: {
         url: links.road("4101"),
         title: "4階廊下1",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       roadx2xx: {
         url: links.hall,
         title: "ホール",
-        imgPath: iniadfesLogoIcon,
+        imgPath: hallIcon,
       },
       back: {
         url: links.stair("4f"),
@@ -123,8 +126,8 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       up: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4階分岐路",
+        imgPath: crossIcon,
       },
       down: {
         url: links.entrance,
@@ -133,8 +136,8 @@ const roomDatas: RoomAPIType = [
       },
       room: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "3階分岐路",
+        imgPath: arrowBackIcon,
       },
     },
   },
@@ -143,14 +146,14 @@ const roomDatas: RoomAPIType = [
     name: "4f",
     environment_attributes: {
       down: {
-        url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        url: links.stair("3f"),
+        title: "3階階段",
+        imgPath: stairIcon,
       },
       room: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4階分岐路",
+        imgPath: arrowBackIcon,
       },
     },
   },
@@ -162,7 +165,7 @@ const roomDatas: RoomAPIType = [
       mode: "front",
       back: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
+        title: "3階分岐路",
         imgPath: arrowBackIcon,
       },
       next: {
@@ -243,8 +246,8 @@ const roomDatas: RoomAPIType = [
       mode: "front",
       back: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4階分岐路",
+        imgPath: crossIcon,
       },
       next: {
         url: links.road("4102"),
@@ -325,7 +328,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下1",
         url: links.road("3101"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "videoList",
       title: "INIActors",
@@ -379,7 +382,7 @@ const roomDatas: RoomAPIType = [
       door: {
         url: links.road("3101"),
         title: "3階廊下1",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       videoProps: {
         mode: "streaming",
@@ -399,7 +402,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -420,7 +423,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       pdfProps: {
         url: "/digihealth.pdf",
@@ -436,7 +439,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -453,7 +456,7 @@ const roomDatas: RoomAPIType = [
       door: {
         url: links.road("3103"),
         title: "3階廊下3",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       videoProps: {
         mode: "streaming",
@@ -473,7 +476,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -487,7 +490,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "igc2",
       gameLink: "https://igc2.jp/exhibition/",
@@ -511,7 +514,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "photoList",
       title: "ID/graph",
@@ -557,7 +560,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       title: "RAISON DETRE",
       mode: "musics",
@@ -603,7 +606,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       title: "TATFO",
       description: "TATFOのお部屋です",
@@ -643,7 +646,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -657,7 +660,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -671,7 +674,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "artList",
       artList: [
