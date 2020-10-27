@@ -1,9 +1,9 @@
 import EscapeGameQuestion from "../../typings/EscapeGame/EscapeGameQuestion";
 import EscapeGameUserInfo from "../../typings/EscapeGame/EscapeGameUserInfo";
 
-export const isCorrectUserAnswer = (
+const isCorrectUserAnswer = (
   question: EscapeGameQuestion,
-  userAnswer: EscapeGameUserInfo["userAnswer"]["q2"]
+  userAnswer: EscapeGameUserInfo["userAnswer"]["q2" | "q1" | "q3" | "q4"]
 ) => {
   if (question.mode === "select" || question.mode === "selectThree") {
     if (typeof userAnswer === "string") {
@@ -64,3 +64,5 @@ export const isCorrectUserAnswer = (
     return false;
   }
 };
+
+export default isCorrectUserAnswer;
