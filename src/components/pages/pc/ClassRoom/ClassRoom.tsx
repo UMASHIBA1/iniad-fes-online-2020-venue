@@ -20,6 +20,7 @@ import OneVideoContent from "./OneVideoContent";
 import ArtListRoomContent from "./ArtListRoomContent";
 import YouTubeRoomContent from "./YouTubeRoomContent";
 import IFrameRoomContent from "./IFrameRoomContent";
+import TRPGRoomContent from "./TRPGRoomContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -127,6 +128,10 @@ const createthisModeRoom = (
       case "iframeRoom":
         return(
           <IFrameRoomContent history={history} iframeRoomProps={env} />
+        )
+      case "trpgRoom":
+        return(
+          <TRPGRoomContent history={history} trpgEnvProps={env} />
         )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
