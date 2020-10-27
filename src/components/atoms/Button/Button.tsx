@@ -4,6 +4,7 @@ import {
   deepBlueColor,
   deepWhiteColor,
   lightBlueColor,
+  lightRedColor,
   whiteColor,
 } from "../../../constants/colors";
 import {
@@ -11,6 +12,7 @@ import {
   deepBlueBGColor,
   deepWhiteBGColor,
   lightBlueBGColor,
+  lightRedBGColor,
   whiteBGColor,
   whiteText,
 } from "../../../cssProps/colors";
@@ -21,8 +23,9 @@ interface Props {
   text: string;
   onClick?: () => void;
   type?: "submit" | "button" | "reset";
-  mode?: "white" | "blue";
+  mode?: "white" | "blue" | "red";
   useShadow?: boolean;
+  dataControllId?: string;
 }
 
 function Button({
@@ -31,6 +34,7 @@ function Button({
   type = "button",
   mode = "white",
   useShadow = true,
+  dataControllId
 }: Props) {
   return (
     <ButtonMain
@@ -39,6 +43,7 @@ function Button({
       data-testid="button"
       mode={mode}
       useShadow={useShadow}
+      data-controll-id={dataControllId}
     >
       {text}
     </ButtonMain>
@@ -67,6 +72,13 @@ const ButtonMain = styled.button<Required<Pick<Props, "mode" | "useShadow">>>`
       ${blackText}
       border-color: ${whiteColor};
     `}
+  ${({ mode }) =>
+    mode === "red" &&
+    css`
+      ${lightRedBGColor}
+      ${whiteText}
+      border-color: ${lightRedColor};
+    `}
 
     ${({ useShadow }) =>
       useShadow &&
@@ -93,7 +105,12 @@ const ButtonMain = styled.button<Required<Pick<Props, "mode" | "useShadow">>>`
         ${deepWhiteBGColor}
         border-color: ${deepWhiteColor};
       `}
-
+    ${({ mode }) =>
+      mode === "red" &&
+      css`
+        ${lightRedBGColor}
+        border-color: ${lightRedColor};
+      `}
 
   }
 `;
