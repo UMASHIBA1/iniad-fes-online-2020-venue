@@ -107,11 +107,13 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
               dispatch(answerQ4(str));
               changeIsShowQuestionModal(false);
               alert("問題4の答えを受け取ったよ！");
+              changeIsShowFinishGameModal(true);
             }}
             onSubmitMulti={(list1) => {
               dispatch(answerQ4(list1));
               changeIsShowQuestionModal(false);
               alert("問題4の答えを受け取ったよ！");
+              changeIsShowFinishGameModal(true);
             }}
           />
           <FinishEscapeGameModal
