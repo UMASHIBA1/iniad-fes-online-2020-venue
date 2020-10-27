@@ -21,7 +21,7 @@ interface DesignUserInfo {
     course: "design" | null;
   userAnswer: {
     q2: AnswerSelection[];
-    q4: AnswerText;
+    q4: AnswerText[];
   }
 }
 
