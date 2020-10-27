@@ -634,20 +634,20 @@ const roomDatas: RoomAPIType = [
       description: "TATFOのお部屋です",
       pdfPropList: [
         {
-          url: "/sample.pdf",
+          url: "https://storage.googleapis.com/iniadfes/public/tatfo_sdgs_sugoroku.pdf",
+          pageNum: 7,
+        },
+        {
+          url: "https://storage.googleapis.com/iniadfes/public/tatfo_your_hope_future.pdf",
           pageNum: 2,
         },
         {
-          url: "/sample.pdf",
-          pageNum: 2,
+          url: "https://storage.googleapis.com/iniadfes/public/tatfo_know_sdgs.pdf",
+          pageNum: 115,
         },
         {
-          url: "/sample.pdf",
-          pageNum: 2,
-        },
-        {
-          url: "/sample.pdf",
-          pageNum: 2,
+          url: "https://storage.googleapis.com/iniadfes/public/tatfo_tatfo_hope_future.pdf",
+          pageNum: 10,
         },
       ],
       videoProps: {
