@@ -634,19 +634,23 @@ const roomDatas: RoomAPIType = [
       description: "TATFOのお部屋です",
       pdfPropList: [
         {
-          url: "https://storage.googleapis.com/iniadfes/public/tatfo_sdgs_sugoroku.pdf",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_sdgs_sugoroku.pdf",
           pageNum: 7,
         },
         {
-          url: "https://storage.googleapis.com/iniadfes/public/tatfo_your_hope_future.pdf",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_your_hope_future.pdf",
           pageNum: 2,
         },
         {
-          url: "https://storage.googleapis.com/iniadfes/public/tatfo_know_sdgs.pdf",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_know_sdgs.pdf",
           pageNum: 115,
         },
         {
-          url: "https://storage.googleapis.com/iniadfes/public/tatfo_tatfo_hope_future.pdf",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_tatfo_hope_future.pdf",
           pageNum: 10,
         },
       ],
@@ -664,14 +668,15 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4102",
     environment_attributes: {
-      leftOrRight: "left",
+      mode: "iframeRoom",
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
         imgPath: roadIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      leftOrRight: "left",
+      iframeCode:
+        "https://storage.googleapis.com/iniadfes/public/hello-vietnam/index.html",
     },
   },
   {
@@ -742,15 +747,18 @@ const roomDatas: RoomAPIType = [
         },
         {
           title: "小田 作",
-          url: "https://storage.googleapis.com/iniadfes/public/ArtWorks/koda.png",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/koda.png",
         },
-                {
+        {
           title: "小田 作",
-          url: "https://storage.googleapis.com/iniadfes/public/ArtWorks/koda2.PNG",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/koda2.PNG",
         },
-                {
+        {
           title: "渡邉 作",
-          url: "https://storage.googleapis.com/iniadfes/public/ArtWorks/watanabe.png",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/watanabe.png",
         },
       ],
       description: "Art Worksの書いてきた絵です",
