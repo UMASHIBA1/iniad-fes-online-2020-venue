@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import FuncButtons from "../../molecules/pc/FuncButtons";
 import { useDispatch } from "react-redux";
-import { DispatchType } from "../../../redux/store";
+import { DispatchType, useTypedSelector } from "../../../redux/store";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
 import RoomMark from "../../atoms/RoomMark";
@@ -17,11 +17,17 @@ interface Props {
   entranceProps: EntranceProps[];
 }
 
-const controllId = "entrance-door-button-controll";
+const controllIds = {
+  gotoAlumniAssociationRoom: "entrance-door-alumniAssociation",
+  goto3floor: "entrance-door-button-controll",
+};
 
 function Entrance({ entranceProps }: Props) {
   const history = useHistory();
   const dispatch: DispatchType = useDispatch();
+  const { grade, userAnswer } = useTypedSelector(
+    (state) => state.escapeGameUserInfo
+  );
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -35,13 +41,17 @@ function Entrance({ entranceProps }: Props) {
     <RoomWrapper bgImg={entranceImg}>
       <Wrapper>
         <RoomMark
-          imgPath={entranceProps[0]?entranceProps[0].environment_attributes.door.imgPath:iniadfesLogo}
+          imgPath={
+            entranceProps[0]
+              ? entranceProps[0].environment_attributes.door.imgPath
+              : iniadfesLogo
+          }
           roomTitle={
             entranceProps[0]
               ? entranceProps[0].environment_attributes.door.title
               : "空き部屋"
           }
-          dataControllId={controllId}
+          dataControllId={controllIds.goto3floor}
           onClick={() => {
             gotoTargetUrl(
               entranceProps[0]
@@ -50,6 +60,16 @@ function Entrance({ entranceProps }: Props) {
             );
           }}
         />
+        {grade === 4 && userAnswer.q4 !== null ? (
+          <RoomMark
+            imgPath={iniadfesLogo}
+            roomTitle="同窓会部屋"
+            dataControllId={controllIds.gotoAlumniAssociationRoom}
+            onClick={() => {
+              window.open("https://example.com", "_blank")
+            }}
+          />
+        ) : null}
         <FuncButtons />
       </Wrapper>
     </RoomWrapper>
@@ -63,10 +83,16 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   > button {
-    &[data-controll-id=${controllId}] {
+    &[data-controll-id=${controllIds.goto3floor}] {
       position: absolute;
       top: 24%;
       right: 35%;
+    }
+
+    &[data-controll-id=${controllIds.gotoAlumniAssociationRoom}] {
+      position: absolute;
+      bottom: 35%;
+      left: 1%;
     }
   }
 `;
