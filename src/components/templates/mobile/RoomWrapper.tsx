@@ -162,6 +162,7 @@ const RoomWrapperMain = styled.div<{
         viewing === "right" &&
         css`
           transform: translate(0, -50%);
+          visibility: hidden;
         `}
       ${({ isOneScreen }) =>
         isOneScreen &&
