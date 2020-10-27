@@ -676,7 +676,7 @@ const roomDatas: RoomAPIType = [
       },
       leftOrRight: "left",
       iframeCode:
-        "https://storage.googleapis.com/iniadfes/public/hello-vietnam/index.html",
+        `<iframe width="100%" height="100%" src="https://storage.googleapis.com/iniadfes/public/hello-vietnam/index.html"></iframe>`,
     },
   },
   {
