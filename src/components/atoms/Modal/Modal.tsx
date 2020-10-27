@@ -136,10 +136,12 @@ const ModalBG = styled.div<Pick<Props, "isShow" | "isMobile">>`
   ${({ isMobile }) =>
     isMobile &&
     css`
+      width: 300vw;
+      height: 150vh;
       transform: translateY(calc(-50vh + 50vw));
 
       ${breakPoints.downSm} {
-        transform: translateY(calc(-50vh + 75vw));
+        transform: translateY(calc(-50vh + 50vw));
       }
     `}
 
