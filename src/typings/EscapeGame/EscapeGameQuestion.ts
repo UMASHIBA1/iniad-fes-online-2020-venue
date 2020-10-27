@@ -27,7 +27,7 @@ interface EscapeGameQuestionThreeText {
   grade: EscapeGameGrades;
   title: string;
   questionImg: string;
-  mode: "threeText";
+  mode: "threeText" | "twoText";
   answer: string[];
 }
 
