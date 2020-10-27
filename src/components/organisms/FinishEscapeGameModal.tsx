@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import styled from "styled-components";
 import { blackColor, lightBlueColor } from "../../constants/colors";
+import { lightRedText } from "../../cssProps/colors";
 import { radiusMd } from "../../cssProps/radius";
 import {
   busiQuestion2,
@@ -17,15 +19,21 @@ import {
 import { useTypedSelector } from "../../redux/store";
 import ViewingProp from "../../typings/ViewingProp";
 import isCorrectUserAnswer from "../../utils/escapeGame/isCorrectUserAnswer";
+import Button from "../atoms/Button/Button";
 import H2 from "../atoms/H2";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
+import {restartGame} from "../../redux/modules/escapeGameUserInfo";
 
 interface Props {
   isShow: boolean;
   onClose: () => void;
   viewingScreen?: ViewingProp;
   isMobile: boolean;
+}
+
+const controllIds = {
+  restartButton:"finish-escapegame-modal-restart-button"
 }
 
 function FinishEscapeGameModal({
@@ -35,6 +43,14 @@ function FinishEscapeGameModal({
   isMobile,
 }: Props) {
   const isCorrectQuestions = useIsCorrectQuestions();
+  const dispatch = useDispatch();
+
+  const checkRestartIsOk = () => {
+    const isOk = window.confirm("リスタートすると同窓会部屋にはもう一度クリアするまで入れなくなるなります。リスタートしてもいいですか？");
+    if(isOk) {
+      dispatch(restartGame());
+    }
+  }
 
   return (
     <Modal
@@ -67,6 +83,12 @@ function FinishEscapeGameModal({
             );
           })}
         </JudgeBoxWrapper>
+        <Button
+        text="脱出ゲームをリスタート"
+        mode="red"
+        onClick={checkRestartIsOk}
+        dataControllId={controllIds.restartButton}
+        />
       </Wrapper>
     </Modal>
   );
@@ -78,7 +100,7 @@ const Answer = styled.div`
 `;
 
 const Correct = styled(Answer)`
-  color: #ff1828;
+  ${lightRedText}
 `;
 
 const InCorrect = styled(Answer)`
@@ -118,6 +140,12 @@ const Wrapper = styled.div`
   grid-template-rows: 64px auto;
   justify-items: center;
   width: 100%;
+
+  >* {
+    &[data-controll-id=${controllIds.restartButton}] {
+      margin: 16px;
+    }
+  }
 `;
 
 const useIsCorrectQuestions = () => {
