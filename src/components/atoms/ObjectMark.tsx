@@ -1,24 +1,25 @@
 import React from "react";
-import styled, { keyframes } from "styled-components";
+import styled, { css, keyframes } from "styled-components";
+import { lightBlueBGColor, whiteBGColor, deepBlueText  } from "../../cssProps/colors";
 import { deepBlueColor } from "../../constants/colors";
-import { deepBlueText, whiteBGColor } from "../../cssProps/colors";
 import { radiusSm } from "../../cssProps/radius";
 
 interface Props {
   onClick?: () => void;
   dataControllId?: string;
+  color?: "white" | "blue";
   title: string;
 }
 
-function ObjectMark(props: Props) {
+function ObjectMark({title, color = "white", dataControllId, onClick}: Props) {
   return (
-    <Wrapper dataControllId={props.dataControllId}>
+    <Wrapper onClick={onClick} dataControllId={dataControllId} color={color}>
       <TitleWrapper>
         <Rectangle />
-        <Title>{props.title}</Title>
+        <Title>{title}</Title>
       </TitleWrapper>
-      <CircleWrapper onClick={props.onClick}>
-        <WhiteCircle />
+      <CircleWrapper onClick={onClick} color={color}>
+        <Circle />
         <AnimeCircle />
         <AnimeCircle />
         <AnimeCircle />
@@ -68,25 +69,37 @@ const Rectangle = styled.div`
   clip-path: polygon(0 100%, 100% 0, 100% 100%, 0 100%);
 `;
 
-const WhiteCircle = styled.div`
+const Circle = styled.div`
   position: absolute;
   top: calc(50% - 16px);
   left: calc(50% - 16px);
-  ${whiteBGColor}
   border-radius: 50%;
   height: 32px;
   width: 32px;
 `;
 
-const AnimeCircle = styled(WhiteCircle)`
+const AnimeCircle = styled(Circle)`
   animation: ${circleAnime} 2400ms ease-in infinite;
 `;
 
-const CircleWrapper = styled.div`
+const CircleWrapper = styled.div<Required<Pick<Props, "color">>>`
   cursor: pointer;
   outline: none !important;
 
   ${AnimeCircle} {
+
+    ${({color}) =>(
+      color==="white" && css`
+        ${whiteBGColor}
+      `
+    )}
+
+        ${({color}) =>(
+      color==="blue" && css`
+        ${lightBlueBGColor}
+      `
+    )}
+
     :nth-child(1) {
       animation-delay: 0ms;
     }

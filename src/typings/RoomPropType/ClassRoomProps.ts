@@ -1,3 +1,4 @@
+import EscapeGameQuestion from "../EscapeGame/EscapeGameQuestion";
 import PDFProps from "../PDFProps";
 import { RoomEnvLinkProps } from "./RoomPropType";
 import VideoProps from "./VideoProps";
@@ -38,6 +39,10 @@ export interface PDFRoomEnvAttr {
   description: string;
   pdfProps: PDFProps;
   leftOrRight: LeftOrRight;
+  engEscapeGameQuestion?: EscapeGameQuestion;
+  designEscapeGameQuestion?: EscapeGameQuestion;
+  busiEscapeGameQuestion?: EscapeGameQuestion;
+  civilEscapeGameQuetion?: EscapeGameQuestion;
 }
 
 export interface MusicEnvAttr {
@@ -47,11 +52,16 @@ export interface MusicEnvAttr {
   pickUpIframes: string[];
   musicIframes: string[];
   leftOrRight: LeftOrRight;
+  engEscapeGameQuestion?: EscapeGameQuestion;
+  designEscapeGameQuestion?: EscapeGameQuestion;
+  busiEscapeGameQuestion?: EscapeGameQuestion;
+  civilEscapeGameQuetion?: EscapeGameQuestion;
 }
 
 export interface VideoListEnvAttr {
   mode: "videoList";
   door: RoomEnvLinkProps;
+  escapeGameQuestion?: EscapeGameQuestion;
   title: string;
   description?: string;
   VideoProps: VideoProps[];
@@ -74,6 +84,7 @@ export interface PhotoListEnvAttr {
   title: string;
   description: string;
   photos: (TwitterProps | InstagramProps)[];
+  escapeGameQuestion?: EscapeGameQuestion;
   leftOrRight: LeftOrRight;
 }
 
@@ -84,6 +95,7 @@ export interface IGC2EnvAttr {
   gameLink: string;
   video: VideoProps;
   imgPath: string;
+  escapeGameQuestion?: EscapeGameQuestion;
   leftOrRight: LeftOrRight;
 }
 

@@ -4,6 +4,7 @@ import {
   deepBlueColor,
   deepWhiteColor,
   lightBlueColor,
+  lightRedColor,
   whiteColor,
 } from "../../../constants/colors";
 import {
@@ -11,6 +12,7 @@ import {
   deepBlueBGColor,
   deepWhiteBGColor,
   lightBlueBGColor,
+  lightRedBGColor,
   whiteBGColor,
   whiteText,
 } from "../../../cssProps/colors";
@@ -21,22 +23,37 @@ interface Props {
   text: string;
   onClick?: () => void;
   type?: "submit" | "button" | "reset";
-  mode?: "white" | "blue";
+  mode?: "white" | "blue" | "red";
+  useShadow?: boolean;
+  dataControllId?: string;
 }
 
-function Button({ onClick, text, type = "button", mode = "white" }: Props) {
+function Button({
+  onClick,
+  text,
+  type = "button",
+  mode = "white",
+  useShadow = true,
+  dataControllId
+}: Props) {
   return (
-    <ButtonMain onClick={onClick} type={type} data-testid="button" mode={mode}>
+    <ButtonMain
+      onClick={onClick}
+      type={type}
+      data-testid="button"
+      mode={mode}
+      useShadow={useShadow}
+      data-controll-id={dataControllId}
+    >
       {text}
     </ButtonMain>
   );
 }
 
-const ButtonMain = styled.button<Pick<Props, "mode">>`
-  ${normalShadow(2)}
+const ButtonMain = styled.button<Required<Pick<Props, "mode" | "useShadow">>>`
   ${radiusSm}
   font-size: 14px;
-  padding: 8px 16px;
+  padding: 4px 16px;
   border: 2px solid;
   outline: none !important;
   appearance: none;
@@ -55,9 +72,26 @@ const ButtonMain = styled.button<Pick<Props, "mode">>`
       ${blackText}
       border-color: ${whiteColor};
     `}
+  ${({ mode }) =>
+    mode === "red" &&
+    css`
+      ${lightRedBGColor}
+      ${whiteText}
+      border-color: ${lightRedColor};
+    `}
+
+    ${({ useShadow }) =>
+      useShadow &&
+      css`
+        ${normalShadow(2)}
+      `}
 
     :hover {
-    ${normalShadow(1)}
+    ${({ useShadow }) =>
+      useShadow &&
+      css`
+        ${normalShadow(1)}
+      `}
     ${({ mode }) =>
       mode === "blue" &&
       css`
@@ -71,6 +105,13 @@ const ButtonMain = styled.button<Pick<Props, "mode">>`
         ${deepWhiteBGColor}
         border-color: ${deepWhiteColor};
       `}
+    ${({ mode }) =>
+      mode === "red" &&
+      css`
+        ${lightRedBGColor}
+        border-color: ${lightRedColor};
+      `}
+
   }
 `;
 

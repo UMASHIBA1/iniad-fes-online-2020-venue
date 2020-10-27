@@ -20,6 +20,7 @@ import stairIcon from "../statics/svgs/stair-icon.svg";
 import arrowBackIcon from "../statics/svgs/arrow-back.svg";
 import arrowNextIcon from "../statics/svgs/arrow-next.svg";
 import entranceIcon from "../statics/svgs/restaurant.svg";
+import { busiQuestion2, busiQuestion4, civilQuestion2, civilQuestion4, designQuestion2, designQuestion4, engQuestion2, engQuestion4, question1, question3 } from "./escapeGameQuestionDatas";
 
 const sampleObj = {
   url: "example.com",
@@ -65,12 +66,12 @@ const roomDatas: RoomAPIType = [
       video: {
         mode: "streaming",
         start_at: {
-        iso8601: "2020-10-31T10:00:00+09:00",
-        timestamp: 1604106001,
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106001,
         },
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
-      }
-    }
+      },
+    },
   },
   // elevatorFront
   {
@@ -330,6 +331,7 @@ const roomDatas: RoomAPIType = [
       title: "INIActors",
       leftOrRight: "left",
       description: "※劇場でやるよ、気を付けてね！",
+      escapeGameQuestion: question1,
       VideoProps: [
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4",
@@ -411,6 +413,10 @@ const roomDatas: RoomAPIType = [
       mode: "pdfRoom",
       title: "Digi Health",
       description: "",
+      engEscapeGameQuestion: engQuestion2,
+      designEscapeGameQuestion: designQuestion2,
+      busiEscapeGameQuestion: busiQuestion2,
+      civilEscapeGameQuetion: civilQuestion2,
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
@@ -540,6 +546,7 @@ const roomDatas: RoomAPIType = [
           instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
         },
       ],
+      escapeGameQuestion: question3
     },
   },
   {
@@ -554,6 +561,10 @@ const roomDatas: RoomAPIType = [
       },
       title: "RAISON DETRE",
       mode: "musics",
+      engEscapeGameQuestion: engQuestion4,
+      designEscapeGameQuestion: designQuestion4,
+      busiEscapeGameQuestion: busiQuestion4,
+      civilEscapeGameQuetion: civilQuestion4,
       pickUpIframes: [
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887618911&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-summer-beach-remix" title="RYDEEN (Summer Beach Remix)" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN (Summer Beach Remix)</a></div>',
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887617879&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-ver" title="RYDEEN Orchestra style" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN Orchestra style</a></div>',
