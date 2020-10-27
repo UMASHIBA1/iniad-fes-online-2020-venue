@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import entranceImg from "../../../statics/totyo.png";
 import { EntranceProps } from "../../../typings/RoomPropType/RoomPropType";
@@ -12,6 +12,8 @@ import { toVisited } from "../../../redux/modules/isFirstVisit";
 import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
+import ObjectMark from "../../atoms/ObjectMark";
+import PDFModal from "../../molecules/PDFModal";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -20,6 +22,7 @@ interface Props {
 const controllIds = {
   gotoAlumniAssociationRoom: "entrance-door-alumniAssociation",
   goto3floor: "entrance-door-button-controll",
+  pamphlet: "entrance-pamphlet",
 };
 
 function Entrance({ entranceProps }: Props) {
@@ -28,6 +31,7 @@ function Entrance({ entranceProps }: Props) {
   const { grade, userAnswer } = useTypedSelector(
     (state) => state.escapeGameUserInfo
   );
+  const [isShowPamphlet, changeIsShowPamphlet] = useState(false);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -60,6 +64,25 @@ function Entrance({ entranceProps }: Props) {
             );
           }}
         />
+        <ObjectMark
+        title="パンフレット"
+        color="white"
+        dataControllId={controllIds.pamphlet}
+        onClick={() => {
+          changeIsShowPamphlet(true);
+        }}
+        />
+        <PDFModal
+          isMobile={false}
+          isShow={isShowPamphlet}
+          onClose={() => {
+            changeIsShowPamphlet(false);
+          }}
+          pdfProps={{
+              pageNum: 14,
+              url: "https://storage.googleapis.com/iniadfes/public/pamphlet.pdf"
+            }}
+        />
         {grade === 4 && userAnswer.q4 !== null ? (
           <RoomMark
             imgPath={iniadfesLogo}
@@ -87,6 +110,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 24%;
       right: 35%;
+    }
+
+    &[data-controll-id=${controllIds.pamphlet}] {
+      position: absolute;
+      top: 45%;
+      right: 6%;
     }
 
     &[data-controll-id=${controllIds.gotoAlumniAssociationRoom}] {
