@@ -5,7 +5,7 @@ interface BaseUserInfo {
   grade: 1 | 2 | 3 |4;
   userAnswer: {
     q1: AnswerText;
-    q3: AnswerText[];
+    q3: AnswerText[] | null;
   }
 }
 
