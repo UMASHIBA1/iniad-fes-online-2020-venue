@@ -61,24 +61,25 @@ const Wrapper = styled.div<{ viewingScreen: ViewingProp }>`
   bottom: 0;
   width: calc(100% / 3);
   height: 52px;
+  left: 100vw;
+  transition: transform 200ms linear;
 
   ${({ viewingScreen: viewing }) =>
     viewing === "left" &&
     css`
-      left: 0;
+    transform: translateX(-100vw);
     `}
 
   ${({ viewingScreen: viewing }) =>
     viewing === "center" &&
     css`
-      left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(0);
     `}
 
 ${({ viewingScreen: viewing }) =>
     viewing === "right" &&
     css`
-      right: 0;
+      transform: translateX(100vw);
     `}
 `;
 
