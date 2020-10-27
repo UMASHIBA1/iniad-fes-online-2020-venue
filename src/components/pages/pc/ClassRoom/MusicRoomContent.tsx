@@ -7,6 +7,11 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
 import useDidMount from "../../../../hooks/useDidMount/useDidMount";
+import EscapeGameUserInfo from "../../../../typings/EscapeGame/EscapeGameUserInfo";
+import { useDispatch } from "react-redux";
+import { DispatchType, useTypedSelector } from "../../../../redux/store";
+import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
+import { answerQ4, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
 
 interface Props {
   musicEnvProps: MusicEnvAttr;
@@ -16,19 +21,36 @@ interface Props {
 const dataControllId = {
   objButton: "musicroomcontent-obj-button",
   door: "musicroomcontent-left-door",
+  escapeGameButton: "musicRoomContent-escapegame-button",
 };
+
+
+const judgeUsersCourseProps = (course: EscapeGameUserInfo["course"], musicEnvProps: MusicEnvAttr) => {
+  if(course === "engineer" && musicEnvProps.engEscapeGameQuestion) {
+    return musicEnvProps.engEscapeGameQuestion;
+  }else if(course === "design" && musicEnvProps.designEscapeGameQuestion) {
+    return musicEnvProps.designEscapeGameQuestion;
+  }else if(course === "business" && musicEnvProps.busiEscapeGameQuestion) {
+    return musicEnvProps.busiEscapeGameQuestion;
+  }else if(course==="civil" && musicEnvProps.civilEscapeGameQuetion) {
+    return musicEnvProps.civilEscapeGameQuetion;
+  } else {
+    return null;
+  }
+}
 
 function MusicRoomContent({ musicEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
+  const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
 
-  useDidMount(() => {
-    setTimeout(() => {
-      changeIsShowModal(true)
-    }, 200);
-  })
+  const dispatch: DispatchType = useDispatch();
+  const {userAnswer, course} = useTypedSelector(({escapeGameUserInfo}) => escapeGameUserInfo);
+  const q4Answer = userAnswer.q4;
+
+  const usersCourseQuestion = judgeUsersCourseProps(course, musicEnvProps);
 
   return (
     <Wrapper>
@@ -49,6 +71,29 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
         pickupMusics={musicEnvProps.pickUpIframes}
         isMobile={false}
       />
+      {usersCourseQuestion?(
+        <React.Fragment>
+          {q4Answer === null &&(
+          <ObjectMark
+            color="blue"
+            title={usersCourseQuestion.title}
+            onClick={() => changeIsShowQuestionModal(true)}
+            dataControllId={dataControllId.escapeGameButton}
+          />
+          )}
+          <EscapeGameQuestionModal
+            escapeGameProps={usersCourseQuestion}
+            isMobile={false}
+            isShow={isShowQuestionModal}
+            onClose={() => changeIsShowQuestionModal(false)}
+            onSubmitMulti={(str) => {
+              dispatch(answerQ4(str));
+              changeIsShowQuestionModal(false);
+              alert("問題4の答えを受け取ったよ！");
+            }}
+          />
+        </React.Fragment>
+      ): null}
     </Wrapper>
   );
 }
@@ -72,6 +117,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 31%;
       left: 33%;
+    }
+
+        &[data-controll-id=${dataControllId.escapeGameButton}] {
+      position: absolute;
+      top: 28%;
+      right: 33%;
     }
   }
 `;
