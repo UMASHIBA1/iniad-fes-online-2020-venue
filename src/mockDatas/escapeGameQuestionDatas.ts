@@ -15,7 +15,7 @@ export const question1: EscapeGameQuestion = {
   course: null,
   title: "INIAD脱出ゲーム学年1 問題",
   mode: "text",
-  answer: "INIAD",
+  answer: ["INIAD"],
   questionImg: q1Img,
 };
 
@@ -63,11 +63,9 @@ export const busiQuestion2: EscapeGameQuestion = {
   title: "INIAD脱出ゲーム学年2 問題",
   mode: "threeText",
   answer: [
-    [
-      "Ariticial Intelligent",
-      "Internet of things",
-      "social networking service",
-    ],
+    ["Ariticial Intelligent"],
+    ["Internet of things"],
+    ["social networking service"],
   ],
   questionImg: q2BusiImg,
 };
@@ -86,7 +84,7 @@ export const engQuestion4: EscapeGameQuestion = {
   course: "engineer",
   title: "INIAD脱出ゲーム学年4 問題",
   mode: "text",
-  answer: "HELLO_INIAD!!",
+  answer: ["HELLO_INIAD!!"],
   questionImg: q4EngImg,
 };
 
@@ -96,8 +94,8 @@ export const designQuestion4: EscapeGameQuestion = {
   title: "INIAD脱出ゲーム学年4 問題",
   mode: "twoText",
   answer: [
-    ["白", "黒"],
-    ["white", "black"],
+    ["白", "white", "しろ"],
+    ["黒", "black", "しろ"],
   ],
   questionImg: q4DesignImg,
 };
@@ -107,7 +105,7 @@ export const busiQuestion4: EscapeGameQuestion = {
   course: "business",
   title: "INIAD脱出ゲーム学年4 問題",
   mode: "threeText",
-  answer: [["Deep Blue", "ボンクラーズ", "AlphaGo"]],
+  answer: [["Deep Blue"], ["ボンクラーズ"], ["AlphaGo"]],
   questionImg: q4BusiImg,
 };
 

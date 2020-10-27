@@ -9,8 +9,17 @@ interface EscapeGameQuestionSelect {
   grade: EscapeGameGrades;
   title: string;
   questionImg: string;
-  mode: "select" | "selectThree" | "multiSelect";
-  answer: AnswerSelection | AnswerSelection[];
+  mode: "selectThree" | "select";
+  answer: AnswerSelection;
+}
+
+interface EscapeGameMultiSelect {
+  course: EscapeGameCourses;
+  grade: EscapeGameGrades;
+  title: string;
+  questionImg: string;
+  mode: "multiSelect";
+  answer: AnswerSelection[];
 }
 
 interface EscapeGameQuestionText {
@@ -19,7 +28,7 @@ interface EscapeGameQuestionText {
   title: string;
   questionImg: string;
   mode: "text";
-  answer: string;
+  answer: string[];
 }
 
 interface EscapeGameQuestionThreeText {
@@ -31,6 +40,10 @@ interface EscapeGameQuestionThreeText {
   answer: string[][];
 }
 
-type EscapeGameQuestion = EscapeGameQuestionSelect | EscapeGameQuestionText | EscapeGameQuestionThreeText;
+type EscapeGameQuestion =
+  | EscapeGameQuestionSelect
+  | EscapeGameMultiSelect
+  | EscapeGameQuestionText
+  | EscapeGameQuestionThreeText;
 
 export default EscapeGameQuestion;
