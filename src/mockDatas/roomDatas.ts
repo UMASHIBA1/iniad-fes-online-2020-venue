@@ -345,7 +345,7 @@ const roomDatas: RoomAPIType = [
       mode: "videoList",
       title: "INIActors",
       leftOrRight: "left",
-      description: "※劇場でやるよ、気を付けてね！",
+      description: `本公演の写真撮影・録画・録音はしないでください。公演パンフレットはこちら https://drive.google.com/file/d/1pB5VO5H1DikLmC_-gF7TbtJ2QL8gWrha/view?usp=sharing`,
       escapeGameQuestion: question1,
       VideoProps: [
         {
@@ -675,8 +675,7 @@ const roomDatas: RoomAPIType = [
         imgPath: roadIcon,
       },
       leftOrRight: "left",
-      iframeCode:
-        `<iframe width="100%" height="100%" src="https://storage.googleapis.com/iniadfes/public/hello-vietnam/index.html"></iframe>`,
+      iframeCode: `<iframe width="100%" height="100%" src="https://storage.googleapis.com/iniadfes/public/hello-vietnam/index.html"></iframe>`,
     },
   },
   {
