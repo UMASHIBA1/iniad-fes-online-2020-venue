@@ -16,6 +16,7 @@ import iniadTutorialIcon from "../statics/circleIcons/INIADTUTORIAL_logo_200 - A
 import hoasenIcon from "../statics/circleIcons/logo hoa sen - LUONG NGUYEN VAN.png";
 import noahsArkIcon from "../statics/circleIcons/Noah_s Ark_ logo - Takuma Sunohara.png";
 import quizIcon from "../statics/circleIcons/quiz - Kensuke SUZUKI.png";
+import artWorksIcon from "../statics/circleIcons/artworks_logo.png";
 import stairIcon from "../statics/svgs/stair-icon.svg";
 import arrowBackIcon from "../statics/svgs/arrow-back.svg";
 import arrowNextIcon from "../statics/svgs/arrow-next.svg";
@@ -317,7 +318,7 @@ const roomDatas: RoomAPIType = [
       next: {
         url: links.classroom("4100"),
         title: "Art Works",
-        imgPath: iniadfesLogoIcon,
+        imgPath: artWorksIcon,
       },
       doorLeft1: {
         url: links.classroom("4102"),
