@@ -19,6 +19,9 @@ import PDFRoomContent from "./PDFRoomContent";
 import TATFORoomContent from "./TATFORoomContent";
 import OneVideoContent from "./OneVideoContent";
 import ArtListRoomContent from "./ArtListRoomContent";
+import YouTubeRoomContent from "./YouTubeRoomContent";
+import IFrameRoomContent from "./IFrameRoomContent";
+import TRPGRoomContent from "./TRPGRoomContent";
 
 interface Props {
   classRoomProps: ClassRoomProps[];
@@ -122,6 +125,18 @@ const createthisModeRoom = (
         return(
           <ArtListRoomContent history={history} artListEnvProps={env} viewingScreen={viewingScreen} />
         )
+      case "youtube":
+        return(
+          <YouTubeRoomContent history={history} youtubeRoomProps={env} viewingScreen={viewingScreen}/>
+        )
+      case "iframeRoom":
+        return(
+          <IFrameRoomContent history={history} iframeRoomProps={env} viewingScreen={viewingScreen} />
+        );
+      case "trpgRoom":
+        return(
+          <TRPGRoomContent history={history} trpgRoomProps={env} viewingScreen={viewingScreen} />
+        );
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";
     }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
 import entranceImg from "../../../statics/totyo.png";
 import { EntranceProps } from "../../../typings/RoomPropType/RoomPropType";
@@ -6,23 +6,33 @@ import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import FuncButtons from "../../molecules/pc/FuncButtons";
 import { useDispatch } from "react-redux";
-import { DispatchType } from "../../../redux/store";
+import { DispatchType, useTypedSelector } from "../../../redux/store";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
 import Chat from "../../organisms/Chat/Chat";
 import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
+import ObjectMark from "../../atoms/ObjectMark";
+import PDFModal from "../../molecules/PDFModal";
 
 interface Props {
   entranceProps: EntranceProps[];
 }
 
-const controllId = "entrance-door-button-controll";
+const controllIds = {
+  gotoAlumniAssociationRoom: "entrance-door-alumniAssociation",
+  goto3floor: "entrance-door-button-controll",
+  pamphlet: "entrance-pamphlet",
+};
 
 function Entrance({ entranceProps }: Props) {
   const history = useHistory();
   const dispatch: DispatchType = useDispatch();
+  const { grade, userAnswer } = useTypedSelector(
+    (state) => state.escapeGameUserInfo
+  );
+  const [isShowPamphlet, changeIsShowPamphlet] = useState(false);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -36,13 +46,17 @@ function Entrance({ entranceProps }: Props) {
     <RoomWrapper bgImg={entranceImg}>
       <Wrapper>
         <RoomMark
-          imgPath={entranceProps[0]?entranceProps[0].environment_attributes.door.imgPath:iniadfesLogo}
+          imgPath={
+            entranceProps[0]
+              ? entranceProps[0].environment_attributes.door.imgPath
+              : iniadfesLogo
+          }
           roomTitle={
             entranceProps[0]
               ? entranceProps[0].environment_attributes.door.title
               : "空き部屋"
           }
-          dataControllId={controllId}
+          dataControllId={controllIds.goto3floor}
           onClick={() => {
             gotoTargetUrl(
               entranceProps[0]
@@ -51,6 +65,35 @@ function Entrance({ entranceProps }: Props) {
             );
           }}
         />
+        <ObjectMark
+        title="パンフレット"
+        color="white"
+        dataControllId={controllIds.pamphlet}
+        onClick={() => {
+          changeIsShowPamphlet(true);
+        }}
+        />
+        <PDFModal
+          isMobile={false}
+          isShow={isShowPamphlet}
+          onClose={() => {
+            changeIsShowPamphlet(false);
+          }}
+          pdfProps={{
+              pageNum: 14,
+              url: "https://storage.googleapis.com/iniadfes/public/pamphlet.pdf"
+            }}
+        />
+        {grade === 4 && userAnswer.q4 !== null ? (
+          <RoomMark
+            imgPath={iniadfesLogo}
+            roomTitle="同窓会部屋"
+            dataControllId={controllIds.gotoAlumniAssociationRoom}
+            onClick={() => {
+              window.open("https://example.com", "_blank")
+            }}
+          />
+        ) : null}
         <Chat />
         <FuncButtons />
       </Wrapper>
@@ -65,10 +108,22 @@ const Wrapper = styled.div`
   width: 100%;
   height: 100%;
   > button {
-    &[data-controll-id=${controllId}] {
+    &[data-controll-id=${controllIds.goto3floor}] {
       position: absolute;
       top: 24%;
       right: 35%;
+    }
+
+    &[data-controll-id=${controllIds.pamphlet}] {
+      position: absolute;
+      top: 45%;
+      right: 6%;
+    }
+
+    &[data-controll-id=${controllIds.gotoAlumniAssociationRoom}] {
+      position: absolute;
+      bottom: 35%;
+      left: 1%;
     }
   }
 `;

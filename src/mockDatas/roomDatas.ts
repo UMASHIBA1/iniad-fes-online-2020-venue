@@ -16,10 +16,26 @@ import iniadTutorialIcon from "../statics/circleIcons/INIADTUTORIAL_logo_200 - A
 import hoasenIcon from "../statics/circleIcons/logo hoa sen - LUONG NGUYEN VAN.png";
 import noahsArkIcon from "../statics/circleIcons/Noah_s Ark_ logo - Takuma Sunohara.png";
 import quizIcon from "../statics/circleIcons/quiz - Kensuke SUZUKI.png";
+import artWorksIcon from "../statics/circleIcons/artworks_logo.png";
 import stairIcon from "../statics/svgs/stair-icon.svg";
 import arrowBackIcon from "../statics/svgs/arrow-back.svg";
 import arrowNextIcon from "../statics/svgs/arrow-next.svg";
 import entranceIcon from "../statics/svgs/restaurant.svg";
+import roadIcon from "../statics/svgs/road.svg";
+import hallIcon from "../statics/svgs/hall.svg";
+import crossIcon from "../statics/svgs/cross.svg";
+import {
+  busiQuestion2,
+  busiQuestion4,
+  civilQuestion2,
+  civilQuestion4,
+  designQuestion2,
+  designQuestion4,
+  engQuestion2,
+  engQuestion4,
+  question1,
+  question3,
+} from "./escapeGameQuestionDatas";
 
 const sampleObj = {
   url: "example.com",
@@ -41,36 +57,36 @@ const roomDatas: RoomAPIType = [
     },
     environment_attributes: {
       door: {
-        url: links.elevatorFront("3f"),
-        title: "3Fエレベーター前",
-        imgPath: iniadfesLogoIcon,
+        url: links.stair("3f"),
+        title: "3階階段",
+        imgPath: crossIcon,
       },
     },
   },
-  // hal
+  // hall
   {
     type: "hall",
     name: "hall",
     environment_attributes: {
       doorLeft: {
         url: links.elevatorFront("3f"),
-        title: "3Fエレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "3F分岐路",
+        imgPath: crossIcon,
       },
       doorRight: {
         url: links.elevatorFront("4f"),
-        title: "4Fエレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4F分岐路",
+        imgPath: crossIcon,
       },
       video: {
         mode: "streaming",
         start_at: {
-        iso8601: "2020-10-31T10:00:00+09:00",
-        timestamp: 1604106001,
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106001,
         },
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
-      }
-    }
+      },
+    },
   },
   // elevatorFront
   {
@@ -80,12 +96,12 @@ const roomDatas: RoomAPIType = [
       roadx1xx: {
         url: links.road("3101"),
         title: "3階廊下1",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       roadx2xx: {
         url: links.hall,
         title: "ホール",
-        imgPath: iniadfesLogoIcon,
+        imgPath: hallIcon,
       },
       back: {
         url: links.stair("3f"),
@@ -101,12 +117,12 @@ const roomDatas: RoomAPIType = [
       roadx1xx: {
         url: links.road("4101"),
         title: "4階廊下1",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       roadx2xx: {
         url: links.hall,
         title: "ホール",
-        imgPath: iniadfesLogoIcon,
+        imgPath: hallIcon,
       },
       back: {
         url: links.stair("4f"),
@@ -122,8 +138,8 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       up: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4階分岐路",
+        imgPath: crossIcon,
       },
       down: {
         url: links.entrance,
@@ -132,8 +148,8 @@ const roomDatas: RoomAPIType = [
       },
       room: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "3階分岐路",
+        imgPath: arrowBackIcon,
       },
     },
   },
@@ -142,14 +158,14 @@ const roomDatas: RoomAPIType = [
     name: "4f",
     environment_attributes: {
       down: {
-        url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        url: links.stair("3f"),
+        title: "3階階段",
+        imgPath: stairIcon,
       },
       room: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4階分岐路",
+        imgPath: arrowBackIcon,
       },
     },
   },
@@ -161,7 +177,7 @@ const roomDatas: RoomAPIType = [
       mode: "front",
       back: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
+        title: "3階分岐路",
         imgPath: arrowBackIcon,
       },
       next: {
@@ -242,8 +258,8 @@ const roomDatas: RoomAPIType = [
       mode: "front",
       back: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
-        imgPath: iniadfesLogoIcon,
+        title: "4階分岐路",
+        imgPath: crossIcon,
       },
       next: {
         url: links.road("4102"),
@@ -302,7 +318,7 @@ const roomDatas: RoomAPIType = [
       next: {
         url: links.classroom("4100"),
         title: "Art Works",
-        imgPath: iniadfesLogoIcon,
+        imgPath: artWorksIcon,
       },
       doorLeft1: {
         url: links.classroom("4102"),
@@ -324,12 +340,13 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下1",
         url: links.road("3101"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "videoList",
       title: "INIActors",
       leftOrRight: "left",
-      description: "※劇場でやるよ、気を付けてね！",
+      description: `本公演の写真撮影・録画・録音はしないでください。公演パンフレットはこちら https://drive.google.com/file/d/1pB5VO5H1DikLmC_-gF7TbtJ2QL8gWrha/view?usp=sharing`,
+      escapeGameQuestion: question1,
       VideoProps: [
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4",
@@ -377,7 +394,7 @@ const roomDatas: RoomAPIType = [
       door: {
         url: links.road("3101"),
         title: "3階廊下1",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       videoProps: {
         mode: "streaming",
@@ -393,14 +410,23 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3106",
     environment_attributes: {
+      mode: "oneVideo",
       leftOrRight: "left",
+      description: "",
+      title: "Web研究会",
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      videoProps: {
+        mode: "streaming",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
+      },
     },
   },
   {
@@ -411,10 +437,14 @@ const roomDatas: RoomAPIType = [
       mode: "pdfRoom",
       title: "Digi Health",
       description: "",
+      engEscapeGameQuestion: engQuestion2,
+      designEscapeGameQuestion: designQuestion2,
+      busiEscapeGameQuestion: busiQuestion2,
+      civilEscapeGameQuetion: civilQuestion2,
       door: {
         title: "3階廊下2",
         url: links.road("3102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       pdfProps: {
         url: "/digihealth.pdf",
@@ -427,13 +457,14 @@ const roomDatas: RoomAPIType = [
     name: "3102",
     environment_attributes: {
       leftOrRight: "left",
+      mode: "youtube",
       door: {
-        title: "3階廊下3",
         url: links.road("3103"),
-        imgPath: iniadfesLogoIcon,
+        title: "3階廊下3",
+        imgPath: roadIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      title: "INIAD Minecraft",
+      youtubelink: `<iframe width="100%" height="100%" src="https://www.youtube.com/embed/EsCwBm1bxDM" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>`,
     },
   },
   {
@@ -447,7 +478,7 @@ const roomDatas: RoomAPIType = [
       door: {
         url: links.road("3103"),
         title: "3階廊下3",
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       videoProps: {
         mode: "streaming",
@@ -467,7 +498,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "oneObj",
       obj1: sampleObj,
@@ -481,7 +512,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "igc2",
       gameLink: "https://igc2.jp/exhibition/",
@@ -505,7 +536,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下1",
         url: links.road("4101"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "photoList",
       title: "ID/graph",
@@ -540,6 +571,7 @@ const roomDatas: RoomAPIType = [
           instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
         },
       ],
+      escapeGameQuestion: question3,
     },
   },
   {
@@ -550,10 +582,14 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       title: "RAISON DETRE",
       mode: "musics",
+      engEscapeGameQuestion: engQuestion4,
+      designEscapeGameQuestion: designQuestion4,
+      busiEscapeGameQuestion: busiQuestion4,
+      civilEscapeGameQuetion: civilQuestion4,
       pickUpIframes: [
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887618911&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-summer-beach-remix" title="RYDEEN (Summer Beach Remix)" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN (Summer Beach Remix)</a></div>',
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887617879&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-ver" title="RYDEEN Orchestra style" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN Orchestra style</a></div>',
@@ -592,26 +628,30 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下2",
         url: links.road("4102"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       title: "TATFO",
       description: "TATFOのお部屋です",
       pdfPropList: [
         {
-          url: "/sample.pdf",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_sdgs_sugoroku.pdf",
+          pageNum: 7,
+        },
+        {
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_your_hope_future.pdf",
           pageNum: 2,
         },
         {
-          url: "/sample.pdf",
-          pageNum: 2,
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_know_sdgs.pdf",
+          pageNum: 115,
         },
         {
-          url: "/sample.pdf",
-          pageNum: 2,
-        },
-        {
-          url: "/sample.pdf",
-          pageNum: 2,
+          url:
+            "https://storage.googleapis.com/iniadfes/public/tatfo_tatfo_hope_future.pdf",
+          pageNum: 10,
         },
       ],
       videoProps: {
@@ -628,28 +668,35 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4102",
     environment_attributes: {
-      leftOrRight: "left",
+      mode: "iframeRoom",
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      leftOrRight: "left",
+      iframeCode: `<iframe width="100%" height="100%" src="https://storage.googleapis.com/iniadfes/public/hello-vietnam/index.html"></iframe>`,
     },
   },
   {
     type: "classroom",
     name: "4101",
     environment_attributes: {
-      leftOrRight: "right",
+      mode: "trpgRoom",
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: noahsArkIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      leftOrRight: "right",
+      video: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
     },
   },
   {
@@ -660,33 +707,64 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: iniadfesLogoIcon,
+        imgPath: roadIcon,
       },
       mode: "artList",
       artList: [
         {
-          title: "なんか",
-          url: iniadTutorialIcon,
+          title: "冨澤 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/tomizawa1.png",
         },
         {
-          title: "nannka",
-          url: raisonDetleIcon,
+          title: "冨澤 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/tomizawa2.png",
         },
         {
-          title: "nannkadayo",
-          url: quizIcon,
+          title: "たさき 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/tasaki.png",
         },
         {
-          title: "doudesyouka1",
-          url: iniadfesLogoIcon,
+          title: "河西 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/kanishi.jpg",
         },
         {
-          title: "doudesyouka2",
-          url: iniadfesLogoIcon,
+          title: "高橋 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/takahashi.png",
         },
         {
-          title: "doudesyouka3",
-          url: iniadfesLogoIcon,
+          title: "作田 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/sakuta1.png",
+        },
+        {
+          title: "作田 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/sakuta2.png",
+        },
+        {
+          title: "作田 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/sakuta3.png",
+        },
+        {
+          title: "小田 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/koda.png",
+        },
+        {
+          title: "小田 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/koda2.PNG",
+        },
+        {
+          title: "渡邉 作",
+          url:
+            "https://storage.googleapis.com/iniadfes/public/ArtWorks/watanabe.png",
         },
       ],
       description: "Art Worksの書いてきた絵です",

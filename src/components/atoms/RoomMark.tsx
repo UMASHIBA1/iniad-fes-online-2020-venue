@@ -39,9 +39,6 @@ const RoomTitle = styled.div`
   width: 74%;
   font-size: 0.5vw;
 
-  ${breakPoints.downTablet} {
-    display: none;
-  }
 `
 
 const Wrapper = styled.button.attrs<{dataControllId: string}>(({dataControllId}) =>({
