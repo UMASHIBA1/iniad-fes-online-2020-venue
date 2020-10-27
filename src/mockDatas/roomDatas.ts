@@ -45,8 +45,8 @@ const roomDatas: RoomAPIType = [
     },
     environment_attributes: {
       door: {
-        url: links.elevatorFront("3f"),
-        title: "3Fエレベーター前",
+        url: links.stair("3f"),
+        title: "3階階段",
         imgPath: crossIcon,
       },
     },
@@ -58,12 +58,12 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       doorLeft: {
         url: links.elevatorFront("3f"),
-        title: "3Fエレベーター前",
+        title: "3F分岐路",
         imgPath: crossIcon,
       },
       doorRight: {
         url: links.elevatorFront("4f"),
-        title: "4Fエレベーター前",
+        title: "4F分岐路",
         imgPath: crossIcon,
       },
       video: {
@@ -126,7 +126,7 @@ const roomDatas: RoomAPIType = [
     environment_attributes: {
       up: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
+        title: "4階分岐路",
         imgPath: crossIcon,
       },
       down: {
@@ -136,7 +136,7 @@ const roomDatas: RoomAPIType = [
       },
       room: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
+        title: "3階分岐路",
         imgPath: arrowBackIcon,
       },
     },
@@ -146,13 +146,13 @@ const roomDatas: RoomAPIType = [
     name: "4f",
     environment_attributes: {
       down: {
-        url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
-        imgPath: crossIcon,
+        url: links.stair("3f"),
+        title: "3階階段",
+        imgPath: stairIcon,
       },
       room: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
+        title: "4階分岐路",
         imgPath: arrowBackIcon,
       },
     },
@@ -165,7 +165,7 @@ const roomDatas: RoomAPIType = [
       mode: "front",
       back: {
         url: links.elevatorFront("3f"),
-        title: "3階エレベーター前",
+        title: "3階分岐路",
         imgPath: arrowBackIcon,
       },
       next: {
@@ -246,7 +246,7 @@ const roomDatas: RoomAPIType = [
       mode: "front",
       back: {
         url: links.elevatorFront("4f"),
-        title: "4階エレベーター前",
+        title: "4階分岐路",
         imgPath: crossIcon,
       },
       next: {
