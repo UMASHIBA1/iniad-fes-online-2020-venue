@@ -147,6 +147,7 @@ const escapeGameUserInfo = createSlice({
 export const {
   changeCourse,
   incrementGrade,
+  restartGame,
   answerQ1,
   answerQ2,
   answerQ3,
