@@ -5,6 +5,7 @@ import {
   blackColor,
   deepBlueColor,
   deepWhiteColor,
+  lightRedColor,
 } from "../constants/colors";
 
 export const whiteBGColor = css`
@@ -41,4 +42,12 @@ export const blackText = css`
 
 export const blackBGColor = css`
   background-color: ${blackColor};
+`
+
+export const lightRedText = css`
+  color: ${lightRedColor};
+`
+
+export const lightRedBGColor = css`
+  background-color: ${lightRedColor};
 `
