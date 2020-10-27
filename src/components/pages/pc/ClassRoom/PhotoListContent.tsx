@@ -31,9 +31,10 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
-    const q3Answer = useTypedSelector(
-    ({ escapeGameUserInfo }) => escapeGameUserInfo.userAnswer.q3
+    const {userAnswer, grade} = useTypedSelector(
+    ({ escapeGameUserInfo }) => escapeGameUserInfo
   );
+  const q3Answer = userAnswer.q3;
 
   return (
     <Wrapper>
@@ -61,7 +62,7 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
       {
         photoListEnvProps.escapeGameQuestion?(
           <React.Fragment>
-            {q3Answer === null && (
+            {q3Answer === null && grade === 3 && (
               <ObjectMark
               color="blue"
               title={photoListEnvProps.escapeGameQuestion.title}
