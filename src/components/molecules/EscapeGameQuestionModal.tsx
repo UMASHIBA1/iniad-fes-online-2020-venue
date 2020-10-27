@@ -147,6 +147,20 @@ function EscapeGameQuestionModal({
             <Button text="提出" mode="blue" type="submit" useShadow={false} />
           </Form>
         ) : null}
+        {escapeGameProps.mode === "twoText"? (
+                    <Form
+            onSubmit={(e) => {
+              if (textValueList.length >= 2) {
+                onSubmitMulti&&onSubmitMulti(textValueList);
+              }
+              e.preventDefault();
+            }}
+          >
+            <TextInput required={true} placeholder="1つ目の答え" value={textValueList[0]} changeValueFC={(value) => {changeTextValueList([value, textValueList[1]])}} />
+            <TextInput required={true} placeholder="2つ目の答え" value={textValueList[1]} changeValueFC={(value) => {changeTextValueList([textValueList[0], value])}} />
+            <Button text="提出" mode="blue" type="submit" useShadow={false} />
+          </Form>
+        ): null}
         {escapeGameProps.mode === "select" ? (
           <Form
             onSubmit={(e) => {
