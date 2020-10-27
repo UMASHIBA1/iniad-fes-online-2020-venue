@@ -145,6 +145,13 @@ export interface IframeEnvAttr {
   leftOrRight: LeftOrRight;
 }
 
+export interface TRPGEnvAttr {
+  mode: "trpgRoom";
+  door: RoomEnvLinkProps;
+  video: VideoProps;
+  leftOrRight: LeftOrRight;
+}
+
 type EnvAttr =
   | ExampleMode1EnvAttr
   | ExampleMode2EnvAttr
@@ -157,7 +164,8 @@ type EnvAttr =
   | OneVideoEnvAttr
   | ArtListEnvAttr
   | YoutubeEnvAttr
-  | IframeEnvAttr;
+  | IframeEnvAttr
+  | TRPGEnvAttr;
 
 export default interface ClassRoomProps {
   type: "classroom";
