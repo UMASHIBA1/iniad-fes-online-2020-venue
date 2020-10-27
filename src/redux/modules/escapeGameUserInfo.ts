@@ -1,7 +1,5 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-import EscapeGameUserInfo, {
-  EscapeGameGrades,
-} from "../../typings/EscapeGame/EscapeGameUserInfo";
+import EscapeGameUserInfo from "../../typings/EscapeGame/EscapeGameUserInfo";
 
 const localStorageId = "escapeGameUserInfo";
 
@@ -56,6 +54,19 @@ const escapeGameUserInfo = createSlice({
       } as EscapeGameUserInfo;
       saveToLocalStorage(nextState);
       return nextState;
+    },
+    restartGame: () => {
+      const nextState: EscapeGameUserInfo = {
+        grade: 1,
+        course: null,
+        userAnswer: {
+          q1: null,
+          q2: null,
+          q3: null,
+          q4: null,
+        }};
+        saveToLocalStorage(nextState);
+        return nextState;
     },
     answerQ1: (
       state,
