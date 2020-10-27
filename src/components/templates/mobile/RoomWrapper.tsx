@@ -7,7 +7,11 @@ import leftArrow from "../../../statics/svgs/left-arrow.svg";
 import IconButton from "../../atoms/IconButton";
 import { DispatchType, useTypedSelector } from "../../../redux/store";
 import { useDispatch } from "react-redux";
-import { toCenter, toLeft, toRight } from "../../../redux/modules/viewingScreen";
+import {
+  toCenter,
+  toLeft,
+  toRight,
+} from "../../../redux/modules/viewingScreen";
 import breakPoints from "../../../constants/breakPoints";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 
@@ -23,32 +27,36 @@ const dataControllIds = {
 };
 
 const goOneLeft = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
-  if(nowViewingScreen === "center") {
+  if (nowViewingScreen === "center") {
     dispatch(toLeft());
-  }else if(nowViewingScreen === "right") {
+  } else if (nowViewingScreen === "right") {
     dispatch(toCenter());
   }
-}
+};
 
 const goOneRight = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
-  if(nowViewingScreen === "center") {
+  if (nowViewingScreen === "center") {
     dispatch(toRight());
-  }else if(nowViewingScreen === "left") {
+  } else if (nowViewingScreen === "left") {
     dispatch(toCenter());
   }
-}
+};
 
 function RoomWrapper({ children, bgImg, isOneScreen }: Props) {
-  const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
+  const viewingScreen = useTypedSelector(({ viewingScreen }) => viewingScreen);
   const dispatch: DispatchType = useDispatch();
 
   useDidMount(() => {
     dispatch(toCenter());
-  })
+  });
 
   return (
     <Wrapper>
-      <RoomWrapperMain bgImg={bgImg} viewing={viewingScreen} isOneScreen={isOneScreen}>
+      <RoomWrapperMain
+        bgImg={bgImg}
+        viewing={viewingScreen}
+        isOneScreen={isOneScreen}
+      >
         {children}
         <IconButton
           svgPath={leftArrow}
@@ -71,7 +79,11 @@ function RoomWrapper({ children, bgImg, isOneScreen }: Props) {
   );
 }
 
-const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp, isOneScreen: boolean}>`
+const RoomWrapperMain = styled.div<{
+  bgImg: Props["bgImg"];
+  viewing: ViewingProp;
+  isOneScreen: boolean;
+}>`
   position: relative;
   top: 0;
   left: 0;
@@ -80,10 +92,11 @@ const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp,
   background-position: center;
   background-size: cover;
   width: 300vw;
-  height: calc(1/3 * 300vw);
+  height: calc(1 / 3 * 300vw);
+  transition: transform 200ms linear;
 
   ${breakPoints.downSm} {
-  height: calc(1 / 2 * 300vw);
+    height: calc(1 / 2 * 300vw);
   }
 
   ${({ viewing }) =>
@@ -107,21 +120,25 @@ const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp,
       ${({ viewing }) =>
         viewing === "left" &&
         css`
-          visibility: hidden;
+          opacity: 0;
+          transform: translate(0, -50%);
         `}
       ${({ viewing }) =>
         viewing === "center" &&
         css`
+          opacity: 1;
           transform: translate(100vw, -50%);
         `}
       ${({ viewing }) =>
         viewing === "right" &&
         css`
+          opacity: 1;
           transform: translate(200vw, -50%);
         `}
 
-        ${({isOneScreen}) =>
-        isOneScreen && css`
+        ${({ isOneScreen }) =>
+        isOneScreen &&
+        css`
           visibility: hidden;
         `}
     }
@@ -144,10 +161,11 @@ const RoomWrapperMain = styled.div<{bgImg: Props["bgImg"], viewing: ViewingProp,
       ${({ viewing }) =>
         viewing === "right" &&
         css`
-          visibility: hidden;
+          transform: translate(0, -50%);
         `}
-      ${({isOneScreen}) =>
-        isOneScreen && css`
+      ${({ isOneScreen }) =>
+        isOneScreen &&
+        css`
           visibility: hidden;
         `}
     }
