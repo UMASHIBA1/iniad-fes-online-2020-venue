@@ -86,8 +86,13 @@ function MusicRoomContent({ musicEnvProps, history }: Props) {
             isMobile={false}
             isShow={isShowQuestionModal}
             onClose={() => changeIsShowQuestionModal(false)}
-            onSubmitMulti={(str) => {
+            onSubmit={(str) => {
               dispatch(answerQ4(str));
+              changeIsShowQuestionModal(false);
+              alert("問題4の答えを受け取ったよ！")
+            }}
+            onSubmitMulti={(list1) => {
+              dispatch(answerQ4(list1));
               changeIsShowQuestionModal(false);
               alert("問題4の答えを受け取ったよ！");
             }}
