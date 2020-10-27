@@ -682,14 +682,21 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4101",
     environment_attributes: {
-      leftOrRight: "right",
+      mode: "trpgRoom",
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: roadIcon,
+        imgPath: noahsArkIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
+      leftOrRight: "right",
+      video: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106000,
+        },
+      },
     },
   },
   {
