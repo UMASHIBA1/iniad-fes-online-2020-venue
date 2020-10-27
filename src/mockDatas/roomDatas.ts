@@ -6,6 +6,10 @@ import q2EngImg from "../statics/escapeGame/q2-eng.png";
 import q2CivilImg from "../statics/escapeGame/q2-civil.png";
 import q2DesignImg from "../statics/escapeGame/q2-design.png";
 import q3Img from "../statics/escapeGame/q3.png";
+import q4EngImg from "../statics/escapeGame/q4-eng.png";
+import q4DesignImg from "../statics/escapeGame/q4-design.png";
+import q4BusiImg from "../statics/escapeGame/q4-busi.png"
+import q4CivilImg from "../statics/escapeGame/q4-civil.png";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
 import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
@@ -608,6 +612,38 @@ const roomDatas: RoomAPIType = [
       },
       title: "RAISON DETRE",
       mode: "musics",
+      engEscapeGameQuestion: {
+        grade: 4,
+        course: "engineer",
+        title: "INIAD脱出ゲーム学年4 問題",
+        mode: "text",
+        answer: "HELLO_INIAD!!",
+        questionImg: q4EngImg,
+      },
+      designEscapeGameQuestion: {
+        grade: 4,
+        course: "design",
+        title: "INIAD脱出ゲーム学年4 問題",
+        mode: "twoText",
+        answer: ["白", "黒"],
+        questionImg: q4DesignImg,
+      },
+      busiEscapeGameQuestion: {
+        grade: 4,
+        course: "business",
+        title: "INIAD脱出ゲーム学年4 問題",
+        mode: "threeText",
+        answer: ["Deep Blue", "ボンクラーズ", "AlphaGo"],
+        questionImg: q4BusiImg,
+      },
+      civilEscapeGameQuetion: {
+        grade: 4,
+        course: "civil",
+        title: "INIAD脱出ゲーム学年4 問題",
+        mode: "multiSelect",
+        answer: ["1", "2", "4"],
+        questionImg: q4CivilImg,
+      },
       pickUpIframes: [
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887618911&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-summer-beach-remix" title="RYDEEN (Summer Beach Remix)" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN (Summer Beach Remix)</a></div>',
         '<iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/887617879&color=%23ff5500&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe><div style="font-size: 10px; color: #cccccc;line-break: anywhere;word-break: normal;overflow: hidden;white-space: nowrap;text-overflow: ellipsis; font-family: Interstate,Lucida Grande,Lucida Sans Unicode,Lucida Sans,Garuda,Verdana,Tahoma,sans-serif;font-weight: 100;"><a href="https://soundcloud.com/raison-detere" title="RAISON DÊTRE" target="_blank" style="color: #cccccc; text-decoration: none;">RAISON DÊTRE</a> · <a href="https://soundcloud.com/raison-detere/rydeen-ver" title="RYDEEN Orchestra style" target="_blank" style="color: #cccccc; text-decoration: none;">RYDEEN Orchestra style</a></div>',

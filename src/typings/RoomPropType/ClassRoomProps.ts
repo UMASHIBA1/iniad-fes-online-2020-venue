@@ -51,8 +51,11 @@ export interface MusicEnvAttr {
   title: string;
   pickUpIframes: string[];
   musicIframes: string[];
-  escapeGameQuestion?: EscapeGameQuestion;
   leftOrRight: LeftOrRight;
+  engEscapeGameQuestion?: EscapeGameQuestion;
+  designEscapeGameQuestion?: EscapeGameQuestion;
+  busiEscapeGameQuestion?: EscapeGameQuestion;
+  civilEscapeGameQuetion?: EscapeGameQuestion;
 }
 
 export interface VideoListEnvAttr {
