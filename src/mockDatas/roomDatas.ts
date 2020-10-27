@@ -1,15 +1,5 @@
 import { links } from "../constants/links";
 import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
-import q1Img from "../statics/escapeGame/q1.png";
-import q2BusiImg from "../statics/escapeGame/q2-busi.png";
-import q2EngImg from "../statics/escapeGame/q2-eng.png";
-import q2CivilImg from "../statics/escapeGame/q2-civil.png";
-import q2DesignImg from "../statics/escapeGame/q2-design.png";
-import q3Img from "../statics/escapeGame/q3.png";
-import q4EngImg from "../statics/escapeGame/q4-eng.png";
-import q4DesignImg from "../statics/escapeGame/q4-design.png";
-import q4BusiImg from "../statics/escapeGame/q4-busi.png"
-import q4CivilImg from "../statics/escapeGame/q4-civil.png";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
 import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
