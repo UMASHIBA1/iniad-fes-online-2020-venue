@@ -75,12 +75,12 @@ const OneArt = styled.div`
   justify-content: center;
   align-items: flex-start;
   width: 360px;
-  max-height: 360px;
   margin: 16px;
   ${normalShadow(3)}
   ${radiusMd}
     > ${Img} {
     object-fit: contain;
+    height: 100%;
     padding: 16px 32px;
     object-fit: contain;
     border-bottom: #808080 1px solid;
@@ -95,11 +95,12 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 84px 1fr;
-  justify-content: center;
+  justify-items: center;
   height: 90vh;
 
   ${breakPoints.downSm} {
     grid-template-rows: 64px 1fr;
+    height: 80vh;
   }
 `;
 

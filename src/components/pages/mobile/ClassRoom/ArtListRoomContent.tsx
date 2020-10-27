@@ -19,7 +19,7 @@ const dataControllId = {
   door: "artlistroomcontent-left-door",
 };
 
-function ArtListRoomContent({ artListEnvProps: env, history }: Props) {
+function ArtListRoomContent({ artListEnvProps: env, history,viewingScreen }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -36,7 +36,7 @@ function ArtListRoomContent({ artListEnvProps: env, history }: Props) {
         }}
       />
       <ObjectMark title="イラスト" onClick={() => changeIsShowModal(true)} dataControllId={dataControllId.objButton} />
-      <ArtListModal artList={env.artList} isMobile={false} isShow={isShowModal} onClose={() => changeIsShowModal(false)} title={env.title} />
+      <ArtListModal artList={env.artList} isMobile={false} isShow={isShowModal} onClose={() => changeIsShowModal(false)} title={env.title} viewingScreen={viewingScreen} />
     </Wrapper>
   );
 }
