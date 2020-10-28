@@ -69,6 +69,13 @@ export interface SchoolGateProps {
 
 type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps | SchoolGateProps;
 
-export type RoomAPIType = RoomPropType[];
+export type RoomAPIDataType = RoomPropType[];
+
+export interface RoomAPIType {
+  type: "room";
+  payload: {
+    objects: RoomAPIDataType
+  };
+}
 
 export default RoomPropType

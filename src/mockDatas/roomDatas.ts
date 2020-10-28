@@ -1,5 +1,5 @@
 import { links } from "../constants/links";
-import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
+import { RoomAPIDataType } from "../typings/RoomPropType/RoomPropType";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
 import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
@@ -42,7 +42,7 @@ const sampleObj = {
   name: "example",
 };
 
-const roomDatas: RoomAPIType = [
+const roomDatas: RoomAPIDataType = [
   // school-gate
   {
     type: "school-gate",
@@ -56,25 +56,25 @@ const roomDatas: RoomAPIType = [
     }
   },
   // entrance
-  {
-    type: "entrance",
-    name: "entrance-1",
-    video: {
-      start_at: {
-        iso8601: "2020-10-31T10:00:00+09:00",
-        timestamp: 1604106001,
+    {
+      type: "entrance",
+      name: "entrance-1",
+      video: {
+        start_at: {
+          iso8601: "2020-10-31T10:00:00+09:00",
+          timestamp: 1604106001,
+        },
+        url: "example.com",
+        mode: "mp4",
       },
-      url: "example.com",
-      mode: "mp4",
-    },
-    environment_attributes: {
-      door: {
-        url: links.stair("3f"),
-        title: "3階階段",
-        imgPath: crossIcon,
+      environment_attributes: {
+        door: {
+          url: links.stair("3f"),
+          title: "3階階段",
+          imgPath: crossIcon,
+        },
       },
     },
-  },
   // hall
   {
     type: "hall",
