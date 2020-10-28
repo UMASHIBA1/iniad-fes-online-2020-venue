@@ -17,9 +17,7 @@ import MobileHall from "./components/pages/mobile/Hall";
 import MobileRoad from "./components/pages/mobile/Road";
 import MobileClassRoom from "./components/pages/mobile/ClassRoom/ClassRoom";
 import MobileStair from "./components/pages/mobile/Stair";
-
-
-
+import SchoolGate from "./components/pages/pc/SchoolGate";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -112,7 +110,9 @@ function App() {
             <Route path={pcLinks.entrance}>
               <PcEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
-
+            <Route path={pcLinks.schoolGate}>
+              <SchoolGate schoolGateProps={dividedRoomDatas.schoolGate} />
+            </Route>
           </Switch>
         </Router>
       </React.Fragment>
