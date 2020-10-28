@@ -4,13 +4,12 @@ import styled from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
 import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
-import PhotoListModal from "../../../organisms/PhotoListModal";
 import ObjectMark from "../../../atoms/ObjectMark";
-import useDidMount from "../../../../hooks/useDidMount/useDidMount";
 import { DispatchType, useTypedSelector } from "../../../../redux/store";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 import { useDispatch } from "react-redux";
 import { answerQ3, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
+import IFramePageModal from "../../../organisms/IFramePageModal";
 
 interface Props {
   photoListEnvProps: PhotoListEnvAttr;
@@ -51,13 +50,13 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
-      <PhotoListModal
-        isShow={isShowModal}
-        onClose={() => changeIsShowModal(false)}
-        photos={photoListEnvProps.photos}
-        title={photoListEnvProps.title}
-        description={photoListEnvProps.description}
-        isMobile={false}
+      <IFramePageModal
+      iframeCode={photoListEnvProps.iframeCode}
+      isMobile={false}
+      isShow={isShowModal}
+      onClose={() => {
+        changeIsShowModal(false);
+      }}
       />
       {
         photoListEnvProps.escapeGameQuestion?(

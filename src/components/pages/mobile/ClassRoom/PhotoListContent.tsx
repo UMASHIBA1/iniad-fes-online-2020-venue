@@ -4,7 +4,6 @@ import styled from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
 import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
-import PhotoListModal from "../../../organisms/PhotoListModal";
 import ObjectMark from "../../../atoms/ObjectMark";
 import ViewingProp from "../../../../typings/ViewingProp";
 
@@ -39,15 +38,6 @@ function PhotoListContent({ photoListEnvProps, history, viewingScreen }: Props) 
       title="写真"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
-      />
-      <PhotoListModal
-        isShow={isShowModal}
-        onClose={() => changeIsShowModal(false)}
-        photos={photoListEnvProps.photos}
-        title={photoListEnvProps.title}
-        description={photoListEnvProps.description}
-        viewingScreen={viewingScreen}
-        isMobile={true}
       />
     </Wrapper>
   );
