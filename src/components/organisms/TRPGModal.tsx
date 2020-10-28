@@ -1,43 +1,96 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import breakPoints from "../../constants/breakPoints";
 import VideoProps from "../../typings/RoomPropType/VideoProps";
 import ViewingProp from "../../typings/ViewingProp";
 import Modal from "../atoms/Modal/Modal";
 import VideoPlayer from "../atoms/VideoPlayer";
+import RadioSelect from "../atoms/RadioSelect";
+import H2 from "../atoms/H2";
+import { blackColor } from "../../constants/colors";
+import Button from "../atoms/Button/Button";
 
 interface Props {
-    isShow: boolean;
+  isShow: boolean;
   onClose: () => void;
   viewingScreen?: ViewingProp;
-    isMobile: boolean;
+  isMobile: boolean;
   video: VideoProps;
 }
 
-function TRPGModal({isShow, onClose, viewingScreen, isMobile, video}: Props) {
-  return(
-    <Modal isShow={isShow} onClose={onClose} viewing={viewingScreen} isMobile={isMobile}>
-    <Wrapper>
-      <VideoWrapper>
-        <VideoPlayer
-        controls={true}
-        sources={[
-          {
-            src: video.url,
-            type: video.mode === "streaming"?"application/x-mpegURL": "video/mp4",
-          },
-        ]}
-        />
-      </VideoWrapper>
-    </Wrapper>
-    </Modal>
+function TRPGModal({ isShow, onClose, viewingScreen, isMobile, video }: Props) {
+  const [ankertAnswer, changeAnkertAnswer] = useState("");
 
+  return (
+    <Modal
+      isShow={isShow}
+      onClose={onClose}
+      viewing={viewingScreen}
+      isMobile={isMobile}
+    >
+      <Wrapper>
+        <VideoWrapper>
+          <VideoPlayer
+            controls={true}
+            sources={[
+              {
+                src: video.url,
+                type:
+                  video.mode === "streaming"
+                    ? "application/x-mpegURL"
+                    : "video/mp4",
+              },
+            ]}
+          />
+          <AnkertWrapper>
+            <H2 color={blackColor}>アンケート</H2>
+          <RadioSelect
+            name="TRPG ankert"
+            value={ankertAnswer}
+            onChange={(answer) => {
+              changeAnkertAnswer(answer);
+            }}
+            optionList={[
+              {
+                label: "a",
+                value: "a",
+              },
+
+              {
+                label: "b",
+                value: "b",
+              },
+              {
+                label: "c",
+                value: "c",
+              },
+              {
+                label: "d",
+                value: "d",
+              },
+            ]}
+          />
+          <Button text="送信" mode="blue" onClick={() => {}} useShadow={false} />
+          </AnkertWrapper>
+
+        </VideoWrapper>
+      </Wrapper>
+    </Modal>
   );
 }
 
+const AnkertWrapper = styled.div`
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+  justify-items: center;
+  gap: 4px;
+  width: 100%;
+  margin: 12px;
+`
 
 const VideoWrapper = styled.div`
-  padding: 32px 0 ;
+  padding: 32px 0;
   box-sizing: border-box;
   width: 100%;
 
@@ -45,7 +98,6 @@ const VideoWrapper = styled.div`
     padding: 16px 0;
   }
 `;
-
 
 const Wrapper = styled.div`
   display: grid;
@@ -62,6 +114,5 @@ const Wrapper = styled.div`
     padding: 0 16px;
   }
 `;
-
 
 export default TRPGModal;
