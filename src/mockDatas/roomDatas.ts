@@ -640,7 +640,7 @@ const roomDatas: RoomAPIType = [
         },
         {
           url:
-            "https://storage.googleapis.com/iniadfes/public/tatfo_your_hope_future.pdf",
+            "https://storage.googleapis.com/iniadfes/public/tatfo_your_hopeful_future.pdf",
           pageNum: 2,
         },
         {

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import RoomWrapper from "../../templates/mobile/RoomWrapper";
-import hallImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import hallImg from "../../../statics/hall.png";
 import { useHistory } from "react-router-dom";
 import { mobileLinks, RoomUrlType } from "../../../constants/links";
 import { HallProps } from "../../../typings/RoomPropType/RoomPropType";
@@ -84,19 +84,19 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllIds.objButton}] {
       position: absolute;
-      top: 45%;
+      top: 22%;
       left: 48%;
     }
 
     &[data-controll-id=${dataControllIds.door1}] {
       position: absolute;
-      bottom: 20%;
-      left: 5%;
+      bottom: 15%;
+      left: 1%;
     }
     &[data-controll-id=${dataControllIds.door2}] {
       position: absolute;
-      bottom: 20%;
-      right: 5%;
+      bottom: 45%;
+      left: 10%;
     }
   }
 `;

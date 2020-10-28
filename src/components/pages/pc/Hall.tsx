@@ -1,6 +1,6 @@
 import React from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
-import hallImg from "../../../statics/classroom2.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import hallImg from "../../../statics/hall.png";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
@@ -30,7 +30,7 @@ function Hall({ hallProps }: Props) {
   return (
     <RoomWrapper bgImg={hallImg}>
       <Wrapper>
-        <ClassRoomVideo videoProps={hallProps[0].environment_attributes.video} positionLeft="41%" positionTop="16%" />
+        <ClassRoomVideo videoProps={hallProps[0].environment_attributes.video} positionLeft="41%" positionTop="5%" />
         <RoomMark
           imgPath={hallProps[0]?hallProps[0].environment_attributes.doorLeft.imgPath: iniadfesLogo}
           roomTitle={
@@ -78,13 +78,13 @@ const Wrapper = styled.div`
   > button {
     &[data-controll-id=${dataControllIds.door1}] {
       position: absolute;
-      bottom: 13%;
-      right: 10%;
+      bottom: 14%;
+      left: 0.5%;
     }
     &[data-controll-id=${dataControllIds.door2}] {
       position: absolute;
-      bottom: 13%;
-      left: 10%;
+      bottom: 40%;
+      left: 8%;
     }
   }
 `;
