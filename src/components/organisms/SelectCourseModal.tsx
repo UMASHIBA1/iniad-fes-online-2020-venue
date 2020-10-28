@@ -4,7 +4,7 @@ import ViewingProp from "../../typings/ViewingProp";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
 import breakPoints from "../../constants/breakPoints";
-import Select from "../atoms/RadioSelect";
+import RadioSelect from "../atoms/RadioSelect";
 import Button from "../atoms/Button/Button";
 
 interface Props {
@@ -45,7 +45,7 @@ onSubmit,
         <TitleWrapper>
           <Title title={title} />
         </TitleWrapper>
-        <Select
+        <RadioSelect
           dataControllId={controllId.select}
           name="sample"
           optionList={optionList}

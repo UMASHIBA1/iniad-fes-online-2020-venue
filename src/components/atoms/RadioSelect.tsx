@@ -10,7 +10,7 @@ interface Props {
   dataControllId?: string;
 }
 
-function Select({ optionList, name, value, onChange, dataControllId }: Props) {
+function RadioSelect({ optionList, name, value, onChange, dataControllId }: Props) {
   return (
     <Wrapper data-controll-id={dataControllId} >
       {optionList.map((option) => {
@@ -54,4 +54,4 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
 `;
 
-export default Select;
+export default RadioSelect;
