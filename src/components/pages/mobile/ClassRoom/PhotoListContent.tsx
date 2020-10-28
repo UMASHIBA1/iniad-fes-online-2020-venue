@@ -6,6 +6,7 @@ import { PhotoListEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProp
 import RoomMark from "../../../atoms/RoomMark";
 import ObjectMark from "../../../atoms/ObjectMark";
 import ViewingProp from "../../../../typings/ViewingProp";
+import IFramePageModal from "../../../organisms/IFramePageModal";
 
 interface Props {
   photoListEnvProps: PhotoListEnvAttr;
@@ -38,6 +39,15 @@ function PhotoListContent({ photoListEnvProps, history, viewingScreen }: Props) 
       title="写真"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
+      />
+      <IFramePageModal
+      iframeCode={photoListEnvProps.iframeCode}
+      isMobile={false}
+      isShow={isShowModal}
+      onClose={() => {
+        changeIsShowModal(false);
+      }}
+      viewingScreen={viewingScreen}
       />
     </Wrapper>
   );
