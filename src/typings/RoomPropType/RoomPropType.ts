@@ -46,7 +46,6 @@ export interface EntranceProps {
   environment_attributes: {
     door: RoomEnvLinkProps;
   },
-  video: VideoProps;
 }
 
 export interface StairProps {

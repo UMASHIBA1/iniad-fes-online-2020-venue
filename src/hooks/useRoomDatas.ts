@@ -32,14 +32,6 @@ const useRoomDatas = (): RoomAPIDataType => {
     {
       type: "entrance",
       name: "entrance-1",
-      video: {
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106001,
-        },
-        url: "example.com",
-        mode: "mp4",
-      },
       environment_attributes: {
         door: {
           url: links.stair("3f"),

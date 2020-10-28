@@ -51,30 +51,22 @@ const roomDatas: RoomAPIDataType = [
       gate: {
         title: "糖朝",
         url: links.entrance,
-        imgPath: entranceIcon
-      }
-    }
-  },
-  // entrance
-    {
-      type: "entrance",
-      name: "entrance-1",
-      video: {
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106001,
-        },
-        url: "example.com",
-        mode: "mp4",
-      },
-      environment_attributes: {
-        door: {
-          url: links.stair("3f"),
-          title: "3階階段",
-          imgPath: crossIcon,
-        },
+        imgPath: entranceIcon,
       },
     },
+  },
+  // entrance
+  {
+    type: "entrance",
+    name: "entrance-1",
+    environment_attributes: {
+      door: {
+        url: links.stair("3f"),
+        title: "3階階段",
+        imgPath: crossIcon,
+      },
+    },
+  },
   // hall
   {
     type: "hall",
@@ -754,3 +746,4 @@ const roomDatas: RoomAPIDataType = [
   },
 ];
 export default roomDatas;
+
