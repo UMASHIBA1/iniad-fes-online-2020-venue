@@ -3,7 +3,6 @@ import RoomWrapper from "../../templates/pc/RoomWrapper";
 import hallImg from "../../../statics/hall.png";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
-import Button from "../../atoms/Button/Button";
 import { HallProps } from "../../../typings/RoomPropType/RoomPropType";
 import FuncButtons from "../../molecules/pc/FuncButtons";
 import RoomMark from "../../atoms/RoomMark";

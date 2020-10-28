@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import roomDatas from "../mockDatas/roomDatas"
 import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
-import { HallProps, EntranceProps, RoadProps, RoomAPIType, StairProps, ElevatorFrontProps } from "../typings/RoomPropType/RoomPropType";
+import { HallProps, EntranceProps, RoadProps, RoomAPIType, StairProps, ElevatorFrontProps, SchoolGateProps } from "../typings/RoomPropType/RoomPropType";
 
 // FIXME: このhooksを書き換えてmockからちゃんとしたAPIへの移行を行う
 const useRoomDatas = (): RoomAPIType => {
@@ -20,7 +20,8 @@ export const useDividedRoomDatas = () => {
       classroom: [] as ClassRoomProps[],
       hall: [] as HallProps[],
       stair: [] as StairProps[],
-      elevatorFront: [] as ElevatorFrontProps[]
+      elevatorFront: [] as ElevatorFrontProps[],
+      schoolGate: [] as SchoolGateProps[]
     }
 
     roomDatas.forEach((data) => {
@@ -42,6 +43,9 @@ export const useDividedRoomDatas = () => {
           break;
         case "elevatorFront":
           dividedRoomDatas.elevatorFront.push(data);
+          break;
+        case "school-gate":
+          dividedRoomDatas.schoolGate.push(data);
           break;
       }
     });
