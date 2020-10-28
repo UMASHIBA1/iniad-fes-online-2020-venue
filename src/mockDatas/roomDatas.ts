@@ -43,6 +43,18 @@ const sampleObj = {
 };
 
 const roomDatas: RoomAPIType = [
+  // school-gate
+  {
+    type: "school-gate",
+    name: "school-gate1",
+    environment_attributes: {
+      gate: {
+        title: "糖朝",
+        url: links.entrance,
+        imgPath: entranceIcon
+      }
+    }
+  },
   // entrance
   {
     type: "entrance",

@@ -59,7 +59,15 @@ export interface StairProps {
   }
 }
 
-type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps;
+export interface SchoolGateProps {
+  type: "school-gate",
+  name: string;
+  environment_attributes: {
+    gate: RoomEnvLinkProps;
+  }
+}
+
+type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps | SchoolGateProps;
 
 export type RoomAPIType = RoomPropType[];
 
