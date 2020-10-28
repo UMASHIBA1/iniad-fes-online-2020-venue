@@ -131,7 +131,7 @@ const createthisModeRoom = (
         )
       case "trpgRoom":
         return(
-          <TRPGRoomContent history={history} trpgEnvProps={env} />
+          <TRPGRoomContent history={history} trpgRoomProps={env} />
         )
       default:
         return "この形式の部屋は存在しないみたい。。。🙏";

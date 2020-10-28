@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import {
-  OneVideoEnvAttr,
   TRPGEnvAttr,
 } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import styled from "styled-components";
 import ObjectMark from "../../../atoms/ObjectMark";
-import VideoModal from "../../../molecules/VideoModal";
 import ViewingProp from "../../../../typings/ViewingProp";
 import TRPGModal from "../../../organisms/TRPGModal";
 
@@ -33,7 +31,7 @@ function TRPGRoomContent({
     history.push(url);
   };
   return (
-    <Wrapper leftOrRight={env.leftOrRight}>
+    <Wrapper>
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
@@ -58,7 +56,7 @@ function TRPGRoomContent({
   );
 }
 
-const Wrapper = styled.div<{ leftOrRight: OneVideoEnvAttr["leftOrRight"] }>`
+const Wrapper = styled.div`
   position: relative;
   top: 0;
   left: 0;
