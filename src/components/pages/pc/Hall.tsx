@@ -1,6 +1,6 @@
 import React from "react";
 import RoomWrapper from "../../templates/pc/RoomWrapper";
-import hallImg from "../../../statics/hall.png"; // FIXME: room2を暫定的にhallとして扱っているので画像の生成が完了したら直す
+import hallImg from "../../../statics/hall.png";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import Button from "../../atoms/Button/Button";
