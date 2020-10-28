@@ -42,4 +42,27 @@
   </body>
   <script async="" src="//www.instagram.com/embed.js"></script>
   <script async="" src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script>
+    /* IE判定関数を定義しておく */
+    console.log("Run script ie out");
+    function isIE() {
+      let userAgent = window.navigator.userAgent.toLowerCase();
+      if (userAgent.indexOf('msie') !== -1 || userAgent.indexOf('trident') !== -1) {
+        return true;
+      }
+      return false;
+    }
+
+    /* DOM構造読み込み完了後にアラート表示のHTMLを挿入 */
+    document.addEventListener("DOMContentLoaded", function () {
+      console.log("Run script ie")
+      if (isIE()) {
+        let IERootElement = document.getElementById("root");
+        console.log("ie: ", IERootElement);
+
+        IERootElement.innerHTML = "申し訳ありません。お使いのブラウザではご覧いただけません、Google ChromeやMicrosoft Edge等の最新版でご覧ください";
+      }
+    });
+
+  </script>
 </html>
