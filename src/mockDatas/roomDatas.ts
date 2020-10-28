@@ -686,7 +686,7 @@ const roomDatas: RoomAPIType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: noahsArkIcon,
+        imgPath: roadIcon,
       },
       leftOrRight: "right",
       video: {
