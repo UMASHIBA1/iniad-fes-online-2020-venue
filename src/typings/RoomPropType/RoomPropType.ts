@@ -46,7 +46,6 @@ export interface EntranceProps {
   environment_attributes: {
     door: RoomEnvLinkProps;
   },
-  video: VideoProps;
 }
 
 export interface StairProps {
@@ -69,6 +68,13 @@ export interface SchoolGateProps {
 
 type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps | SchoolGateProps;
 
-export type RoomAPIType = RoomPropType[];
+export type RoomAPIDataType = RoomPropType[];
+
+export interface RoomAPIType {
+  type: "room";
+  payload: {
+    objects: RoomAPIDataType
+  };
+}
 
 export default RoomPropType
