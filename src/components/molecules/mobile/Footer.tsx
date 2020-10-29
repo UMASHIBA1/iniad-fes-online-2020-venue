@@ -10,7 +10,11 @@ import ViewingProp from "../../../typings/ViewingProp";
 import { useDispatch } from "react-redux";
 import { showChat } from "../../../redux/modules/isShowChat";
 
-function Footer() {
+interface Props {
+  isShowChat?: boolean;
+}
+
+function Footer({isShowChat = true}: Props) {
   const [isShowPlan, changeIsShowPlan] = useState(false);
   const [isShowMap, changeIsShowMap] = useState(false);
   const viewing = useTypedSelector(({ viewingScreen }) => viewingScreen);
@@ -22,7 +26,7 @@ function Footer() {
   return (
     <React.Fragment>
       <Wrapper viewingScreen={viewing}>
-        <OneFunc onClick={showChatFc}>Chat</OneFunc>
+  <OneFunc onClick={isShowChat?showChatFc: () => {}}>{isShowChat?"Chat":"No Chat"}</OneFunc>
         <OneFunc onClick={() => changeIsShowMap(true)}>Map</OneFunc>
         <OneFunc onClick={() => changeIsShowPlan(true)}>Plan</OneFunc>
       </Wrapper>

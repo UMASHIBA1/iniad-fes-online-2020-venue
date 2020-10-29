@@ -85,7 +85,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
             }}
           />
         ) : null}
-        <Footer />
+        <Footer isShowChat={false} />
       </Wrapper>
     </RoomWrapper>
   );

@@ -88,7 +88,7 @@ function Stair({ stairProps }: Props) {
             }}
           />
         ) : null}
-        <Footer />
+        <Footer isShowChat={false} />
       </Wrapper>
     </RoomWrapper>
   );
