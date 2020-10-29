@@ -63,7 +63,7 @@ const roomDatas: RoomAPIDataType = [
       door: {
         url: links.stair("3f"),
         title: "3階階段",
-        imgPath: crossIcon,
+        imgPath: stairIcon,
       },
     },
   },
@@ -84,10 +84,6 @@ const roomDatas: RoomAPIDataType = [
       },
       video: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106001,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
       },
     },
@@ -355,34 +351,18 @@ const roomDatas: RoomAPIDataType = [
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4",
           mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
         },
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
           mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
         },
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=b",
           mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
         },
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=c",
           mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
         },
       ],
     },
@@ -402,10 +382,6 @@ const roomDatas: RoomAPIDataType = [
       },
       videoProps: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
       },
     },
@@ -425,10 +401,6 @@ const roomDatas: RoomAPIDataType = [
       },
       videoProps: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
       },
     },
@@ -486,10 +458,6 @@ const roomDatas: RoomAPIDataType = [
       },
       videoProps: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
       },
     },
@@ -524,10 +492,6 @@ const roomDatas: RoomAPIDataType = [
       video: {
         mode: "streaming",
         url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
       },
       imgPath: igc2Sumbnail,
     },
@@ -630,10 +594,6 @@ const roomDatas: RoomAPIDataType = [
       videoProps: {
         mode: "streaming",
         url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
       },
     },
   },
@@ -665,10 +625,6 @@ const roomDatas: RoomAPIDataType = [
       video: {
         mode: "streaming",
         url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
       },
     },
   },
