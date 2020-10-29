@@ -81,9 +81,7 @@ interface InstagramProps {
 export interface PhotoListEnvAttr {
   mode: "photoList";
   door: RoomEnvLinkProps;
-  title: string;
-  description: string;
-  photos: (TwitterProps | InstagramProps)[];
+  iframeCode: string;
   escapeGameQuestion?: EscapeGameQuestion;
   leftOrRight: LeftOrRight;
 }

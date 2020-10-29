@@ -43,6 +43,18 @@ const sampleObj = {
 };
 
 const roomDatas: RoomAPIType = [
+  // school-gate
+  {
+    type: "school-gate",
+    name: "school-gate1",
+    environment_attributes: {
+      gate: {
+        title: "糖朝",
+        url: links.entrance,
+        imgPath: entranceIcon
+      }
+    }
+  },
   // entrance
   {
     type: "entrance",
@@ -539,38 +551,7 @@ const roomDatas: RoomAPIType = [
         imgPath: roadIcon,
       },
       mode: "photoList",
-      title: "ID/graph",
-      description: "ID/graphです！私たちがとった写真を是非見ていってください！",
-      photos: [
-        {
-          sns: "twitter",
-          tweetId: "1313082319150837760",
-        },
-        {
-          sns: "twitter",
-          tweetId: "1313056707556249602",
-        },
-        {
-          sns: "twitter",
-          tweetId: "1297489002572857347",
-        },
-        {
-          sns: "instagram",
-          instagramLink: "https://www.instagram.com/p/B37KdHpnnDG/",
-        },
-        {
-          sns: "twitter",
-          tweetId: "1317668126276734976",
-        },
-        {
-          sns: "instagram",
-          instagramLink: "https://www.instagram.com/p/CGPUaQoHz_X/",
-        },
-        {
-          sns: "instagram",
-          instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
-        },
-      ],
+      iframeCode: `<iframe width="100%" height="100%" src="https://idgraph-fes2020.herokuapp.com/"></iframe>`,
       escapeGameQuestion: question3,
     },
   },
@@ -640,7 +621,7 @@ const roomDatas: RoomAPIType = [
         },
         {
           url:
-            "https://storage.googleapis.com/iniadfes/public/tatfo_your_hope_future.pdf",
+            "https://storage.googleapis.com/iniadfes/public/tatfo_your_hopeful_future.pdf",
           pageNum: 2,
         },
         {
