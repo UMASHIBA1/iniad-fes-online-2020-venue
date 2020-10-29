@@ -78,7 +78,7 @@
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/hall.svg"
         },
         "back": {
-          "url": "/stari/4f",
+          "url": "/stair/4f",
           "title": "4階階段",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
         }
@@ -208,7 +208,7 @@
       "environment_attributes": {
         "mode": "front",
         "back": {
-          "url": "elevatorFront/4f",
+          "url": "/elevatorFront/4f",
           "title": "4階分岐路",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/cross.svg"
         },
