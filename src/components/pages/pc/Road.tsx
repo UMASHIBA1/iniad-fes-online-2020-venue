@@ -10,6 +10,7 @@ import useTypedParams from "../../../hooks/useTypedParams";
 import styled, { css } from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
+import FuncButtons from "../../molecules/pc/FuncButtons";
 
 interface Props {
   roadProps: RoadProps[];
@@ -127,6 +128,7 @@ function Road({ roadProps }: Props) {
             );
           }}
         />
+        <FuncButtons isShowChat={false} />
       </Wrapper>
     </RoomWrapper>
   );

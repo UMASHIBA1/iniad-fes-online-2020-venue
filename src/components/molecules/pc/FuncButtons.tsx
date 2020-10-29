@@ -13,16 +13,17 @@ import { useDispatch } from "react-redux";
 import { showChat } from "../../../redux/modules/isShowChat";
 
 interface Props {
-  roomId: string;
+  roomId?: string;
+  isShowChat?: boolean;
 }
 
-function FuncButtons({roomId}: Props) {
+function FuncButtons({ roomId, isShowChat = true }: Props) {
   const [isShowMap, changeIsShowMap] = useState(false);
   const [isShowPlan, changeIsShowPlan] = useState(false);
   const dispatch: DispatchType = useDispatch();
   const showChatFc = () => {
     dispatch(showChat());
-  }
+  };
 
   return (
     <>
@@ -34,16 +35,18 @@ function FuncButtons({roomId}: Props) {
             changeIsShowMap(true);
           }}
         />
-        <IconButton
-          svgPath={chatIcon}
-          iconDescription="chat"
-          onClick={() => {
-            showChatFc()
-          }}
-        />
+        {isShowChat ? (
+          <IconButton
+            svgPath={chatIcon}
+            iconDescription="chat"
+            onClick={() => {
+              showChatFc();
+            }}
+          />
+        ) : null}
         <IconButton
           svgPath={scheduleIcon}
-          iconDescription="plan"
+          iconDescription="book"
           onClick={() => {
             changeIsShowPlan(true);
           }}
@@ -70,22 +73,24 @@ function FuncButtons({roomId}: Props) {
         alt="plan"
         isMobile={false}
       />
-      <Chat
-      roomId={roomId}
-      isMobile={false}
-      />
+      {roomId?(
+        <Chat roomId={roomId} isMobile={false} />
+      ): null}
     </>
   );
 }
 
 const Wrapper = styled.div`
   position: absolute;
-  display: grid;
   right: 8px;
   bottom: 8px;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  >* {
+    margin: 4px 0;
+  }
 `;
 
 export default FuncButtons;
