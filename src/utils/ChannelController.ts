@@ -24,15 +24,15 @@ export default class ChannelController<T1, T2> {
   ) {
     this.channel = this.cable.subscriptions.create(roomChannel, {
       connected: () => {
-        console.log("connect websocket");
+        console.log("connect websocket", "channel", this.channel);
         onEvents.onConnected && onEvents.onConnected();
       },
       disconnected: () => {
-        console.log("disconnect websocket");
+        console.log("disconnect websocket", "channel", this.channel);
         onEvents.onDisConnected && onEvents.onDisConnected();
       },
       received: (res: T1) => {
-        console.log("receive websocket");
+        console.log("receive websocket", "channel", this.channel);
         onEvents.onReceive && onEvents.onReceive(res);
       }
     });

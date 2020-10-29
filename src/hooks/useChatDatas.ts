@@ -1,20 +1,21 @@
-import { chatRoomParams } from "../constants/websocketParams";
-import ChatType, { ChatAPIType } from "../typings/ChatType";
+import { chatRoomChannel } from "../constants/websocketParams";
+import ChatType, { ChatAPIType, ChatPostType } from "../typings/ChatType";
 import ChannelController from "../utils/ChannelController";
 import { useState } from "react";
 import useDidMount from "./useDidMount/useDidMount";
 import getChatHistory from "../utils/getChatHistory";
 
-const useChatDatas = (): ChatType[] => {
+const useChatDatas = (roomId: string) => {
   const [chatDatas, changeChatDatas] = useState<ChatType[]>([]);
 
   useDidMount(() => {
-    getChatHistory()
+    getChatHistory(roomId)
       .then((history) => {
         console.log(history);
         changeChatDatas([...chatDatas, ...history.data.payload.history]);
       })
-      .catch(() => {
+      .catch((reason) => {
+        console.error("チャット履歴の取得に失敗しました", reason);
         changeChatDatas([
           {
             text: "チャットの取得に失敗しました。",
@@ -23,23 +24,32 @@ const useChatDatas = (): ChatType[] => {
             time: {
               iso8601: "tekito",
               timestamp: 0,
-            }
+            },
           },
         ]);
       });
   });
 
-  const cable = new ChannelController<ChatAPIType, unknown>();
+  const chatRoomParams = {
+    channel: chatRoomChannel,
+    room_id: roomId,
+  };
+
+  const cable = new ChannelController<ChatAPIType, ChatPostType>();
   cable.connect(chatRoomParams, {
     onReceive: (data) => {
       changeChatDatas([...chatDatas, data.payload]);
     },
     onConnected: () => {
-      // cable.send({ payload: { text: "どうだろうか4" }, type: "chat" });
+      // cable.send({ payload: { text: "どうだろうか4", room_id:roomId }, type: "chat" });
     },
+
   });
 
-  return chatDatas;
+  return {
+    chatDatas,
+    sendFC: cable.send,
+  };
 };
 
 export default useChatDatas;

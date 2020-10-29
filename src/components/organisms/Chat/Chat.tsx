@@ -6,8 +6,12 @@ import useChatDatas from "../../../hooks/useChatDatas";
 import Form from "./Form";
 import Line from "./Line";
 
-function Chat() {
-  const chatDatas = useChatDatas();
+interface Props {
+  roomId: string;
+}
+
+function Chat({roomId}: Props) {
+  const {chatDatas, sendFC} = useChatDatas(roomId);
 
   return (
     <Wrapper>
@@ -24,7 +28,7 @@ function Chat() {
         );
       })}
       </LineWrapper>
-      <Form />
+      <Form room_id={roomId} sendFC={sendFC} />
     </Wrapper>
   );
 }

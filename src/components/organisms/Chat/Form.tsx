@@ -1,12 +1,29 @@
-import React from "react"
+import React, { useState } from "react"
 import styled from "styled-components";
 import { lightBlueColor } from "../../../constants/colors";
+import { ChatPostType } from "../../../typings/ChatType";
 
-function Form() {
+interface Props {
+  room_id: string;
+  sendFC: (data: ChatPostType) => void;
+}
+
+function Form({room_id,sendFC}: Props) {
+  const [sendText, changeSendText] = useState<string>("");
+
   return(
-    <Wrapper>
-      <Input />
-      <Button>送信</Button>
+    <Wrapper onSubmit={(e) => {
+      sendFC({payload: {room_id, text: sendText}, type: "chat"})
+      e.preventDefault();
+      changeSendText("");
+      console.log("run form submit")
+    }}>
+      <Input
+      value={sendText}
+      onChange={(e) => {
+        changeSendText(e.target.value);
+      }} />
+      <Button >送信</Button>
     </Wrapper>
   );
 }

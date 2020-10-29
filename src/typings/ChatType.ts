@@ -13,6 +13,13 @@ export interface ChatAPIType {
   payload: ChatType;
 }
 
+export interface ChatPostType {
+  payload: {
+  room_id: string;
+  text: string;
+  },
+  type: "chat"
+}
 
 export interface ChatHistoryType {
   status: string;
