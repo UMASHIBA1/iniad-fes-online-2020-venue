@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useDidMount from "./hooks/useDidMount/useDidMount";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import VideoPage from "./components/pages/VideoPage";
 import MobileHome from "./components/pages/Home";
 import PcEntrance from "./components/pages/pc/Entrance";
