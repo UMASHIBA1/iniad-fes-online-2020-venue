@@ -15,7 +15,6 @@ import { showChat } from "../../../redux/modules/isShowChat";
 function FuncButtons() {
   const [isShowMap, changeIsShowMap] = useState(false);
   const [isShowPlan, changeIsShowPlan] = useState(false);
-  // const [isShowChat, changeIsShowChat] = useState(false);
   const dispatch: DispatchType = useDispatch();
   const showChatFc = () => {
     dispatch(showChat());
@@ -69,6 +68,7 @@ function FuncButtons() {
       />
       <Chat
       roomId="gEa6bNLW"
+      isMobile={false}
       />
     </>
   );

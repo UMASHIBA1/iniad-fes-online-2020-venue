@@ -14,9 +14,10 @@ import { hideChat } from "../../../redux/modules/isShowChat";
 
 interface Props {
   roomId: string;
+  isMobile: boolean;
 }
 
-function Chat({roomId}: Props) {
+function Chat({roomId, isMobile}: Props) {
   const {chatDatas, sendFC} = useChatDatas(roomId);
   const lastElement = useRef<HTMLDivElement>(null);
   const isShowChat = useTypedSelector(({isShowChat}) => isShowChat);
@@ -32,7 +33,7 @@ function Chat({roomId}: Props) {
   useEffect(scrollToBottom, [chatDatas]);
 
   return (
-    <Wrapper isShow={isShowChat}>
+    <Wrapper isShow={isShowChat} isMobile={isMobile}>
       <TitleLine>
         <H2 color={blackColor}>
           Chat
@@ -77,15 +78,15 @@ const TitleLine = styled.div`
   align-items: center;
   margin-left: 12px;
   width: 100%;
-`
+`;
 
 const LineWrapper = styled.div`
   width: 100%;
   overflow: auto;
   border: solid 1px ${gray};
-`
+`;
 
-const Wrapper = styled.div<{isShow: boolean}>`
+const Wrapper = styled.div<{isShow: boolean, isMobile: boolean}>`
   position: absolute;
   right: 64px;
   bottom: 8px;
@@ -99,6 +100,14 @@ const Wrapper = styled.div<{isShow: boolean}>`
   overflow: hidden;
   ${({isShow}) => !isShow&&css`
     visibility: hidden;
+  `}
+
+
+  ${({isMobile}) => isMobile&&css`
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 180px;
   `}
 `;
 

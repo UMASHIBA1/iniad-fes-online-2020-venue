@@ -5,17 +5,24 @@ import { lightBlueBGColor, whiteText } from "../../../cssProps/colors";
 import ImgModal from "../ImgModal";
 import dummyImg from "../../../statics/dummy.png";
 import PDFModal from "../PDFModal";
-import { useTypedSelector } from "../../../redux/store";
+import { DispatchType, useTypedSelector } from "../../../redux/store";
 import ViewingProp from "../../../typings/ViewingProp";
+import { useDispatch } from "react-redux";
+import { showChat } from "../../../redux/modules/isShowChat";
 
 function Footer() {
   const [isShowPlan, changeIsShowPlan] = useState(false);
   const [isShowMap, changeIsShowMap] = useState(false);
   const viewing = useTypedSelector(({ viewingScreen }) => viewingScreen);
+  const dispatch: DispatchType = useDispatch();
+  const showChatFc = () => {
+    dispatch(showChat());
+  }
+
   return (
     <React.Fragment>
       <Wrapper viewingScreen={viewing}>
-        <OneFunc>Chat</OneFunc>
+        <OneFunc onClick={showChatFc}>Chat</OneFunc>
         <OneFunc onClick={() => changeIsShowMap(true)}>Map</OneFunc>
         <OneFunc onClick={() => changeIsShowPlan(true)}>Plan</OneFunc>
       </Wrapper>
