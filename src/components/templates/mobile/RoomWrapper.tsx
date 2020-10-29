@@ -20,7 +20,7 @@ interface Props {
   children: ReactNode;
   bgImg: string;
   isOneScreen: boolean;
-  // roomId: string;
+  roomId?: string;
 }
 
 const dataControllIds = {
@@ -44,7 +44,7 @@ const goOneRight = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
   }
 };
 
-function RoomWrapper({ children, bgImg, isOneScreen }: Props) {
+function RoomWrapper({ children, bgImg, isOneScreen, roomId }: Props) {
   const viewingScreen = useTypedSelector(({ viewingScreen }) => viewingScreen);
   const dispatch: DispatchType = useDispatch();
 
@@ -79,10 +79,12 @@ function RoomWrapper({ children, bgImg, isOneScreen }: Props) {
           />
         </RoomWrapperMain>
       </Wrapper>
+      {roomId?(
       <Chat
-      roomId="gEa6bNLW"
+      roomId={roomId}
       isMobile={true}
       />
+      ): null}
     </React.Fragment>
   );
 }

@@ -40,7 +40,7 @@ function Entrance({ entranceProps }: Props) {
   });
 
   return (
-    <RoomWrapper isOneScreen={false} bgImg={entranceImg}>
+    <RoomWrapper isOneScreen={false} bgImg={entranceImg} roomId={entranceProps[0]?entranceProps[0].environment_attributes.room_id: ""}>
       <Wrapper>
         Entrance
         <RoomMark
