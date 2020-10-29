@@ -60,6 +60,7 @@ const roomDatas: RoomAPIDataType = [
     type: "entrance",
     name: "entrance-1",
     environment_attributes: {
+      room_id: "",
       door: {
         url: links.stair("3f"),
         title: "3階階段",
@@ -72,6 +73,7 @@ const roomDatas: RoomAPIDataType = [
     type: "hall",
     name: "hall",
     environment_attributes: {
+      room_id: "",
       doorLeft: {
         url: links.elevatorFront("3f"),
         title: "3F分岐路",
@@ -337,6 +339,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3110",
     environment_attributes: {
+      room_id: "",
       door: {
         title: "3階廊下1",
         url: links.road("3101"),
@@ -350,7 +353,7 @@ const roomDatas: RoomAPIDataType = [
       VideoProps: [
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4",
-          mode: "mp4",
+          mode: "streaming",
         },
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
@@ -371,6 +374,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3109",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       mode: "oneVideo",
       title: "実行委員ラジオ",
@@ -390,6 +394,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3106",
     environment_attributes: {
+      room_id: "",
       mode: "oneVideo",
       leftOrRight: "left",
       description: "",
@@ -409,6 +414,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3105",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       mode: "pdfRoom",
       title: "Digi Health",
@@ -432,6 +438,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3102",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       mode: "youtube",
       door: {
@@ -447,6 +454,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3101",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       mode: "oneVideo",
       title: "INIAD Developers",
@@ -466,6 +474,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3100",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       door: {
         title: "3階廊下3",
@@ -480,6 +489,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "4110",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       door: {
         title: "4階廊下1",
@@ -500,6 +510,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "4109",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       door: {
         title: "4階廊下1",
@@ -515,6 +526,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "4106",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       door: {
         title: "4階廊下2",
@@ -560,6 +572,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "4105",
     environment_attributes: {
+      room_id: "",
       mode: "tatfo",
       leftOrRight: "right",
       door: {
@@ -601,6 +614,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "4102",
     environment_attributes: {
+      room_id: "",
       mode: "iframeRoom",
       door: {
         title: "4階廊下3",
@@ -615,6 +629,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "4101",
     environment_attributes: {
+      room_id: "",
       mode: "trpgRoom",
       door: {
         title: "4階廊下3",
@@ -632,6 +647,7 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "4100",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       door: {
         title: "4階廊下3",

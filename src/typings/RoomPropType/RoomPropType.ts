@@ -6,6 +6,7 @@ export interface HallProps {
   type: "hall",
   name: string;
   environment_attributes: {
+    room_id: string;
     doorLeft: RoomEnvLinkProps;
     doorRight: RoomEnvLinkProps;
     video: VideoProps;
@@ -45,6 +46,7 @@ export interface EntranceProps {
   name: string;
   environment_attributes: {
     door: RoomEnvLinkProps;
+    room_id: string;
   },
 }
 
