@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { links } from "../constants/links";
 import ClassRoomProps from "../typings/RoomPropType/ClassRoomProps";
-import crossIcon from "../statics/svgs/cross.svg";
 import {
   HallProps,
   EntranceProps,
@@ -26,17 +25,6 @@ const useRoomDatas = (): RoomAPIDataType => {
           title: "糖朝",
           url: links.entrance,
           imgPath: entranceIcon,
-        },
-      },
-    },
-    {
-      type: "entrance",
-      name: "entrance-1",
-      environment_attributes: {
-        door: {
-          url: links.stair("3f"),
-          title: "3階階段",
-          imgPath: crossIcon,
         },
       },
     },

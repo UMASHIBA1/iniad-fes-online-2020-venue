@@ -7,7 +7,6 @@ import { RoadProps } from "../../../typings/RoomPropType/RoomPropType";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import useTypedParams from "../../../hooks/useTypedParams";
-import FuncButtons from "../../molecules/pc/FuncButtons";
 import styled, { css } from "styled-components";
 import RoomMark from "../../atoms/RoomMark";
 import logoPath from "../../../statics/svgs/iniadfes-logo.svg";
@@ -128,7 +127,6 @@ function Road({ roadProps }: Props) {
             );
           }}
         />
-        <FuncButtons />
       </Wrapper>
     </RoomWrapper>
   );

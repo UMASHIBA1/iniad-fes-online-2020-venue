@@ -9,7 +9,6 @@ import { useDispatch } from "react-redux";
 import { DispatchType, useTypedSelector } from "../../../redux/store";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
-import Chat from "../../organisms/Chat/Chat";
 import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
@@ -94,7 +93,7 @@ function Entrance({ entranceProps }: Props) {
             }}
           />
         ) : null}
-        <FuncButtons />
+        <FuncButtons roomId={entranceProps[0]?entranceProps[0].environment_attributes.room_id: ""} />
       </Wrapper>
     </RoomWrapper>
   );

@@ -12,7 +12,11 @@ import { DispatchType } from "../../../redux/store";
 import { useDispatch } from "react-redux";
 import { showChat } from "../../../redux/modules/isShowChat";
 
-function FuncButtons() {
+interface Props {
+  roomId: string;
+}
+
+function FuncButtons({roomId}: Props) {
   const [isShowMap, changeIsShowMap] = useState(false);
   const [isShowPlan, changeIsShowPlan] = useState(false);
   const dispatch: DispatchType = useDispatch();
@@ -67,7 +71,7 @@ function FuncButtons() {
         isMobile={false}
       />
       <Chat
-      roomId="gEa6bNLW"
+      roomId={roomId}
       isMobile={false}
       />
     </>
