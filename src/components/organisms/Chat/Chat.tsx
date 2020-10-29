@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { whiteBGColor } from "../../../cssProps/colors";
 import { radiusSm } from "../../../cssProps/radius";
@@ -12,6 +12,13 @@ interface Props {
 
 function Chat({roomId}: Props) {
   const {chatDatas, sendFC} = useChatDatas(roomId);
+  const lastElement = useRef<HTMLDivElement>(null);
+
+  const scrollToBottom = () => {
+    lastElement.current?.scrollIntoView();
+  }
+
+  useEffect(scrollToBottom, [chatDatas]);
 
   return (
     <Wrapper>
@@ -27,6 +34,7 @@ function Chat({roomId}: Props) {
           />
         );
       })}
+      <div ref={lastElement} />
       </LineWrapper>
       <Form room_id={roomId} sendFC={sendFC} />
     </Wrapper>
