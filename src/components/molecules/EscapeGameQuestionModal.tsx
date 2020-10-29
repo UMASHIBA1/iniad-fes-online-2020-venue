@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import breakPoints from "../../constants/breakPoints";
 import EscapeGameQuestion from "../../typings/EscapeGame/EscapeGameQuestion";
 import { AnswerSelection } from "../../typings/EscapeGame/EscapeGameUserInfo";
 import ViewingProp from "../../typings/ViewingProp";
@@ -206,6 +207,10 @@ function EscapeGameQuestionModal({
 const Wrapper = styled.div`
   width: calc(100% - 128px);
   margin: 64px 0;
+
+  ${breakPoints.downSm}{
+    width: calc(100% - 32px);
+  }
 `;
 
 const Img = styled.img.attrs<{ src: string; alt: string }>(({ src, alt }) => ({
