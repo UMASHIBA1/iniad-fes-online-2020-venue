@@ -7,10 +7,12 @@ import scheduleIcon from "../../../statics/svgs/schedule-icon.svg";
 import PDFModal from "../PDFModal";
 import dummyImg from "../../../statics/dummy.png";
 import ImgModal from "../ImgModal";
+import Chat from "../../organisms/Chat/Chat";
 
 function FuncButtons() {
   const [isShowMap, changeIsShowMap] = useState(false);
   const [isShowPlan, changeIsShowPlan] = useState(false);
+  const [isShowChat, changeIsShowChat] = useState(false);
   return (
     <>
       <Wrapper>
@@ -25,7 +27,7 @@ function FuncButtons() {
           svgPath={chatIcon}
           iconDescription="chat"
           onClick={() => {
-            console.log("run chat");
+            changeIsShowChat(!isShowChat);
           }}
         />
         <IconButton
@@ -56,6 +58,11 @@ function FuncButtons() {
         // FIXME: もし画像でプランを表示させるなら視覚障がい者ようにaltでちゃんとしたプランの一覧を書かないといけない
         alt="plan"
         isMobile={false}
+      />
+      <Chat
+      isShow={isShowChat}
+      onClose={() => changeIsShowChat(false)}
+      roomId="gEa6bNLW"
       />
     </>
   );

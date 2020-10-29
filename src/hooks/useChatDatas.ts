@@ -7,11 +7,14 @@ import getChatHistory from "../utils/getChatHistory";
 
 const useChatDatas = (roomId: string) => {
   const [chatDatas, changeChatDatas] = useState<ChatType[]>([]);
-  const [cable, changeCable] = useState<ChannelController<ChatAPIType, ChatPostType> | null>(null);
+  const [cable, changeCable] = useState<ChannelController<
+    ChatAPIType,
+    ChatPostType
+  > | null>(null);
 
   const changeDataByReceiveNewChat = (data: ChatAPIType) => {
     changeChatDatas([...chatDatas, data.payload]);
-  }
+  };
 
   useDidMount(() => {
     getChatHistory(roomId)
@@ -34,29 +37,28 @@ const useChatDatas = (roomId: string) => {
         ]);
       });
 
-
-
     const cable = new ChannelController<ChatAPIType, ChatPostType>();
     changeCable(cable);
   });
 
   useEffect(() => {
-        const chatRoomParams = {
+    const chatRoomParams = {
       channel: chatRoomChannel,
       room_id: roomId,
     };
 
-        cable&&cable.connect(chatRoomParams, {
-      onReceive: changeDataByReceiveNewChat,
-      onConnected: () => {
-        // cable.send({ payload: { text: "どうだろうか4", room_id:roomId }, type: "chat" });
-      },
-    });
+    cable &&
+      cable.connect(chatRoomParams, {
+        onReceive: changeDataByReceiveNewChat,
+        onConnected: () => {
+          // cable.send({ payload: { text: "どうだろうか4", room_id:roomId }, type: "chat" });
+        },
+      });
   }, [chatDatas]);
 
   return {
     chatDatas,
-    sendFC: cable?cable.send: () => {},
+    sendFC: cable ? cable.send : () => {},
   };
 };
 

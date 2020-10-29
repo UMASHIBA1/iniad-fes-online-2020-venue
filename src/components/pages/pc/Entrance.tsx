@@ -94,7 +94,6 @@ function Entrance({ entranceProps }: Props) {
             }}
           />
         ) : null}
-        <Chat roomId="gEa6bNLW" />
         <FuncButtons />
       </Wrapper>
     </RoomWrapper>
