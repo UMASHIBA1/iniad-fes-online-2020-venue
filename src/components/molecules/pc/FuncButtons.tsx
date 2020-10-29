@@ -8,11 +8,19 @@ import PDFModal from "../PDFModal";
 import dummyImg from "../../../statics/dummy.png";
 import ImgModal from "../ImgModal";
 import Chat from "../../organisms/Chat/Chat";
+import { DispatchType } from "../../../redux/store";
+import { useDispatch } from "react-redux";
+import { showChat } from "../../../redux/modules/isShowChat";
 
 function FuncButtons() {
   const [isShowMap, changeIsShowMap] = useState(false);
   const [isShowPlan, changeIsShowPlan] = useState(false);
-  const [isShowChat, changeIsShowChat] = useState(false);
+  // const [isShowChat, changeIsShowChat] = useState(false);
+  const dispatch: DispatchType = useDispatch();
+  const showChatFc = () => {
+    dispatch(showChat());
+  }
+
   return (
     <>
       <Wrapper>
@@ -27,7 +35,7 @@ function FuncButtons() {
           svgPath={chatIcon}
           iconDescription="chat"
           onClick={() => {
-            changeIsShowChat(!isShowChat);
+            showChatFc()
           }}
         />
         <IconButton
@@ -60,8 +68,6 @@ function FuncButtons() {
         isMobile={false}
       />
       <Chat
-      isShow={isShowChat}
-      onClose={() => changeIsShowChat(false)}
       roomId="gEa6bNLW"
       />
     </>

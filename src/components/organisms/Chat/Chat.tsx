@@ -8,16 +8,22 @@ import Line from "./Line";
 import closeIcon from "../../../statics/svgs/close-icon.svg";
 import H2 from "../../atoms/H2";
 import { blackColor, gray } from "../../../constants/colors";
+import { DispatchType, useTypedSelector } from "../../../redux/store";
+import { useDispatch } from "react-redux";
+import { hideChat } from "../../../redux/modules/isShowChat";
 
 interface Props {
   roomId: string;
-  isShow: boolean;
-  onClose: () => void;
 }
 
-function Chat({roomId, isShow, onClose}: Props) {
+function Chat({roomId}: Props) {
   const {chatDatas, sendFC} = useChatDatas(roomId);
   const lastElement = useRef<HTMLDivElement>(null);
+  const isShowChat = useTypedSelector(({isShowChat}) => isShowChat);
+  const dispatch: DispatchType = useDispatch();
+  const closeChat = () => {
+    dispatch(hideChat());
+  }
 
   const scrollToBottom = () => {
     lastElement.current?.scrollIntoView();
@@ -26,13 +32,13 @@ function Chat({roomId, isShow, onClose}: Props) {
   useEffect(scrollToBottom, [chatDatas]);
 
   return (
-    <Wrapper isShow={isShow}>
+    <Wrapper isShow={isShowChat}>
       <TitleLine>
         <H2 color={blackColor}>
           Chat
         </H2>
         <div />
-        <CloseIcon onClick={onClose} />
+        <CloseIcon onClick={closeChat} />
         </TitleLine>
       <LineWrapper>
       {chatDatas.map((data, index) => {
