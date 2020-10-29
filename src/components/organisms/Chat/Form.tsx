@@ -16,7 +16,6 @@ function Form({room_id,sendFC}: Props) {
       sendFC({payload: {room_id, text: sendText}, type: "chat"})
       e.preventDefault();
       changeSendText("");
-      console.log("run form submit")
     }}>
       <Input
       value={sendText}

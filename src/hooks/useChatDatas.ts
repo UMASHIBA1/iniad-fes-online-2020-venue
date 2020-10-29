@@ -7,6 +7,7 @@ import getChatHistory from "../utils/getChatHistory";
 
 const useChatDatas = (roomId: string) => {
   const [chatDatas, changeChatDatas] = useState<ChatType[]>([]);
+  const [cable, changeCable] = useState<ChannelController<ChatAPIType, ChatPostType> | null>(null);
 
   useDidMount(() => {
     getChatHistory(roomId)
@@ -28,27 +29,27 @@ const useChatDatas = (roomId: string) => {
           },
         ]);
       });
-  });
 
-  const chatRoomParams = {
-    channel: chatRoomChannel,
-    room_id: roomId,
-  };
+    const chatRoomParams = {
+      channel: chatRoomChannel,
+      room_id: roomId,
+    };
 
-  const cable = new ChannelController<ChatAPIType, ChatPostType>();
-  cable.connect(chatRoomParams, {
-    onReceive: (data) => {
-      changeChatDatas([...chatDatas, data.payload]);
-    },
-    onConnected: () => {
-      // cable.send({ payload: { text: "どうだろうか4", room_id:roomId }, type: "chat" });
-    },
-
+    const cable = new ChannelController<ChatAPIType, ChatPostType>();
+    cable.connect(chatRoomParams, {
+      onReceive: (data) => {
+        changeChatDatas([...chatDatas, data.payload]);
+      },
+      onConnected: () => {
+        // cable.send({ payload: { text: "どうだろうか4", room_id:roomId }, type: "chat" });
+      },
+    });
+    changeCable(cable);
   });
 
   return {
     chatDatas,
-    sendFC: cable.send,
+    sendFC: cable?cable.send: () => {},
   };
 };
 

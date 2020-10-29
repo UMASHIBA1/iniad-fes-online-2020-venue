@@ -39,7 +39,6 @@ export default class ChannelController<T1, T2> {
   }
 
   public send(data: T2) {
-    console.log("channel", this.channel);
     if (this.channel !== null) {
       this.channel.perform("speak", data);
     }
