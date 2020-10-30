@@ -64,7 +64,11 @@ function TRPGRoomContent({
         viewingScreen={viewingScreen}
         onSubmitQuestionaire={(answer) => {
           if (questionaire) {
-            sendFC({ answer: answer, problem_id: questionaire.object.id });
+            sendFC({ answer: answer, problem_id: questionaire.object.id }).then(() => {
+              alert("回答を受け取りました。");
+            }).catch((err) => {
+              console.error("アンケートの回答に失敗", err);
+            });
             changeOptionList(undefined);
           } else {
             alert("申し訳ありません。回答の送信に失敗しました。");
