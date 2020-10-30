@@ -306,19 +306,11 @@
           "questionImg": "https://storage.googleapis.com/iniadfes/public/escapeGame/q1.png"
         },
         "VideoProps": [{
-            "url": "https://bento-api-test.herokuapp.com/movie.mp4",
+            "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/actorsRoom_1/video.m3u8",
             "mode": "streaming"
           },
           {
-            "url": "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
-            "mode": "streaming"
-          },
-          {
-            "url": "https://bento-api-test.herokuapp.com/movie.mp4?aaa=b",
-            "mode": "streaming"
-          },
-          {
-            "url": "https://bento-api-test.herokuapp.com/movie.mp4?aaa=c",
+            "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/actorsRoom_2/video.m3u8",
             "mode": "streaming"
           }
         ]
@@ -360,7 +352,7 @@
         },
         "videoProps": {
           "mode": "streaming",
-          "url": "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a"
+          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/webMedia/video.m3u8"
         }
       }
     },
@@ -417,6 +409,10 @@
         "pdfProps": {
           "url": "/digihealth.pdf",
           "pageNum": 27
+        },
+        "videoProps": {
+          "mode": "streaming",
+          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/sdgs_youkai/video.m3u8"
         }
       }
     },
@@ -490,7 +486,7 @@
         "title": "igc2 ゲーム",
         "video": {
           "mode": "streaming",
-          "url": "https://bento-api-test.herokuapp.com/test/video.m3u8"
+          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/igc2/video.m3u8"
         },
         "imgPath": "https://storage.googleapis.com/iniadfes/public/igc2-sumbnail.jpg"
       }
@@ -639,7 +635,7 @@
         ],
         "videoProps": {
           "mode": "streaming",
-          "url": "https://bento-api-test.herokuapp.com/test/video.m3u8"
+          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/sdgs/video.m3u8"
         }
       }
     },
