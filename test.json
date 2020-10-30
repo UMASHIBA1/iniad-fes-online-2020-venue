@@ -463,11 +463,8 @@
           "url": "/road/3103",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/road.svg"
         },
-        "mode": "oneObj",
-        "obj1": {
-          "url": "example.com",
-          "name": "example"
-        }
+      "mode": "iframeRoom",
+      "iframeCode": ""
       }
     },
     {
