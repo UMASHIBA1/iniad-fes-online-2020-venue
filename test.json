@@ -1,11 +1,12 @@
-  [{
+  [
+    {
       "type": "school-gate",
       "name": "school-gate1",
       "environment_attributes": {
         "gate": {
           "title": "糖朝",
           "url": "/entrance",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/restaurant.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/entrance.png"
         }
       }
     },
@@ -96,7 +97,7 @@
         "down": {
           "url": "/entrance",
           "title": "糖朝",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/restaurant.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/entrance.png"
         },
         "room": {
           "url": "/elevatorFront/3f",
