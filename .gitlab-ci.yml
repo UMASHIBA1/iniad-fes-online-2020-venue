@@ -1,0 +1,13 @@
+image: node:14.8
+stages:
+  - test
+
+test:
+  stage: test
+  only: ["pushes"]
+  cache:
+    paths:
+      - node_modules
+  script:
+    - yarn install
+    - yarn test
