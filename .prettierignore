@@ -1,4 +1,4 @@
-# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+#base .gitignore
 
 # dependencies
 /node_modules
@@ -22,5 +22,5 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-#my-def
-/src/styles/tailwind.compiled.css
+#my def
+.gitignore
