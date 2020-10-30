@@ -1,9 +1,11 @@
 import React from "react";
 import styled from "styled-components";
 import breakPoints from "../../constants/breakPoints";
+import { lightBlueText } from "../../cssProps/colors";
 import VideoProps from "../../typings/RoomPropType/VideoProps";
 import ViewingProp from "../../typings/ViewingProp";
 import Description from "../atoms/Description";
+import Link from "../atoms/Link";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
 import VideoPlayer from "../atoms/VideoPlayer";
@@ -16,6 +18,10 @@ interface Props {
   description?: string;
   videoPropList: VideoProps[];
   isMobile: boolean;
+  link?: {
+    url: string;
+    text: string;
+  };
 }
 
 function VideoModal({
@@ -26,6 +32,7 @@ function VideoModal({
   description,
   videoPropList,
   isMobile,
+  link,
 }: Props) {
   return (
     <Modal
@@ -39,8 +46,13 @@ function VideoModal({
           <Title title={title} />
         </TitleWrapper>
         <DescriptionWrapper>
-        <Description description={description ? description : ""} />
+          <Description description={description ? description : ""} />
         </DescriptionWrapper>
+        {link ? (
+          <Link link={link.url}>
+            <LinkText>{link.text}</LinkText>
+          </Link>
+        ) : null}
         <VideoListWrapper>
           {isShow
             ? videoPropList.map((oneVideoProp) => (
@@ -76,6 +88,12 @@ const VideoWrapper = styled.div`
   }
 `;
 
+const LinkText = styled.div`
+  ${lightBlueText}
+  font-size: 14px;
+  padding: 8px 0 24px;
+`;
+
 const VideoListWrapper = styled.div`
   width: 100%;
   overflow-y: auto;
@@ -94,9 +112,8 @@ const DescriptionWrapper = styled.div`
   display: grid;
   justify-content: start;
   align-items: center;
-  padding: 0 0 24px;
-    ${breakPoints.downSm} {
-  padding: 0 0 16px;
+  ${breakPoints.downSm} {
+    padding: 0 0 16px;
   }
 `;
 
