@@ -7,10 +7,24 @@ import scheduleIcon from "../../../statics/svgs/schedule-icon.svg";
 import PDFModal from "../PDFModal";
 import dummyImg from "../../../statics/dummy.png";
 import ImgModal from "../ImgModal";
+import Chat from "../../organisms/Chat/Chat";
+import { DispatchType } from "../../../redux/store";
+import { useDispatch } from "react-redux";
+import { showChat } from "../../../redux/modules/isShowChat";
 
-function FuncButtons() {
+interface Props {
+  roomId?: string;
+  isShowChat?: boolean;
+}
+
+function FuncButtons({ roomId, isShowChat = true }: Props) {
   const [isShowMap, changeIsShowMap] = useState(false);
   const [isShowPlan, changeIsShowPlan] = useState(false);
+  const dispatch: DispatchType = useDispatch();
+  const showChatFc = () => {
+    dispatch(showChat());
+  };
+
   return (
     <>
       <Wrapper>
@@ -21,16 +35,18 @@ function FuncButtons() {
             changeIsShowMap(true);
           }}
         />
-        <IconButton
-          svgPath={chatIcon}
-          iconDescription="chat"
-          onClick={() => {
-            console.log("run chat");
-          }}
-        />
+        {isShowChat ? (
+          <IconButton
+            svgPath={chatIcon}
+            iconDescription="chat"
+            onClick={() => {
+              showChatFc();
+            }}
+          />
+        ) : null}
         <IconButton
           svgPath={scheduleIcon}
-          iconDescription="plan"
+          iconDescription="book"
           onClick={() => {
             changeIsShowPlan(true);
           }}
@@ -57,18 +73,24 @@ function FuncButtons() {
         alt="plan"
         isMobile={false}
       />
+      {roomId?(
+        <Chat roomId={roomId} isMobile={false} />
+      ): null}
     </>
   );
 }
 
 const Wrapper = styled.div`
   position: absolute;
-  display: grid;
   right: 8px;
   bottom: 8px;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: 1fr;
-  gap: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  >* {
+    margin: 4px 0;
+  }
 `;
 
 export default FuncButtons;

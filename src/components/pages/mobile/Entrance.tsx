@@ -14,6 +14,7 @@ import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
 import ObjectMark from "../../atoms/ObjectMark";
 import PDFModal from "../../molecules/PDFModal";
+import { pamphletProps } from "../../../constants/filePath";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -40,7 +41,7 @@ function Entrance({ entranceProps }: Props) {
   });
 
   return (
-    <RoomWrapper isOneScreen={false} bgImg={entranceImg}>
+    <RoomWrapper isOneScreen={false} bgImg={entranceImg} roomId={entranceProps[0]?entranceProps[0].environment_attributes.room_id: ""}>
       <Wrapper>
         Entrance
         <RoomMark
@@ -78,10 +79,7 @@ function Entrance({ entranceProps }: Props) {
           onClose={() => {
             changeIsShowPamphlet(false);
           }}
-          pdfProps={{
-            pageNum: 14,
-            url: "https://storage.googleapis.com/iniadfes/public/pamphlet.pdf",
-          }}
+          pdfProps={pamphletProps}
         />
         <Footer />
       </Wrapper>

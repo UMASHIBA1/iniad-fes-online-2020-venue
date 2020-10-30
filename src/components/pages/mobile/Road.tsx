@@ -108,7 +108,7 @@ function Road({ roadProps }: Props) {
             );
           }}
         />
-        <Footer />
+        <Footer isShowChat={false} />
       </Wrapper>
     </RoomWrapper>
   );

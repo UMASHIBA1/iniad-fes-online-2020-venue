@@ -6,6 +6,7 @@ export interface HallProps {
   type: "hall",
   name: string;
   environment_attributes: {
+    room_id: string;
     doorLeft: RoomEnvLinkProps;
     doorRight: RoomEnvLinkProps;
     video: VideoProps;
@@ -45,8 +46,8 @@ export interface EntranceProps {
   name: string;
   environment_attributes: {
     door: RoomEnvLinkProps;
+    room_id: string;
   },
-  video: VideoProps;
 }
 
 export interface StairProps {
@@ -59,8 +60,23 @@ export interface StairProps {
   }
 }
 
-type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps;
+export interface SchoolGateProps {
+  type: "school-gate",
+  name: string;
+  environment_attributes: {
+    gate: RoomEnvLinkProps;
+  }
+}
 
-export type RoomAPIType = RoomPropType[];
+type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps | SchoolGateProps;
+
+export type RoomAPIDataType = RoomPropType[];
+
+export interface RoomAPIType {
+  type: "room";
+  payload: {
+    objects: RoomAPIDataType
+  };
+}
 
 export default RoomPropType

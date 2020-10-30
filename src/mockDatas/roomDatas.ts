@@ -1,5 +1,5 @@
 import { links } from "../constants/links";
-import { RoomAPIType } from "../typings/RoomPropType/RoomPropType";
+import { RoomAPIDataType } from "../typings/RoomPropType/RoomPropType";
 import igc2Sumbnail from "../statics/igc2-sumbnail.png";
 import iniadfesLogoIcon from "../statics/svgs/iniadfes-logo.svg";
 import navGatorsIcon from "../statics/circleIcons/12_uprgb_anime_noise3_4x - Takuya UWANO.png";
@@ -42,24 +42,29 @@ const sampleObj = {
   name: "example",
 };
 
-const roomDatas: RoomAPIType = [
+const roomDatas: RoomAPIDataType = [
+  // school-gate
+  {
+    type: "school-gate",
+    name: "school-gate1",
+    environment_attributes: {
+      gate: {
+        title: "糖朝",
+        url: links.entrance,
+        imgPath: entranceIcon,
+      },
+    },
+  },
   // entrance
   {
     type: "entrance",
     name: "entrance-1",
-    video: {
-      start_at: {
-        iso8601: "2020-10-31T10:00:00+09:00",
-        timestamp: 1604106001,
-      },
-      url: "example.com",
-      mode: "mp4",
-    },
     environment_attributes: {
+      room_id: "",
       door: {
         url: links.stair("3f"),
         title: "3階階段",
-        imgPath: crossIcon,
+        imgPath: stairIcon,
       },
     },
   },
@@ -68,6 +73,7 @@ const roomDatas: RoomAPIType = [
     type: "hall",
     name: "hall",
     environment_attributes: {
+      room_id: "",
       doorLeft: {
         url: links.elevatorFront("3f"),
         title: "3F分岐路",
@@ -80,10 +86,6 @@ const roomDatas: RoomAPIType = [
       },
       video: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106001,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4",
       },
     },
@@ -337,6 +339,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3110",
     environment_attributes: {
+      room_id: "",
       door: {
         title: "3階廊下1",
         url: links.road("3101"),
@@ -350,35 +353,19 @@ const roomDatas: RoomAPIType = [
       VideoProps: [
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4",
-          mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
+          mode: "streaming",
         },
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
           mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
         },
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=b",
           mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
         },
         {
           url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=c",
           mode: "mp4",
-          start_at: {
-            iso8601: "2020-10-31T10:00:00+09:00",
-            timestamp: 1604106000,
-          },
         },
       ],
     },
@@ -387,6 +374,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3109",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       mode: "oneVideo",
       title: "実行委員ラジオ",
@@ -398,10 +386,6 @@ const roomDatas: RoomAPIType = [
       },
       videoProps: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
       },
     },
@@ -410,6 +394,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3106",
     environment_attributes: {
+      room_id: "",
       mode: "oneVideo",
       leftOrRight: "left",
       description: "",
@@ -421,10 +406,6 @@ const roomDatas: RoomAPIType = [
       },
       videoProps: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
       },
     },
@@ -433,6 +414,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3105",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       mode: "pdfRoom",
       title: "Digi Health",
@@ -450,12 +432,17 @@ const roomDatas: RoomAPIType = [
         url: "/digihealth.pdf",
         pageNum: 27,
       },
+      videoProps: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a"
+      }
     },
   },
   {
     type: "classroom",
     name: "3102",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       mode: "youtube",
       door: {
@@ -471,6 +458,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3101",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       mode: "oneVideo",
       title: "INIAD Developers",
@@ -482,10 +470,6 @@ const roomDatas: RoomAPIType = [
       },
       videoProps: {
         mode: "streaming",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
         url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
       },
     },
@@ -494,20 +478,22 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "3100",
     environment_attributes: {
+      mode: "iframeRoom",
+      iframeCode: "",
+      room_id: "",
       leftOrRight: "right",
       door: {
         title: "3階廊下3",
         url: links.road("3103"),
         imgPath: roadIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
     },
   },
   {
     type: "classroom",
     name: "4110",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       door: {
         title: "4階廊下1",
@@ -520,10 +506,6 @@ const roomDatas: RoomAPIType = [
       video: {
         mode: "streaming",
         url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
       },
       imgPath: igc2Sumbnail,
     },
@@ -532,6 +514,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4109",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "right",
       door: {
         title: "4階廊下1",
@@ -539,38 +522,7 @@ const roomDatas: RoomAPIType = [
         imgPath: roadIcon,
       },
       mode: "photoList",
-      title: "ID/graph",
-      description: "ID/graphです！私たちがとった写真を是非見ていってください！",
-      photos: [
-        {
-          sns: "twitter",
-          tweetId: "1313082319150837760",
-        },
-        {
-          sns: "twitter",
-          tweetId: "1313056707556249602",
-        },
-        {
-          sns: "twitter",
-          tweetId: "1297489002572857347",
-        },
-        {
-          sns: "instagram",
-          instagramLink: "https://www.instagram.com/p/B37KdHpnnDG/",
-        },
-        {
-          sns: "twitter",
-          tweetId: "1317668126276734976",
-        },
-        {
-          sns: "instagram",
-          instagramLink: "https://www.instagram.com/p/CGPUaQoHz_X/",
-        },
-        {
-          sns: "instagram",
-          instagramLink: "https://www.instagram.com/p/B4PGXswnGGN/",
-        },
-      ],
+      iframeCode: `<iframe width="100%" height="100%" src="https://idgraph-fes2020.herokuapp.com/"></iframe>`,
       escapeGameQuestion: question3,
     },
   },
@@ -578,6 +530,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4106",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       door: {
         title: "4階廊下2",
@@ -623,6 +576,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4105",
     environment_attributes: {
+      room_id: "",
       mode: "tatfo",
       leftOrRight: "right",
       door: {
@@ -657,10 +611,6 @@ const roomDatas: RoomAPIType = [
       videoProps: {
         mode: "streaming",
         url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
       },
     },
   },
@@ -668,6 +618,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4102",
     environment_attributes: {
+      room_id: "",
       mode: "iframeRoom",
       door: {
         title: "4階廊下3",
@@ -682,6 +633,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4101",
     environment_attributes: {
+      room_id: "",
       mode: "trpgRoom",
       door: {
         title: "4階廊下3",
@@ -692,10 +644,6 @@ const roomDatas: RoomAPIType = [
       video: {
         mode: "streaming",
         url: "https://bento-api-test.herokuapp.com/test/video.m3u8",
-        start_at: {
-          iso8601: "2020-10-31T10:00:00+09:00",
-          timestamp: 1604106000,
-        },
       },
     },
   },
@@ -703,6 +651,7 @@ const roomDatas: RoomAPIType = [
     type: "classroom",
     name: "4100",
     environment_attributes: {
+      room_id: "",
       leftOrRight: "left",
       door: {
         title: "4階廊下3",
@@ -773,3 +722,4 @@ const roomDatas: RoomAPIType = [
   },
 ];
 export default roomDatas;
+

@@ -72,11 +72,12 @@ const TitleWrapper = styled.div`
 const Wrapper = styled.div`
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 50% auto auto 1fr ;
+  grid-template-rows: 50% auto auto 1fr;
   justify-items: center;
   width: 100%;
   min-height: 400px;
   gap: 16px;
+  margin-bottom: 32px;
 
   ${breakPoints.downSm} {
     grid-template-rows: 50% 1fr;

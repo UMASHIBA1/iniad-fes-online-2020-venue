@@ -11,6 +11,8 @@ import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
+import FuncButtons from "../../molecules/pc/FuncButtons";
+import WelcomeModal from "../../organisms/WelcomeModal";
 
 interface Props {
   stairProps: StairProps[];
@@ -86,6 +88,7 @@ function Stair({ stairProps }: Props) {
             }}
           />
         ) : null}
+        <FuncButtons isShowChat={false} />
       </Wrapper>
     </RoomWrapper>
   );

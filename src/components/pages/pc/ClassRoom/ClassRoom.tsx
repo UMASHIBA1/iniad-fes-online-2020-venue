@@ -42,7 +42,7 @@ function ClassRoom({ classRoomProps }: Props) {
     <RoomWrapper bgImg={judgeRoomImg(thisClassRoomProp?thisClassRoomProp.environment_attributes.leftOrRight: "left")}>
       <Wrapper>
         {createthisModeRoom(history, thisClassRoomProp)}
-        <FuncButtons />
+        <FuncButtons roomId={thisClassRoomProp?thisClassRoomProp.environment_attributes.room_id: ""} />
       </Wrapper>
     </RoomWrapper>
   );

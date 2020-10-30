@@ -2,22 +2,32 @@ import React, { useState } from "react";
 import styled, { css } from "styled-components";
 import { whiteColor } from "../../../constants/colors";
 import { lightBlueBGColor, whiteText } from "../../../cssProps/colors";
-import ImgModal from "../ImgModal";
-import dummyImg from "../../../statics/dummy.png";
 import PDFModal from "../PDFModal";
-import { useTypedSelector } from "../../../redux/store";
+import { DispatchType, useTypedSelector } from "../../../redux/store";
 import ViewingProp from "../../../typings/ViewingProp";
+import { useDispatch } from "react-redux";
+import { showChat } from "../../../redux/modules/isShowChat";
+import { pamphletProps } from "../../../constants/filePath";
 
-function Footer() {
-  const [isShowPlan, changeIsShowPlan] = useState(false);
+interface Props {
+  isShowChat?: boolean;
+}
+
+function Footer({isShowChat = true}: Props) {
+  const [isShowBook, changeIsShowBook] = useState(false);
   const [isShowMap, changeIsShowMap] = useState(false);
   const viewing = useTypedSelector(({ viewingScreen }) => viewingScreen);
+  const dispatch: DispatchType = useDispatch();
+  const showChatFc = () => {
+    dispatch(showChat());
+  }
+
   return (
     <React.Fragment>
       <Wrapper viewingScreen={viewing}>
-        <OneFunc>Chat</OneFunc>
+  <OneFunc onClick={isShowChat?showChatFc: () => {}}>{isShowChat?"Chat":"No Chat"}</OneFunc>
         <OneFunc onClick={() => changeIsShowMap(true)}>Map</OneFunc>
-        <OneFunc onClick={() => changeIsShowPlan(true)}>Plan</OneFunc>
+        <OneFunc onClick={() => changeIsShowBook(true)}>Book</OneFunc>
       </Wrapper>
       <PDFModal
         isShow={isShowMap}
@@ -31,16 +41,14 @@ function Footer() {
         viewing={viewing}
         isMobile={true}
       />
-      <ImgModal
-        isShow={isShowPlan}
-        onClose={() => {
-          changeIsShowPlan(false);
-        }}
-        src={dummyImg}
-        // FIXME: もし画像でプランを表示させるなら視覚障がい者ようにaltでちゃんとしたプランの一覧を書かないといけない
-        alt="plan"
-        viewing={viewing}
-        isMobile={true}
+      <PDFModal
+      isShow={isShowBook}
+      isMobile={true}
+      onClose={() => {
+        changeIsShowBook(false);
+      }}
+      pdfProps={pamphletProps}
+      viewing={viewing}
       />
     </React.Fragment>
   );

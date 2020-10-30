@@ -7,6 +7,7 @@ import { useHistory } from "react-router-dom";
 import useTypedParams from "../../../hooks/useTypedParams";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
 import RoomMark from "../../atoms/RoomMark";
+import FuncButtons from "../../molecules/pc/FuncButtons";
 
 interface Props {
   elevatorFrontProps: ElevatorFrontProps[];
@@ -85,6 +86,7 @@ function ElevatorFront({ elevatorFrontProps }: Props) {
             }}
           />
         ) : null}
+        <FuncButtons isShowChat={false} />
       </Wrapper>
     </RoomWrapper>
   );

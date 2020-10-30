@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import useDidMount from "./hooks/useDidMount/useDidMount";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import VideoPage from "./components/pages/VideoPage";
 import MobileHome from "./components/pages/Home";
 import PcEntrance from "./components/pages/pc/Entrance";
@@ -17,9 +17,8 @@ import MobileHall from "./components/pages/mobile/Hall";
 import MobileRoad from "./components/pages/mobile/Road";
 import MobileClassRoom from "./components/pages/mobile/ClassRoom/ClassRoom";
 import MobileStair from "./components/pages/mobile/Stair";
-
-
-
+import PCSchoolGate from "./components/pages/pc/SchoolGate";
+import MobileSchoolGate from "./components/pages/mobile/SchoolGate";
 
 const useDeviceType = () => {
   const [deviceType, changeDeviceType] = useState<"mobile" | "pc">("mobile");
@@ -37,17 +36,13 @@ const useDeviceType = () => {
     } else {
       // PC向けの記述
       changeDeviceType("pc");
-    };
+    }
   };
 
   useDidMount(judgeWindowSize);
 
   return [deviceType];
 };
-
-
-
-
 
 function App() {
   const [deviceType] = useDeviceType();
@@ -59,7 +54,8 @@ function App() {
       <React.Fragment>
         <Router>
           <Switch>
-            <Route path="/videopage">{/* FIXME: デバッグ用ページ、後で消す */}
+            <Route path="/videopage">
+              {/* FIXME: デバッグ用ページ、後で消す */}
               <VideoPage />
             </Route>
             <Route path="/debug">
@@ -78,17 +74,21 @@ function App() {
               <MobileStair stairProps={dividedRoomDatas.stair} />
             </Route>
             <Route path={mobileLinks.elevatorFront(":name")}>
-              <MobileElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
+              <MobileElevatorFront
+                elevatorFrontProps={dividedRoomDatas.elevatorFront}
+              />
             </Route>
             <Route path={mobileLinks.entrance}>
               <MobileEntrance entranceProps={dividedRoomDatas.entrance} />
+            </Route>
+            <Route>
+              <MobileSchoolGate schoolGateProps={dividedRoomDatas.schoolGate} />
             </Route>
           </Switch>
         </Router>
       </React.Fragment>
     );
   } else {
-
     // PC版
     return (
       <React.Fragment>
@@ -107,12 +107,16 @@ function App() {
               <PcStair stairProps={dividedRoomDatas.stair} />
             </Route>
             <Route path={pcLinks.elevatorFront(":name")}>
-              <PcElevatorFront elevatorFrontProps={dividedRoomDatas.elevatorFront} />
+              <PcElevatorFront
+                elevatorFrontProps={dividedRoomDatas.elevatorFront}
+              />
             </Route>
             <Route path={pcLinks.entrance}>
               <PcEntrance entranceProps={dividedRoomDatas.entrance} />
             </Route>
-
+            <Route path={pcLinks.schoolGate}>
+              <PCSchoolGate schoolGateProps={dividedRoomDatas.schoolGate} />
+            </Route>
           </Switch>
         </Router>
       </React.Fragment>

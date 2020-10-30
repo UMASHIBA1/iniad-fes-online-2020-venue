@@ -41,7 +41,7 @@ function ClassRoom({ classRoomProps }: Props) {
   const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
 
   return (
-    <RoomWrapper bgImg={judgeRoomImg(thisClassRoomProp?thisClassRoomProp.environment_attributes.leftOrRight:"left")} isOneScreen={false}>
+    <RoomWrapper roomId={thisClassRoomProp?thisClassRoomProp.environment_attributes.room_id: ""} bgImg={judgeRoomImg(thisClassRoomProp?thisClassRoomProp.environment_attributes.leftOrRight:"left")} isOneScreen={false}>
       <Wrapper>
         {createthisModeRoom(history, viewingScreen,thisClassRoomProp)}
         <Footer />

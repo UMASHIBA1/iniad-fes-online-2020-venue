@@ -3,7 +3,6 @@ import RoomWrapper from "../../templates/pc/RoomWrapper";
 import hallImg from "../../../statics/hall.png";
 import { useHistory } from "react-router-dom";
 import { pcLinks, RoomUrlType } from "../../../constants/links";
-import Button from "../../atoms/Button/Button";
 import { HallProps } from "../../../typings/RoomPropType/RoomPropType";
 import FuncButtons from "../../molecules/pc/FuncButtons";
 import RoomMark from "../../atoms/RoomMark";
@@ -30,40 +29,62 @@ function Hall({ hallProps }: Props) {
   return (
     <RoomWrapper bgImg={hallImg}>
       <Wrapper>
-        <ClassRoomVideo videoProps={hallProps[0].environment_attributes.video} positionLeft="41%" positionTop="5%" />
-        <RoomMark
-          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorLeft.imgPath: iniadfesLogo}
-          roomTitle={
-            hallProps[0]
-              ? hallProps[0].environment_attributes.doorLeft.title
-              : "空き部屋"
-          }
-          onClick={() => {
-            gotoTargetUrl(
-              hallProps[0]
-                ? hallProps[0].environment_attributes.doorLeft.url
-                : pcLinks.entrance
-            );
-          }}
-          dataControllId={dataControllIds.door1}
-        />
-        <RoomMark
-          imgPath={hallProps[0]?hallProps[0].environment_attributes.doorRight.imgPath: iniadfesLogo}
-          roomTitle={
-            hallProps[0]
-              ? hallProps[0].environment_attributes.doorRight.title
-              : "空き部屋"
-          }
-          onClick={() => {
-            gotoTargetUrl(
-              hallProps[0]
-                ? hallProps[0].environment_attributes.doorRight.url
-                : pcLinks.entrance
-            );
-          }}
-          dataControllId={dataControllIds.door2}
-        />
-        <FuncButtons />
+        {hallProps[0]&& hallProps[0].environment_attributes ? (
+          <React.Fragment>
+            <ClassRoomVideo
+              videoProps={hallProps[0].environment_attributes.video}
+              positionLeft="41%"
+              positionTop="5%"
+            />
+            <RoomMark
+              imgPath={
+                hallProps[0]
+                  ? hallProps[0].environment_attributes.doorLeft.imgPath
+                  : iniadfesLogo
+              }
+              roomTitle={
+                hallProps[0]
+                  ? hallProps[0].environment_attributes.doorLeft.title
+                  : "空き部屋"
+              }
+              onClick={() => {
+                gotoTargetUrl(
+                  hallProps[0]
+                    ? hallProps[0].environment_attributes.doorLeft.url
+                    : pcLinks.entrance
+                );
+              }}
+              dataControllId={dataControllIds.door1}
+            />
+            <RoomMark
+              imgPath={
+                hallProps[0]
+                  ? hallProps[0].environment_attributes.doorRight.imgPath
+                  : iniadfesLogo
+              }
+              roomTitle={
+                hallProps[0]
+                  ? hallProps[0].environment_attributes.doorRight.title
+                  : "空き部屋"
+              }
+              onClick={() => {
+                gotoTargetUrl(
+                  hallProps[0]
+                    ? hallProps[0].environment_attributes.doorRight.url
+                    : pcLinks.entrance
+                );
+              }}
+              dataControllId={dataControllIds.door2}
+            />
+            <FuncButtons
+              roomId={
+                hallProps[0] ? hallProps[0].environment_attributes.room_id : ""
+              }
+            />
+          </React.Fragment>
+        ) : (
+          "教室情報のデータがありませんでした"
+        )}
       </Wrapper>
     </RoomWrapper>
   );
