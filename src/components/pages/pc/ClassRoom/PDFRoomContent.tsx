@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux";
 import EscapeGameUserInfo, { AnswerSelection } from "../../../../typings/EscapeGame/EscapeGameUserInfo";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 import { answerQ2, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
+import VideoModal from "../../../molecules/VideoModal";
 
 interface Props {
   pdfEnvProps: PDFRoomEnvAttr;
@@ -19,9 +20,11 @@ interface Props {
 
 const dataControllId = {
   objButton: "pdfroomContent-obj-button",
+  videoObjButton: "pdfroom-video-content-obj-button",
   escapeGameButton: "pdfroom-escapegame-button",
   door: "pdfroomContent-left-door",
 };
+
 
 const judgeUsersCourseProps = (course: EscapeGameUserInfo["course"], pdfEnvProps: PDFRoomEnvAttr) => {
   if(course === "engineer" && pdfEnvProps.engEscapeGameQuestion) {
@@ -40,6 +43,7 @@ const judgeUsersCourseProps = (course: EscapeGameUserInfo["course"], pdfEnvProps
 function PDFRoomContent({ pdfEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
+  const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
@@ -64,11 +68,24 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
+      <ObjectMark
+        title="動画"
+        onClick={() => changeIsShowVideoModal(true)}
+        dataControllId={dataControllId.videoObjButton}
+      />
       <PDFModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
         pdfProps={pdfEnvProps.pdfProps}
         isMobile={false}
+      />
+      <VideoModal
+      isMobile={false}
+      isShow={isShowVideoModal}
+      onClose={() =>changeIsShowVideoModal(false)}
+      title={pdfEnvProps.title}
+      description={pdfEnvProps.description}
+      videoPropList={[pdfEnvProps.videoProps]}
       />
       {usersCourseQuestion?(
         <React.Fragment>
@@ -128,6 +145,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 28%;
       left: 33%;
+    }
+
+    &[data-controll-id=${dataControllId.videoObjButton}] {
+      position: absolute;
+      top:18%;
+      right: 18%;
     }
   }
 `;

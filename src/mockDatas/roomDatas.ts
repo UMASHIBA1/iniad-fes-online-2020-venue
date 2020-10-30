@@ -432,6 +432,10 @@ const roomDatas: RoomAPIDataType = [
         url: "/digihealth.pdf",
         pageNum: 27,
       },
+      videoProps: {
+        mode: "streaming",
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a"
+      }
     },
   },
   {

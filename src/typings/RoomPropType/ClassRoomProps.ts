@@ -41,6 +41,7 @@ export interface PDFRoomEnvAttr {
   title: string;
   description: string;
   pdfProps: PDFProps;
+  videoProps: VideoProps;
   leftOrRight: LeftOrRight;
   engEscapeGameQuestion?: EscapeGameQuestion;
   designEscapeGameQuestion?: EscapeGameQuestion;
