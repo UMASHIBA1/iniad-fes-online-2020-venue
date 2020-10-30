@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
-import {
-  OneVideoEnvAttr,
-  TRPGEnvAttr,
-} from "../../../../typings/RoomPropType/ClassRoomProps";
+import { TRPGEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import styled from "styled-components";
 import ObjectMark from "../../../atoms/ObjectMark";
-import VideoModal from "../../../molecules/VideoModal";
 import ViewingProp from "../../../../typings/ViewingProp";
 import TRPGModal from "../../../organisms/TRPGModal";
+import useQuestionaireDatas from "../../../../hooks/useQuestionaireDatas";
 
 interface Props {
   trpgRoomProps: TRPGEnvAttr;
@@ -32,8 +29,20 @@ function TRPGRoomContent({
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+
+  const [optionList, changeOptionList] = useState<string[] | undefined>(
+    undefined
+  );
+  const { questionaire, sendFC } = useQuestionaireDatas(env.room_id);
+
+  useEffect(() => {
+    if (questionaire) {
+      changeOptionList(questionaire?.object.choices);
+    }
+  }, [questionaire]);
+
   return (
-    <Wrapper leftOrRight={env.leftOrRight}>
+    <Wrapper>
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
@@ -53,12 +62,21 @@ function TRPGRoomContent({
         onClose={() => changeIsShowModal(false)}
         video={env.video}
         viewingScreen={viewingScreen}
+        onSubmitQuestionaire={(answer) => {
+          if (questionaire) {
+            sendFC({ answer: answer, problem_id: questionaire.object.id });
+            changeOptionList(undefined);
+          } else {
+            alert("申し訳ありません。回答の送信に失敗しました。");
+          }
+        }}
+        optionList={optionList}
       />
     </Wrapper>
   );
 }
 
-const Wrapper = styled.div<{ leftOrRight: OneVideoEnvAttr["leftOrRight"] }>`
+const Wrapper = styled.div`
   position: relative;
   top: 0;
   left: 0;
