@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import breakPoints from "../../constants/breakPoints";
 import EscapeGameQuestion from "../../typings/EscapeGame/EscapeGameQuestion";
 import { AnswerSelection } from "../../typings/EscapeGame/EscapeGameUserInfo";
 import ViewingProp from "../../typings/ViewingProp";
@@ -26,7 +27,7 @@ function EscapeGameQuestionModal({
   isMobile,
   escapeGameProps,
   onSubmit,
-  onSubmitMulti
+  onSubmitMulti,
 }: Props) {
   const [textValue, changeTextValue] = useState("");
   const [selectValue, changeSelectValue] = useState<AnswerSelection | null>(
@@ -49,7 +50,7 @@ function EscapeGameQuestionModal({
         {escapeGameProps.mode === "text" ? (
           <Form
             onSubmit={(e) => {
-              onSubmit&&onSubmit(textValue);
+              onSubmit && onSubmit(textValue);
               e.preventDefault();
             }}
           >
@@ -67,7 +68,7 @@ function EscapeGameQuestionModal({
           <Form
             onSubmit={(e) => {
               if (selectValue !== null) {
-                onSubmit&&onSubmit(selectValue);
+                onSubmit && onSubmit(selectValue);
               }
               e.preventDefault();
             }}
@@ -100,7 +101,7 @@ function EscapeGameQuestionModal({
           <Form
             onSubmit={(e) => {
               if (selectedValueList.length > 0) {
-                onSubmitMulti&&onSubmitMulti(selectedValueList);
+                onSubmitMulti && onSubmitMulti(selectedValueList);
               }
               e.preventDefault();
             }}
@@ -136,36 +137,87 @@ function EscapeGameQuestionModal({
           <Form
             onSubmit={(e) => {
               if (textValueList.length >= 3) {
-                onSubmitMulti&&onSubmitMulti(textValueList);
+                onSubmitMulti && onSubmitMulti(textValueList);
               }
               e.preventDefault();
             }}
           >
-            <TextInput required={true} placeholder="1つ目の答え" value={textValueList[0]} changeValueFC={(value) => {changeTextValueList([value, textValueList[1], textValueList[2]])}} />
-            <TextInput required={true} placeholder="2つ目の答え" value={textValueList[1]} changeValueFC={(value) => {changeTextValueList([textValueList[0], value, textValueList[2]])}} />
-            <TextInput required={true} placeholder="3つ目の答え" value={textValueList[2]} changeValueFC={(value) => {changeTextValueList([textValueList[0], textValueList[1], value])}} />
-            <Button text="提出" mode="blue" type="submit" useShadow={false} />
+            <ThreeTextWrapper>
+              <TextInput
+                required={true}
+                placeholder="1つ目の答え"
+                value={textValueList[0]}
+                changeValueFC={(value) => {
+                  changeTextValueList([
+                    value,
+                    textValueList[1],
+                    textValueList[2],
+                  ]);
+                }}
+              />
+              <TextInput
+                required={true}
+                placeholder="2つ目の答え"
+                value={textValueList[1]}
+                changeValueFC={(value) => {
+                  changeTextValueList([
+                    textValueList[0],
+                    value,
+                    textValueList[2],
+                  ]);
+                }}
+              />
+              <TextInput
+                required={true}
+                placeholder="3つ目の答え"
+                value={textValueList[2]}
+                changeValueFC={(value) => {
+                  changeTextValueList([
+                    textValueList[0],
+                    textValueList[1],
+                    value,
+                  ]);
+                }}
+              />
+              <Button text="提出" mode="blue" type="submit" useShadow={false} />
+            </ThreeTextWrapper>
           </Form>
         ) : null}
-        {escapeGameProps.mode === "twoText"? (
-                    <Form
+        {escapeGameProps.mode === "twoText" ? (
+          <Form
             onSubmit={(e) => {
               if (textValueList.length >= 2) {
-                onSubmitMulti&&onSubmitMulti(textValueList);
+                onSubmitMulti && onSubmitMulti(textValueList);
               }
               e.preventDefault();
             }}
           >
-            <TextInput required={true} placeholder="1つ目の答え" value={textValueList[0]} changeValueFC={(value) => {changeTextValueList([value, textValueList[1]])}} />
-            <TextInput required={true} placeholder="2つ目の答え" value={textValueList[1]} changeValueFC={(value) => {changeTextValueList([textValueList[0], value])}} />
+            <TwoTextWrapper>
+            <TextInput
+              required={true}
+              placeholder="1つ目の答え"
+              value={textValueList[0]}
+              changeValueFC={(value) => {
+                changeTextValueList([value, textValueList[1]]);
+              }}
+            />
+            <TextInput
+              required={true}
+              placeholder="2つ目の答え"
+              value={textValueList[1]}
+              changeValueFC={(value) => {
+                changeTextValueList([textValueList[0], value]);
+              }}
+            />
             <Button text="提出" mode="blue" type="submit" useShadow={false} />
+            </TwoTextWrapper>
           </Form>
-        ): null}
+        ) : null}
         {escapeGameProps.mode === "select" ? (
           <Form
             onSubmit={(e) => {
               if (selectValue !== null) {
-                onSubmit&&onSubmit(selectValue);
+                onSubmit && onSubmit(selectValue);
               }
               e.preventDefault();
             }}
@@ -206,6 +258,10 @@ function EscapeGameQuestionModal({
 const Wrapper = styled.div`
   width: calc(100% - 128px);
   margin: 64px 0;
+
+  ${breakPoints.downSm} {
+    width: calc(100% - 32px);
+  }
 `;
 
 const Img = styled.img.attrs<{ src: string; alt: string }>(({ src, alt }) => ({
@@ -214,6 +270,37 @@ const Img = styled.img.attrs<{ src: string; alt: string }>(({ src, alt }) => ({
 }))<{ src: string; alt: string }>`
   width: 100%;
 `;
+
+const ThreeTextWrapper = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+  ${breakPoints.downSm} {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(3, auto);
+  }
+`;
+
+
+const TwoTextWrapper = styled.div`
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+${breakPoints.downSm} {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+}
+
+`
 
 const Form = styled.form`
   display: grid;

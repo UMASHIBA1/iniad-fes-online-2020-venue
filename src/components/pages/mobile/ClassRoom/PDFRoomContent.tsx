@@ -8,6 +8,16 @@ import ObjectMark from "../../../atoms/ObjectMark";
 import PDFModal from "../../../molecules/PDFModal";
 import ViewingProp from "../../../../typings/ViewingProp";
 import VideoModal from "../../../molecules/VideoModal";
+import EscapeGameUserInfo, {
+  AnswerSelection,
+} from "../../../../typings/EscapeGame/EscapeGameUserInfo";
+import { useDispatch } from "react-redux";
+import { DispatchType, useTypedSelector } from "../../../../redux/store";
+import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
+import {
+  answerQ2,
+  incrementGrade,
+} from "../../../../redux/modules/escapeGameUserInfo";
 
 interface Props {
   pdfEnvProps: PDFRoomEnvAttr;
@@ -17,11 +27,30 @@ interface Props {
 
 const dataControllId = {
   objButton: "pdfroomContent-obj-button",
+  escapeGameButton: "pdfroom-escapegame-button",
   videoObjButton: "pdfroom-video-content-obj-button",
   door: "pdfroomContent-left-door",
 };
 
+const judgeUsersCourseProps = (
+  course: EscapeGameUserInfo["course"],
+  pdfEnvProps: PDFRoomEnvAttr
+) => {
+  if (course === "engineer" && pdfEnvProps.engEscapeGameQuestion) {
+    return pdfEnvProps.engEscapeGameQuestion;
+  } else if (course === "design" && pdfEnvProps.designEscapeGameQuestion) {
+    return pdfEnvProps.designEscapeGameQuestion;
+  } else if (course === "business" && pdfEnvProps.busiEscapeGameQuestion) {
+    return pdfEnvProps.busiEscapeGameQuestion;
+  } else if (course === "civil" && pdfEnvProps.civilEscapeGameQuetion) {
+    return pdfEnvProps.civilEscapeGameQuetion;
+  } else {
+    return null;
+  }
+};
+
 function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
+  const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
 
@@ -29,6 +58,13 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
     history.push(url);
   };
 
+  const dispatch: DispatchType = useDispatch();
+  const { userAnswer, course } = useTypedSelector(
+    ({ escapeGameUserInfo }) => escapeGameUserInfo
+  );
+  const q2Answer = userAnswer.q2;
+
+  const usersCourseQuestion = judgeUsersCourseProps(course, pdfEnvProps);
 
   return (
     <Wrapper>
@@ -41,7 +77,7 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
         }}
       />
       <ObjectMark
-      title="PDF"
+        title="PDF"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
@@ -66,6 +102,37 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
         videoPropList={[pdfEnvProps.videoProps]}
         viewingScreen={viewingScreen}
       />
+      {usersCourseQuestion ? (
+        <React.Fragment>
+          {q2Answer === null && (
+            <ObjectMark
+              color="blue"
+              title={usersCourseQuestion.title}
+              onClick={() => changeIsShowQuestionModal(true)}
+              dataControllId={dataControllId.escapeGameButton}
+            />
+          )}
+          <EscapeGameQuestionModal
+            escapeGameProps={usersCourseQuestion}
+            isMobile={false}
+            isShow={isShowQuestionModal}
+            viewing={viewingScreen}
+            onClose={() => changeIsShowQuestionModal(false)}
+            onSubmit={(str) => {
+              dispatch(answerQ2(str as AnswerSelection)); // NOTE: Q2でテキストを選択させるものはないよってAnswerSelectionでasしておけ
+              dispatch(incrementGrade());
+              changeIsShowQuestionModal(false);
+              alert("問題2の答えを受け取ったよ！");
+            }}
+            onSubmitMulti={(multiAnswer) => {
+              dispatch(answerQ2(multiAnswer));
+              dispatch(incrementGrade());
+              changeIsShowQuestionModal(false);
+              alert("問題2の答えを受け取ったよ！");
+            }}
+          />
+        </React.Fragment>
+      ) : null}
     </Wrapper>
   );
 }
@@ -90,12 +157,17 @@ const Wrapper = styled.div`
       left: 36%;
     }
 
+    &[data-controll-id=${dataControllId.escapeGameButton}] {
+      position: absolute;
+      top: 24%;
+      right: 32%;
+    }
+
     &[data-controll-id=${dataControllId.videoObjButton}] {
       position: absolute;
       top: 12%;
       right: 18%;
     }
-
   }
 `;
 
