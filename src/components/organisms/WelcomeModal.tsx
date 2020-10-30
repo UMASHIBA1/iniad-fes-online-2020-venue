@@ -13,7 +13,9 @@ interface Props {
 
 const storageKey = "isFirstVisitOnThisBrowser";
 
-const useIsFirstVisitOnThisBrowser = () => {
+const useIsShowModal = () => {
+  const [isShowModal, changeIsShowModal] = useState(false);
+
   const [isFirstVisitOnThisBrowser, changeIsFirstVisitOnThisBrowser] = useState(
     false
   );
@@ -22,24 +24,24 @@ const useIsFirstVisitOnThisBrowser = () => {
     const item = localStorage.getItem(storageKey);
     if (item === null) {
       changeIsFirstVisitOnThisBrowser(true);
-      localStorage.setItem(storageKey, "true");
     }
   });
-
-  return isFirstVisitOnThisBrowser;
-};
-
-function WelcomeModal({ viewingProps, isMobile }: Props) {
-  const [isShowModal, changeIsShowModal] = useState(false);
-  const isFirstVisitOnThisBrowser = useIsFirstVisitOnThisBrowser();
 
   useEffect(() => {
     if (isFirstVisitOnThisBrowser) {
       setTimeout(() => {
+        localStorage.setItem(storageKey, "true");
       changeIsShowModal(true);
       }, 200);
     }
   }, [isFirstVisitOnThisBrowser]);
+
+
+  return {isShowModal, changeIsShowModal};
+}
+
+function WelcomeModal({ viewingProps, isMobile }: Props) {
+  const {isShowModal, changeIsShowModal} = useIsShowModal();
 
   return (
     <Modal
