@@ -18,7 +18,7 @@
         "door": {
           "url": "/stair/3f",
           "title": "3階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         }
       }
     },
@@ -60,7 +60,7 @@
         "back": {
           "url": "/stair/3f",
           "title": "3階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         }
       }
     },
@@ -81,7 +81,7 @@
         "back": {
           "url": "/stair/4f",
           "title": "4階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         }
       }
     },
@@ -113,7 +113,7 @@
         "down": {
           "url": "/stair/3f",
           "title": "3階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         },
         "room": {
           "url": "/elevatorFront/4f",
