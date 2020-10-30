@@ -2,13 +2,15 @@ import { configureStore } from "@reduxjs/toolkit";
 import isFisrtVisitReducer from "./modules/isFirstVisit";
 import viewingScreenReducer from "./modules/viewingScreen";
 import escapeGameUserInfoReducer from "./modules/escapeGameUserInfo";
+import isShowChat from "./modules/isShowChat";
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 const store = configureStore({
   reducer: {
     isFirstVisit: isFisrtVisitReducer,
     viewingScreen: viewingScreenReducer,
-    escapeGameUserInfo: escapeGameUserInfoReducer
+    escapeGameUserInfo: escapeGameUserInfoReducer,
+    isShowChat: isShowChat
   },
 });
 

@@ -14,11 +14,13 @@ import {
 } from "../../../redux/modules/viewingScreen";
 import breakPoints from "../../../constants/breakPoints";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
+import Chat from "../../organisms/Chat/Chat";
 
 interface Props {
   children: ReactNode;
   bgImg: string;
   isOneScreen: boolean;
+  roomId?: string;
 }
 
 const dataControllIds = {
@@ -42,7 +44,7 @@ const goOneRight = (dispatch: DispatchType, nowViewingScreen: ViewingProp) => {
   }
 };
 
-function RoomWrapper({ children, bgImg, isOneScreen }: Props) {
+function RoomWrapper({ children, bgImg, isOneScreen, roomId }: Props) {
   const viewingScreen = useTypedSelector(({ viewingScreen }) => viewingScreen);
   const dispatch: DispatchType = useDispatch();
 
@@ -51,31 +53,39 @@ function RoomWrapper({ children, bgImg, isOneScreen }: Props) {
   });
 
   return (
-    <Wrapper>
-      <RoomWrapperMain
-        bgImg={bgImg}
-        viewing={viewingScreen}
-        isOneScreen={isOneScreen}
-      >
-        {children}
-        <IconButton
-          svgPath={leftArrow}
-          iconDescription="left"
-          dataControllId={dataControllIds.leftButton}
-          onClick={() => {
-            goOneLeft(dispatch, viewingScreen);
-          }}
-        />
-        <IconButton
-          svgPath={rightArrow}
-          iconDescription="right"
-          dataControllId={dataControllIds.rightButton}
-          onClick={() => {
-            goOneRight(dispatch, viewingScreen);
-          }}
-        />
-      </RoomWrapperMain>
-    </Wrapper>
+    <React.Fragment>
+      <Wrapper>
+        <RoomWrapperMain
+          bgImg={bgImg}
+          viewing={viewingScreen}
+          isOneScreen={isOneScreen}
+        >
+          {children}
+          <IconButton
+            svgPath={leftArrow}
+            iconDescription="left"
+            dataControllId={dataControllIds.leftButton}
+            onClick={() => {
+              goOneLeft(dispatch, viewingScreen);
+            }}
+          />
+          <IconButton
+            svgPath={rightArrow}
+            iconDescription="right"
+            dataControllId={dataControllIds.rightButton}
+            onClick={() => {
+              goOneRight(dispatch, viewingScreen);
+            }}
+          />
+        </RoomWrapperMain>
+      </Wrapper>
+      {roomId?(
+      <Chat
+      roomId={roomId}
+      isMobile={true}
+      />
+      ): null}
+    </React.Fragment>
   );
 }
 

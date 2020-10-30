@@ -8,6 +8,7 @@ import VideoProps from "./VideoProps";
 // FIXME: とりあえずどんな部屋を作ればいいのかわからないからExampleMode1,2を作ります。サークルがどんな部屋を必要としているかがわかったらもっと具体的なmodeを作る
 interface ExampleMode1EnvAttr {
   mode: "twoObj";
+  room_id: string;
   leftOrRight: LeftOrRight;
   door: RoomEnvLinkProps;
   obj1: {
@@ -24,6 +25,7 @@ type LeftOrRight = "left" | "right";
 
 interface ExampleMode2EnvAttr {
   mode: "oneObj";
+  room_id: string;
   leftOrRight: LeftOrRight;
   door: RoomEnvLinkProps;
   obj1: {
@@ -34,10 +36,12 @@ interface ExampleMode2EnvAttr {
 
 export interface PDFRoomEnvAttr {
   mode: "pdfRoom";
+  room_id: string;
   door: RoomEnvLinkProps;
   title: string;
   description: string;
   pdfProps: PDFProps;
+  videoProps: VideoProps;
   leftOrRight: LeftOrRight;
   engEscapeGameQuestion?: EscapeGameQuestion;
   designEscapeGameQuestion?: EscapeGameQuestion;
@@ -47,6 +51,7 @@ export interface PDFRoomEnvAttr {
 
 export interface MusicEnvAttr {
   mode: "musics";
+  room_id: string;
   door: RoomEnvLinkProps;
   title: string;
   pickUpIframes: string[];
@@ -60,6 +65,7 @@ export interface MusicEnvAttr {
 
 export interface VideoListEnvAttr {
   mode: "videoList";
+  room_id: string;
   door: RoomEnvLinkProps;
   escapeGameQuestion?: EscapeGameQuestion;
   title: string;
@@ -80,6 +86,7 @@ interface InstagramProps {
 
 export interface PhotoListEnvAttr {
   mode: "photoList";
+  room_id: string;
   door: RoomEnvLinkProps;
   iframeCode: string;
   escapeGameQuestion?: EscapeGameQuestion;
@@ -88,6 +95,7 @@ export interface PhotoListEnvAttr {
 
 export interface IGC2EnvAttr {
   mode: "igc2";
+  room_id: string;
   title: string;
   door: RoomEnvLinkProps;
   gameLink: string;
@@ -99,6 +107,7 @@ export interface IGC2EnvAttr {
 
 export interface TATFOEnvAttr {
   mode: "tatfo";
+  room_id: string;
   title: string;
   door: RoomEnvLinkProps;
   description: string;
@@ -109,6 +118,7 @@ export interface TATFOEnvAttr {
 
 export interface OneVideoEnvAttr {
   mode: "oneVideo";
+  room_id: string;
   title: string;
   door: RoomEnvLinkProps;
   description: string;
@@ -118,6 +128,7 @@ export interface OneVideoEnvAttr {
 
 export interface ArtListEnvAttr {
   mode: "artList";
+  room_id: string;
   title: string;
   door: RoomEnvLinkProps;
   description: string;
@@ -130,6 +141,7 @@ export interface ArtListEnvAttr {
 
 export interface YoutubeEnvAttr {
   mode: "youtube";
+  room_id: string;
   title: string;
   door: RoomEnvLinkProps;
   youtubelink: string;
@@ -138,6 +150,7 @@ export interface YoutubeEnvAttr {
 
 export interface IframeEnvAttr {
   mode:"iframeRoom";
+  room_id: string;
   door: RoomEnvLinkProps;
   iframeCode: string;
   leftOrRight: LeftOrRight;
@@ -145,6 +158,7 @@ export interface IframeEnvAttr {
 
 export interface TRPGEnvAttr {
   mode: "trpgRoom";
+  room_id: string;
   door: RoomEnvLinkProps;
   video: VideoProps;
   leftOrRight: LeftOrRight;

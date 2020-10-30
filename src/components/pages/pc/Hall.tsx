@@ -62,7 +62,7 @@ function Hall({ hallProps }: Props) {
           }}
           dataControllId={dataControllIds.door2}
         />
-        <FuncButtons />
+        <FuncButtons roomId={hallProps[0]?hallProps[0].environment_attributes.room_id: ""} />
       </Wrapper>
     </RoomWrapper>
   );
