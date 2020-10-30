@@ -1,9 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
-import {
-  TRPGEnvAttr,
-} from "../../../../typings/RoomPropType/ClassRoomProps";
+import { TRPGEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
 import styled from "styled-components";
 import ObjectMark from "../../../atoms/ObjectMark";
@@ -20,20 +18,19 @@ const dataControllId = {
   objButton: "onevideoroomcontent-obj-button",
 };
 
-function TRPGRoomContent({
-  trpgRoomProps: env,
-  history,
-}: Props) {
+function TRPGRoomContent({ trpgRoomProps: env, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
-  const [optionList, changeOptionList] = useState<string[] | undefined>(undefined);
-  const {questionaire, sendFC} = useQuestionaireDatas(env.room_id);
+  const [optionList, changeOptionList] = useState<string[] | undefined>(
+    undefined
+  );
+  const { questionaire, sendFC } = useQuestionaireDatas(env.room_id);
 
   useEffect(() => {
-    if(questionaire) {
-    changeOptionList(questionaire?.object.choices);
+    if (questionaire) {
+      changeOptionList(questionaire?.object.choices);
     }
   }, [questionaire]);
 
@@ -60,14 +57,14 @@ function TRPGRoomContent({
         onClose={() => changeIsShowModal(false)}
         video={env.video}
         onSubmitQuestionaire={(answer) => {
-          if(questionaire) {
-            sendFC({answer: answer, problem_id: questionaire.object.id});
+          if (questionaire) {
+            sendFC({ answer: answer, problem_id: questionaire.object.id });
             changeOptionList(undefined);
-          }else{
+          } else {
             alert("申し訳ありません。回答の送信に失敗しました。");
           }
-            }}
-          optionList={optionList}
+        }}
+        optionList={optionList}
       />
     </Wrapper>
   );
