@@ -15,7 +15,6 @@ interface Props {
 
 function Footer({isShowChat = true}: Props) {
   const [isShowBook, changeIsShowBook] = useState(false);
-  const [isShowMap, changeIsShowMap] = useState(false);
   const viewing = useTypedSelector(({ viewingScreen }) => viewingScreen);
   const dispatch: DispatchType = useDispatch();
   const showChatFc = () => {
@@ -26,21 +25,8 @@ function Footer({isShowChat = true}: Props) {
     <React.Fragment>
       <Wrapper viewingScreen={viewing}>
   <OneFunc onClick={isShowChat?showChatFc: () => {}}>{isShowChat?"Chat":"No Chat"}</OneFunc>
-        <OneFunc onClick={() => changeIsShowMap(true)}>Map</OneFunc>
         <OneFunc onClick={() => changeIsShowBook(true)}>Book</OneFunc>
       </Wrapper>
-      <PDFModal
-        isShow={isShowMap}
-        onClose={() => {
-          changeIsShowMap(false);
-        }}
-        pdfProps={{
-          url: "/sample.pdf",
-          pageNum: 2,
-        }}
-        viewing={viewing}
-        isMobile={true}
-      />
       <PDFModal
       isShow={isShowBook}
       isMobile={true}
@@ -63,7 +49,7 @@ const OneFunc = styled.button`
 
 const Wrapper = styled.div<{ viewingScreen: ViewingProp }>`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: 1fr;
   position: absolute;
   bottom: 0;
