@@ -353,7 +353,7 @@
         },
         "videoProps": {
           "mode": "streaming",
-          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/webMedia/video.m3u8"
+          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/webMedia_new/video.m3u8"
         }
       }
     },
