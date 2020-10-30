@@ -8,9 +8,15 @@ import ObjectMark from "../../../atoms/ObjectMark";
 import PDFModal from "../../../molecules/PDFModal";
 import { DispatchType, useTypedSelector } from "../../../../redux/store";
 import { useDispatch } from "react-redux";
-import EscapeGameUserInfo, { AnswerSelection } from "../../../../typings/EscapeGame/EscapeGameUserInfo";
+import EscapeGameUserInfo, {
+  AnswerSelection,
+} from "../../../../typings/EscapeGame/EscapeGameUserInfo";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
-import { answerQ2, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
+import {
+  answerQ2,
+  incrementGrade,
+} from "../../../../redux/modules/escapeGameUserInfo";
+import VideoModal from "../../../molecules/VideoModal";
 
 interface Props {
   pdfEnvProps: PDFRoomEnvAttr;
@@ -19,32 +25,39 @@ interface Props {
 
 const dataControllId = {
   objButton: "pdfroomContent-obj-button",
+  videoObjButton: "pdfroom-video-content-obj-button",
   escapeGameButton: "pdfroom-escapegame-button",
   door: "pdfroomContent-left-door",
 };
 
-const judgeUsersCourseProps = (course: EscapeGameUserInfo["course"], pdfEnvProps: PDFRoomEnvAttr) => {
-  if(course === "engineer" && pdfEnvProps.engEscapeGameQuestion) {
+const judgeUsersCourseProps = (
+  course: EscapeGameUserInfo["course"],
+  pdfEnvProps: PDFRoomEnvAttr
+) => {
+  if (course === "engineer" && pdfEnvProps.engEscapeGameQuestion) {
     return pdfEnvProps.engEscapeGameQuestion;
-  }else if(course === "design" && pdfEnvProps.designEscapeGameQuestion) {
+  } else if (course === "design" && pdfEnvProps.designEscapeGameQuestion) {
     return pdfEnvProps.designEscapeGameQuestion;
-  }else if(course === "business" && pdfEnvProps.busiEscapeGameQuestion) {
+  } else if (course === "business" && pdfEnvProps.busiEscapeGameQuestion) {
     return pdfEnvProps.busiEscapeGameQuestion;
-  }else if(course==="civil" && pdfEnvProps.civilEscapeGameQuetion) {
+  } else if (course === "civil" && pdfEnvProps.civilEscapeGameQuetion) {
     return pdfEnvProps.civilEscapeGameQuetion;
   } else {
     return null;
   }
-}
+};
 
 function PDFRoomContent({ pdfEnvProps, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
+  const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
   const dispatch: DispatchType = useDispatch();
-  const {userAnswer, course} = useTypedSelector(({escapeGameUserInfo}) => escapeGameUserInfo);
+  const { userAnswer, course } = useTypedSelector(
+    ({ escapeGameUserInfo }) => escapeGameUserInfo
+  );
   const q2Answer = userAnswer.q2;
 
   const usersCourseQuestion = judgeUsersCourseProps(course, pdfEnvProps);
@@ -64,21 +77,34 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
+      <ObjectMark
+        title="動画"
+        onClick={() => changeIsShowVideoModal(true)}
+        dataControllId={dataControllId.videoObjButton}
+      />
       <PDFModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
         pdfProps={pdfEnvProps.pdfProps}
         isMobile={false}
       />
-      {usersCourseQuestion?(
+      <VideoModal
+        isMobile={false}
+        isShow={isShowVideoModal}
+        onClose={() => changeIsShowVideoModal(false)}
+        title={pdfEnvProps.title}
+        description={pdfEnvProps.description}
+        videoPropList={[pdfEnvProps.videoProps]}
+      />
+      {usersCourseQuestion ? (
         <React.Fragment>
-          {q2Answer === null &&(
-          <ObjectMark
-            color="blue"
-            title={usersCourseQuestion.title}
-            onClick={() => changeIsShowQuestionModal(true)}
-            dataControllId={dataControllId.escapeGameButton}
-          />
+          {q2Answer === null && (
+            <ObjectMark
+              color="blue"
+              title={usersCourseQuestion.title}
+              onClick={() => changeIsShowQuestionModal(true)}
+              dataControllId={dataControllId.escapeGameButton}
+            />
           )}
           <EscapeGameQuestionModal
             escapeGameProps={usersCourseQuestion}
@@ -95,11 +121,11 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
               dispatch(answerQ2(multiAnswer));
               dispatch(incrementGrade());
               changeIsShowQuestionModal(false);
-              alert("問題2の答えを受け取ったよ！")
+              alert("問題2の答えを受け取ったよ！");
             }}
           />
         </React.Fragment>
-      ): null}
+      ) : null}
     </Wrapper>
   );
 }
@@ -128,6 +154,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 28%;
       left: 33%;
+    }
+
+    &[data-controll-id=${dataControllId.videoObjButton}] {
+      position: absolute;
+      top: 18%;
+      right: 18%;
     }
   }
 `;

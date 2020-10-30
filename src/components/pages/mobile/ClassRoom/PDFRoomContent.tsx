@@ -6,8 +6,8 @@ import { PDFRoomEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps"
 import RoomMark from "../../../atoms/RoomMark";
 import ObjectMark from "../../../atoms/ObjectMark";
 import PDFModal from "../../../molecules/PDFModal";
-import useDidMount from "../../../../hooks/useDidMount/useDidMount";
 import ViewingProp from "../../../../typings/ViewingProp";
+import VideoModal from "../../../molecules/VideoModal";
 
 interface Props {
   pdfEnvProps: PDFRoomEnvAttr;
@@ -17,20 +17,18 @@ interface Props {
 
 const dataControllId = {
   objButton: "pdfroomContent-obj-button",
+  videoObjButton: "pdfroom-video-content-obj-button",
   door: "pdfroomContent-left-door",
 };
 
 function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
+  const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
+
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
 
-  useDidMount(() =>{
-    setTimeout(() => {
-    changeIsShowModal(true);
-    }, 300);
-  })
 
   return (
     <Wrapper>
@@ -47,12 +45,26 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
+      <ObjectMark
+        title="動画"
+        onClick={() => changeIsShowVideoModal(true)}
+        dataControllId={dataControllId.videoObjButton}
+      />
       <PDFModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
         pdfProps={pdfEnvProps.pdfProps}
         viewing={viewingScreen}
         isMobile={true}
+      />
+      <VideoModal
+        isMobile={true}
+        isShow={isShowVideoModal}
+        onClose={() => changeIsShowVideoModal(false)}
+        title={pdfEnvProps.title}
+        description={pdfEnvProps.description}
+        videoPropList={[pdfEnvProps.videoProps]}
+        viewingScreen={viewingScreen}
       />
     </Wrapper>
   );
@@ -77,6 +89,13 @@ const Wrapper = styled.div`
       top: 22%;
       left: 36%;
     }
+
+    &[data-controll-id=${dataControllId.videoObjButton}] {
+      position: absolute;
+      top: 12%;
+      right: 18%;
+    }
+
   }
 `;
 
