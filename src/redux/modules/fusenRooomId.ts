@@ -1,10 +1,10 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
 const fusenRoomId = createSlice({
   name: "fusenRoomId",
   initialState: "",
   reducers: {
-    changeRoomId: (roomId: string) => roomId
+    changeRoomId: (_state, action: PayloadAction<string>) => action.payload,
   },
 });
 
