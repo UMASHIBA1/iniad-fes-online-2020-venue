@@ -38,7 +38,6 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
   };
   return (
     <Wrapper>
-      TATFORoom
       <RoomMark
         imgPath={tatfoEnvProps.door.imgPath}
         dataControllId={dataControllId.door}
