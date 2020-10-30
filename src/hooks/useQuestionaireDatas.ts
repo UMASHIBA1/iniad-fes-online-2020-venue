@@ -6,6 +6,7 @@ import QuestionaireProps, {
   QuestionaireAPIType,
   QuestionairePostProps,
 } from "../typings/QuestionaireProps";
+import sendQuestionnaire from "../utils/sendQuestionnaire";
 
 const useQuestionaireDatas = (roomId: string) => {
   const [
@@ -57,7 +58,7 @@ const useQuestionaireDatas = (roomId: string) => {
 
   return {
     questionaire,
-    sendFC: cable ? cable.send : () => {},
+    sendFC: sendQuestionnaire,
   };
 };
 
