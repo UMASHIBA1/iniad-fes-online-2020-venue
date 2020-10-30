@@ -12,3 +12,6 @@ export const chatRoomChannel = "RoomChannel";
 
 // NOTE: room Data
 export const roomApiUrl = `https://${baseUrl}/api/rooms/`;
+
+// fusen
+export const postFusenUrl = `https://${baseUrl}/api/chat/post`;

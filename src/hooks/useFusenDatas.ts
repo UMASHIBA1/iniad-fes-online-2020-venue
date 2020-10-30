@@ -16,7 +16,7 @@ const useFusenDatas = () => {
     });
   }, [fusenRoomId]);
 
-  return fusenTexts;
+  return {fusenRoomId,fusenTexts};
 }
 
 export default useFusenDatas;
