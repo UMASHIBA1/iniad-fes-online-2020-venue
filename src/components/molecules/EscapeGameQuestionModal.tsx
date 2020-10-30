@@ -192,6 +192,7 @@ function EscapeGameQuestionModal({
               e.preventDefault();
             }}
           >
+            <TwoTextWrapper>
             <TextInput
               required={true}
               placeholder="1つ目の答え"
@@ -209,6 +210,7 @@ function EscapeGameQuestionModal({
               }}
             />
             <Button text="提出" mode="blue" type="submit" useShadow={false} />
+            </TwoTextWrapper>
           </Form>
         ) : null}
         {escapeGameProps.mode === "select" ? (
@@ -282,6 +284,23 @@ const ThreeTextWrapper = styled.div`
     grid-template-rows: repeat(3, auto);
   }
 `;
+
+
+const TwoTextWrapper = styled.div`
+
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+
+${breakPoints.downSm} {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, auto);
+}
+
+`
 
 const Form = styled.form`
   display: grid;
