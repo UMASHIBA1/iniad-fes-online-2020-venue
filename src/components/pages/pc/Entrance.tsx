@@ -14,6 +14,7 @@ import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
 import ObjectMark from "../../atoms/ObjectMark";
 import PDFModal from "../../molecules/PDFModal";
+import { pamphletProps } from "../../../constants/filePath";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -78,10 +79,7 @@ function Entrance({ entranceProps }: Props) {
           onClose={() => {
             changeIsShowPamphlet(false);
           }}
-          pdfProps={{
-              pageNum: 14,
-              url: "https://storage.googleapis.com/iniadfes/public/pamphlet.pdf"
-            }}
+          pdfProps={pamphletProps}
         />
         {grade === 4 && userAnswer.q4 !== null ? (
           <RoomMark
