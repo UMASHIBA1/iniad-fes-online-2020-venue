@@ -24,6 +24,7 @@ import H2 from "../atoms/H2";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
 import {restartGame} from "../../redux/modules/escapeGameUserInfo";
+import breakPoints from "../../constants/breakPoints";
 
 interface Props {
   isShow: boolean;
@@ -126,6 +127,12 @@ const JudgeBoxWrapper = styled.div`
   width: 100%;
   min-height: 240px;
   padding: 16px;
+
+  ${breakPoints.downSm} {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+  }
+
 `;
 
 const TitleWrapper = styled.div`
