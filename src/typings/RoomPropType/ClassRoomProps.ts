@@ -72,6 +72,10 @@ export interface VideoListEnvAttr {
   description?: string;
   VideoProps: VideoProps[];
   leftOrRight: LeftOrRight;
+  link?: {
+    url: string;
+    text: string;
+  }
 }
 
 interface TwitterProps {
