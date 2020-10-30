@@ -134,7 +134,7 @@
         "next": {
           "url": "/road/3102",
           "title": "3階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/3110",
@@ -161,7 +161,7 @@
         "next": {
           "url": "/road/3103",
           "title": "3階廊下3",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/3106",
@@ -215,7 +215,7 @@
         "next": {
           "url": "/road/4102",
           "title": "4階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/4110",
@@ -242,7 +242,7 @@
         "next": {
           "url": "/road/4103",
           "title": "4階廊下3",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/4106",
