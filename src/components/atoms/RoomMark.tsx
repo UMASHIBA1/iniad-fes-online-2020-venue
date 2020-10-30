@@ -40,8 +40,12 @@ const RoomTitle = styled.div`
 
   font-size: 0.5vw;
 
+  ${breakPoints.downTablet} {
+    font-size: 1vw;
+  }
+
   ${breakPoints.downSm} {
-  font-size: 1vw;
+  font-size: 3vw;
   }
 
 `
