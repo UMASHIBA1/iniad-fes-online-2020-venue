@@ -1,7 +1,7 @@
 // /api/questionaire/:id
 
 interface QuestionaireProps {
-  chat_id: string;
+  room_id: string;
   id: string; // 設問の識別子
   problem: string;
   choices: string[];
@@ -11,7 +11,12 @@ interface QuestionaireProps {
     iso8601: string;
     timestamp: number;
   };
-  open?: boolean; // 回答の可否
+  is_open?: boolean; // 回答の可否
+}
+
+export interface QuestionaireAPIType {
+  type: "questionaire";
+  payload: QuestionaireProps;
 }
 
 export default QuestionaireProps;
