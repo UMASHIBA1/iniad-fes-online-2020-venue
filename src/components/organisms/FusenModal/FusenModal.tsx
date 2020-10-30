@@ -63,7 +63,6 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 1fr auto;
   width: 100%;
-  min-height: 320px;
   max-height: 85vh;
   padding: 8px;
 `;

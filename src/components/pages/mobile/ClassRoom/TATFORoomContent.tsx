@@ -8,6 +8,7 @@ import styled from "styled-components";
 import PDFModal from "../../../molecules/PDFModal";
 import VideoModal from "../../../molecules/VideoModal";
 import ViewingProp from "../../../../typings/ViewingProp";
+import FusenModal from "../../../organisms/FusenModal/FusenModal";
 
 interface Props {
   tatfoEnvProps: TATFOEnvAttr;
@@ -21,6 +22,7 @@ const dataControllId = {
   objButton3: "tatforoomcontent-obj-button3",
   objButton4: "tatforoomcontent-obj-button4",
   videoButton: "tatfovideocntent-obj-button",
+  fusenButton: "tatfofusen-button",
   door: "tatforoomcontent-left-door",
 };
 
@@ -30,6 +32,7 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
   const [isShowPDF3Modal, changeIsShowPDF3Modal] = useState(false);
   const [isShowPDF4Modal, changeIsShowPDF4Modal] = useState(false);
   const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
+  const [isShowFusen, changeIsShowFusen] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
@@ -105,6 +108,17 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
         title="TATFO 動画"
         viewingScreen={viewingScreen}
       />
+      <ObjectMark
+        title="付箋"
+        onClick={() => changeIsShowFusen(true)}
+        dataControllId={dataControllId.fusenButton}
+      />
+      <FusenModal
+      isMobile={false}
+      isShow={isShowFusen}
+      onClose={() => {changeIsShowFusen(false)}}
+      viewingScreen={viewingScreen}
+      />
     </Wrapper>
   );
 }
@@ -147,6 +161,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 23%;
       right: 36%;
+    }
+
+    &[data-controll-id=${dataControllId.fusenButton}] {
+      position: absolute;
+      top: 5%;
+      right: 48%;
     }
   }
 `;
