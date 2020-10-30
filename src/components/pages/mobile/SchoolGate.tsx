@@ -7,6 +7,8 @@ import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
+import WelcomeModal from "../../organisms/WelcomeModal";
+import { useTypedSelector } from "../../../redux/store";
 
 interface Props {
   schoolGateProps: SchoolGateProps[];
@@ -18,6 +20,7 @@ const dataControllIds = {
 
 function SchoolGate({ schoolGateProps }: Props) {
   const history = useHistory();
+    const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -43,6 +46,7 @@ function SchoolGate({ schoolGateProps }: Props) {
           }}
         />
       </Wrapper>
+      <WelcomeModal isMobile={true} viewingProps={viewingScreen} />
     </RoomWrapper>
   );
 }

@@ -5,6 +5,7 @@ import { pcLinks } from "../../../constants/links";
 import centerPutChild from "../../../cssProps/centerPutChild";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { useTypedSelector } from "../../../redux/store";
+import WelcomeModal from "../../organisms/WelcomeModal";
 
 interface Props {
   children: ReactNode;

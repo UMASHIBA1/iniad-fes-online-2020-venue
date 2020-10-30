@@ -5,6 +5,7 @@ const Img = styled.img.attrs<{src: string; alt: string}>(({src, alt}) => ({
   alt: alt
 }))<{src: string; alt: string}>`
   width: 100%;
+  object-fit: contain;
 `;
 
 export default Img;
