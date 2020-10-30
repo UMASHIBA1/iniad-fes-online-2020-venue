@@ -1,5 +1,5 @@
 import actionCable from "actioncable";
-import { rootUrl } from "../constants/websocketParams";
+import { rootUrl } from "../constants/urls";
 
 const cable = actionCable.createConsumer(rootUrl);
 

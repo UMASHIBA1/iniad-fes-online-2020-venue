@@ -1,4 +1,4 @@
-import { chatRoomChannel } from "../constants/websocketParams";
+import { chatRoomChannel } from "../constants/urls";
 import ChatType, { ChatAPIType, ChatPostType } from "../typings/ChatType";
 import ChannelController from "../utils/ChannelController";
 import { useEffect, useState } from "react";
