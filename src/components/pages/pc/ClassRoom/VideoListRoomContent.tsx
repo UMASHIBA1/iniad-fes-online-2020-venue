@@ -63,6 +63,7 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
         onClose={() => changeIsShowModal(false)}
         videoPropList={videoEnvProps.VideoProps}
         isMobile={false}
+        link={videoEnvProps.link}
       />
       {videoEnvProps.escapeGameQuestion ? (
         <React.Fragment>
