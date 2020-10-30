@@ -101,7 +101,7 @@
         "room": {
           "url": "/elevatorFront/3f",
           "title": "3階分岐路",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         }
       }
     },
@@ -117,7 +117,7 @@
         "room": {
           "url": "/elevatorFront/4f",
           "title": "4階分岐路",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         }
       }
     },
@@ -129,7 +129,7 @@
         "back": {
           "url": "/elevatorFront/3f",
           "title": "3階分岐路",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/road/3102",
@@ -156,7 +156,7 @@
         "back": {
           "url": "/road/3101",
           "title": "3階廊下1",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/road/3103",
@@ -183,7 +183,7 @@
         "back": {
           "url": "/road/3102",
           "title": "3階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/classroom/3100",
@@ -237,7 +237,7 @@
         "back": {
           "url": "/road/4101",
           "title": "4階廊下1",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/road/4103",
@@ -264,7 +264,7 @@
         "back": {
           "url": "/road/4102",
           "title": "4階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/classroom/4100",
