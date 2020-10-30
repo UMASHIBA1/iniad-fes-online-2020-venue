@@ -738,7 +738,7 @@
       "type": "fusen",
       "name": "tatfo-fusen",
       "environment_attributes": {
-        "room_id": ""
+        "room_id": $chat_id
       }
     }
   ]
