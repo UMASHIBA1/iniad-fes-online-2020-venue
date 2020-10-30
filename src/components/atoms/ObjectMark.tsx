@@ -85,6 +85,8 @@ const AnimeCircle = styled(Circle)`
 const CircleWrapper = styled.div<Required<Pick<Props, "color">>>`
   cursor: pointer;
   outline: none !important;
+  width: 92px;
+  height: 92px;
 
   ${AnimeCircle} {
 
@@ -119,10 +121,9 @@ const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(
     "data-controll-id": dataControllId,
   })
 )<Pick<Props, "dataControllId">>`
-  display: grid;
-  grid-template-columns: auto;
-  grid-template-rows: 20px 92px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   outline: none !important;
   height: 120px;
 `;
