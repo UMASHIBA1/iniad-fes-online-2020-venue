@@ -16,10 +16,21 @@ interface Props {
   viewingScreen?: ViewingProp;
   isMobile: boolean;
   video: VideoProps;
+  optionList?: string[];
+  onSubmitQuestionaire?: (answer: string) => void;
 }
 
-function TRPGModal({ isShow, onClose, viewingScreen, isMobile, video }: Props) {
+function TRPGModal({
+  isShow,
+  onClose,
+  viewingScreen,
+  isMobile,
+  video,
+  optionList,
+  onSubmitQuestionaire,
+}: Props) {
   const [ankertAnswer, changeAnkertAnswer] = useState("");
+  console.log("run trpg modal", optionList);
 
   return (
     <Modal
@@ -42,37 +53,25 @@ function TRPGModal({ isShow, onClose, viewingScreen, isMobile, video }: Props) {
               },
             ]}
           />
-          <AnkertWrapper>
-            <H2 color={blackColor}>アンケート</H2>
-          <RadioSelect
-            name="TRPG ankert"
-            value={ankertAnswer}
-            onChange={(answer) => {
-              changeAnkertAnswer(answer);
-            }}
-            optionList={[
-              {
-                label: "a",
-                value: "a",
-              },
-
-              {
-                label: "b",
-                value: "b",
-              },
-              {
-                label: "c",
-                value: "c",
-              },
-              {
-                label: "d",
-                value: "d",
-              },
-            ]}
-          />
-          <Button text="送信" mode="blue" onClick={() => {}} useShadow={false} />
-          </AnkertWrapper>
-
+          {optionList ? (
+            <AnkertWrapper>
+              <H2 color={blackColor}>アンケート</H2>
+              <RadioSelect
+                name="TRPG ankert"
+                value={ankertAnswer}
+                onChange={(answer) => {
+                  changeAnkertAnswer(answer);
+                }}
+                optionList={optionList.map((value) => ({label: value, value}))}
+              />
+              <Button
+                text="送信"
+                mode="blue"
+                onClick={() => {onSubmitQuestionaire&&onSubmitQuestionaire(ankertAnswer)}}
+                useShadow={false}
+              />
+            </AnkertWrapper>
+          ) : null}
         </VideoWrapper>
       </Wrapper>
     </Modal>
@@ -87,7 +86,7 @@ const AnkertWrapper = styled.div`
   gap: 4px;
   width: 100%;
   margin: 12px;
-`
+`;
 
 const VideoWrapper = styled.div`
   padding: 32px 0;

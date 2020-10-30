@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import {
@@ -8,6 +8,7 @@ import RoomMark from "../../../atoms/RoomMark";
 import styled from "styled-components";
 import ObjectMark from "../../../atoms/ObjectMark";
 import TRPGModal from "../../../organisms/TRPGModal";
+import useQuestionaireDatas from "../../../../hooks/useQuestionaireDatas";
 
 interface Props {
   trpgRoomProps: TRPGEnvAttr;
@@ -27,6 +28,17 @@ function TRPGRoomContent({
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+  const [optionList, changeOptionList] = useState<string[] | undefined>(undefined);
+  const {questionaire, sendFC} = useQuestionaireDatas(env.room_id);
+
+  useEffect(() => {
+    if(questionaire) {
+    changeOptionList(questionaire?.object.choices);
+    }
+  }, [questionaire]);
+
+  console.log("questionaire change", questionaire);
+
   return (
     <Wrapper>
       <RoomMark
@@ -47,6 +59,15 @@ function TRPGRoomContent({
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
         video={env.video}
+        onSubmitQuestionaire={(answer) => {
+          if(questionaire) {
+            sendFC({answer: answer, problem_id: questionaire.object.id});
+            changeOptionList(undefined);
+          }else{
+            alert("申し訳ありません。回答の送信に失敗しました。");
+          }
+            }}
+          optionList={optionList}
       />
     </Wrapper>
   );

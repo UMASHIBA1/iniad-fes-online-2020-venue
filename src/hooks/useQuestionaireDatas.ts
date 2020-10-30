@@ -8,13 +8,22 @@ import QuestionaireProps, {
 } from "../typings/QuestionaireProps";
 
 const useQuestionaireDatas = (roomId: string) => {
-  const [questionaireDatas, changeQuesionaireDatas] = useState<QuestionaireProps | null>(null);
+  const [
+    questionaire,
+    changeQuesionaireDatas,
+  ] = useState<QuestionaireProps | null>(null);
   const [cable, changeCable] = useState<ChannelController<
     QuestionaireAPIType,
     QuestionairePostProps
   > | null>(null);
 
+  const chatRoomParams = {
+    channel: chatRoomChannel,
+    room_id: roomId,
+  };
+
   const changeDataByReceiveNewQuestinaire = (data: QuestionaireAPIType) => {
+    console.log("in use quesionaire data", data);
     changeQuesionaireDatas(data.payload);
   };
 
@@ -24,14 +33,15 @@ const useQuestionaireDatas = (roomId: string) => {
       QuestionairePostProps
     >();
     changeCable(cable);
+    cable.connect(chatRoomParams, {
+      onReceive: changeDataByReceiveNewQuestinaire,
+      onConnected: () => {
+        // cable.send({ payload: { text: "どうだろうか4", room_id:roomId }, type: "chat" });
+      },
+    });
   });
 
   useEffect(() => {
-    const chatRoomParams = {
-      channel: chatRoomChannel,
-      room_id: roomId,
-    };
-
     cable &&
       cable.connect(chatRoomParams, {
         onReceive: changeDataByReceiveNewQuestinaire,
@@ -39,10 +49,10 @@ const useQuestionaireDatas = (roomId: string) => {
           // cable.send({ payload: { text: "どうだろうか4", room_id:roomId }, type: "chat" });
         },
       });
-  }, [questionaireDatas]);
+  }, [questionaire]);
 
   return {
-    chatDatas: questionaireDatas,
+    questionaire,
     sendFC: cable ? cable.send : () => {},
   };
 };
