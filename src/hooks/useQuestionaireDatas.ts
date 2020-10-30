@@ -24,7 +24,11 @@ const useQuestionaireDatas = (roomId: string) => {
 
   const changeDataByReceiveNewQuestinaire = (data: QuestionaireAPIType) => {
     console.log("in use quesionaire data", data);
-    changeQuesionaireDatas(data.payload);
+    console.log("chat or questionaire", data);
+    if(data.type==="questionnaire") {
+      console.log("is questionaire");
+      changeQuesionaireDatas(data.payload);
+    }
   };
 
   useDidMount(() => {

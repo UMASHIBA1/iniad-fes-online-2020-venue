@@ -17,7 +17,7 @@ interface QuestionaireProps {
 }
 
 export interface QuestionaireAPIType {
-  type: "questionaire";
+  type: "questionnaire";
   payload: QuestionaireProps;
 }
 
