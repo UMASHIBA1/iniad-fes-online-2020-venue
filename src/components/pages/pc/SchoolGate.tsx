@@ -7,6 +7,7 @@ import RoomMark from "../../atoms/RoomMark";
 import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../constants/links";
+import WelcomeModal from "../../organisms/WelcomeModal";
 
 interface Props {
   schoolGateProps: SchoolGateProps[];
@@ -43,6 +44,7 @@ function SchoolGate({ schoolGateProps }: Props) {
           }}
         />
       </Wrapper>
+      <WelcomeModal isMobile={false} />
     </RoomWrapper>
   );
 }
