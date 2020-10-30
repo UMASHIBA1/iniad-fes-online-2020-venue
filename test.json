@@ -1,5 +1,4 @@
-  [
-    {
+  [{
       "type": "school-gate",
       "name": "school-gate1",
       "environment_attributes": {
@@ -468,8 +467,8 @@
           "url": "/road/3103",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/road.svg"
         },
-      "mode": "iframeRoom",
-      "iframeCode": ""
+        "mode": "iframeRoom",
+        "iframeCode": ""
       }
     },
     {
@@ -734,6 +733,12 @@
         "description": "Art Worksの書いてきた絵です",
         "title": "Art Works"
       }
+    },
+    {
+      "type": "fusen",
+      "name": "tatfo-fusen",
+      "environment_attributes": {
+        "room_id": ""
+      }
     }
-
   ]

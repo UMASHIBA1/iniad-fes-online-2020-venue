@@ -68,7 +68,15 @@ export interface SchoolGateProps {
   }
 }
 
-type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps | SchoolGateProps;
+export interface TATFOFusenProps {
+  type: "fusen",
+  name: string;
+  environment_attributes: {
+    room_id: string;
+  }
+}
+
+type RoomPropType = HallProps | ClassRoomProps | RoadProps | EntranceProps | StairProps | ElevatorFrontProps | SchoolGateProps | TATFOFusenProps;
 
 export type RoomAPIDataType = RoomPropType[];
 
