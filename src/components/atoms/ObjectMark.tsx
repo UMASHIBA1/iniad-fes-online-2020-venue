@@ -124,6 +124,7 @@ const Wrapper = styled.button.attrs<Pick<Props, "dataControllId">>(
   grid-template-rows: 20px 92px;
   justify-content: center;
   outline: none !important;
+  height: 120px;
 `;
 
 export default ObjectMark;
