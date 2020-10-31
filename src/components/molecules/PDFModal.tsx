@@ -82,7 +82,7 @@ const PDFWrapper = styled.div`
   align-items: center;
   grid-template-rows: 1fr;
   width: calc(100% - 12px);
-  max-height: 90vh;
+  max-height: 70vh;
   > button {
     margin: 8px;
     &[data-controll-id="disable-button"] {

@@ -100,7 +100,7 @@ const Wrapper = styled.div`
 
   ${breakPoints.downSm} {
     grid-template-rows: 64px 1fr;
-    height: 80vh;
+    height: 70vh;
   }
 `;
 
