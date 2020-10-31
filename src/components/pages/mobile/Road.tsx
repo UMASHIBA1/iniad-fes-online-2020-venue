@@ -126,13 +126,13 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
         ${({mode}) => mode==="front" && css`
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
-      bottom: 50%;
-      right: 12%;
+      bottom: 60%;
+      right: 20%;
     }
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
       bottom: 60%;
-      left: 16%;
+      left: 18%;
     }
     `}
 
@@ -140,12 +140,12 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
       bottom: 68%;
-      right: 13%;
+      right: 18%;
     }
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
       bottom: 70%;
-      left:13%;
+      left:17%;
     }
     `}
 
@@ -153,12 +153,12 @@ const Wrapper = styled.div<{mode: RoadProps["environment_attributes"]["mode"]}>`
     &[data-controll-id=${controllIds.right1}] {
       position: absolute;
       bottom: 70%;
-      right: 10%;
+      right: 18%;
     }
     &[data-controll-id=${controllIds.left1}] {
       position: absolute;
       bottom: 70%;
-      left: 10%;
+      left: 18%;
     }
     `}
 
