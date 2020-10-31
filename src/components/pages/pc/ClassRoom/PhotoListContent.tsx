@@ -10,6 +10,7 @@ import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal"
 import { useDispatch } from "react-redux";
 import { answerQ3, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
 import IFramePageModal from "../../../organisms/IFramePageModal";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   photoListEnvProps: PhotoListEnvAttr;
@@ -22,7 +23,7 @@ const dataControllId = {
   door: "photolistRoomContent-left-door",
 };
 
-function PhotoListContent({ photoListEnvProps, history }: Props) {
+function PhotoListContent({ photoListEnvProps: env, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const dispatch: DispatchType = useDispatch();
@@ -37,12 +38,13 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
-        imgPath={photoListEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={photoListEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(photoListEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
       <ObjectMark
@@ -51,7 +53,7 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
         dataControllId={dataControllId.objButton}
       />
       <IFramePageModal
-      iframeCode={photoListEnvProps.iframeCode}
+      iframeCode={env.iframeCode}
       isMobile={false}
       isShow={isShowModal}
       onClose={() => {
@@ -59,18 +61,18 @@ function PhotoListContent({ photoListEnvProps, history }: Props) {
       }}
       />
       {
-        photoListEnvProps.escapeGameQuestion?(
+        env.escapeGameQuestion?(
           <React.Fragment>
             {q3Answer === null && grade === 3 && (
               <ObjectMark
               color="blue"
-              title={photoListEnvProps.escapeGameQuestion.title}
+              title={env.escapeGameQuestion.title}
               onClick={() => changeIsShowQuestionModal(true)}
               dataControllId={dataControllId.escapeGameButton}
               />
             )}
             <EscapeGameQuestionModal
-            escapeGameProps={photoListEnvProps.escapeGameQuestion}
+            escapeGameProps={env.escapeGameQuestion}
             isMobile={false}
             isShow={isShowQuestionModal}
             onClose={() => changeIsShowQuestionModal(false)}

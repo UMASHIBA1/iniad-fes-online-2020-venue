@@ -43,6 +43,8 @@ export interface PDFRoomEnvAttr {
   pdfProps: PDFProps;
   videoProps: VideoProps;
   leftOrRight: LeftOrRight;
+  circleTitle: string;
+  circleDescription: string;
   engEscapeGameQuestion?: EscapeGameQuestion;
   designEscapeGameQuestion?: EscapeGameQuestion;
   busiEscapeGameQuestion?: EscapeGameQuestion;
@@ -54,6 +56,7 @@ export interface MusicEnvAttr {
   room_id: string;
   door: RoomEnvLinkProps;
   title: string;
+  circleTitle: string;
   circleDescription: string;
   pickUpIframes: string[];
   musicIframes: string[];
@@ -71,6 +74,7 @@ export interface VideoListEnvAttr {
   escapeGameQuestion?: EscapeGameQuestion;
   title: string;
   description: string;
+  circleTitle: string;
   circleDescription: string;
   VideoProps: VideoProps[];
   leftOrRight: LeftOrRight;
@@ -84,6 +88,8 @@ export interface PhotoListEnvAttr {
   mode: "photoList";
   room_id: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
+  circleDescription: string;
   iframeCode: string;
   escapeGameQuestion?: EscapeGameQuestion;
   leftOrRight: LeftOrRight;
@@ -108,6 +114,7 @@ export interface TATFOEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
   description: string;
   circleDescription: string;
   videoProps: VideoProps;
@@ -120,6 +127,7 @@ export interface OneVideoEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
   description: string;
   circleDescription: string;
   videoProps: VideoProps;
@@ -131,6 +139,7 @@ export interface ArtListEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
   circleDescription: string;
   description: string;
   artList: {
@@ -146,6 +155,7 @@ export interface YoutubeEnvAttr {
   title: string;
   door: RoomEnvLinkProps;
   description: string;
+  circleTitle: string;
   circleDescription: string;
   youtubelink: string;
   leftOrRight: LeftOrRight;
@@ -155,6 +165,8 @@ export interface IframeEnvAttr {
   mode:"iframeRoom";
   room_id: string;
   door: RoomEnvLinkProps;
+  circleDescription: string;
+  circleTitle: string;
   iframeCode: string;
   leftOrRight: LeftOrRight;
 }
@@ -163,6 +175,7 @@ export interface TRPGEnvAttr {
   mode: "trpgRoom";
   room_id: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
   circleDescription: string;
   description: string;
   video: VideoProps;

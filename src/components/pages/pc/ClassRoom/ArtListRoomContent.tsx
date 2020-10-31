@@ -6,6 +6,7 @@ import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
 import ArtListModal from "../../../organisms/ArtListModal";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   artListEnvProps: ArtListEnvAttr;
@@ -25,6 +26,7 @@ function ArtListRoomContent({ artListEnvProps: env, history }: Props) {
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

@@ -12,6 +12,7 @@ import { DispatchType, useTypedSelector } from "../../../../redux/store";
 import { answerQ1, changeCourse, incrementGrade } from "../../../../redux/modules/escapeGameUserInfo";
 import SelectCourseModal from "../../../organisms/SelectCourseModal";
 import { EscapeGameCourses } from "../../../../typings/EscapeGame/EscapeGameUserInfo";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   videoEnvProps: VideoListEnvAttr;
@@ -24,7 +25,7 @@ const dataControllId = {
   door: "videoListroomcontent-left-door",
 };
 
-function VideoListRoomContent({ videoEnvProps, history }: Props) {
+function VideoListRoomContent({ videoEnvProps: env, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const [isShowSelectCourseModal, changeIsShowSelectCourseModal] = useState(false);
@@ -42,13 +43,14 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
   }, [grade, userAnswer]);
 
   return (
-    <Wrapper leftOrRight={videoEnvProps.leftOrRight}>
+    <Wrapper leftOrRight={env.leftOrRight}>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
-        imgPath={videoEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={videoEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(videoEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
       <ObjectMark
@@ -57,26 +59,26 @@ function VideoListRoomContent({ videoEnvProps, history }: Props) {
         dataControllId={dataControllId.objButton}
       />
       <VideoModal
-        title={videoEnvProps.title}
-        description={videoEnvProps.description}
+        title={env.title}
+        description={env.description}
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        videoPropList={videoEnvProps.VideoProps}
+        videoPropList={env.VideoProps}
         isMobile={false}
-        link={videoEnvProps.link}
+        link={env.link}
       />
-      {videoEnvProps.escapeGameQuestion ? (
+      {env.escapeGameQuestion ? (
         <React.Fragment>
           {q1Answer === null && (
             <ObjectMark
               color="blue"
-              title={videoEnvProps.escapeGameQuestion.title}
+              title={env.escapeGameQuestion.title}
               onClick={() => changeIsShowQuestionModal(true)}
               dataControllId={dataControllId.escapeGameButton}
             />
           )}
           <EscapeGameQuestionModal
-            escapeGameProps={videoEnvProps.escapeGameQuestion}
+            escapeGameProps={env.escapeGameQuestion}
             isMobile={false}
             isShow={isShowQuestionModal}
             onClose={() => changeIsShowQuestionModal(false)}
