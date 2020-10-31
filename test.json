@@ -475,7 +475,7 @@
         "room_id": $chat_id,
         "leftOrRight": "right",
         "circleTitle": "INIAD　クイズ大会",
-        "circleDescription":"INIADクイズ研究サークルです。入るとクイズが出題される部屋ですあなたはどれくらい解けるでしょうか？お待ちしております。",
+        "circleDescription":"INIADクイズ研究サークルです。入るとクイズが出題される部屋ですあなたはどれくらい解けるでしょうか？",
         "door": {
           "title": "3階廊下3",
           "url": "/road/3103",
@@ -500,7 +500,7 @@
         "gameLink": "https://igc2.jp/exhibition/",
         "title": "igc2 ゲーム",
         "circleTitle": "IGC2 INIAD GAME SHOW 2020",
-        "circleDescription": "INIAD GAME SHOW 2020 当サークルのメンバーが制作したゲームの展示を行います。フルスクリーンで実際に遊べるようになっているのでぜひ遊びにきてください。",
+        "circleDescription": "INIAD GAME SHOW 2020 当サークルのメンバーが制作したゲームの展示を行います。フルスクリーンで実際に遊べるようになっています。",
         "video": {
           "mode": "streaming",
           "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/igc2/video.m3u8"
@@ -520,7 +520,7 @@
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/road.svg"
         },
         "circleTitle": "写真コンテスト",
-        "circleDescription": "これから設立予定のカメラサークルID/graphです。みなさんの写真を集めてコンテストを開催します。どなたでも応募可能！当日の飛び入り参加も大歓迎！もちろん投票するだけでもOKです！覗いてみませんか？お待ちしております！！公式Twitter：https://mobile.twitter.com/INIAD_id_graph",
+        "circleDescription": "これから設立予定のカメラサークルID/graphです。みなさんの写真を集めてコンテストを開催します。どなたでも応募可能！当日の飛び入り参加も大歓迎！もちろん投票するだけでもOKです！覗いてみませんか？お待ちしております！！",
         "mode": "photoList",
         "iframeCode": "<iframe width=\"100%\" height=\"100%\" src=\"https://idgraph-fes2020.herokuapp.com/\"></iframe>",
         "escapeGameQuestion": {
