@@ -7,6 +7,7 @@ import styled, { css } from "styled-components";
 import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
 import ViewingProp from "../../../../typings/ViewingProp";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   oneVideoProps: OneVideoEnvAttr;
@@ -26,6 +27,7 @@ function OneVideoContent({ oneVideoProps: env, history, viewingScreen }: Props) 
   };
   return (
     <Wrapper leftOrRight={env.leftOrRight}>
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

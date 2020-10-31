@@ -17,6 +17,7 @@ import {
   incrementGrade,
 } from "../../../../redux/modules/escapeGameUserInfo";
 import VideoModal from "../../../molecules/VideoModal";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   pdfEnvProps: PDFRoomEnvAttr;
@@ -47,7 +48,7 @@ const judgeUsersCourseProps = (
   }
 };
 
-function PDFRoomContent({ pdfEnvProps, history }: Props) {
+function PDFRoomContent({ pdfEnvProps: env, history }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
@@ -60,16 +61,17 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
   );
   const q2Answer = userAnswer.q2;
 
-  const usersCourseQuestion = judgeUsersCourseProps(course, pdfEnvProps);
+  const usersCourseQuestion = judgeUsersCourseProps(course, env);
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
-        imgPath={pdfEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={pdfEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(pdfEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
       <ObjectMark
@@ -85,16 +87,16 @@ function PDFRoomContent({ pdfEnvProps, history }: Props) {
       <PDFModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        pdfProps={pdfEnvProps.pdfProps}
+        pdfProps={env.pdfProps}
         isMobile={false}
       />
       <VideoModal
         isMobile={false}
         isShow={isShowVideoModal}
         onClose={() => changeIsShowVideoModal(false)}
-        title={pdfEnvProps.title}
-        description={pdfEnvProps.description}
-        videoPropList={[pdfEnvProps.videoProps]}
+        title={env.title}
+        description={env.description}
+        videoPropList={[env.videoProps]}
       />
       {usersCourseQuestion ? (
         <React.Fragment>

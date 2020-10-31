@@ -1,5 +1,4 @@
-  [
-    {
+  [{
       "type": "school-gate",
       "name": "school-gate1",
       "environment_attributes": {
@@ -298,6 +297,8 @@
         "title": "INIActors",
         "leftOrRight": "left",
         "description": "本公演の写真撮影・録画・録音はしないでください。",
+        "circleTitle": "INIActors　演劇公演『猿の腕』『ヴェニスの商人』",
+        "circleDescription": "舞台公演『猿の腕』『ヴェニスの商人』（各40分程）２つの演目の間にはここでしか見られないマル秘映像を日替わりでお届けします！是非ご覧ください。",
         "escapeGameQuestion": {
           "grade": 1,
           "course": null,
@@ -330,6 +331,8 @@
         "mode": "oneVideo",
         "title": "実行委員ラジオ",
         "description": "実行委員会のラジオです。",
+        "circleTitle": "INIAD-FES実行委員ラジオ",
+        "circleDescription": "INIAD-FESの実行委員会のラジオです。色々語ります。",
         "door": {
           "url": "/road/3101",
           "title": "3階廊下1",
@@ -350,6 +353,8 @@
         "leftOrRight": "left",
         "description": "",
         "title": "Web研究会",
+        "circleTitle": "Web研究会",
+        "circleDescription": "出張 INIAD Times 普段、学内Web新聞を作っているWebメディア研究会が、INIADってどんなところ？どんな勉強をするの？INIAD生の普段の生活は？など受験生向けに動画でINIADを紹介します！",
         "door": {
           "title": "3階廊下2",
           "url": "/road/3102",
@@ -370,6 +375,8 @@
         "mode": "pdfRoom",
         "title": "Digi Health",
         "description": "",
+        "circleTitle": "Digi Health",
+        "circleDescription": "こんにちは！私たちは、SDGs の Goal3 「すべての人に健康と福祉を」の達成を助けることを目標に活動しているINIAD3年生の実習チームです。みなさんは自分の「健康」について日ごろ考えることはありますか？「健康って言われても…」とか「SDGsって何だろう？」と思ったそこのあなた！良かったら見に来てください！チャットを使ってリアルタイムでお話もできます。INIAD生、特に留学生と交流したいという方もぜひどうぞ！日本語でも英語でも対応できます！",
         "engEscapeGameQuestion": {
           "grade": 2,
           "course": "engineer",
@@ -428,6 +435,8 @@
         "room_id": $chat_id,
         "leftOrRight": "left",
         "mode": "youtube",
+        "circleTitle": "INIAD Minecraft",
+        "circleDescription": "今年もやりますマイクラジェットコースター体験！オンライン開催の今年は、360°の動画でマインクラフトの世界を体感しよう！",
         "door": {
           "url": "/road/3103",
           "title": "3階廊下3",
@@ -444,6 +453,8 @@
         "room_id": $chat_id,
         "leftOrRight": "right",
         "mode": "oneVideo",
+        "circleTitle": "INIAD Developers",
+        "circleDescription": "受験を終えて約半年になる1年生が主体となって行います！2日間でゲーム作りに挑戦したり、オンラインでのINIADの授業・大学受験などをテーマに座談会を行ったり、パソコンを分解したり......INIAD・パソコン・プログラミングに興味を持って頂ける様なバラエティ豊かな企画を行います！随時コメントでの質問・感想を受け付けています！その時拾うことが出来なかった質問も質問会にてお答えします！",
         "title": "INIAD Developers",
         "description": "INIAD Developersです",
         "door": {
@@ -463,13 +474,15 @@
       "environment_attributes": {
         "room_id": $chat_id,
         "leftOrRight": "right",
+        "circleTitle": "INIAD　クイズ大会",
+        "circleDescription":"INIADクイズ研究サークルです。入るとクイズが出題される部屋ですあなたはどれくらい解けるでしょうか？",
         "door": {
           "title": "3階廊下3",
           "url": "/road/3103",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/road.svg"
         },
-      "mode": "iframeRoom",
-      "iframeCode": "<iframe width=\"100%\" height=\"100%\" src=\"https://iniadfes-questionnaire.storage.googleapis.com/index.html\"></iframe>"
+        "mode": "iframeRoom",
+        "iframeCode": "<iframe width=\"100%\" height=\"100%\" src=\"https://iniadfes-questionnaire.storage.googleapis.com/index.html\"></iframe>"
       }
     },
     {
@@ -486,6 +499,8 @@
         "mode": "igc2",
         "gameLink": "https://igc2.jp/exhibition/",
         "title": "igc2 ゲーム",
+        "circleTitle": "IGC2 INIAD GAME SHOW 2020",
+        "circleDescription": "INIAD GAME SHOW 2020 当サークルのメンバーが制作したゲームの展示を行います。フルスクリーンで実際に遊べるようになっています。",
         "video": {
           "mode": "streaming",
           "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/igc2/video.m3u8"
@@ -504,6 +519,8 @@
           "url": "/road/4101",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/road.svg"
         },
+        "circleTitle": "写真コンテスト",
+        "circleDescription": "これから設立予定のカメラサークルID/graphです。みなさんの写真を集めてコンテストを開催します。どなたでも応募可能！当日の飛び入り参加も大歓迎！もちろん投票するだけでもOKです！覗いてみませんか？お待ちしております！！",
         "mode": "photoList",
         "iframeCode": "<iframe width=\"100%\" height=\"100%\" src=\"https://idgraph-fes2020.herokuapp.com/\"></iframe>",
         "escapeGameQuestion": {
@@ -536,6 +553,8 @@
         },
         "title": "RAISON DETRE",
         "mode": "musics",
+        "circleTitle": "RYDEEN Remixes",
+        "circleDescription": "INIAD公認サークルRAISON DÊTREです。DAWソフトウェアを用いての楽曲制作(DTM)をメインに活動しています。今回はサークル内の企画で制作したYMO -RYDEENのリミックス曲を中心に、これまで部員達が作曲したほぼ全ての楽曲を用意しました！教室内で試聴できるのでぜひ遊びに来てください！",
         "engEscapeGameQuestion": {
           "grade": 4,
           "course": "engineer",
@@ -611,6 +630,8 @@
         "room_id": $chat_id,
         "mode": "tatfo",
         "leftOrRight": "right",
+        "circleTitle": "To next ●● future!",
+        "circleDescription": "あなたは未来、どんな地球であって欲しいですか？SDGsをご存知ですか？今、話題になっていると思います。私達TATFO(タットフォー)では、SDGsを主軸に活動しています。今年のINIAD-FESでは、全世代の方が楽しく学べるコンテンツを用意しております。ご家庭で、子供同士で、皆で楽しく学んでみませんか？ぜひ、気軽に訪れてみてください!お待ちしております！",
         "door": {
           "title": "4階廊下2",
           "url": "/road/4102",
@@ -647,6 +668,8 @@
       "environment_attributes": {
         "room_id": $chat_id,
         "mode": "iframeRoom",
+        "circleTitle": "QUE HUONG(ふるさと）",
+        "circleDescription": "コロナ禍で対面のフェスティバルができませんが、オンラインで開催します。今年はARでベトナムの特産品等を提供します。インスタグラムのライブストーリーも行う予定です。当日お待ちしております。",
         "door": {
           "title": "4階廊下3",
           "url": "/road/4103",
@@ -662,6 +685,8 @@
       "environment_attributes": {
         "room_id": $chat_id,
         "mode": "trpgRoom",
+        "circleTitle": "Noah’s Ark　活動報告会",
+        "circleDescription": "Noah’s ArkではボードゲームやTRPGといった非電源ゲームをサークルメンバーで隔週水曜日にワイワイ遊んでいます。今回の学祭では普段のサークル活動の様子を紹介します。ボードゲームはオンラインでも遊べるものから実際に対面で行うもの、TRPGは実際のセッションの様子や来場者参加型企画も行う予定です。コロナ禍で人と会う機会が少ない世の中ですが、オンラインでも遊ぶことができる「非電源ゲーム」の魅力を少しでも届けることができれば嬉しいです。",
         "door": {
           "title": "4階廊下3",
           "url": "/road/4103",
@@ -679,6 +704,8 @@
       "name": "4100",
       "environment_attributes": {
         "room_id": $chat_id,
+        "circleTitle": "INIAD Art Works Gallery",
+        "circleDescription": "Iniad Art Worksのサークルメンバーの描いたイラストを展示しております。是非、足を運んでみてください！お待ちしております！！",
         "leftOrRight": "left",
         "door": {
           "title": "4階廊下3",
@@ -734,6 +761,12 @@
         "description": "Art Worksの書いてきた絵です",
         "title": "Art Works"
       }
+    },
+    {
+      "type": "fusen",
+      "name": "tatfo-fusen",
+      "environment_attributes": {
+        "room_id": $chat_id
+      }
     }
-
   ]

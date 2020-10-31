@@ -8,6 +8,8 @@ import styled from "styled-components";
 import PDFModal from "../../../molecules/PDFModal";
 import VideoModal from "../../../molecules/VideoModal";
 import ViewingProp from "../../../../typings/ViewingProp";
+import FusenModal from "../../../organisms/FusenModal/FusenModal";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   tatfoEnvProps: TATFOEnvAttr;
@@ -21,27 +23,29 @@ const dataControllId = {
   objButton3: "tatforoomcontent-obj-button3",
   objButton4: "tatforoomcontent-obj-button4",
   videoButton: "tatfovideocntent-obj-button",
+  fusenButton: "tatfofusen-button",
   door: "tatforoomcontent-left-door",
 };
 
-function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
+function TATFORoomContent({ tatfoEnvProps: env, history, viewingScreen }: Props) {
   const [isShowPDF1Modal, changeIsShowPDF1Modal] = useState(false);
   const [isShowPDF2Modal, changeIsShowPDF2Modal] = useState(false);
   const [isShowPDF3Modal, changeIsShowPDF3Modal] = useState(false);
   const [isShowPDF4Modal, changeIsShowPDF4Modal] = useState(false);
   const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
+  const [isShowFusen, changeIsShowFusen] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
   return (
     <Wrapper>
-      TATFORoom
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
-        imgPath={tatfoEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={tatfoEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(tatfoEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
       <ObjectMark
@@ -53,7 +57,7 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
         isShow={isShowPDF1Modal}
         onClose={() => changeIsShowPDF1Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.pdfPropList[0]}
+        pdfProps={env.pdfPropList[0]}
         viewing={viewingScreen}
       />
       <ObjectMark
@@ -66,7 +70,7 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
         onClose={() => changeIsShowPDF2Modal(false)}
         isMobile={false}
         viewing={viewingScreen}
-        pdfProps={tatfoEnvProps.pdfPropList[1]}
+        pdfProps={env.pdfPropList[1]}
       />
       <ObjectMark
         title="SDGsを知ろう！"
@@ -77,7 +81,7 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
         isShow={isShowPDF3Modal}
         onClose={() => changeIsShowPDF3Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.pdfPropList[2]}
+        pdfProps={env.pdfPropList[2]}
         viewing={viewingScreen}
       />
       <ObjectMark
@@ -89,7 +93,7 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
         isShow={isShowPDF4Modal}
         onClose={() => changeIsShowPDF4Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.pdfPropList[3]}
+        pdfProps={env.pdfPropList[3]}
         viewing={viewingScreen}
       />
       <ObjectMark
@@ -101,9 +105,20 @@ function TATFORoomContent({ tatfoEnvProps, history, viewingScreen }: Props) {
         isShow={isShowVideoModal}
         onClose={() => changeIsShowVideoModal(false)}
         isMobile={false}
-        videoPropList={[tatfoEnvProps.videoProps]}
+        videoPropList={[env.videoProps]}
         title="TATFO 動画"
         viewingScreen={viewingScreen}
+      />
+      <ObjectMark
+        title="付箋"
+        onClick={() => changeIsShowFusen(true)}
+        dataControllId={dataControllId.fusenButton}
+      />
+      <FusenModal
+      isMobile={false}
+      isShow={isShowFusen}
+      onClose={() => {changeIsShowFusen(false)}}
+      viewingScreen={viewingScreen}
       />
     </Wrapper>
   );
@@ -147,6 +162,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 23%;
       right: 36%;
+    }
+
+    &[data-controll-id=${dataControllId.fusenButton}] {
+      position: absolute;
+      top: 5%;
+      right: 48%;
     }
   }
 `;
