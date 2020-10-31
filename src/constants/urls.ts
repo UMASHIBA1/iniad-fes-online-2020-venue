@@ -15,3 +15,5 @@ export const roomApiUrl = `https://${baseUrl}/api/rooms/`;
 
 // fusen
 export const postFusenUrl = `https://${baseUrl}/api/chat/post`;
+
+export const questionnairePost =(problem_id: string) => `https://${baseUrl}/api/questionnaires/${problem_id}/answer`;

@@ -9,7 +9,8 @@ import Chat from "../../organisms/Chat/Chat";
 import { DispatchType } from "../../../redux/store";
 import { useDispatch } from "react-redux";
 import { showChat } from "../../../redux/modules/isShowChat";
-import { pamphletProps } from "../../../constants/filePath";
+import { pamphletProps, mapUrl } from "../../../constants/filePath";
+import ImgModal from "../ImgModal";
 
 interface Props {
   roomId?: string;
@@ -52,25 +53,23 @@ function FuncButtons({ roomId, isShowChat = true }: Props) {
         />
       </Wrapper>
       <PDFModal
+        isMobile={false}
+        isShow={isShowBook}
+        onClose={() => {
+          changeIsShowBook(false);
+        }}
+        pdfProps={pamphletProps}
+      />
+      <ImgModal
         isShow={isShowMap}
         onClose={() => {
           changeIsShowMap(false);
         }}
-        pdfProps={{
-          url: "/sample.pdf",
-          pageNum: 2,
-        }}
+        src={mapUrl}
+        alt="map"
         isMobile={false}
       />
-      <PDFModal
-      isMobile={false}
-      isShow={isShowBook}
-      onClose={() => {changeIsShowBook(false)}}
-      pdfProps={pamphletProps}
-      />
-      {roomId?(
-        <Chat roomId={roomId} isMobile={false} />
-      ): null}
+      {roomId ? <Chat roomId={roomId} isMobile={false} /> : null}
     </>
   );
 }
@@ -83,7 +82,8 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  >* {
+  z-index: 100;
+  > * {
     margin: 4px 0;
   }
 `;

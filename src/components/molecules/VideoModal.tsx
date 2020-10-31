@@ -96,7 +96,8 @@ const LinkText = styled.div`
 
 const VideoListWrapper = styled.div`
   width: 100%;
-  overflow-y: auto;
+  height: 100%;
+  overflow: auto;
 `;
 
 const TitleWrapper = styled.div`
@@ -122,11 +123,11 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: auto auto 1fr;
   width: calc(100% - 16px);
-  max-height: 90vh;
+  max-height: 70vh;
   min-height: 300px;
   max-width: 98%;
   padding: 0 32px;
-  overflow: hidden;
+  overflow: auto;
 
   ${breakPoints.downSm} {
     padding: 0 16px;

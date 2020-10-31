@@ -37,7 +37,12 @@ const IconImg = styled.img.attrs<Pick<Props, "imgPath" | "roomTitle">>(({imgPath
 const RoomTitle = styled.div`
   width: 70%;
   width: 74%;
+
   font-size: 0.5vw;
+
+  ${breakPoints.downSm} {
+  font-size: 1vw;
+  }
 
 `
 

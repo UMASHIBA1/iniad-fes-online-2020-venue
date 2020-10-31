@@ -13,7 +13,11 @@ const useChatDatas = (roomId: string) => {
   > | null>(null);
 
   const changeDataByReceiveNewChat = (data: ChatAPIType) => {
-    changeChatDatas([...chatDatas, data.payload]);
+    console.log("chat or questionaire", data);
+    if(data.type==="chat") {
+      console.log("isChat: ", data);
+      changeChatDatas([...chatDatas, data.payload]);
+    }
   };
 
   useDidMount(() => {

@@ -39,7 +39,7 @@ function IFramePageModal({
 const ContentWrapper = styled.div`
   ${centerPutChild}
   width: 100%;
-  height: 85vh;
+  height:70vh;
   >* {
     width: 100%;
     height: 100%;

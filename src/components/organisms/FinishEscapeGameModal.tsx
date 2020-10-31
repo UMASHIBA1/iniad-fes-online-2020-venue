@@ -47,7 +47,7 @@ function FinishEscapeGameModal({
   const dispatch = useDispatch();
 
   const checkRestartIsOk = () => {
-    const isOk = window.confirm("リスタートすると同窓会部屋にはもう一度クリアするまで入れなくなるなります。リスタートしてもいいですか？");
+    const isOk = window.confirm("リスタートすると一年生からやり直しになります。リスタートしてもいいですか？");
     if(isOk) {
       dispatch(restartGame());
     }
@@ -65,8 +65,8 @@ function FinishEscapeGameModal({
           <Title
             title={
               isCorrectQuestions.filter((result) => result).length >= 3
-                ? "卒業おめでとう！糖朝に同窓会部屋が出現したよ！"
-                : "やり直し！3問もとけないとは。。。"
+                ? "卒業おめでとう！"
+                : "やり直し！3問解ければ卒業できるよ。。。!"
             }
           />
         </TitleWrapper>
@@ -147,6 +147,7 @@ const Wrapper = styled.div`
   grid-template-rows: 64px auto;
   justify-items: center;
   width: 100%;
+  max-height: 70vh;
 
   >* {
     &[data-controll-id=${controllIds.restartButton}] {
