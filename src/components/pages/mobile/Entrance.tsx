@@ -14,7 +14,11 @@ import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
 import ObjectMark from "../../atoms/ObjectMark";
 import PDFModal from "../../molecules/PDFModal";
-import { pamphletProps } from "../../../constants/filePath";
+import {
+  escapeGameDescriptionUrl,
+  pamphletProps,
+} from "../../../constants/filePath";
+import ImgModal from "../../molecules/ImgModal";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -22,26 +26,34 @@ interface Props {
 
 const controllIds = {
   door: "entrance-door-button-controll",
+  escapeGameObj: "entrance-escapegame",
   pamphlet: "entrance-pamphlet",
 };
 
 function Entrance({ entranceProps }: Props) {
   const history = useHistory();
   const dispatch: DispatchType = useDispatch();
-  const viewingScreen = useTypedSelector(({viewingScreen}) => viewingScreen);
+  const viewingScreen = useTypedSelector(({ viewingScreen }) => viewingScreen);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
 
   const [isShowPamphlet, changeIsShowPamphlet] = useState(false);
+  const [isShowEscapeGameModal, changeIsShowEscapeGameModal] = useState(false);
 
   useDidMount(() => {
     dispatch(toVisited());
   });
 
   return (
-    <RoomWrapper isOneScreen={false} bgImg={entranceImg} roomId={entranceProps[0]?entranceProps[0].environment_attributes.room_id: ""}>
+    <RoomWrapper
+      isOneScreen={false}
+      bgImg={entranceImg}
+      roomId={
+        entranceProps[0] ? entranceProps[0].environment_attributes.room_id : ""
+      }
+    >
       <Wrapper>
         Entrance
         <RoomMark
@@ -72,14 +84,32 @@ function Entrance({ entranceProps }: Props) {
             changeIsShowPamphlet(true);
           }}
         />
+        <ObjectMark
+          title="脱出ゲームについて"
+          color="white"
+          dataControllId={controllIds.escapeGameObj}
+          onClick={() => {
+            changeIsShowEscapeGameModal(true);
+          }}
+        />
         <PDFModal
-        viewing={viewingScreen}
+          viewing={viewingScreen}
           isMobile={false}
           isShow={isShowPamphlet}
           onClose={() => {
             changeIsShowPamphlet(false);
           }}
           pdfProps={pamphletProps}
+        />
+        <ImgModal
+          viewing={viewingScreen}
+          isMobile={false}
+          isShow={isShowEscapeGameModal}
+          onClose={() => {
+            changeIsShowEscapeGameModal(false);
+          }}
+          alt="脱出ゲームがあります！楽しんでね!"
+          src={escapeGameDescriptionUrl}
         />
         <Footer />
       </Wrapper>
@@ -102,10 +132,15 @@ const Wrapper = styled.div`
 
     &[data-controll-id=${controllIds.pamphlet}] {
       position: absolute;
-      top: 38%;
-      right: 5%;
+      top: 40%;
+      left: 47%;
     }
 
+    &[data-controll-id=${controllIds.escapeGameObj}] {
+      position: absolute;
+      top: 17.5%;
+      right: 5%;
+    }
   }
 `;
 
