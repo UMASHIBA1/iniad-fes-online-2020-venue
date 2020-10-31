@@ -43,6 +43,8 @@ export interface PDFRoomEnvAttr {
   pdfProps: PDFProps;
   videoProps: VideoProps;
   leftOrRight: LeftOrRight;
+  circleTitle: string;
+  circleDescription: string;
   engEscapeGameQuestion?: EscapeGameQuestion;
   designEscapeGameQuestion?: EscapeGameQuestion;
   busiEscapeGameQuestion?: EscapeGameQuestion;
@@ -54,6 +56,8 @@ export interface MusicEnvAttr {
   room_id: string;
   door: RoomEnvLinkProps;
   title: string;
+  circleTitle: string;
+  circleDescription: string;
   pickUpIframes: string[];
   musicIframes: string[];
   leftOrRight: LeftOrRight;
@@ -69,7 +73,9 @@ export interface VideoListEnvAttr {
   door: RoomEnvLinkProps;
   escapeGameQuestion?: EscapeGameQuestion;
   title: string;
-  description?: string;
+  description: string;
+  circleTitle: string;
+  circleDescription: string;
   VideoProps: VideoProps[];
   leftOrRight: LeftOrRight;
   link?: {
@@ -78,20 +84,12 @@ export interface VideoListEnvAttr {
   }
 }
 
-interface TwitterProps {
-  sns: "twitter";
-  tweetId: string;
-}
-
-interface InstagramProps {
-  sns: "instagram";
-  instagramLink: string;
-}
-
 export interface PhotoListEnvAttr {
   mode: "photoList";
   room_id: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
+  circleDescription: string;
   iframeCode: string;
   escapeGameQuestion?: EscapeGameQuestion;
   leftOrRight: LeftOrRight;
@@ -101,6 +99,8 @@ export interface IGC2EnvAttr {
   mode: "igc2";
   room_id: string;
   title: string;
+  circleTitle: string;
+  circleDescription: string;
   door: RoomEnvLinkProps;
   gameLink: string;
   video: VideoProps;
@@ -114,7 +114,9 @@ export interface TATFOEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
   description: string;
+  circleDescription: string;
   videoProps: VideoProps;
   pdfPropList: PDFProps[];
   leftOrRight: LeftOrRight;
@@ -125,7 +127,9 @@ export interface OneVideoEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
   description: string;
+  circleDescription: string;
   videoProps: VideoProps;
   leftOrRight: LeftOrRight;
 }
@@ -135,6 +139,8 @@ export interface ArtListEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
+  circleDescription: string;
   description: string;
   artList: {
     url: string;
@@ -148,6 +154,9 @@ export interface YoutubeEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  description: string;
+  circleTitle: string;
+  circleDescription: string;
   youtubelink: string;
   leftOrRight: LeftOrRight;
 }
@@ -156,6 +165,8 @@ export interface IframeEnvAttr {
   mode:"iframeRoom";
   room_id: string;
   door: RoomEnvLinkProps;
+  circleDescription: string;
+  circleTitle: string;
   iframeCode: string;
   leftOrRight: LeftOrRight;
 }
@@ -164,6 +175,9 @@ export interface TRPGEnvAttr {
   mode: "trpgRoom";
   room_id: string;
   door: RoomEnvLinkProps;
+  circleTitle: string;
+  circleDescription: string;
+  description: string;
   video: VideoProps;
   leftOrRight: LeftOrRight;
 }

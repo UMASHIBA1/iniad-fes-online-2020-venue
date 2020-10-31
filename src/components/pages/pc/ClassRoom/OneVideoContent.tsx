@@ -5,6 +5,7 @@ import { OneVideoEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps
 import RoomMark from "../../../atoms/RoomMark";
 import styled, { css } from "styled-components";
 import ClassRoomVideo from "../../../organisms/ClassRoomVideo";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   oneVideoProps: OneVideoEnvAttr;
@@ -21,6 +22,7 @@ function OneVideoContent({ oneVideoProps: env, history }: Props) {
   };
   return (
     <Wrapper leftOrRight={env.leftOrRight}>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

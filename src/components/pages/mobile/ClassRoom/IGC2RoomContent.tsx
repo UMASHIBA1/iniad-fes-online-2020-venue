@@ -13,6 +13,7 @@ import breakPoints from "../../../../constants/breakPoints";
 import ViewingProp from "../../../../typings/ViewingProp";
 import VideoModal from "../../../molecules/VideoModal";
 import { normalShadow } from "../../../../cssProps/shadow";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 
 interface Props {
@@ -33,7 +34,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history, viewingScreen }: Props) {
   };
   return (
     <Wrapper>
-      IGC2
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

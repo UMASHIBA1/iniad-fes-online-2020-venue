@@ -5,6 +5,7 @@ import { OneVideoEnvAttr, YoutubeEnvAttr } from "../../../../typings/RoomPropTyp
 import RoomMark from "../../../atoms/RoomMark";
 import styled, { css } from "styled-components";
 import YoutubeEmbed from "../../../organisms/YoutubeEmbed";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   youtubeRoomProps: YoutubeEnvAttr;
@@ -21,6 +22,7 @@ function YouTubeRoomContent({ youtubeRoomProps: env, history }: Props) {
   };
   return (
     <Wrapper leftOrRight={env.leftOrRight}>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

@@ -7,6 +7,7 @@ import styled from "styled-components";
 import ObjectMark from "../../../atoms/ObjectMark";
 import TRPGModal from "../../../organisms/TRPGModal";
 import useQuestionaireDatas from "../../../../hooks/useQuestionaireDatas";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   trpgRoomProps: TRPGEnvAttr;
@@ -42,6 +43,7 @@ function TRPGRoomContent({ trpgRoomProps: env, history }: Props) {
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
