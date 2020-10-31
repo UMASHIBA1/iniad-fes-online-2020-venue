@@ -13,6 +13,9 @@ import {
 import getRoomDatas from "../utils/getRoomDatas";
 import entranceIcon from "../statics/svgs/restaurant.svg";
 import useDidMount from "./useDidMount/useDidMount";
+import { DispatchType } from "../redux/store";
+import { useDispatch } from "react-redux";
+import { changeRoomId } from "../redux/modules/fusenRooomId";
 
 // FIXME: このhooksを書き換えてmockからちゃんとしたAPIへの移行を行う
 const useRoomDatas = (): RoomAPIDataType => {
@@ -48,6 +51,7 @@ const useRoomDatas = (): RoomAPIDataType => {
 export default useRoomDatas;
 
 export const useDividedRoomDatas = () => {
+  const dispatch: DispatchType = useDispatch();
   const divideDatasByRoomType = (roomDatas: RoomAPIDataType) => {
     const dividedRoomDatas = {
       entrance: [] as EntranceProps[],
@@ -81,6 +85,9 @@ export const useDividedRoomDatas = () => {
           break;
         case "school-gate":
           dividedRoomDatas.schoolGate.push(data);
+          break;
+        case "fusen":
+          dispatch(changeRoomId(data.environment_attributes.room_id));
           break;
       }
     });
