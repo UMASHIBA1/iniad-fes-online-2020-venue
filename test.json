@@ -1,5 +1,4 @@
-  [
-    {
+  [{
       "type": "school-gate",
       "name": "school-gate1",
       "environment_attributes": {
@@ -468,8 +467,8 @@
           "url": "/road/3103",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/road.svg"
         },
-      "mode": "iframeRoom",
-      "iframeCode": "<iframe width=\"100%\" height=\"100%\" src=\"https://iniadfes-questionnaire.storage.googleapis.com/index.html\"></iframe>"
+        "mode": "iframeRoom",
+        "iframeCode": "<iframe width=\"100%\" height=\"100%\" src=\"https://iniadfes-questionnaire.storage.googleapis.com/index.html\"></iframe>"
       }
     },
     {
@@ -486,6 +485,8 @@
         "mode": "igc2",
         "gameLink": "https://igc2.jp/exhibition/",
         "title": "igc2 ゲーム",
+        "circleTitle": "IGC2 INIAD GAME SHOW 2020",
+        "circleDescription": "INIAD GAME SHOW 2020 当サークルのメンバーが制作したゲームの展示を行います。フルスクリーンで実際に遊べるようになっているのでぜひ遊びにきてください。",
         "video": {
           "mode": "streaming",
           "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/igc2/video.m3u8"

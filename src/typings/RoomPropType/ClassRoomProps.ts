@@ -54,6 +54,7 @@ export interface MusicEnvAttr {
   room_id: string;
   door: RoomEnvLinkProps;
   title: string;
+  circleDescription: string;
   pickUpIframes: string[];
   musicIframes: string[];
   leftOrRight: LeftOrRight;
@@ -69,23 +70,14 @@ export interface VideoListEnvAttr {
   door: RoomEnvLinkProps;
   escapeGameQuestion?: EscapeGameQuestion;
   title: string;
-  description?: string;
+  description: string;
+  circleDescription: string;
   VideoProps: VideoProps[];
   leftOrRight: LeftOrRight;
   link?: {
     url: string;
     text: string;
   }
-}
-
-interface TwitterProps {
-  sns: "twitter";
-  tweetId: string;
-}
-
-interface InstagramProps {
-  sns: "instagram";
-  instagramLink: string;
 }
 
 export interface PhotoListEnvAttr {
@@ -101,6 +93,8 @@ export interface IGC2EnvAttr {
   mode: "igc2";
   room_id: string;
   title: string;
+  circleTitle: string;
+  circleDescription: string;
   door: RoomEnvLinkProps;
   gameLink: string;
   video: VideoProps;
@@ -115,6 +109,7 @@ export interface TATFOEnvAttr {
   title: string;
   door: RoomEnvLinkProps;
   description: string;
+  circleDescription: string;
   videoProps: VideoProps;
   pdfPropList: PDFProps[];
   leftOrRight: LeftOrRight;
@@ -126,6 +121,7 @@ export interface OneVideoEnvAttr {
   title: string;
   door: RoomEnvLinkProps;
   description: string;
+  circleDescription: string;
   videoProps: VideoProps;
   leftOrRight: LeftOrRight;
 }
@@ -135,6 +131,7 @@ export interface ArtListEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  circleDescription: string;
   description: string;
   artList: {
     url: string;
@@ -148,6 +145,8 @@ export interface YoutubeEnvAttr {
   room_id: string;
   title: string;
   door: RoomEnvLinkProps;
+  description: string;
+  circleDescription: string;
   youtubelink: string;
   leftOrRight: LeftOrRight;
 }
@@ -164,6 +163,8 @@ export interface TRPGEnvAttr {
   mode: "trpgRoom";
   room_id: string;
   door: RoomEnvLinkProps;
+  circleDescription: string;
+  description: string;
   video: VideoProps;
   leftOrRight: LeftOrRight;
 }

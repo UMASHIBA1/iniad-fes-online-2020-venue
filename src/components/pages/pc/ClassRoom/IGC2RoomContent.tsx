@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { RoomUrlType } from "../../../../constants/links";
 import { IGC2EnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
@@ -11,6 +11,7 @@ import Img from "../../../atoms/Img";
 import Link from "../../../atoms/Link";
 import ClassRoomVideo from "../../../organisms/ClassRoomVideo";
 import { normalShadow } from "../../../../cssProps/shadow";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   igc2EnvProps: IGC2EnvAttr;
@@ -27,6 +28,7 @@ function IGC2RoomContent({ igc2EnvProps: env, history }: Props) {
   };
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

@@ -42,7 +42,7 @@ const sampleObj = {
   name: "example",
 };
 
-const roomDatas: RoomAPIDataType = [
+const roomDatas: any = [
   // school-gate
   {
     type: "school-gate",
@@ -348,6 +348,7 @@ const roomDatas: RoomAPIDataType = [
       mode: "videoList",
       title: "INIActors",
       leftOrRight: "left",
+      circleDescription: "",
       description: `本公演の写真撮影・録画・録音はしないでください。公演パンフレットはこちら https://drive.google.com/file/d/1pB5VO5H1DikLmC_-gF7TbtJ2QL8gWrha/view?usp=sharing`,
       escapeGameQuestion: question1,
       VideoProps: [
