@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import IconButton from "../../atoms/IconButton";
-import mapIcon from "../../../statics/svgs/map-icon.svg";
 import chatIcon from "../../../statics/svgs/chat-icon.svg";
 import scheduleIcon from "../../../statics/svgs/schedule-icon.svg";
 import PDFModal from "../PDFModal";
@@ -17,7 +16,6 @@ interface Props {
 }
 
 function FuncButtons({ roomId, isShowChat = true }: Props) {
-  const [isShowMap, changeIsShowMap] = useState(false);
   const [isShowBook, changeIsShowBook] = useState(false);
   const dispatch: DispatchType = useDispatch();
   const showChatFc = () => {
@@ -27,13 +25,6 @@ function FuncButtons({ roomId, isShowChat = true }: Props) {
   return (
     <>
       <Wrapper>
-        <IconButton
-          svgPath={mapIcon}
-          iconDescription="map"
-          onClick={() => {
-            changeIsShowMap(true);
-          }}
-        />
         {isShowChat ? (
           <IconButton
             svgPath={chatIcon}
@@ -51,17 +42,6 @@ function FuncButtons({ roomId, isShowChat = true }: Props) {
           }}
         />
       </Wrapper>
-      <PDFModal
-        isShow={isShowMap}
-        onClose={() => {
-          changeIsShowMap(false);
-        }}
-        pdfProps={{
-          url: "/sample.pdf",
-          pageNum: 2,
-        }}
-        isMobile={false}
-      />
       <PDFModal
       isMobile={false}
       isShow={isShowBook}
