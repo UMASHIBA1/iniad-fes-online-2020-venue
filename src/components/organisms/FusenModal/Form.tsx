@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import styled from "styled-components";
 import { lightBlueColor } from "../../../constants/colors";
+import { radiusSm } from "../../../cssProps/radius";
 
 interface Props {
   room_id: string;
@@ -49,6 +50,7 @@ const Wrapper = styled.form`
   display: grid;
   grid-template-columns: 80% 20%;
   grid-template-rows: 1fr;
+  ${radiusSm}
 `;
 
 export default Form;

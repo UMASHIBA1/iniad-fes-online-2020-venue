@@ -7,6 +7,7 @@ import useFusenDatas from "../../../hooks/useFusenDatas";
 import ViewingProp from "../../../typings/ViewingProp";
 import sendFusenDatas from "../../../utils/sendFusenDatas";
 import Modal from "../../atoms/Modal/Modal";
+import Title from "../../atoms/Title";
 import Form from "./Form";
 
 interface Props {
@@ -17,7 +18,7 @@ interface Props {
 }
 
 function FusenModal({ isMobile, isShow, onClose, viewingScreen }: Props) {
-  const { fusenTexts, fusenRoomId } = useFusenDatas();
+  const { fusenTexts, fusenRoomId, addFusenText } = useFusenDatas();
   return (
     <Modal
       isMobile={isMobile}
@@ -26,12 +27,18 @@ function FusenModal({ isMobile, isShow, onClose, viewingScreen }: Props) {
       viewing={viewingScreen}
     >
       <Wrapper>
+        <Title title="あなたがSDGsに関して思ったことを書き込んでみよう！" />
         <FusenWrapper>
           {fusenTexts.map((data: string) => {
             return <OneCard>{data}</OneCard>;
           })}
         </FusenWrapper>
-        <Form room_id={fusenRoomId} sendFC={sendFusenDatas} />
+        <Form room_id={fusenRoomId} sendFC={(room_id, text) => {
+          sendFusenDatas(room_id, text).then(() => {
+            addFusenText(text);
+          });
+
+        }} />
       </Wrapper>
     </Modal>
   );
@@ -45,8 +52,8 @@ const OneCard = styled.div`
   ${blackText}
   ${normalShadow(2)}
   padding: 16px;
+  margin: 4px;
   ${radiusSm}
-  height: auto;
 `;
 
 const FusenWrapper = styled.div`
@@ -54,17 +61,21 @@ const FusenWrapper = styled.div`
   flex-wrap: wrap;
   flex-direction: row;
   width: 100%;
-  padding: 16px;
   overflow: auto;
+  max-height: 100%;
 `;
 
 const Wrapper = styled.div`
+  position: relative;
+  top: 0;
+  left: 0;
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: 1fr auto;
+  grid-template-rows: auto 1fr auto;
+  gap: 16px;
   width: 100%;
-  max-height: 85vh;
-  padding: 8px;
+  max-height: 70vh;
+  padding: 16px;
 `;
 
 export default FusenModal;

@@ -16,7 +16,11 @@ const useFusenDatas = () => {
     });
   }, [fusenRoomId]);
 
-  return {fusenRoomId,fusenTexts};
+  const addFusenText = (newText: string) => {
+    changeFusenTexts([...fusenTexts, newText]);
+  }
+
+  return {fusenRoomId,fusenTexts, addFusenText};
 }
 
 export default useFusenDatas;
