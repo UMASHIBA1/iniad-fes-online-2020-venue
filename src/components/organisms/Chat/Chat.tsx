@@ -98,6 +98,7 @@ const Wrapper = styled.div<{isShow: boolean, isMobile: boolean}>`
   ${whiteBGColor}
   ${radiusSm}
   overflow: hidden;
+  z-index: 100;
   ${({isShow}) => !isShow&&css`
     visibility: hidden;
   `}
