@@ -14,7 +14,10 @@ import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
 import ObjectMark from "../../atoms/ObjectMark";
 import PDFModal from "../../molecules/PDFModal";
-import { escapeGameDescriptionUrl, pamphletProps } from "../../../constants/filePath";
+import {
+  escapeGameDescriptionUrl,
+  pamphletProps,
+} from "../../../constants/filePath";
 import ImgModal from "../../molecules/ImgModal";
 
 interface Props {
@@ -69,20 +72,20 @@ function Entrance({ entranceProps }: Props) {
           }}
         />
         <ObjectMark
-        title="パンフレット"
-        color="white"
-        dataControllId={controllIds.pamphlet}
-        onClick={() => {
-          changeIsShowPamphlet(true);
-        }}
+          title="パンフレット"
+          color="white"
+          dataControllId={controllIds.pamphlet}
+          onClick={() => {
+            changeIsShowPamphlet(true);
+          }}
         />
         <ObjectMark
-        title="脱出ゲームについて"
-        color="white"
-        dataControllId={controllIds.escapeGameObj}
-        onClick={() => {
-          changeIsShowEscapeGameModal(true);
-        }}
+          title="脱出ゲームについて"
+          color="white"
+          dataControllId={controllIds.escapeGameObj}
+          onClick={() => {
+            changeIsShowEscapeGameModal(true);
+          }}
         />
         <PDFModal
           isMobile={false}
@@ -111,7 +114,13 @@ function Entrance({ entranceProps }: Props) {
             }}
           />
         ) : null} */}
-        <FuncButtons roomId={entranceProps[0]?entranceProps[0].environment_attributes.room_id: ""} />
+        <FuncButtons
+          roomId={
+            entranceProps[0]
+              ? entranceProps[0].environment_attributes.room_id
+              : ""
+          }
+        />
       </Wrapper>
     </RoomWrapper>
   );
@@ -132,8 +141,8 @@ const Wrapper = styled.div`
 
     &[data-controll-id=${controllIds.pamphlet}] {
       position: absolute;
-      top: 45%;
-      right: 6%;
+      top: 39%;
+      left: 29%;
     }
 
     &[data-controll-id=${controllIds.gotoAlumniAssociationRoom}] {
@@ -144,10 +153,9 @@ const Wrapper = styled.div`
 
     &[data-controll-id=${controllIds.escapeGameObj}] {
       position: absolute;
-      top: 39%;
-      left: 29%;
+      top: 22.5%;
+      right: 8%;
     }
-
   }
 `;
 
