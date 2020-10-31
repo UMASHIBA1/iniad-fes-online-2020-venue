@@ -1,6 +1,7 @@
 
 // NOTE: 本番環境に切り替えるときはこのドメインを変えて
-const baseUrl = "venue.iniadfes.com";
+const baseUrl = process.env.REACT_APP_SERVER_HOST;
+
 
 // NOTE: chat履歴
 export const chatHistory = (roomId: string) => `https://${baseUrl}/api/chat/history?room_id=${roomId}`;
