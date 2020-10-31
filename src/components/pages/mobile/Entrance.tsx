@@ -102,7 +102,7 @@ function Entrance({ entranceProps }: Props) {
           pdfProps={pamphletProps}
         />
         <ImgModal
-        viewing={viewingScreen}
+          viewing={viewingScreen}
           isMobile={false}
           isShow={isShowEscapeGameModal}
           onClose={() => {
@@ -132,14 +132,14 @@ const Wrapper = styled.div`
 
     &[data-controll-id=${controllIds.pamphlet}] {
       position: absolute;
-      top: 38%;
-      right: 5%;
+      top: 40%;
+      left: 47%;
     }
 
     &[data-controll-id=${controllIds.escapeGameObj}] {
       position: absolute;
-      top: 39%;
-      left: 47%;
+      top: 17.5%;
+      right: 5%;
     }
   }
 `;
