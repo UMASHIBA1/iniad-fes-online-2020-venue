@@ -30,7 +30,11 @@ function TRPGRoomContent({ trpgRoomProps: env, history }: Props) {
 
   useEffect(() => {
     if (questionaire) {
-      changeOptionList(questionaire?.object.choices);
+      if(questionaire.object.is_open){
+        changeOptionList(questionaire?.object.choices);
+      }else {
+        changeOptionList(undefined);
+      }
     }
   }, [questionaire]);
 
