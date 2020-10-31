@@ -71,8 +71,8 @@ const Wrapper = styled.div<{ isMobile: boolean }>`
       css`
         &[data-controll-id=${dataControllId.button}] {
           position: absolute;
-          bottom: 7%;
-          left: 3%;
+          top: 7%;
+          left: 50%;
         }
       `}
 
