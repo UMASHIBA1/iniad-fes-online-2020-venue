@@ -7,6 +7,7 @@ import styled, { css } from "styled-components";
 import IFramePageModal from "../../../organisms/IFramePageModal";
 import ObjectMark from "../../../atoms/ObjectMark";
 import ViewingProp from "../../../../typings/ViewingProp";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   iframeRoomProps: IframeEnvAttr;
@@ -27,6 +28,7 @@ function IFrameRoomContent({ iframeRoomProps: env, history, viewingScreen }: Pro
   };
   return (
     <Wrapper leftOrRight={env.leftOrRight}>
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

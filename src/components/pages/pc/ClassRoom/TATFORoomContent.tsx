@@ -8,6 +8,7 @@ import styled from "styled-components";
 import PDFModal from "../../../molecules/PDFModal";
 import ClassRoomVideo from "../../../organisms/ClassRoomVideo";
 import FusenModal from "../../../organisms/FusenModal/FusenModal";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   tatfoEnvProps: TATFOEnvAttr;
@@ -23,7 +24,7 @@ const dataControllId = {
   door: "tatforoomcontent-left-door",
 };
 
-function TATFORoomContent({ tatfoEnvProps, history }: Props) {
+function TATFORoomContent({ tatfoEnvProps: env, history }: Props) {
   const [isShowPDF1Modal, changeIsShowPDF1Modal] = useState(false);
   const [isShowPDF2Modal, changeIsShowPDF2Modal] = useState(false);
   const [isShowPDF3Modal, changeIsShowPDF3Modal] = useState(false);
@@ -34,12 +35,14 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
   };
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={false} description={env.circleDescription} title={env.circleTitle} />
+
       <RoomMark
-        imgPath={tatfoEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={tatfoEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(tatfoEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
       <ObjectMark
@@ -51,7 +54,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
         isShow={isShowPDF1Modal}
         onClose={() => changeIsShowPDF1Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.pdfPropList[0]}
+        pdfProps={env.pdfPropList[0]}
       />
       <ObjectMark
         title="あなたの願う未来は?"
@@ -62,7 +65,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
         isShow={isShowPDF2Modal}
         onClose={() => changeIsShowPDF2Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.pdfPropList[1]}
+        pdfProps={env.pdfPropList[1]}
       />
       <ObjectMark
         title="SDGsを知ろう！"
@@ -73,7 +76,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
         isShow={isShowPDF3Modal}
         onClose={() => changeIsShowPDF3Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.pdfPropList[2]}
+        pdfProps={env.pdfPropList[2]}
       />
       <ObjectMark
         title="TATFOの願う未来"
@@ -84,7 +87,7 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
         isShow={isShowPDF4Modal}
         onClose={() => changeIsShowPDF4Modal(false)}
         isMobile={false}
-        pdfProps={tatfoEnvProps.pdfPropList[3]}
+        pdfProps={env.pdfPropList[3]}
       />
       <ObjectMark
         title="付箋"
@@ -96,7 +99,8 @@ function TATFORoomContent({ tatfoEnvProps, history }: Props) {
       isShow={isShowFusen}
       onClose={() => {changeIsShowFusen(false)}}
       />
-      <ClassRoomVideo videoProps={tatfoEnvProps.videoProps} />
+      <ClassRoomVideo videoProps={env.videoProps} />
+      <ClassRoomVideo videoProps={env.videoProps} />
     </Wrapper>
   );
 }

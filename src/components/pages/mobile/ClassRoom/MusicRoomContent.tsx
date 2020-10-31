@@ -13,6 +13,7 @@ import { DispatchType, useTypedSelector } from "../../../../redux/store";
 import EscapeGameQuestionModal from "../../../molecules/EscapeGameQuestionModal";
 import { answerQ4 } from "../../../../redux/modules/escapeGameUserInfo";
 import FinishEscapeGameModal from "../../../organisms/FinishEscapeGameModal";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   musicEnvProps: MusicEnvAttr;
@@ -43,7 +44,7 @@ const dataControllId = {
   escapeGameButton: "musicRoomContent-escapegame-button",
 };
 
-function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
+function MusicRoomContent({ musicEnvProps: env, history, viewingScreen }: Props) {
   const [isShowModal, changeIsShowModal] = useState(false);
     const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const [isShowFinishGameModal, changeIsShowFinishGameModal] = useState(false);
@@ -57,17 +58,18 @@ function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
   );
   const q4Answer = userAnswer.q4;
 
-  const usersCourseQuestion = judgeUsersCourseProps(course, musicEnvProps);
+  const usersCourseQuestion = judgeUsersCourseProps(course, env);
 
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
-        imgPath={musicEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={musicEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(musicEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
       <ObjectMark
@@ -78,9 +80,9 @@ function MusicRoomContent({ musicEnvProps, history, viewingScreen }: Props) {
       <MusicModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        title={musicEnvProps.title}
-        musics={musicEnvProps.musicIframes}
-        pickupMusics={musicEnvProps.pickUpIframes}
+        title={env.title}
+        musics={env.musicIframes}
+        pickupMusics={env.pickUpIframes}
         viewingScreen={viewingScreen}
         isMobile={true}
       />

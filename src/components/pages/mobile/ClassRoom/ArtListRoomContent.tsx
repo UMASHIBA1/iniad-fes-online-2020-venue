@@ -7,6 +7,7 @@ import { RoomUrlType } from "../../../../constants/links";
 import styled from "styled-components";
 import ArtListModal from "../../../organisms/ArtListModal";
 import ViewingProp from "../../../../typings/ViewingProp";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   artListEnvProps: ArtListEnvAttr;
@@ -27,6 +28,7 @@ function ArtListRoomContent({ artListEnvProps: env, history,viewingScreen }: Pro
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

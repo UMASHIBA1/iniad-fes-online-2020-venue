@@ -7,6 +7,7 @@ import styled, { css } from "styled-components";
 import ObjectMark from "../../../atoms/ObjectMark";
 import ViewingProp from "../../../../typings/ViewingProp";
 import YouTubeModal from "../../../organisms/YouTubeModal";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   youtubeRoomProps: YoutubeEnvAttr;
@@ -26,6 +27,7 @@ function YouTubeRoomContent({ youtubeRoomProps: env, history, viewingScreen }: P
   };
   return (
     <Wrapper leftOrRight={env.leftOrRight}>
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
