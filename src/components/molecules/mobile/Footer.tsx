@@ -57,6 +57,7 @@ const Wrapper = styled.div<{ viewingScreen: ViewingProp }>`
   height: 52px;
   left: 100vw;
   transition: transform 200ms linear;
+  z-index: 100;
 
   ${({ viewingScreen: viewing }) =>
     viewing === "left" &&
