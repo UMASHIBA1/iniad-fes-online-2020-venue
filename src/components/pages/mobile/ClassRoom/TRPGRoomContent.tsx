@@ -37,7 +37,11 @@ function TRPGRoomContent({
 
   useEffect(() => {
     if (questionaire) {
-      changeOptionList(questionaire?.object.choices);
+      if (questionaire.object.is_open) {
+        changeOptionList(questionaire?.object.choices);
+      } else {
+        changeOptionList(undefined);
+      }
     }
   }, [questionaire]);
 
@@ -64,11 +68,13 @@ function TRPGRoomContent({
         viewingScreen={viewingScreen}
         onSubmitQuestionaire={(answer) => {
           if (questionaire) {
-            sendFC({ answer: answer, problem_id: questionaire.object.id }).then(() => {
-              alert("回答を受け取りました。");
-            }).catch((err) => {
-              console.error("アンケートの回答に失敗", err);
-            });
+            sendFC({ answer: answer, problem_id: questionaire.object.id })
+              .then(() => {
+                alert("回答を受け取りました。");
+              })
+              .catch((err) => {
+                console.error("アンケートの回答に失敗", err);
+              });
             changeOptionList(undefined);
           } else {
             alert("申し訳ありません。回答の送信に失敗しました。");
