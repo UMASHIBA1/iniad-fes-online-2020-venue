@@ -29,9 +29,9 @@ const controllIds = {
 function Entrance({ entranceProps }: Props) {
   const history = useHistory();
   const dispatch: DispatchType = useDispatch();
-  const { grade, userAnswer } = useTypedSelector(
-    (state) => state.escapeGameUserInfo
-  );
+  // const { grade, userAnswer } = useTypedSelector(
+  //   (state) => state.escapeGameUserInfo
+  // );
   const [isShowPamphlet, changeIsShowPamphlet] = useState(false);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
@@ -81,7 +81,7 @@ function Entrance({ entranceProps }: Props) {
           }}
           pdfProps={pamphletProps}
         />
-        {grade === 4 && userAnswer.q4 !== null ? (
+        {/* {grade === 4 && userAnswer.q4 !== null ? (
           <RoomMark
             imgPath={iniadfesLogo}
             roomTitle="同窓会部屋"
@@ -90,7 +90,7 @@ function Entrance({ entranceProps }: Props) {
               window.open("https://example.com", "_blank")
             }}
           />
-        ) : null}
+        ) : null} */}
         <FuncButtons roomId={entranceProps[0]?entranceProps[0].environment_attributes.room_id: ""} />
       </Wrapper>
     </RoomWrapper>
