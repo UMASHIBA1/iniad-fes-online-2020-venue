@@ -1,11 +1,12 @@
-  [{
+  [
+    {
       "type": "school-gate",
       "name": "school-gate1",
       "environment_attributes": {
         "gate": {
           "title": "糖朝",
           "url": "/entrance",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/restaurant.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/entrance.png"
         }
       }
     },
@@ -17,7 +18,7 @@
         "door": {
           "url": "/stair/3f",
           "title": "3階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         }
       }
     },
@@ -59,7 +60,7 @@
         "back": {
           "url": "/stair/3f",
           "title": "3階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         }
       }
     },
@@ -80,7 +81,7 @@
         "back": {
           "url": "/stair/4f",
           "title": "4階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         }
       }
     },
@@ -96,12 +97,12 @@
         "down": {
           "url": "/entrance",
           "title": "糖朝",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/restaurant.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/entrance.png"
         },
         "room": {
           "url": "/elevatorFront/3f",
           "title": "3階分岐路",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         }
       }
     },
@@ -112,12 +113,12 @@
         "down": {
           "url": "/stair/3f",
           "title": "3階階段",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/stair-icon.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/stair.png"
         },
         "room": {
           "url": "/elevatorFront/4f",
           "title": "4階分岐路",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         }
       }
     },
@@ -129,12 +130,12 @@
         "back": {
           "url": "/elevatorFront/3f",
           "title": "3階分岐路",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/road/3102",
           "title": "3階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/3110",
@@ -156,12 +157,12 @@
         "back": {
           "url": "/road/3101",
           "title": "3階廊下1",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/road/3103",
           "title": "3階廊下3",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/3106",
@@ -183,7 +184,7 @@
         "back": {
           "url": "/road/3102",
           "title": "3階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/classroom/3100",
@@ -215,7 +216,7 @@
         "next": {
           "url": "/road/4102",
           "title": "4階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/4110",
@@ -237,12 +238,12 @@
         "back": {
           "url": "/road/4101",
           "title": "4階廊下1",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/road/4103",
           "title": "4階廊下3",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-next.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-next.png"
         },
         "doorLeft1": {
           "url": "/classroom/4106",
@@ -264,7 +265,7 @@
         "back": {
           "url": "/road/4102",
           "title": "4階廊下2",
-          "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/arrow-back.svg"
+          "imgPath": "https://storage.googleapis.com/iniadfes/public/imgMaterialIcons/arrow-back.png"
         },
         "next": {
           "url": "/classroom/4100",
@@ -296,7 +297,7 @@
         "mode": "videoList",
         "title": "INIActors",
         "leftOrRight": "left",
-        "description": "本公演の写真撮影・録画・録音はしないでください。公演パンフレットはこちら https://drive.google.com/file/d/1pB5VO5H1DikLmC_-gF7TbtJ2QL8gWrha/view?usp=sharing",
+        "description": "本公演の写真撮影・録画・録音はしないでください。",
         "escapeGameQuestion": {
           "grade": 1,
           "course": null,
@@ -313,7 +314,11 @@
             "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/actorsRoom_2/video.m3u8",
             "mode": "streaming"
           }
-        ]
+        ],
+        "link": {
+          "url": "https://drive.google.com/file/d/1pB5VO5H1DikLmC_-gF7TbtJ2QL8gWrha/view?usp=sharing",
+          "text": "公演パンフレットはこちら"
+        }
       }
     },
     {
@@ -352,7 +357,7 @@
         },
         "videoProps": {
           "mode": "streaming",
-          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/webMedia/video.m3u8"
+          "url": "https://storage.googleapis.com/iniadfes/public/hls-movies/webMedia_new/video.m3u8"
         }
       }
     },
@@ -463,11 +468,8 @@
           "url": "/road/3103",
           "imgPath": "https://storage.googleapis.com/iniadfes/public/svgs/road.svg"
         },
-        "mode": "oneObj",
-        "obj1": {
-          "url": "example.com",
-          "name": "example"
-        }
+      "mode": "iframeRoom",
+      "iframeCode": "<iframe width=\"100%\" height=\"100%\" src=\"https://iniadfes-questionnaire.storage.googleapis.com/index.html\"></iframe>"
       }
     },
     {

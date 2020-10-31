@@ -1,16 +1,14 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import IconButton from "../../atoms/IconButton";
-import mapIcon from "../../../statics/svgs/map-icon.svg";
 import chatIcon from "../../../statics/svgs/chat-icon.svg";
 import scheduleIcon from "../../../statics/svgs/schedule-icon.svg";
 import PDFModal from "../PDFModal";
-import dummyImg from "../../../statics/dummy.png";
-import ImgModal from "../ImgModal";
 import Chat from "../../organisms/Chat/Chat";
 import { DispatchType } from "../../../redux/store";
 import { useDispatch } from "react-redux";
 import { showChat } from "../../../redux/modules/isShowChat";
+import { pamphletProps } from "../../../constants/filePath";
 
 interface Props {
   roomId?: string;
@@ -18,8 +16,7 @@ interface Props {
 }
 
 function FuncButtons({ roomId, isShowChat = true }: Props) {
-  const [isShowMap, changeIsShowMap] = useState(false);
-  const [isShowPlan, changeIsShowPlan] = useState(false);
+  const [isShowBook, changeIsShowBook] = useState(false);
   const dispatch: DispatchType = useDispatch();
   const showChatFc = () => {
     dispatch(showChat());
@@ -28,13 +25,6 @@ function FuncButtons({ roomId, isShowChat = true }: Props) {
   return (
     <>
       <Wrapper>
-        <IconButton
-          svgPath={mapIcon}
-          iconDescription="map"
-          onClick={() => {
-            changeIsShowMap(true);
-          }}
-        />
         {isShowChat ? (
           <IconButton
             svgPath={chatIcon}
@@ -48,30 +38,15 @@ function FuncButtons({ roomId, isShowChat = true }: Props) {
           svgPath={scheduleIcon}
           iconDescription="book"
           onClick={() => {
-            changeIsShowPlan(true);
+            changeIsShowBook(true);
           }}
         />
       </Wrapper>
       <PDFModal
-        isShow={isShowMap}
-        onClose={() => {
-          changeIsShowMap(false);
-        }}
-        pdfProps={{
-          url: "/sample.pdf",
-          pageNum: 2,
-        }}
-        isMobile={false}
-      />
-      <ImgModal
-        isShow={isShowPlan}
-        onClose={() => {
-          changeIsShowPlan(false);
-        }}
-        src={dummyImg}
-        // FIXME: もし画像でプランを表示させるなら視覚障がい者ようにaltでちゃんとしたプランの一覧を書かないといけない
-        alt="plan"
-        isMobile={false}
+      isMobile={false}
+      isShow={isShowBook}
+      onClose={() => {changeIsShowBook(false)}}
+      pdfProps={pamphletProps}
       />
       {roomId?(
         <Chat roomId={roomId} isMobile={false} />

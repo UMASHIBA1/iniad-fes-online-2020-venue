@@ -478,6 +478,8 @@ const roomDatas: RoomAPIDataType = [
     type: "classroom",
     name: "3100",
     environment_attributes: {
+      mode: "iframeRoom",
+      iframeCode: "",
       room_id: "",
       leftOrRight: "right",
       door: {
@@ -485,8 +487,6 @@ const roomDatas: RoomAPIDataType = [
         url: links.road("3103"),
         imgPath: roadIcon,
       },
-      mode: "oneObj",
-      obj1: sampleObj,
     },
   },
   {
@@ -638,7 +638,7 @@ const roomDatas: RoomAPIDataType = [
       door: {
         title: "4階廊下3",
         url: links.road("4103"),
-        imgPath: noahsArkIcon,
+        imgPath: roadIcon,
       },
       leftOrRight: "right",
       video: {

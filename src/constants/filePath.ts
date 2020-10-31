@@ -3,4 +3,4 @@ export const pamphletProps = {
   url: "https://storage.googleapis.com/iniadfes/public/pamphlet.pdf"
 };
 
-export const welcomeImg = "https://storage.googleapis.com/iniadfes/public/igc2-sumbnail.jpg";
+export const welcomeImg = "https://storage.googleapis.com/iniadfes/public/welcome-img.png";

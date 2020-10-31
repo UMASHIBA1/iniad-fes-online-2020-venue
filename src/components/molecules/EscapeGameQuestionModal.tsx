@@ -7,7 +7,7 @@ import ViewingProp from "../../typings/ViewingProp";
 import Button from "../atoms/Button/Button";
 import Checkboxs from "../atoms/Checkboxs";
 import Modal from "../atoms/Modal/Modal";
-import Select from "../atoms/RadioSelect";
+import RadioSelect from "../atoms/RadioSelect";
 import TextInput from "../atoms/TextInput";
 
 interface Props {
@@ -73,7 +73,7 @@ function EscapeGameQuestionModal({
               e.preventDefault();
             }}
           >
-            <Select
+            <RadioSelect
               name={escapeGameProps.title}
               value={selectValue ? selectValue : ""}
               onChange={(value) => {
@@ -222,7 +222,7 @@ function EscapeGameQuestionModal({
               e.preventDefault();
             }}
           >
-            <Select
+            <RadioSelect
               name={escapeGameProps.title}
               value={selectValue ? selectValue : ""}
               onChange={(value) => {

@@ -1,25 +1,44 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import styled from "styled-components";
 import { RoomUrlType } from "../../../../constants/links";
 import { TRPGEnvAttr } from "../../../../typings/RoomPropType/ClassRoomProps";
 import RoomMark from "../../../atoms/RoomMark";
-import ClassRoomVideo from "../../../organisms/ClassRoomVideo";
+import styled from "styled-components";
+import ObjectMark from "../../../atoms/ObjectMark";
+import TRPGModal from "../../../organisms/TRPGModal";
+import useQuestionaireDatas from "../../../../hooks/useQuestionaireDatas";
 
 interface Props {
-  trpgEnvProps: TRPGEnvAttr;
+  trpgRoomProps: TRPGEnvAttr;
   history: ReturnType<typeof useHistory>;
 }
 
 const dataControllId = {
-  objButton: "photolistRoomContent-obj-button",
-  door: "photolistRoomContent-left-door",
+  door: "oneVideoRoomContent-left-door",
+  objButton: "onevideoroomcontent-obj-button",
 };
 
-function TRPGRoomContent({ trpgEnvProps: env, history }: Props) {
+function TRPGRoomContent({ trpgRoomProps: env, history }: Props) {
+  const [isShowModal, changeIsShowModal] = useState(false);
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
   };
+  const [optionList, changeOptionList] = useState<string[] | undefined>(
+    undefined
+  );
+  const { questionaire, sendFC } = useQuestionaireDatas(env.room_id);
+
+  useEffect(() => {
+    if (questionaire) {
+      if(questionaire.object.is_open){
+        changeOptionList(questionaire?.object.choices);
+      }else {
+        changeOptionList(undefined);
+      }
+    }
+  }, [questionaire]);
+
+  console.log("questionaire change", questionaire);
 
   return (
     <Wrapper>
@@ -31,7 +50,30 @@ function TRPGRoomContent({ trpgEnvProps: env, history }: Props) {
           gotoTargetUrl(env.door.url);
         }}
       />
-      <ClassRoomVideo videoProps={env.video} />
+      <ObjectMark
+        title="TRPG"
+        onClick={() => changeIsShowModal(true)}
+        dataControllId={dataControllId.objButton}
+      />
+      <TRPGModal
+        isMobile={false}
+        isShow={isShowModal}
+        onClose={() => changeIsShowModal(false)}
+        video={env.video}
+        onSubmitQuestionaire={(answer) => {
+          if (questionaire) {
+            sendFC({ answer: answer, problem_id: questionaire.object.id }).then((res) => {
+            alert("回答を受け取りました。");
+            }).catch((err) => {
+              console.error("アンケートの回答に失敗", err);
+            });
+            changeOptionList(undefined);
+          } else {
+            alert("申し訳ありません。回答の送信に失敗しました。");
+          }
+        }}
+        optionList={optionList}
+      />
     </Wrapper>
   );
 }
@@ -44,14 +86,17 @@ const Wrapper = styled.div`
   height: 100%;
 
   > button {
-
-        &[data-controll-id=${dataControllId.door}] {
-          position: absolute;
-          top: 40%;
-          left: 3%;
-        }
+    &[data-controll-id=${dataControllId.door}] {
+      position: absolute;
+      top: 40%;
+      left: 3%;
+    }
+    &[data-controll-id=${dataControllId.objButton}] {
+      position: absolute;
+      top: 23%;
+      left: 36%;
+    }
   }
 `;
-
 
 export default TRPGRoomContent;

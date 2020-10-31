@@ -35,7 +35,9 @@ function Hall({ hallProps }: Props) {
   return (
     <RoomWrapper isOneScreen={false} bgImg={hallImg}>
       <Wrapper>
-        <RoomMark
+        {hallProps[0]&& hallProps[0].environment_attributes ? (
+          <React.Fragment>
+                    <RoomMark
           imgPath={hallProps[0]?hallProps[0].environment_attributes.doorLeft.imgPath: iniadfesLogo}
           roomTitle={
             hallProps[0]
@@ -70,6 +72,8 @@ function Hall({ hallProps }: Props) {
           dataControllId={dataControllIds.door2}
         />
         <Footer />
+          </React.Fragment>
+        ): "教室情報のデータがありませんでした。"}
       </Wrapper>
     </RoomWrapper>
   );
