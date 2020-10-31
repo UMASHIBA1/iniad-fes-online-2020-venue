@@ -3,6 +3,7 @@ import isFisrtVisitReducer from "./modules/isFirstVisit";
 import viewingScreenReducer from "./modules/viewingScreen";
 import escapeGameUserInfoReducer from "./modules/escapeGameUserInfo";
 import isShowChat from "./modules/isShowChat";
+import fusenRoomIdReducer from "./modules/fusenRooomId"
 import { TypedUseSelectorHook, useSelector } from "react-redux";
 
 const store = configureStore({
@@ -10,7 +11,8 @@ const store = configureStore({
     isFirstVisit: isFisrtVisitReducer,
     viewingScreen: viewingScreenReducer,
     escapeGameUserInfo: escapeGameUserInfoReducer,
-    isShowChat: isShowChat
+    isShowChat: isShowChat,
+    fusenRoomId: fusenRoomIdReducer,
   },
 });
 

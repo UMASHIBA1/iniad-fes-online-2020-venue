@@ -434,8 +434,8 @@ const roomDatas: RoomAPIDataType = [
       },
       videoProps: {
         mode: "streaming",
-        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a"
-      }
+        url: "https://bento-api-test.herokuapp.com/movie.mp4?aaa=a",
+      },
     },
   },
   {
@@ -720,6 +720,12 @@ const roomDatas: RoomAPIDataType = [
       title: "Art Works",
     },
   },
+  {
+    type: "fusen",
+    name: "tatfo-fusen",
+    environment_attributes: {
+      room_id: "",
+    },
+  },
 ];
 export default roomDatas;
-
