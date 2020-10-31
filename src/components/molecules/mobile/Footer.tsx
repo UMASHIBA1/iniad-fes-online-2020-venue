@@ -8,6 +8,7 @@ import ViewingProp from "../../../typings/ViewingProp";
 import { useDispatch } from "react-redux";
 import { showChat } from "../../../redux/modules/isShowChat";
 import { pamphletProps } from "../../../constants/filePath";
+import { radiusSm } from "../../../cssProps/radius";
 
 interface Props {
   isShowChat?: boolean;
@@ -49,12 +50,12 @@ const OneFunc = styled.button`
 
 const Wrapper = styled.div<{ viewingScreen: ViewingProp }>`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(2, auto);
   grid-template-rows: 1fr;
   position: absolute;
   bottom: 0;
   width: calc(100% / 3);
-  height: 52px;
+  height: 36px;
   left: 100vw;
   transition: transform 200ms linear;
   z-index: 100;

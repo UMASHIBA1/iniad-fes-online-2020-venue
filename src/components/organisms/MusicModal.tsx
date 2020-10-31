@@ -114,7 +114,7 @@ const Wrapper = styled.div`
   grid-template-columns: 1fr;
   grid-template-rows: 84px 1fr;
   justify-content: center;
-  height: 90vh;
+  height: 70vh;
 
   ${breakPoints.downSm} {
     grid-template-rows: 64px 1fr;

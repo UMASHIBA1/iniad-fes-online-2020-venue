@@ -147,6 +147,7 @@ const Wrapper = styled.div`
   grid-template-rows: 64px auto;
   justify-items: center;
   width: 100%;
+  max-height: 70vh;
 
   >* {
     &[data-controll-id=${controllIds.restartButton}] {
