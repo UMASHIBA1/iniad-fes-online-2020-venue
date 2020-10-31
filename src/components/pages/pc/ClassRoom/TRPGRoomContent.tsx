@@ -53,7 +53,7 @@ function TRPGRoomContent({ trpgRoomProps: env, history }: Props) {
         }}
       />
       <ObjectMark
-        title="TRPG"
+        title="動画"
         onClick={() => changeIsShowModal(true)}
         dataControllId={dataControllId.objButton}
       />
