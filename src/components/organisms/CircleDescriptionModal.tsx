@@ -29,7 +29,7 @@ function CircleDescriptionModal({
   return (
     <Wrapper isMobile={isMobile}>
       <ObjectMark
-        title="サークルについて"
+        title="企画について"
         dataControllId={dataControllId.button}
         onClick={() => {
           changeIsShowModal(true);
