@@ -14,7 +14,8 @@ import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import styled from "styled-components";
 import ObjectMark from "../../atoms/ObjectMark";
 import PDFModal from "../../molecules/PDFModal";
-import { pamphletProps } from "../../../constants/filePath";
+import { escapeGameDescriptionUrl, pamphletProps } from "../../../constants/filePath";
+import ImgModal from "../../molecules/ImgModal";
 
 interface Props {
   entranceProps: EntranceProps[];
@@ -24,6 +25,7 @@ const controllIds = {
   gotoAlumniAssociationRoom: "entrance-door-alumniAssociation",
   goto3floor: "entrance-door-button-controll",
   pamphlet: "entrance-pamphlet",
+  escapeGameObj: "entrance-escapegame",
 };
 
 function Entrance({ entranceProps }: Props) {
@@ -33,6 +35,7 @@ function Entrance({ entranceProps }: Props) {
   //   (state) => state.escapeGameUserInfo
   // );
   const [isShowPamphlet, changeIsShowPamphlet] = useState(false);
+  const [isShowEscapeGameModal, changeIsShowEscapeGameModal] = useState(false);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -73,6 +76,14 @@ function Entrance({ entranceProps }: Props) {
           changeIsShowPamphlet(true);
         }}
         />
+        <ObjectMark
+        title="脱出ゲームについて"
+        color="white"
+        dataControllId={controllIds.escapeGameObj}
+        onClick={() => {
+          changeIsShowEscapeGameModal(true);
+        }}
+        />
         <PDFModal
           isMobile={false}
           isShow={isShowPamphlet}
@@ -80,6 +91,15 @@ function Entrance({ entranceProps }: Props) {
             changeIsShowPamphlet(false);
           }}
           pdfProps={pamphletProps}
+        />
+        <ImgModal
+          isMobile={false}
+          isShow={isShowEscapeGameModal}
+          onClose={() => {
+            changeIsShowEscapeGameModal(false);
+          }}
+          alt="脱出ゲームがあります！楽しんでね!"
+          src={escapeGameDescriptionUrl}
         />
         {/* {grade === 4 && userAnswer.q4 !== null ? (
           <RoomMark
@@ -121,6 +141,13 @@ const Wrapper = styled.div`
       bottom: 35%;
       left: 1%;
     }
+
+    &[data-controll-id=${controllIds.escapeGameObj}] {
+      position: absolute;
+      top: 39%;
+      left: 29%;
+    }
+
   }
 `;
 
