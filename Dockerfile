@@ -7,8 +7,8 @@ ENV SERVER_HOST ${SERVER_HOST}
 ADD . /usr/src/app
 WORKDIR /usr/src/app
 
-RUN echo "REACT_APP_SERVER_HOST=${SERVER_HOST}" >> /usr/src/app/src/constants/.env
-RUN cat /usr/src/app/src/constants/.env
+RUN echo "REACT_APP_SERVER_HOST=${SERVER_HOST}" >> /usr/src/app/.env
+RUN cat /usr/src/app/.env
 RUN yarn install &&\
     yarn test --watchAll=false && \
     yarn build
