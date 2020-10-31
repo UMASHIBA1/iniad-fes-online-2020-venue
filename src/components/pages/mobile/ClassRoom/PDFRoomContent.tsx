@@ -18,6 +18,7 @@ import {
   answerQ2,
   incrementGrade,
 } from "../../../../redux/modules/escapeGameUserInfo";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   pdfEnvProps: PDFRoomEnvAttr;
@@ -49,7 +50,7 @@ const judgeUsersCourseProps = (
   }
 };
 
-function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
+function PDFRoomContent({ pdfEnvProps: env, history, viewingScreen }: Props) {
   const [isShowQuestionModal, changeIsShowQuestionModal] = useState(false);
   const [isShowModal, changeIsShowModal] = useState(false);
   const [isShowVideoModal, changeIsShowVideoModal] = useState(false);
@@ -64,16 +65,17 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
   );
   const q2Answer = userAnswer.q2;
 
-  const usersCourseQuestion = judgeUsersCourseProps(course, pdfEnvProps);
+  const usersCourseQuestion = judgeUsersCourseProps(course, env);
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
-        imgPath={pdfEnvProps.door.imgPath}
+        imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}
-        roomTitle={pdfEnvProps.door.title}
+        roomTitle={env.door.title}
         onClick={() => {
-          gotoTargetUrl(pdfEnvProps.door.url);
+          gotoTargetUrl(env.door.url);
         }}
       />
       <ObjectMark
@@ -89,7 +91,7 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
       <PDFModal
         isShow={isShowModal}
         onClose={() => changeIsShowModal(false)}
-        pdfProps={pdfEnvProps.pdfProps}
+        pdfProps={env.pdfProps}
         viewing={viewingScreen}
         isMobile={true}
       />
@@ -97,9 +99,9 @@ function PDFRoomContent({ pdfEnvProps, history, viewingScreen }: Props) {
         isMobile={true}
         isShow={isShowVideoModal}
         onClose={() => changeIsShowVideoModal(false)}
-        title={pdfEnvProps.title}
-        description={pdfEnvProps.description}
-        videoPropList={[pdfEnvProps.videoProps]}
+        title={env.title}
+        description={env.description}
+        videoPropList={[env.videoProps]}
         viewingScreen={viewingScreen}
       />
       {usersCourseQuestion ? (

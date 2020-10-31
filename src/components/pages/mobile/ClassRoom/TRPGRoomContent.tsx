@@ -8,6 +8,7 @@ import ObjectMark from "../../../atoms/ObjectMark";
 import ViewingProp from "../../../../typings/ViewingProp";
 import TRPGModal from "../../../organisms/TRPGModal";
 import useQuestionaireDatas from "../../../../hooks/useQuestionaireDatas";
+import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
 
 interface Props {
   trpgRoomProps: TRPGEnvAttr;
@@ -47,6 +48,7 @@ function TRPGRoomContent({
 
   return (
     <Wrapper>
+      <CircleDescriptionModal isMobile={true} description={env.circleDescription} title={env.circleTitle} viewingScreen={viewingScreen} />
       <RoomMark
         imgPath={env.door.imgPath}
         dataControllId={dataControllId.door}

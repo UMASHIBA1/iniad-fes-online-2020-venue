@@ -31,7 +31,9 @@ function CircleDescriptionModal({
       <ObjectMark
         title="サークルについて"
         dataControllId={dataControllId.button}
-        onClick={() => {changeIsShowModal(true)}}
+        onClick={() => {
+          changeIsShowModal(true);
+        }}
       />
       <Modal
         isShow={isShowModal}
@@ -71,6 +73,16 @@ const Wrapper = styled.div<{ isMobile: boolean }>`
           position: absolute;
           bottom: 7%;
           left: 3%;
+        }
+      `}
+
+    ${({ isMobile }) =>
+      isMobile &&
+      css`
+        &[data-controll-id=${dataControllId.button}] {
+          position: absolute;
+          top: 7%;
+          left: 50%;
         }
       `}
   }
