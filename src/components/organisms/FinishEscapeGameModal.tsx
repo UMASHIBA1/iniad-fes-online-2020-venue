@@ -65,7 +65,7 @@ function FinishEscapeGameModal({
           <Title
             title={
               isCorrectQuestions.filter((result) => result).length >= 3
-                ? "卒業おめでとう！"
+                ? "卒業おめでとう！糖朝に壁紙配布リンクが出現したよ!"
                 : "やり直し！3問解ければ卒業できるよ。。。!"
             }
           />
