@@ -4,7 +4,6 @@ import IconButton from "../../atoms/IconButton";
 import mapIcon from "../../../statics/svgs/map-icon.svg";
 import chatIcon from "../../../statics/svgs/chat-icon.svg";
 import scheduleIcon from "../../../statics/svgs/schedule-icon.svg";
-import bookIcon from "../../../statics/svgs/book-icon.svg";
 import PDFModal from "../PDFModal";
 import Chat from "../../organisms/Chat/Chat";
 import { DispatchType } from "../../../redux/store";
@@ -46,7 +45,7 @@ function FuncButtons({ roomId, isShowChat = true }: Props) {
           />
         ) : null}
         <IconButton
-          svgPath={bookIcon}
+          svgPath={scheduleIcon}
           iconDescription="book"
           onClick={() => {
             changeIsShowBook(true);

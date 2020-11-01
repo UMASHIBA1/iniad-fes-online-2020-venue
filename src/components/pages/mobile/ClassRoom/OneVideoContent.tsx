@@ -8,7 +8,6 @@ import ObjectMark from "../../../atoms/ObjectMark";
 import VideoModal from "../../../molecules/VideoModal";
 import ViewingProp from "../../../../typings/ViewingProp";
 import CircleDescriptionModal from "../../../organisms/CircleDescriptionModal";
-import HLSPlayer from "../../../atoms/HLSPlayer";
 
 interface Props {
   oneVideoProps: OneVideoEnvAttr;
@@ -51,9 +50,6 @@ function OneVideoContent({ oneVideoProps: env, history, viewingScreen }: Props) 
         viewingScreen={viewingScreen}
         isMobile={true}
       />
-      {/* <HLSPlayer
-      videoSrc={env.videoProps.url}
-      /> */}
     </Wrapper>
   );
 }

@@ -9,7 +9,6 @@ import RadioSelect from "../atoms/RadioSelect";
 import H2 from "../atoms/H2";
 import { blackColor } from "../../constants/colors";
 import Button from "../atoms/Button/Button";
-import HLSPlayer from "../atoms/HLSPlayer";
 
 interface Props {
   isShow: boolean;
@@ -42,8 +41,17 @@ function TRPGModal({
     >
       <Wrapper>
         <VideoWrapper>
-          <HLSPlayer
-          videoSrc={video.url}
+          <VideoPlayer
+            controls={true}
+            sources={[
+              {
+                src: video.url,
+                type:
+                  video.mode === "streaming"
+                    ? "application/x-mpegURL"
+                    : "video/mp4",
+              },
+            ]}
           />
           {optionList ? (
             <AnkertWrapper>

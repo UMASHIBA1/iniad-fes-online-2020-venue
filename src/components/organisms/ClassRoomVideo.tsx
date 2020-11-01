@@ -4,7 +4,6 @@ import { whiteBGColor } from "../../cssProps/colors";
 import { radiusMd } from "../../cssProps/radius";
 import { normalShadow } from "../../cssProps/shadow";
 import VideoProps from "../../typings/RoomPropType/VideoProps";
-import HLSPlayer from "../atoms/HLSPlayer";
 import VideoPlayer from "../atoms/VideoPlayer";
 
 interface Props {
@@ -16,7 +15,7 @@ interface Props {
 function ClassRoomVideo({videoProps, positionLeft="48%", positionTop="3%"}: Props) {
   return(
     <Wrapper positionLeft={positionLeft} positionTop={positionTop}>
-      {/* <VideoPlayer controls={true} sources={[
+      <VideoPlayer controls={true} sources={[
         {
           src: videoProps.url,
           type:
@@ -24,10 +23,7 @@ function ClassRoomVideo({videoProps, positionLeft="48%", positionTop="3%"}: Prop
             ? "application/x-mpegURL"
             : "video/mp4",
         }
-      ]} /> */}
-      <HLSPlayer
-      videoSrc={videoProps.url}
-      />
+      ]} />
     </Wrapper>
   );
 }
