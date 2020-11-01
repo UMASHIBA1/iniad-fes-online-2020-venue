@@ -13,6 +13,7 @@ import { useHistory } from "react-router-dom";
 import useDidMount from "../../../hooks/useDidMount/useDidMount";
 import { toVisited } from "../../../redux/modules/isFirstVisit";
 import ObjectMark from "../../atoms/ObjectMark";
+import iniadfesLogo from "../../../statics/svgs/iniadfes-logo.svg";
 import PDFModal from "../../molecules/PDFModal";
 import {
   escapeGameDescriptionUrl,
@@ -26,6 +27,7 @@ interface Props {
 
 const controllIds = {
   door: "entrance-door-button-controll",
+  gotoAlumniAssociationRoom: "entrance-door-alumniAssociation",
   escapeGameObj: "entrance-escapegame",
   pamphlet: "entrance-pamphlet",
 };
@@ -33,7 +35,7 @@ const controllIds = {
 function Entrance({ entranceProps }: Props) {
   const history = useHistory();
   const dispatch: DispatchType = useDispatch();
-  const viewingScreen = useTypedSelector(({ viewingScreen }) => viewingScreen);
+  const {viewingScreen,escapeGameUserInfo: {grade ,userAnswer}} = useTypedSelector((state) => state);
 
   const gotoTargetUrl = (url: RoomUrlType) => {
     history.push(url);
@@ -111,6 +113,16 @@ function Entrance({ entranceProps }: Props) {
           alt="脱出ゲームがあります！楽しんでね!"
           src={escapeGameDescriptionUrl}
         />
+                {grade === 4 && userAnswer.q4 !== null ? (
+          <RoomMark
+            imgPath={iniadfesLogo}
+            roomTitle="壁紙配布"
+            dataControllId={controllIds.gotoAlumniAssociationRoom}
+            onClick={() => {
+              window.open("https://iniadfes-wall-paper.storage.googleapis.com/index.html", "_blank")
+            }}
+          />
+        ) : null}
         <Footer />
       </Wrapper>
     </RoomWrapper>
@@ -134,6 +146,12 @@ const Wrapper = styled.div`
       position: absolute;
       top: 40%;
       left: 47%;
+    }
+
+    &[data-controll-id=${controllIds.gotoAlumniAssociationRoom}] {
+      position: absolute;
+      bottom: 35%;
+      left: 1%;
     }
 
     &[data-controll-id=${controllIds.escapeGameObj}] {
