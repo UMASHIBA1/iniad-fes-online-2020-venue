@@ -5,6 +5,7 @@ import { lightBlueText } from "../../cssProps/colors";
 import VideoProps from "../../typings/RoomPropType/VideoProps";
 import ViewingProp from "../../typings/ViewingProp";
 import Description from "../atoms/Description";
+import HLSPlayer from "../atoms/HLSPlayer";
 import Link from "../atoms/Link";
 import Modal from "../atoms/Modal/Modal";
 import Title from "../atoms/Title";
@@ -55,22 +56,32 @@ function VideoModal({
         ) : null}
         <VideoListWrapper>
           {isShow
-            ? videoPropList.map((oneVideoProp) => (
-                <VideoWrapper key={oneVideoProp.url}>
-                  <VideoPlayer
-                    controls={true}
-                    sources={[
-                      {
-                        src: oneVideoProp.url,
-                        type:
-                          oneVideoProp.mode === "streaming"
-                            ? "application/x-mpegURL"
-                            : "video/mp4",
-                      },
-                    ]}
-                  />
-                </VideoWrapper>
-              ))
+            ? videoPropList.map((oneVideoProp, i) => {
+                if (i === 0) {
+                  return (
+                    <VideoWrapper key={oneVideoProp.url}>
+                      <HLSPlayer videoSrc={oneVideoProp.url} />
+                    </VideoWrapper>
+                  );
+                } else {
+                  return (
+                    <VideoWrapper key={oneVideoProp.url}>
+                      <VideoPlayer
+                        controls={true}
+                        sources={[
+                          {
+                            src: oneVideoProp.url,
+                            type:
+                              oneVideoProp.mode === "streaming"
+                                ? "application/x-mpegURL"
+                                : "video/mp4",
+                          },
+                        ]}
+                      />
+                    </VideoWrapper>
+                  );
+                }
+              })
             : null}
         </VideoListWrapper>
       </Wrapper>
