@@ -1,0 +1,10 @@
+steps:
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["build", "--build-arg", "SERVER_HOST=$_SERVER_HOST", "-t", "gcr.io/iniadfes/venue-frontend:$SHORT_SHA", "."]
+  - name: "gcr.io/cloud-builders/docker"
+    args: ["push", "gcr.io/iniadfes/venue-frontend:$SHORT_SHA"]
+  - name: "gcr.io/cloud-builders/kubectl"
+    args: ["set", "image", "deployment", "--namespace=$_GKE_NAMESPACE", "$_GKE_APP_NAME", "app=gcr.io/iniadfes/venue-frontend:$SHORT_SHA"]
+    env:
+      - 'CLOUDSDK_COMPUTE_ZONE=$_CLOUDSDK_COMPUTE_ZONE'
+      - 'CLOUDSDK_CONTAINER_CLUSTER=$_CLOUDSDK_CONTAINER_CLUSTER'
