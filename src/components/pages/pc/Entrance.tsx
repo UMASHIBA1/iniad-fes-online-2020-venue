@@ -34,9 +34,9 @@ const controllIds = {
 function Entrance({ entranceProps }: Props) {
   const history = useHistory();
   const dispatch: DispatchType = useDispatch();
-  // const { grade, userAnswer } = useTypedSelector(
-  //   (state) => state.escapeGameUserInfo
-  // );
+  const { grade, userAnswer } = useTypedSelector(
+    (state) => state.escapeGameUserInfo
+  );
   const [isShowPamphlet, changeIsShowPamphlet] = useState(false);
   const [isShowEscapeGameModal, changeIsShowEscapeGameModal] = useState(false);
 
@@ -104,16 +104,16 @@ function Entrance({ entranceProps }: Props) {
           alt="脱出ゲームがあります！楽しんでね!"
           src={escapeGameDescriptionUrl}
         />
-        {/* {grade === 4 && userAnswer.q4 !== null ? (
+        {grade === 4 && userAnswer.q4 !== null ? (
           <RoomMark
             imgPath={iniadfesLogo}
-            roomTitle="同窓会部屋"
+            roomTitle="壁紙配布"
             dataControllId={controllIds.gotoAlumniAssociationRoom}
             onClick={() => {
-              window.open("https://example.com", "_blank")
+              window.open("https://iniadfes-wall-paper.storage.googleapis.com/index.html", "_blank")
             }}
           />
-        ) : null} */}
+        ) : null}
         <FuncButtons
           roomId={
             entranceProps[0]
