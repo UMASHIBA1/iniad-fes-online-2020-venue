@@ -18,7 +18,6 @@ function HLSPlayer({ videoSrc }: Props) {
         hls.on(Hls.Events.MANIFEST_PARSED, () => {
           if (videoRef.current !== null) {
             videoRef.current.controls = true;
-
             videoRef.current.play();
           }
         });
@@ -32,5 +31,7 @@ function HLSPlayer({ videoSrc }: Props) {
     </div>
   );
 }
+
+
 
 export default HLSPlayer;
