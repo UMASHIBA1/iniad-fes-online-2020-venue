@@ -33,7 +33,7 @@ function Hall({ hallProps }: Props) {
   };
 
   return (
-    <RoomWrapper isOneScreen={false} bgImg={hallImg}>
+    <RoomWrapper isOneScreen={false} bgImg={hallImg} roomId={hallProps[0]&&hallProps[0].environment_attributes?hallProps[0].environment_attributes.room_id:""}>
       <Wrapper>
         {hallProps[0]&& hallProps[0].environment_attributes ? (
           <React.Fragment>
